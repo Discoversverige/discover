@@ -164,7 +164,7 @@ const HomeView = ({ lang, onSearch }: { lang: Lang; onSearch: (term: string, cat
               ))}
             </div>
 
-            <div className="suggestions">
+            {focused && <div className="suggestions">
               <div className="sug-label">
                 <span className="rule" /><span>{t.hero.suggestions_label}</span><span className="rule" />
               </div>
@@ -187,7 +187,7 @@ const HomeView = ({ lang, onSearch }: { lang: Lang; onSearch: (term: string, cat
                   </li>
                 ))}
               </ul>
-            </div>
+            </div>}
           </div>
 
           <div className="popular">
