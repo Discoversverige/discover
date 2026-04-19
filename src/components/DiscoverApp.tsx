@@ -457,7 +457,7 @@ const ExperiencesView = ({ lang }: { lang: Lang }) => {
                   {e.rating && <span className="exp-rating">★ {e.rating} <span className="exp-reviews">({e.reviews})</span></span>}
                 </div>
                 <h3 className="exp-name">{e.title}</h3>
-                <p className="exp-duration-line">{e.duration}</p>
+                <p className="exp-duration-line">{(e as any).duration ?? e.cat}</p>
                 <p className="exp-price">{e.price === "Gratis" ? <strong>Gratis</strong> : <><span style={{textDecoration:"none"}}>Totalt </span><strong>{e.price}</strong></>}</p>
               </div>
             </div>
