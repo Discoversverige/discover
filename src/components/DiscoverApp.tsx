@@ -327,32 +327,90 @@ const EXPERIENCES = [
   { title: "Löptur med guide — Malmös historia", cat: "Sport", duration: "1.5 tim", price: "125 kr", rating: 4.6, reviews: 91, img: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&q=80" },
 ];
 
-const ExperiencesView = ({ lang }: { lang: Lang }) => (
-  <div className="exp-page">
-    <div className="exp-header">
-      <h1 className="exp-title">Över {EXPERIENCES.length} upplevelser i Malmö</h1>
-      <p className="exp-sub">Utforska staden med lokala guider och unika aktiviteter</p>
-    </div>
-    <div className="exp-grid">
-      {EXPERIENCES.map((e, i) => (
-        <div key={i} className="exp-card">
-          <div className="exp-img-wrap">
-            <img src={e.img} alt={e.title} className="exp-img" />
-            <span className="exp-cat">{e.cat}</span>
-          </div>
-          <div className="exp-info">
-            <div className="exp-meta">
-              <span className="exp-duration">{e.duration}</span>
-              <span className="exp-rating">★ {e.rating} ({e.reviews})</span>
-            </div>
-            <h3 className="exp-name">{e.title}</h3>
-            <p className="exp-price">{e.price === "Gratis" ? "Gratis" : `Från ${e.price}`}</p>
-          </div>
+const EXP_COORDS: [number, number][] = [
+  [55.6097, 12.9741], [55.5921, 13.0082], [55.6134, 12.9889], [55.6097, 12.9741],
+  [55.6065, 12.9987], [55.6034, 13.0021], [55.6097, 12.9741], [55.6059, 13.0007],
+  [55.6118, 12.9812], [55.6072, 12.9918], [55.5921, 13.0082], [55.6097, 12.9741],
+  [55.6148, 12.9952], [55.6134, 12.9889], [55.6065, 12.9987], [55.6058, 12.9978],
+  [55.6059, 13.0007], [55.6141, 12.9968], [55.6027, 13.0008], [55.6097, 12.9741],
+  [55.6034, 13.0021], [55.5921, 13.0082], [55.6148, 12.9952], [55.6058, 12.9978],
+  [55.6059, 13.0007],
+];
+
+const ExpMap = ({ active }: { active: number | null }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const mapRef = useRef<any>(null);
+  const markersRef = useRef<any[]>([]);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const init = async () => {
+      const L = (await import("leaflet")).default;
+      await import("leaflet/dist/leaflet.css");
+      if (mapRef.current) { mapRef.current.remove(); mapRef.current = null; }
+      const map = L.map(containerRef.current!, { zoomControl: true, scrollWheelZoom: true });
+      mapRef.current = map;
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+        attribution: '© OpenStreetMap © CARTO', maxZoom: 19,
+      }).addTo(map);
+      map.setView([55.605, 12.998], 13);
+      markersRef.current = EXPERIENCES.map((e, i) => {
+        const [lat, lng] = EXP_COORDS[i];
+        const icon = L.divIcon({
+          className: "",
+          html: `<div style="background:#fff;border:1.5px solid #222;border-radius:999px;padding:4px 10px;font-size:12px;font-weight:600;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.15)">${e.price === "Gratis" ? "Gratis" : e.price}</div>`,
+          iconAnchor: [30, 16],
+        });
+        return L.marker([lat, lng], { icon }).addTo(map).bindTooltip(e.title, { direction: "top", offset: [0, -20] });
+      });
+    };
+    init();
+    return () => { if (mapRef.current) { mapRef.current.remove(); mapRef.current = null; } };
+  }, []);
+
+  useEffect(() => {
+    if (!mapRef.current || active === null) return;
+    const [lat, lng] = EXP_COORDS[active];
+    mapRef.current.setView([lat, lng], 15, { animate: true });
+  }, [active]);
+
+  return <div ref={containerRef} style={{ width: "100%", height: "100%" }} />;
+};
+
+const ExperiencesView = ({ lang }: { lang: Lang }) => {
+  const [hovered, setHovered] = useState<number | null>(null);
+  return (
+    <div className="exp-layout">
+      <div className="exp-left">
+        <div className="exp-header">
+          <h1 className="exp-title">Över {EXPERIENCES.length} upplevelser i Malmö</h1>
+          <p className="exp-sub">Hur vi sorterar resultat</p>
         </div>
-      ))}
+        <div className="exp-grid">
+          {EXPERIENCES.map((e, i) => (
+            <div key={i} className="exp-card" onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)}>
+              <div className="exp-img-wrap">
+                <img src={e.img} alt={e.title} className="exp-img" />
+              </div>
+              <div className="exp-info">
+                <div className="exp-meta-row">
+                  <span className="exp-cat-tag">{e.cat}</span>
+                  <span className="exp-rating">★ {e.rating} <span className="exp-reviews">({e.reviews})</span></span>
+                </div>
+                <h3 className="exp-name">{e.title}</h3>
+                <p className="exp-duration-line">{e.duration}</p>
+                <p className="exp-price">{e.price === "Gratis" ? <strong>Gratis</strong> : <><span style={{textDecoration:"none"}}>Totalt </span><strong>{e.price}</strong></>}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="exp-map-panel">
+        <ExpMap active={hovered} />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default function DiscoverApp() {
   const [lang, setLang] = useState<Lang>("sv");
