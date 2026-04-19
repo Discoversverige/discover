@@ -121,17 +121,16 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .sug-arrow { color: var(--mute); transition: transform 0.2s, color 0.2s; }
 .sug:hover .sug-arrow { transform: translateX(3px); color: var(--accent); }
 
-.popular { margin: 36px auto 0; opacity: 0; animation: slideUp 0.6s ease 0.9s forwards; }
+.popular { margin: 36px auto 0; width: 100%; opacity: 0; animation: slideUp 0.6s ease 0.9s forwards; }
 .pop-label { font-family: var(--mono); font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--mute); margin: 0 0 14px; }
 .pop-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .pop-tag { padding: 9px 16px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line-soft); font-size: 14px; color: var(--ink-2); transition: all 0.18s; }
 .pop-tag:hover { border-color: var(--ink); background: var(--ink); color: var(--paper); transform: translateY(-1px); }
-.pop-cards { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
-.pop-cards::-webkit-scrollbar { display: none; }
-.pop-card { flex: 0 0 160px; border-radius: var(--r-lg); overflow: hidden; border: none; padding: 0; cursor: pointer; position: relative; transition: transform 0.2s; }
+.pop-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; width: 100%; }
+.pop-card { border-radius: var(--r-lg); overflow: hidden; border: none; padding: 0; cursor: pointer; transition: transform 0.2s; background: #fff; box-shadow: var(--shadow-sm); }
 .pop-card:hover { transform: translateY(-3px); }
-.pop-card-img { width: 100%; height: 110px; object-fit: cover; display: block; }
-.pop-card-label { display: block; padding: 10px 12px; font-size: 13px; font-weight: 500; color: var(--ink); background: var(--paper); text-align: left; line-height: 1.3; }
+.pop-card-img { width: 100%; height: 160px; object-fit: cover; display: block; }
+.pop-card-label { display: block; padding: 12px 14px; font-size: 14px; font-weight: 500; color: var(--ink); background: #fff; text-align: left; line-height: 1.3; }
 
 .partners { max-width: 1180px; margin: 80px auto 40px; padding: 48px 40px 0; border-top: 1px solid var(--line-soft); text-align: center; }
 .partners-label { font-family: var(--mono); font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--mute); margin: 0 0 28px; }
