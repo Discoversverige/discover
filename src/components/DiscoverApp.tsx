@@ -226,7 +226,7 @@ const HomeView = ({ lang, onSearch }: { lang: Lang; onSearch: (term: string, cat
         <div className="partners-row">
           <img src="/logos/uber.svg" alt="Uber" className="logo-img" />
           <img src="/logos/bolt.png" alt="Bolt" className="logo-img" style={{height: "22px"}} />
-          <img src="/logos/airbnb.png" alt="Airbnb" className="logo-img" />
+          <img src="/logos/airbnb.png" alt="Airbnb" className="logo-img" style={{height: "44px"}} />
           <img src="/logos/revolut.svg" alt="Revolut" className="logo-img" />
         </div>
       </section>
