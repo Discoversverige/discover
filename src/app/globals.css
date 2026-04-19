@@ -138,6 +138,27 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .logo-img { height: 32px; width: auto; max-width: 100px; object-fit: contain; opacity: 0.85; transition: opacity 0.2s; display: block; }
 .logo-img:hover { opacity: 1; }
 
+.exp-page { max-width: 1280px; margin: 0 auto; padding: 40px 40px 80px; }
+.exp-header { margin-bottom: 32px; }
+.exp-title { font-family: var(--sans); font-size: 26px; font-weight: 600; color: var(--ink); margin: 0 0 8px; }
+.exp-sub { font-size: 15px; color: var(--mute); margin: 0; }
+.exp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 20px; }
+.exp-card { cursor: pointer; }
+.exp-card:hover .exp-img { transform: scale(1.03); }
+.exp-img-wrap { border-radius: var(--r-lg); overflow: hidden; position: relative; aspect-ratio: 4/3; }
+.exp-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+.exp-cat { position: absolute; top: 12px; left: 12px; background: #fff; border-radius: 999px; padding: 4px 10px; font-size: 11px; font-weight: 600; color: var(--ink); }
+.exp-info { padding: 12px 0 0; }
+.exp-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.exp-duration { font-size: 12px; color: var(--mute); }
+.exp-rating { font-size: 12px; color: var(--ink); font-weight: 500; }
+.exp-name { font-size: 14px; font-weight: 600; color: var(--ink); margin: 0 0 4px; line-height: 1.4; }
+.exp-price { font-size: 13px; color: var(--ink-2); margin: 0; }
+.nav a.active { color: var(--ink); border-bottom: 2px solid var(--ink); }
+
+@media (max-width: 900px) { .exp-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .exp-grid { grid-template-columns: 1fr; } .exp-page { padding: 24px 16px 60px; } }
+
 .map-view { flex: 1; display: grid; grid-template-columns: 1fr 420px; min-height: calc(100vh - 80px); position: relative; background: var(--bg-2); }
 .map-canvas { position: relative; overflow: hidden; background: linear-gradient(180deg,#e6ecef 0%,#e0e8ec 100%); }
 .malmo-svg { width: 100%; height: 100%; display: block; }

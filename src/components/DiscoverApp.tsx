@@ -299,9 +299,64 @@ const MapView = ({ lang, routeKey, searchTerm, onBack }: { lang: Lang; routeKey:
   );
 };
 
+const EXPERIENCES = [
+  { title: "Kayaking i Inre hamnen", cat: "Natur", duration: "2 tim", price: "395 kr", rating: 4.9, reviews: 87, img: "https://images.unsplash.com/photo-1472745942893-4b9f730c7668?w=600&q=80" },
+  { title: "Street food-tur på Möllevången", cat: "Mat", duration: "3 tim", price: "295 kr", rating: 4.8, reviews: 142, img: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80" },
+  { title: "Arkitekturpromenad Västra hamnen", cat: "Arkitektur", duration: "2 tim", price: "199 kr", rating: 4.7, reviews: 63, img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" },
+  { title: "Cykeltur längs havet", cat: "Natur", duration: "3 tim", price: "249 kr", rating: 4.9, reviews: 211, img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" },
+  { title: "Fika & bakning — surdegsworkshop", cat: "Mat", duration: "4 tim", price: "695 kr", rating: 5.0, reviews: 34, img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80" },
+  { title: "Middag hos lokal kock", cat: "Mat", duration: "3 tim", price: "895 kr", rating: 4.9, reviews: 56, img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" },
+  { title: "Solnedgång vid Ribersborg kallbadhus", cat: "Natur", duration: "2 tim", price: "Gratis", rating: 4.8, reviews: 98, img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" },
+  { title: "Konstgalleri-tur i Gamla stan", cat: "Kultur", duration: "2.5 tim", price: "149 kr", rating: 4.6, reviews: 45, img: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=600&q=80" },
+  { title: "SUP-bräda i Öresund", cat: "Natur", duration: "2 tim", price: "450 kr", rating: 4.7, reviews: 72, img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" },
+  { title: "Malmöhus slott — privat guidad tur", cat: "Historia", duration: "1.5 tim", price: "195 kr", rating: 4.8, reviews: 89, img: "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=600&q=80" },
+  { title: "Keramikworkshop i Möllevången", cat: "Kreativt", duration: "3 tim", price: "595 kr", rating: 4.9, reviews: 41, img: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80" },
+  { title: "Yoga vid havet — soluppgång", cat: "Natur", duration: "1.5 tim", price: "150 kr", rating: 5.0, reviews: 28, img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" },
+  { title: "Ölprovning på lokalt bryggeri", cat: "Mat", duration: "2 tim", price: "395 kr", rating: 4.8, reviews: 103, img: "https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=600&q=80" },
+  { title: "Fotografi-promenad i hamnen", cat: "Kreativt", duration: "3 tim", price: "299 kr", rating: 4.7, reviews: 57, img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" },
+  { title: "Vinprovning med sommelier", cat: "Mat", duration: "2.5 tim", price: "695 kr", rating: 4.9, reviews: 67, img: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80" },
+  { title: "Stadsodling & matlagning", cat: "Mat", duration: "4 tim", price: "495 kr", rating: 4.8, reviews: 38, img: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" },
+  { title: "Historisk vandring i Gamla stan", cat: "Historia", duration: "2 tim", price: "175 kr", rating: 4.6, reviews: 134, img: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&q=80" },
+  { title: "Klättring i Stapelbäddsparken", cat: "Sport", duration: "2 tim", price: "275 kr", rating: 4.7, reviews: 49, img: "https://images.unsplash.com/photo-1522163182402-834f871fd851?w=600&q=80" },
+  { title: "Textilworkshop — naturligt tyg", cat: "Kreativt", duration: "3 tim", price: "545 kr", rating: 4.8, reviews: 22, img: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80" },
+  { title: "Morgonbad i Öresund", cat: "Natur", duration: "1 tim", price: "Gratis", rating: 4.9, reviews: 176, img: "https://images.unsplash.com/photo-1530053969600-caed2596d242?w=600&q=80" },
+  { title: "Jazz-kväll på lokal klubb", cat: "Kultur", duration: "3 tim", price: "195 kr", rating: 4.7, reviews: 83, img: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=600&q=80" },
+  { title: "Matmarknad — Möllevångstorget", cat: "Mat", duration: "2 tim", price: "Gratis", rating: 4.8, reviews: 245, img: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80" },
+  { title: "Privat båttur i Malmö kanal", cat: "Natur", duration: "1.5 tim", price: "550 kr", rating: 4.9, reviews: 61, img: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" },
+  { title: "Målarworkshop — akvarell", cat: "Kreativt", duration: "3 tim", price: "445 kr", rating: 4.8, reviews: 33, img: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&q=80" },
+  { title: "Löptur med guide — Malmös historia", cat: "Sport", duration: "1.5 tim", price: "125 kr", rating: 4.6, reviews: 91, img: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&q=80" },
+];
+
+const ExperiencesView = ({ lang }: { lang: Lang }) => (
+  <div className="exp-page">
+    <div className="exp-header">
+      <h1 className="exp-title">Över {EXPERIENCES.length} upplevelser i Malmö</h1>
+      <p className="exp-sub">Utforska staden med lokala guider och unika aktiviteter</p>
+    </div>
+    <div className="exp-grid">
+      {EXPERIENCES.map((e, i) => (
+        <div key={i} className="exp-card">
+          <div className="exp-img-wrap">
+            <img src={e.img} alt={e.title} className="exp-img" />
+            <span className="exp-cat">{e.cat}</span>
+          </div>
+          <div className="exp-info">
+            <div className="exp-meta">
+              <span className="exp-duration">{e.duration}</span>
+              <span className="exp-rating">★ {e.rating} ({e.reviews})</span>
+            </div>
+            <h3 className="exp-name">{e.title}</h3>
+            <p className="exp-price">{e.price === "Gratis" ? "Gratis" : `Från ${e.price}`}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 export default function DiscoverApp() {
   const [lang, setLang] = useState<Lang>("sv");
-  const [view, setView] = useState<"home" | "map">("home");
+  const [view, setView] = useState<"home" | "map" | "experiences">("home");
   const [routeKey, setRouteKey] = useState<RouteKey>("default");
   const [searchTerm, setSearchTerm] = useState("");
   const [mounted, setMounted] = useState(false);
@@ -333,19 +388,17 @@ export default function DiscoverApp() {
       <header className="topbar">
         <Logo />
         <nav className="nav">
-          <a href="#">{t.nav.discover}</a>
-          <a href="#">{t.nav.experiences}</a>
+          <a href="#" onClick={e => { e.preventDefault(); setView("home"); }}>{t.nav.discover}</a>
+          <a href="#" onClick={e => { e.preventDefault(); setView("experiences"); }} className={view === "experiences" ? "active" : ""}>{t.nav.experiences}</a>
           <a href="#">{t.nav.plan}</a>
           <a href="#">{t.nav.about}</a>
         </nav>
         <LangSwitcher lang={lang} setLang={setLang} />
       </header>
 
-      {view === "home" ? (
-        <HomeView lang={lang} onSearch={handleSearch} />
-      ) : (
-        <MapView lang={lang} routeKey={routeKey} searchTerm={searchTerm} onBack={() => setView("home")} />
-      )}
+      {view === "home" && <HomeView lang={lang} onSearch={handleSearch} />}
+      {view === "map" && <MapView lang={lang} routeKey={routeKey} searchTerm={searchTerm} onBack={() => setView("home")} />}
+      {view === "experiences" && <ExperiencesView lang={lang} />}
 
       <footer className="foot">
         <span>{t.footer}</span>
