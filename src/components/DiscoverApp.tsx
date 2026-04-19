@@ -192,7 +192,7 @@ const HomeView = ({ lang, onSearch }: { lang: Lang; onSearch: (term: string, cat
 
           <div className="popular">
             <p className="pop-label">{t.hero.popular_label}</p>
-            <div className="pop-tags">
+            <div className="pop-cards">
               {t.popular.map((p, i) => {
                 const lookup = p.toLowerCase();
                 let key = "default";
@@ -201,7 +201,20 @@ const HomeView = ({ lang, onSearch }: { lang: Lang; onSearch: (term: string, cat
                 else if (/bad|kallbad/.test(lookup)) key = "nature";
                 else if (/slott|castle|schloss/.test(lookup)) key = "culture";
                 else if (/street|food/.test(lookup)) key = "food";
-                return <button key={i} className="pop-tag" onClick={() => onSearch(p, key)}>{p}</button>;
+                const imgs = [
+                  "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
+                  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=80",
+                  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80",
+                  "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=400&q=80",
+                  "https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=400&q=80",
+                  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80",
+                ];
+                return (
+                  <button key={i} className="pop-card" onClick={() => onSearch(p, key)}>
+                    <img src={imgs[i % imgs.length]} alt={p} className="pop-card-img" />
+                    <span className="pop-card-label">{p}</span>
+                  </button>
+                );
               })}
             </div>
           </div>
