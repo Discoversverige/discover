@@ -15,9 +15,9 @@
   --shadow-md: 0 2px 6px rgba(40,30,10,0.05), 0 12px 32px rgba(40,30,10,0.08);
   --shadow-lg: 0 4px 10px rgba(40,30,10,0.06), 0 24px 60px rgba(40,30,10,0.12);
   --r-sm: 6px; --r: 10px; --r-lg: 16px; --r-xl: 24px;
-  --serif: var(--font-instrument-serif), "Cormorant Garamond", Georgia, serif;
-  --sans: var(--font-inter-tight), "Inter", system-ui, sans-serif;
-  --mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+  --serif: -apple-system, "SF Pro Display", "SF Pro Text", var(--font-inter-tight), "Inter", system-ui, sans-serif;
+  --sans: -apple-system, "SF Pro Text", "SF Pro Display", var(--font-inter-tight), "Inter", system-ui, sans-serif;
+  --mono: "SF Mono", var(--font-jetbrains-mono), ui-monospace, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -48,7 +48,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .view-map .topbar { border-bottom-color: var(--line-soft); }
 .logo { display: flex; align-items: center; color: var(--ink); }
 .logo-text { font-family: var(--serif); font-size: 22px; letter-spacing: -0.01em; font-style: italic; }
-.logo-img-brand { height: 40px; width: auto; object-fit: contain; display: block; }
+.logo-img-brand { height: 40px; width: auto; object-fit: contain; display: block; background: var(--bg); border-radius: 4px; }
 .nav { display: flex; gap: 28px; }
 .nav a { font-size: 14px; color: var(--ink-2); padding: 6px 0; position: relative; transition: color 0.2s; }
 .nav a:hover { color: var(--accent); }
