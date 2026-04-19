@@ -477,6 +477,7 @@ export default function DiscoverApp() {
   const [routeKey, setRouteKey] = useState<RouteKey>("default");
   const [searchTerm, setSearchTerm] = useState("");
   const [mounted, setMounted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setLang(getInitialLang());
@@ -503,7 +504,7 @@ export default function DiscoverApp() {
   return (
     <div className={`app view-${view}`}>
       <header className="topbar">
-        <Logo onClick={() => setView("home")} />
+        <Logo onClick={() => { setView("home"); setMenuOpen(false); }} />
         <nav className="nav">
           <a href="#" onClick={e => { e.preventDefault(); setView("home"); }}>{t.nav.discover}</a>
           <a href="#" onClick={e => { e.preventDefault(); setView("experiences"); }} className={view === "experiences" ? "active" : ""}>{t.nav.experiences}</a>
@@ -511,7 +512,19 @@ export default function DiscoverApp() {
           <a href="#">{t.nav.about}</a>
         </nav>
         <LangSwitcher lang={lang} setLang={setLang} />
+        <button className="hamburger" onClick={() => setMenuOpen(o => !o)} aria-label="Meny">
+          <span /><span /><span />
+        </button>
       </header>
+      {menuOpen && (
+        <div className="mobile-menu">
+          <a href="#" onClick={e => { e.preventDefault(); setView("home"); setMenuOpen(false); }}>{t.nav.discover}</a>
+          <a href="#" onClick={e => { e.preventDefault(); setView("experiences"); setMenuOpen(false); }}>{t.nav.experiences}</a>
+          <a href="#" onClick={e => { e.preventDefault(); setView("travel"); setMenuOpen(false); }}>{t.nav.plan}</a>
+          <a href="#" onClick={() => setMenuOpen(false)}>{t.nav.about}</a>
+          <div className="mobile-menu-lang"><LangSwitcher lang={lang} setLang={(l) => { setLang(l); setMenuOpen(false); }} /></div>
+        </div>
+      )}
 
       {view === "home" && <HomeView lang={lang} onSearch={handleSearch} />}
       {view === "map" && <MapView lang={lang} routeKey={routeKey} searchTerm={searchTerm} onBack={() => setView("home")} />}
