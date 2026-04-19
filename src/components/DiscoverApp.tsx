@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useMemo } from "react";
 import { I18N, type Lang } from "@/lib/i18n";
 import { ROUTES, type RouteKey } from "@/lib/routes";
-import MalmoMap from "./MalmoMap";
+import LeafletMap from "./LeafletMap";
 
 const getInitialLang = (): Lang => {
   try {
@@ -245,7 +245,7 @@ const MapView = ({ lang, routeKey, searchTerm, onBack }: { lang: Lang; routeKey:
   return (
     <div className="map-view">
       <div className="map-canvas">
-        <MalmoMap route={route} activeStop={activeStop} onStopClick={setActiveStop} lang={lang} />
+        <LeafletMap route={route} activeStop={activeStop} onStopClick={setActiveStop} lang={lang} />
       </div>
 
       <aside className={`route-panel ${panelOpen ? "open" : "closed"}`}>
