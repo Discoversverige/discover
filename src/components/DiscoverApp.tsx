@@ -300,41 +300,29 @@ const MapView = ({ lang, routeKey, searchTerm, onBack }: { lang: Lang; routeKey:
 };
 
 const EXPERIENCES = [
-  { title: "Kayaking i Inre hamnen", cat: "Natur", duration: "2 tim", price: "395 kr", rating: 4.9, reviews: 87, img: "https://images.unsplash.com/photo-1472745942893-4b9f730c7668?w=600&q=80" },
-  { title: "Street food-tur på Möllevången", cat: "Mat", duration: "3 tim", price: "295 kr", rating: 4.8, reviews: 142, img: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600&q=80" },
-  { title: "Arkitekturpromenad Västra hamnen", cat: "Arkitektur", duration: "2 tim", price: "199 kr", rating: 4.7, reviews: 63, img: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" },
-  { title: "Cykeltur längs havet", cat: "Natur", duration: "3 tim", price: "249 kr", rating: 4.9, reviews: 211, img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" },
-  { title: "Fika & bakning — surdegsworkshop", cat: "Mat", duration: "4 tim", price: "695 kr", rating: 5.0, reviews: 34, img: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&q=80" },
-  { title: "Middag hos lokal kock", cat: "Mat", duration: "3 tim", price: "895 kr", rating: 4.9, reviews: 56, img: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" },
-  { title: "Solnedgång vid Ribersborg kallbadhus", cat: "Natur", duration: "2 tim", price: "Gratis", rating: 4.8, reviews: 98, img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" },
-  { title: "Konstgalleri-tur i Gamla stan", cat: "Kultur", duration: "2.5 tim", price: "149 kr", rating: 4.6, reviews: 45, img: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=600&q=80" },
-  { title: "SUP-bräda i Öresund", cat: "Natur", duration: "2 tim", price: "450 kr", rating: 4.7, reviews: 72, img: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=600&q=80" },
-  { title: "Malmöhus slott — privat guidad tur", cat: "Historia", duration: "1.5 tim", price: "195 kr", rating: 4.8, reviews: 89, img: "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=600&q=80" },
-  { title: "Keramikworkshop i Möllevången", cat: "Kreativt", duration: "3 tim", price: "595 kr", rating: 4.9, reviews: 41, img: "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=600&q=80" },
-  { title: "Yoga vid havet — soluppgång", cat: "Natur", duration: "1.5 tim", price: "150 kr", rating: 5.0, reviews: 28, img: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" },
-  { title: "Ölprovning på lokalt bryggeri", cat: "Mat", duration: "2 tim", price: "395 kr", rating: 4.8, reviews: 103, img: "https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=600&q=80" },
-  { title: "Fotografi-promenad i hamnen", cat: "Kreativt", duration: "3 tim", price: "299 kr", rating: 4.7, reviews: 57, img: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" },
-  { title: "Vinprovning med sommelier", cat: "Mat", duration: "2.5 tim", price: "695 kr", rating: 4.9, reviews: 67, img: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80" },
-  { title: "Stadsodling & matlagning", cat: "Mat", duration: "4 tim", price: "495 kr", rating: 4.8, reviews: 38, img: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&q=80" },
-  { title: "Historisk vandring i Gamla stan", cat: "Historia", duration: "2 tim", price: "175 kr", rating: 4.6, reviews: 134, img: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&q=80" },
-  { title: "Klättring i Stapelbäddsparken", cat: "Sport", duration: "2 tim", price: "275 kr", rating: 4.7, reviews: 49, img: "https://images.unsplash.com/photo-1522163182402-834f871fd851?w=600&q=80" },
-  { title: "Textilworkshop — naturligt tyg", cat: "Kreativt", duration: "3 tim", price: "545 kr", rating: 4.8, reviews: 22, img: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80" },
-  { title: "Morgonbad i Öresund", cat: "Natur", duration: "1 tim", price: "Gratis", rating: 4.9, reviews: 176, img: "https://images.unsplash.com/photo-1530053969600-caed2596d242?w=600&q=80" },
-  { title: "Jazz-kväll på lokal klubb", cat: "Kultur", duration: "3 tim", price: "195 kr", rating: 4.7, reviews: 83, img: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=600&q=80" },
-  { title: "Matmarknad — Möllevångstorget", cat: "Mat", duration: "2 tim", price: "Gratis", rating: 4.8, reviews: 245, img: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=600&q=80" },
-  { title: "Privat båttur i Malmö kanal", cat: "Natur", duration: "1.5 tim", price: "550 kr", rating: 4.9, reviews: 61, img: "https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" },
-  { title: "Målarworkshop — akvarell", cat: "Kreativt", duration: "3 tim", price: "445 kr", rating: 4.8, reviews: 33, img: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&q=80" },
-  { title: "Löptur med guide — Malmös historia", cat: "Sport", duration: "1.5 tim", price: "125 kr", rating: 4.6, reviews: 91, img: "https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=600&q=80" },
+  { title: "Ost och Vinprovning i Malmö", cat: "Mat & dryck", price: "499 kr", rating: 4.58, reviews: 14, img: "https://images.unsplash.com/photo-1452195100486-9cc805987862?w=600&q=80" },
+  { title: "Whiskyprovning i Malmö", cat: "Mat & dryck", price: "545 kr", rating: null, reviews: 9, img: "https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=600&q=80" },
+  { title: "Kör folkrace Malmö", cat: "Sport", price: "1 795 kr", rating: 5.0, reviews: 3, img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&q=80" },
+  { title: "Romprovning i Malmö", cat: "Mat & dryck", price: "595 kr", rating: null, reviews: 8, img: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80" },
+  { title: "Flyg Luftballong i Malmö", cat: "Äventyr", price: "2 495 kr", rating: null, reviews: 21, img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" },
+  { title: "Helikoptertur i Malmö", cat: "Äventyr", price: "1 295 kr", rating: 5.0, reviews: 16, img: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80" },
+  { title: "Segelflyg i Malmö", cat: "Äventyr", price: "2 195 kr", rating: null, reviews: 2, img: "https://images.unsplash.com/photo-1474302770737-173ee21bab63?w=600&q=80" },
+  { title: "Massage i Malmö", cat: "Välmående", price: "550 kr", rating: null, reviews: 11, img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80" },
+  { title: "Sip and create i Malmö", cat: "Kreativt", price: "499 kr", rating: null, reviews: 5, img: "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=600&q=80" },
+  { title: "Vindsurfing Malmö", cat: "Sport", price: "925 kr", rating: null, reviews: 1, img: "https://images.unsplash.com/photo-1502680390469-be75c86b636f?w=600&q=80" },
+  { title: "Champagneprovning Malmö", cat: "Mat & dryck", price: "529 kr", rating: 3.33, reviews: 13, img: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&q=80" },
+  { title: "Blomsterkurs i Malmö", cat: "Kreativt", price: "849 kr", rating: null, reviews: 2, img: "https://images.unsplash.com/photo-1487530811015-780b28fece8f?w=600&q=80" },
+  { title: "Blomsterbinderikurs i Malmö", cat: "Kreativt", price: "849 kr", rating: null, reviews: 2, img: "https://images.unsplash.com/photo-1519378058457-4c29a0a2efac?w=600&q=80" },
+  { title: "Ansiktsbehandling i Malmö", cat: "Välmående", price: "980 kr", rating: null, reviews: 13, img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=80" },
+  { title: "Ölprovning i Malmö", cat: "Mat & dryck", price: "399 kr", rating: null, reviews: 16, img: "https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=600&q=80" },
+  { title: "Gravidmassage i Malmö", cat: "Välmående", price: "980 kr", rating: null, reviews: 6, img: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&q=80" },
 ];
 
 const EXP_COORDS: [number, number][] = [
-  [55.6097, 12.9741], [55.5921, 13.0082], [55.6134, 12.9889], [55.6097, 12.9741],
-  [55.6065, 12.9987], [55.6034, 13.0021], [55.6097, 12.9741], [55.6059, 13.0007],
-  [55.6118, 12.9812], [55.6072, 12.9918], [55.5921, 13.0082], [55.6097, 12.9741],
-  [55.6148, 12.9952], [55.6134, 12.9889], [55.6065, 12.9987], [55.6058, 12.9978],
-  [55.6059, 13.0007], [55.6141, 12.9968], [55.6027, 13.0008], [55.6097, 12.9741],
-  [55.6034, 13.0021], [55.5921, 13.0082], [55.6148, 12.9952], [55.6058, 12.9978],
-  [55.6059, 13.0007],
+  [55.6065, 12.9987], [55.6059, 13.0007], [55.6141, 12.9968], [55.6034, 13.0021],
+  [55.6097, 12.9741], [55.6134, 12.9889], [55.6118, 12.9812], [55.6027, 13.0008],
+  [55.6058, 12.9978], [55.6097, 12.9741], [55.6065, 12.9987], [55.5921, 13.0082],
+  [55.5921, 13.0082], [55.6072, 12.9918], [55.6148, 12.9952], [55.6059, 13.0007],
 ];
 
 const ExpMap = ({ active }: { active: number | null }) => {
@@ -406,7 +394,7 @@ const ExperiencesView = ({ lang }: { lang: Lang }) => {
               <div className="exp-info">
                 <div className="exp-meta-row">
                   <span className="exp-cat-tag">{e.cat}</span>
-                  <span className="exp-rating">★ {e.rating} <span className="exp-reviews">({e.reviews})</span></span>
+                  {e.rating && <span className="exp-rating">★ {e.rating} <span className="exp-reviews">({e.reviews})</span></span>}
                 </div>
                 <h3 className="exp-name">{e.title}</h3>
                 <p className="exp-duration-line">{e.duration}</p>
