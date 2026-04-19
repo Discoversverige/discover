@@ -116,7 +116,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .sug.featured .sug-icon svg { width: 18px; height: 18px; }
 .sug:hover { background: var(--bg-2); }
 .sug-icon { color: var(--accent); display: inline-flex; }
-.sug-text { font-size: 15px; color: var(--ink); font-weight: 500; }
+.sug-text { font-family: var(--serif); font-size: 22px; font-weight: 400; letter-spacing: -0.01em; color: var(--ink); }
 .sug-hint { font-family: var(--mono); font-size: 11px; letter-spacing: 0.5px; color: var(--mute); white-space: nowrap; }
 .sug-arrow { color: var(--mute); transition: transform 0.2s, color 0.2s; }
 .sug:hover .sug-arrow { transform: translateX(3px); color: var(--accent); }
