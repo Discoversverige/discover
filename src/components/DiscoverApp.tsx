@@ -80,8 +80,8 @@ const LangSwitcher = ({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => voi
   </div>
 );
 
-const Logo = () => (
-  <div className="logo">
+const Logo = ({ onClick }: { onClick?: () => void }) => (
+  <div className="logo" onClick={onClick} style={{ cursor: "pointer" }}>
     <img src="/logo-transparent.png" alt="Discover Malmö" className="logo-img-brand" />
   </div>
 );
@@ -444,7 +444,7 @@ export default function DiscoverApp() {
   return (
     <div className={`app view-${view}`}>
       <header className="topbar">
-        <Logo />
+        <Logo onClick={() => setView("home")} />
         <nav className="nav">
           <a href="#" onClick={e => { e.preventDefault(); setView("home"); }}>{t.nav.discover}</a>
           <a href="#" onClick={e => { e.preventDefault(); setView("experiences"); }} className={view === "experiences" ? "active" : ""}>{t.nav.experiences}</a>
