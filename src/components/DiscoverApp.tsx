@@ -369,9 +369,20 @@ const ExpMap = ({ active }: { active: number | null }) => {
   }, []);
 
   useEffect(() => {
-    if (!mapRef.current || active === null) return;
-    const [lat, lng] = EXP_COORDS[active];
-    mapRef.current.setView([lat, lng], 15, { animate: true });
+    if (!markersRef.current.length) return;
+    markersRef.current.forEach((marker, i) => {
+      const isActive = i === active;
+      const e = EXPERIENCES[i];
+      const el = marker.getElement();
+      if (el) {
+        const inner = el.querySelector("div") as HTMLElement | null;
+        if (inner) {
+          inner.style.background = isActive ? "#222" : "#fff";
+          inner.style.color = isActive ? "#fff" : "#222";
+          inner.style.transform = isActive ? "scale(1.1)" : "scale(1)";
+        }
+      }
+    });
   }, [active]);
 
   return <div ref={containerRef} style={{ width: "100%", height: "100%" }} />;
