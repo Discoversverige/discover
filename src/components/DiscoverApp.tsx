@@ -82,7 +82,7 @@ const LangSwitcher = ({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => voi
 
 const Logo = () => (
   <div className="logo">
-    <img src="/Gemini_Generated_Image_jzbs3sjzbs3sjzbs.png" alt="Discover Malmö" className="logo-img-brand" />
+    <img src="/logo-transparent.png" alt="Discover Malmö" className="logo-img-brand" />
   </div>
 );
 
