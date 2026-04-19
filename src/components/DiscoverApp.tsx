@@ -224,11 +224,10 @@ const HomeView = ({ lang, onSearch }: { lang: Lang; onSearch: (term: string, cat
       <section className="partners">
         <p className="partners-label">{lang === "sv" ? "Planera resan med" : lang === "de" ? "Plane deine Reise mit" : "Plan your trip with"}</p>
         <div className="partners-row">
-          <img src="/logos/uber.svg" alt="Uber" className="logo-img logo-uber" />
-          <img src="/logos/bolt.png" alt="Bolt" className="logo-img logo-bolt" />
-          <img src="/logos/airbnb.png" alt="Airbnb" className="logo-img logo-airbnb" />
-          <img src="/logos/revolut.svg" alt="Revolut" className="logo-img logo-revolut" />
-          <img src="/logos/oresundsbron.png" alt="Öresundsbron" className="logo-img logo-oresund" />
+          <img src="/logos/uber.svg" alt="Uber" className="logo-img" />
+          <img src="/logos/bolt.png" alt="Bolt" className="logo-img" />
+          <img src="/logos/airbnb.png" alt="Airbnb" className="logo-img" />
+          <img src="/logos/revolut.svg" alt="Revolut" className="logo-img" />
         </div>
       </section>
     </div>
