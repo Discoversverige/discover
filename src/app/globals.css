@@ -159,6 +159,29 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .exp-map-panel { position: sticky; top: 80px; height: calc(100vh - 80px); }
 .nav a.active { color: var(--ink); font-weight: 600; }
 
+.travel-page { max-width: 960px; margin: 0 auto; padding: 48px 40px 80px; }
+.travel-hero { margin-bottom: 48px; }
+.travel-title { font-size: 36px; font-weight: 700; color: var(--ink); margin: 0 0 10px; }
+.travel-sub { font-size: 17px; color: var(--mute); margin: 0; }
+.travel-grid { display: flex; flex-direction: column; gap: 24px; }
+.travel-card { background: #fff; border: 1px solid var(--line-soft); border-radius: var(--r-xl); padding: 36px; display: flex; gap: 24px; }
+.travel-card-wide { }
+.travel-icon { font-size: 32px; flex: 0 0 auto; }
+.travel-content { flex: 1; }
+.travel-card-title { font-size: 20px; font-weight: 700; color: var(--ink); margin: 0 0 4px; }
+.travel-card-sub { font-size: 13px; color: var(--mute); margin: 0 0 24px; }
+.travel-steps { display: flex; flex-direction: column; gap: 20px; margin-bottom: 24px; }
+.travel-step { display: flex; gap: 16px; align-items: flex-start; }
+.travel-step-num { flex: 0 0 28px; height: 28px; border-radius: 50%; background: var(--ink); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; }
+.travel-step strong { display: block; font-size: 15px; color: var(--ink); margin-bottom: 4px; }
+.travel-step p { font-size: 14px; color: var(--mute); margin: 0; line-height: 1.5; }
+.travel-info-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.travel-badge { background: var(--bg); border: 1px solid var(--line-soft); border-radius: 999px; padding: 6px 14px; font-size: 13px; color: var(--ink-2); }
+.travel-tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.travel-tip strong { display: block; font-size: 15px; color: var(--ink); margin-bottom: 6px; }
+.travel-tip p { font-size: 14px; color: var(--mute); margin: 0; line-height: 1.5; }
+@media (max-width: 600px) { .travel-page { padding: 24px 16px 60px; } .travel-card { flex-direction: column; } .travel-tips-grid { grid-template-columns: 1fr; } }
+
 @media (max-width: 900px) { .exp-layout { grid-template-columns: 1fr; } .exp-map-panel { display: none; } }
 @media (max-width: 600px) { .exp-grid { grid-template-columns: 1fr; } .exp-left { padding: 24px 16px 60px; } }
 

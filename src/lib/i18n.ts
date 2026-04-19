@@ -1,7 +1,7 @@
 export const I18N = {
   sv: {
     code: "SV",
-    nav: { discover: "Upptäck", experiences: "Upplevelser", plan: "Planera", about: "Om oss" },
+    nav: { discover: "Upptäck", experiences: "Upplevelser", plan: "Ta dig hit", about: "Om oss" },
     hero: {
       eyebrow: "",
       title_1: "Upptäck Malmö,",
