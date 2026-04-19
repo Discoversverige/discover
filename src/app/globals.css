@@ -41,7 +41,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .topbar {
   display: flex; align-items: center; justify-content: space-between;
   padding: 20px 40px; gap: 24px; position: sticky; top: 0; z-index: 30;
-  background: rgba(245,241,230,0.82); backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.82); backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid transparent;
   transition: border-color 0.3s;
 }
