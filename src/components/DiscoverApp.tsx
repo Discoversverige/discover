@@ -86,7 +86,7 @@ const Logo = ({ onClick }: { onClick?: () => void }) => (
   </div>
 );
 
-const HomeView = ({ lang, onSearch }: { lang: Lang; onSearch: (term: string, cat: string) => void }) => {
+const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: string, cat: string) => void; onContact: () => void }) => {
   const t = I18N[lang];
   const [q, setQ] = useState("");
   const [focused, setFocused] = useState(false);
@@ -118,6 +118,18 @@ const HomeView = ({ lang, onSearch }: { lang: Lang; onSearch: (term: string, cat
             <span className="line-2"><em>{t.hero.title_2}</em></span>
           </h1>
           <p className="sub">{t.hero.sub}</p>
+
+          <button type="button" className="ad-banner" onClick={onContact} aria-label={lang === "sv" ? "Annonsera på Discover Malmö" : lang === "de" ? "Auf Discover Malmö werben" : "Advertise on Discover Malmö"}>
+            <span className="ad-banner-text">
+              {lang === "sv" ? "Vill du synas här?" : lang === "de" ? "Willst du hier gesehen werden?" : "Want to be seen here?"}
+            </span>
+            <span className="ad-banner-cta">
+              {lang === "sv" ? "Klicka här" : lang === "de" ? "Klicke hier" : "Click here"}
+              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+                <path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+          </button>
 
           <div className={`search ${focused ? "focused" : ""}`}>
             <div className="search-row">
@@ -201,17 +213,17 @@ const HomeView = ({ lang, onSearch }: { lang: Lang; onSearch: (term: string, cat
                 else if (/bad|kallbad/.test(lookup)) key = "nature";
                 else if (/slott|castle|schloss/.test(lookup)) key = "culture";
                 else if (/street|food/.test(lookup)) key = "food";
-                const imgs = [
-                  "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&q=80",
-                  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=80",
-                  "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&q=80",
-                  "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=400&q=80",
-                  "https://images.unsplash.com/photo-1513407030348-c983a97b98d8?w=400&q=80",
-                  "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400&q=80",
+                const imgs: Array<{ src: string; alt?: string }> = [
+                  { src: "/images/turning-torso-solnedgang.jpg", alt: "Turning Torso i solnedgång, Malmö" },
+                  { src: "/images/malmo-live.jpg", alt: "Malmö Live vid kanalen" },
+                  { src: "/images/triangeln-malmo.jpg", alt: "Triangelns glaskupol och historiska byggnader, Malmö" },
+                  { src: "/images/kallbadhuset-malmo.jpg", alt: "Brygga till Ribersborgs kallbadhus i solnedgång, Malmö" },
+                  { src: "/images/malmohus-slott-malmo.jpg", alt: "Malmöhus slott med vallgrav och spegling, Malmö" },
                 ];
+                const img = imgs[i % imgs.length];
                 return (
                   <button key={i} className="pop-card" onClick={() => onSearch(p, key)}>
-                    <img src={imgs[i % imgs.length]} alt={p} className="pop-card-img" />
+                    <img src={img.src} alt={img.alt ?? p} className="pop-card-img" />
                     <span className="pop-card-label">{p}</span>
                   </button>
                 );
@@ -359,6 +371,134 @@ const TravelView = ({ lang }: { lang: Lang }) => {
   );
 };
 
+const AboutView = ({ lang, onContact }: { lang: Lang; onContact: () => void }) => {
+  const a = I18N[lang].about;
+  return (
+    <div className="about-page">
+      <div className="about-hero">
+        <p className="about-eyebrow">{a.eyebrow}</p>
+        <h1 className="about-title">{a.title}</h1>
+        <p className="about-lead">{a.lead}</p>
+      </div>
+      <div className="about-grid">
+        <div className="about-card">
+          <div className="about-num">01</div>
+          <h2>{a.s1_title}</h2>
+          <p>{a.s1}</p>
+        </div>
+        <div className="about-card">
+          <div className="about-num">02</div>
+          <h2>{a.s2_title}</h2>
+          <p>{a.s2}</p>
+        </div>
+        <div className="about-card">
+          <div className="about-num">03</div>
+          <h2>{a.s3_title}</h2>
+          <p>{a.s3}</p>
+        </div>
+      </div>
+      <div className="about-stats">
+        <div className="about-stat"><span className="about-stat-val">{a.stat1_val}</span><span className="about-stat-lbl">{a.stat1_lbl}</span></div>
+        <div className="about-stat"><span className="about-stat-val">{a.stat2_val}</span><span className="about-stat-lbl">{a.stat2_lbl}</span></div>
+        <div className="about-stat"><span className="about-stat-val">{a.stat3_val}</span><span className="about-stat-lbl">{a.stat3_lbl}</span></div>
+      </div>
+      <div className="about-cta">
+        <h3>{a.cta_title}</h3>
+        <button className="about-cta-btn" onClick={onContact}>
+          {a.cta_btn}
+          <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const ContactView = ({ lang }: { lang: Lang }) => {
+  const c = I18N[lang].contact;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [topic, setTopic] = useState("ad");
+  const [message, setMessage] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "done">("idle");
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email || !message) return;
+    setStatus("sending");
+    setTimeout(() => setStatus("done"), 700);
+  };
+
+  return (
+    <div className="contact-page">
+      <div className="contact-hero">
+        <p className="contact-eyebrow">{c.eyebrow}</p>
+        <h1 className="contact-title">{c.title}</h1>
+        <p className="contact-lead">{c.lead}</p>
+      </div>
+      <div className="contact-grid">
+        <aside className="contact-info">
+          <div className="contact-info-row"><span className="contact-info-lbl">{c.info_email}</span><span className="contact-info-val">{c.info_email_val}</span></div>
+          <div className="contact-info-row"><span className="contact-info-lbl">{c.info_city}</span><span className="contact-info-val">{c.info_city_val}</span></div>
+          <div className="contact-info-row"><span className="contact-info-lbl">{c.info_hours}</span><span className="contact-info-val">{c.info_hours_val}</span></div>
+        </aside>
+        <div className="contact-form-wrap">
+          {status === "done" ? (
+            <div className="contact-success">
+              <div className="contact-success-icon">
+                <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true">
+                  <circle cx="22" cy="22" r="20" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                  <path d="M14 22l6 6 11-13" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <h2>{c.success_title}</h2>
+              <p>{c.success_msg}</p>
+            </div>
+          ) : (
+            <form className="contact-form" onSubmit={submit}>
+              <div className="contact-field">
+                <label htmlFor="cf-name">{c.name_label}</label>
+                <input id="cf-name" type="text" required value={name} onChange={e => setName(e.target.value)} placeholder={c.name_placeholder} />
+              </div>
+              <div className="contact-row">
+                <div className="contact-field">
+                  <label htmlFor="cf-email">{c.email_label}</label>
+                  <input id="cf-email" type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder={c.email_placeholder} />
+                </div>
+                <div className="contact-field">
+                  <label htmlFor="cf-company">{c.company_label}</label>
+                  <input id="cf-company" type="text" value={company} onChange={e => setCompany(e.target.value)} placeholder={c.company_placeholder} />
+                </div>
+              </div>
+              <div className="contact-field">
+                <label htmlFor="cf-topic">{c.topic_label}</label>
+                <select id="cf-topic" value={topic} onChange={e => setTopic(e.target.value)}>
+                  <option value="ad">{c.topic_ad}</option>
+                  <option value="tip">{c.topic_tip}</option>
+                  <option value="press">{c.topic_press}</option>
+                  <option value="other">{c.topic_other}</option>
+                </select>
+              </div>
+              <div className="contact-field">
+                <label htmlFor="cf-message">{c.message_label}</label>
+                <textarea id="cf-message" required rows={6} value={message} onChange={e => setMessage(e.target.value)} placeholder={c.message_placeholder} />
+              </div>
+              <button type="submit" className="contact-submit" disabled={status === "sending"}>
+                {status === "sending" ? c.sending : c.submit}
+                <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+                  <path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </form>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const EXPERIENCES = [
   { title: "Ost och Vinprovning i Malmö", cat: "Mat & dryck", price: "499 kr", rating: 4.58, reviews: 14, img: "https://images.unsplash.com/photo-1452195100486-9cc805987862?w=600&q=80" },
   { title: "Whiskyprovning i Malmö", cat: "Mat & dryck", price: "545 kr", rating: null, reviews: 9, img: "https://images.unsplash.com/photo-1527281400683-1aae777175f8?w=600&q=80" },
@@ -473,7 +613,7 @@ const ExperiencesView = ({ lang }: { lang: Lang }) => {
 
 export default function DiscoverApp() {
   const [lang, setLang] = useState<Lang>("sv");
-  const [view, setView] = useState<"home" | "map" | "experiences" | "travel">("home");
+  const [view, setView] = useState<"home" | "map" | "experiences" | "travel" | "about" | "contact">("home");
   const [routeKey, setRouteKey] = useState<RouteKey>("default");
   const [searchTerm, setSearchTerm] = useState("");
   const [mounted, setMounted] = useState(false);
@@ -509,7 +649,7 @@ export default function DiscoverApp() {
           <a href="#" onClick={e => { e.preventDefault(); setView("home"); }}>{t.nav.discover}</a>
           <a href="#" onClick={e => { e.preventDefault(); setView("experiences"); }} className={view === "experiences" ? "active" : ""}>{t.nav.experiences}</a>
           <a href="#" onClick={e => { e.preventDefault(); setView("travel"); }} className={view === "travel" ? "active" : ""}>{t.nav.plan}</a>
-          <a href="#">{t.nav.about}</a>
+          <a href="#" onClick={e => { e.preventDefault(); setView("about"); }} className={view === "about" ? "active" : ""}>{t.nav.about}</a>
         </nav>
         <LangSwitcher lang={lang} setLang={setLang} />
         <button className="hamburger" onClick={() => setMenuOpen(o => !o)} aria-label="Meny">
@@ -521,18 +661,21 @@ export default function DiscoverApp() {
           <a href="#" onClick={e => { e.preventDefault(); setView("home"); setMenuOpen(false); }}>{t.nav.discover}</a>
           <a href="#" onClick={e => { e.preventDefault(); setView("experiences"); setMenuOpen(false); }}>{t.nav.experiences}</a>
           <a href="#" onClick={e => { e.preventDefault(); setView("travel"); setMenuOpen(false); }}>{t.nav.plan}</a>
-          <a href="#" onClick={() => setMenuOpen(false)}>{t.nav.about}</a>
+          <a href="#" onClick={e => { e.preventDefault(); setView("about"); setMenuOpen(false); }}>{t.nav.about}</a>
           <div className="mobile-menu-lang"><LangSwitcher lang={lang} setLang={(l) => { setLang(l); setMenuOpen(false); }} /></div>
         </div>
       )}
 
-      {view === "home" && <HomeView lang={lang} onSearch={handleSearch} />}
+      {view === "home" && <HomeView lang={lang} onSearch={handleSearch} onContact={() => { setView("contact"); window.scrollTo({ top: 0, behavior: "smooth" }); }} />}
       {view === "map" && <MapView lang={lang} routeKey={routeKey} searchTerm={searchTerm} onBack={() => setView("home")} />}
       {view === "experiences" && <ExperiencesView lang={lang} />}
       {view === "travel" && <TravelView lang={lang} />}
+      {view === "about" && <AboutView lang={lang} onContact={() => { setView("contact"); window.scrollTo({ top: 0, behavior: "smooth" }); }} />}
+      {view === "contact" && <ContactView lang={lang} />}
 
       <footer className="foot">
         <span>{t.footer}</span>
+        <a href="#" className="foot-link" onClick={e => { e.preventDefault(); setView("contact"); window.scrollTo({ top: 0, behavior: "smooth" }); }}>{t.footer_contact}</a>
         <span className="coords">55°36′N · 13°00′E</span>
       </footer>
     </div>
