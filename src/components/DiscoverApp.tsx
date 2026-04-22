@@ -241,6 +241,8 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
           <img src="/logos/bolt.png" alt="Bolt" className="logo-img" style={{height: "22px"}} />
           <img src="/logos/airbnb.png" alt="Airbnb" className="logo-img" style={{height: "88px"}} />
           <img src="/logos/revolut.svg" alt="Revolut" className="logo-img" style={{height: "80px"}} />
+          <img src="/logos/sj.png" alt="SJ" className="logo-img" style={{height: "48px"}} />
+          <img src="/logos/bus4u.png" alt="Bus4u" className="logo-img" style={{height: "48px"}} />
         </div>
       </section>
     </div>
