@@ -602,9 +602,9 @@ const ExperiencesView = ({ lang }: { lang: Lang }) => {
   );
 };
 
-export default function DiscoverApp() {
+export default function DiscoverApp({ initialView }: { initialView?: "home" | "map" | "experiences" | "travel" | "about" | "contact" }) {
   const [lang, setLang] = useState<Lang>("sv");
-  const [view, setView] = useState<"home" | "map" | "experiences" | "travel" | "about" | "contact">("home");
+  const [view, setView] = useState<"home" | "map" | "experiences" | "travel" | "about" | "contact">(initialView ?? "home");
   const [routeKey, setRouteKey] = useState<RouteKey>("default");
   const [searchTerm, setSearchTerm] = useState("");
   const [mounted, setMounted] = useState(false);
@@ -612,14 +612,16 @@ export default function DiscoverApp() {
 
   useEffect(() => {
     setLang(getInitialLang());
-    setView(getInitialView());
+    if (!initialView) setView(getInitialView());
     setRouteKey(getInitialRoute());
     setMounted(true);
   }, []);
 
   useEffect(() => { try { localStorage.setItem("dm-lang", lang); } catch {} }, [lang]);
-  useEffect(() => { try { localStorage.setItem("dm-view", view); } catch {} }, [view]);
+  useEffect(() => { if (!initialView) { try { localStorage.setItem("dm-view", view); } catch {} } }, [view]);
   useEffect(() => { try { localStorage.setItem("dm-route", routeKey); } catch {} }, [routeKey]);
+
+  const navigate = (path: string) => { window.location.href = path; };
 
   const handleSearch = (term: string, catKey: string) => {
     setSearchTerm(term);
@@ -635,12 +637,12 @@ export default function DiscoverApp() {
   return (
     <div className={`app view-${view}`}>
       <header className="topbar">
-        <Logo onClick={() => { setView("home"); setMenuOpen(false); }} />
+        <Logo onClick={() => navigate("/")} />
         <nav className="nav">
-          <a href="#" onClick={e => { e.preventDefault(); setView("home"); }}>{t.nav.discover}</a>
-          <a href="#" onClick={e => { e.preventDefault(); setView("experiences"); }} className={view === "experiences" ? "active" : ""}>{t.nav.experiences}</a>
-          <a href="#" onClick={e => { e.preventDefault(); setView("travel"); }} className={view === "travel" ? "active" : ""}>{t.nav.plan}</a>
-          <a href="#" onClick={e => { e.preventDefault(); setView("about"); }} className={view === "about" ? "active" : ""}>{t.nav.about}</a>
+          <a href="/">{t.nav.discover}</a>
+          <a href="/upplevelser" className={view === "experiences" ? "active" : ""}>{t.nav.experiences}</a>
+          <a href="/ta-dig-hit" className={view === "travel" ? "active" : ""}>{t.nav.plan}</a>
+          <a href="/om-oss" className={view === "about" ? "active" : ""}>{t.nav.about}</a>
         </nav>
         <LangSwitcher lang={lang} setLang={setLang} />
         <button className="hamburger" onClick={() => setMenuOpen(o => !o)} aria-label="Meny">
@@ -649,24 +651,24 @@ export default function DiscoverApp() {
       </header>
       {menuOpen && (
         <div className="mobile-menu">
-          <a href="#" onClick={e => { e.preventDefault(); setView("home"); setMenuOpen(false); }}>{t.nav.discover}</a>
-          <a href="#" onClick={e => { e.preventDefault(); setView("experiences"); setMenuOpen(false); }}>{t.nav.experiences}</a>
-          <a href="#" onClick={e => { e.preventDefault(); setView("travel"); setMenuOpen(false); }}>{t.nav.plan}</a>
-          <a href="#" onClick={e => { e.preventDefault(); setView("about"); setMenuOpen(false); }}>{t.nav.about}</a>
+          <a href="/" onClick={() => setMenuOpen(false)}>{t.nav.discover}</a>
+          <a href="/upplevelser" onClick={() => setMenuOpen(false)}>{t.nav.experiences}</a>
+          <a href="/ta-dig-hit" onClick={() => setMenuOpen(false)}>{t.nav.plan}</a>
+          <a href="/om-oss" onClick={() => setMenuOpen(false)}>{t.nav.about}</a>
           <div className="mobile-menu-lang"><LangSwitcher lang={lang} setLang={(l) => { setLang(l); setMenuOpen(false); }} /></div>
         </div>
       )}
 
-      {view === "home" && <HomeView lang={lang} onSearch={handleSearch} onContact={() => { setView("contact"); window.scrollTo({ top: 0, behavior: "smooth" }); }} />}
-      {view === "map" && <MapView lang={lang} routeKey={routeKey} searchTerm={searchTerm} onBack={() => setView("home")} />}
+      {view === "home" && <HomeView lang={lang} onSearch={handleSearch} onContact={() => navigate("/om-oss")} />}
+      {view === "map" && <MapView lang={lang} routeKey={routeKey} searchTerm={searchTerm} onBack={() => navigate("/")} />}
       {view === "experiences" && <ExperiencesView lang={lang} />}
       {view === "travel" && <TravelView lang={lang} />}
-      {view === "about" && <AboutView lang={lang} onContact={() => { setView("contact"); window.scrollTo({ top: 0, behavior: "smooth" }); }} />}
+      {view === "about" && <AboutView lang={lang} onContact={() => navigate("/om-oss")} />}
       {view === "contact" && <ContactView lang={lang} />}
 
       <footer className="foot">
         <span>{t.footer}</span>
-        <a href="#" className="foot-link" onClick={e => { e.preventDefault(); setView("contact"); window.scrollTo({ top: 0, behavior: "smooth" }); }}>{t.footer_contact}</a>
+        <a href="/om-oss" className="foot-link">{t.footer_contact}</a>
         <span className="coords">55°36′N · 13°00′E</span>
       </footer>
     </div>
