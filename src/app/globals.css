@@ -382,9 +382,10 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .display { font-size: clamp(36px,11vw,60px); }
   .sub { font-size: 15px; margin-bottom: 24px; }
   .search { border-radius: var(--r); }
-  .search-row { padding: 8px 8px 8px 14px; gap: 8px; }
-  .search-row input { font-size: 16px; padding: 10px 0; }
-  .search-cta { padding: 10px 14px; font-size: 13px; }
+  .search-row { padding: 8px 8px 8px 14px; gap: 6px; }
+  .search-row input { font-size: 15px; padding: 10px 0; min-width: 0; flex: 1; }
+  .search-cta { padding: 10px 12px; font-size: 13px; flex-shrink: 0; white-space: nowrap; }
+  .search-cta svg { display: none; }
   .sug { grid-template-columns: 20px 1fr 16px; padding: 12px 16px; }
   .sug-hint { display: none; }
   .cat-strip { gap: 6px; padding: 0 0 2px; }
@@ -423,6 +424,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .pop-card-img { height: 100px; }
   .pop-card-label { font-size: 12px; padding: 8px 4px 0; }
   .exp-grid { grid-template-columns: 1fr; }
-  .search-cta span { display: none; }
+  .search-cta { padding: 10px 10px; font-size: 12px; }
   .sug-text { font-size: 14px; }
+  .search-icon { display: none; }
 }
