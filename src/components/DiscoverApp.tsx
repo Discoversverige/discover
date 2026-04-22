@@ -119,17 +119,11 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
           </h1>
           <p className="sub">{t.hero.sub}</p>
 
-          <button type="button" className="ad-banner" onClick={onContact} aria-label={lang === "sv" ? "Annonsera på Discover Malmö" : lang === "de" ? "Auf Discover Malmö werben" : "Advertise on Discover Malmö"}>
-            <span className="ad-banner-text">
-              {lang === "sv" ? "Vill du synas här?" : lang === "de" ? "Willst du hier gesehen werden?" : "Want to be seen here?"}
-            </span>
-            <span className="ad-banner-cta">
-              {lang === "sv" ? "Klicka här" : lang === "de" ? "Klicke hier" : "Click here"}
-              <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
-                <path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </button>
+          <div className="search-with-ads">
+            <button type="button" className="ad-side" onClick={onContact}>
+              <span className="ad-side-text">{lang === "sv" ? "Vill du synas här?" : lang === "de" ? "Willst du hier gesehen werden?" : "Want to be seen here?"}</span>
+              <span className="ad-side-cta">{lang === "sv" ? "Klicka här" : lang === "de" ? "Klicke hier" : "Click here"} →</span>
+            </button>
 
           <div className={`search ${focused ? "focused" : ""}`}>
             <div className="search-row">
@@ -200,6 +194,12 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
                 ))}
               </ul>
             </div>}
+          </div>
+
+            <button type="button" className="ad-side" onClick={onContact}>
+              <span className="ad-side-text">{lang === "sv" ? "Vill du synas här?" : lang === "de" ? "Willst du hier gesehen werden?" : "Want to be seen here?"}</span>
+              <span className="ad-side-cta">{lang === "sv" ? "Klicka här" : lang === "de" ? "Klicke hier" : "Click here"} →</span>
+            </button>
           </div>
 
           <div className="popular">
