@@ -21,7 +21,7 @@ export const I18N = {
       { cat: "nature", text: "Promenad längs havet", hint: "3 stopp · 2 tim" },
       { cat: "shopping", text: "Lokal design & second hand", hint: "7 stopp · 3 tim" },
     ],
-    popular: ["Turning Torso", "Malmö Live", "Triangeln", "Ribersborgs kallbadhus", "Malmöhus slott", "Halvdag i Malmö"],
+    popular: ["Turning Torso", "Malmö Live", "Triangeln", "Ribban kallbadhus", "Malmöhus slott", "Halvdag i Malmö"],
     map: {
       title: "Din rutt i Malmö", sub: "Dragbara stopp · spara · dela",
       duration: "Total tid", distance: "Promenad", stops: "Stopp",
