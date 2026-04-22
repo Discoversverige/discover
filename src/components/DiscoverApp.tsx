@@ -111,15 +111,6 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
         <div className="hero-bg" aria-hidden="true">
           <img src="/malmokarta.png" alt="" draggable={false} />
         </div>
-        <button type="button" className="ad-rail ad-rail-left" onClick={onContact}>
-          <span className="ad-rail-text">{lang === "sv" ? "Vill du synas här?" : lang === "de" ? "Willst du hier?" : "Advertise here?"}</span>
-          <span className="ad-rail-cta">{lang === "sv" ? "Klicka här" : lang === "de" ? "Klicke hier" : "Click here"}</span>
-        </button>
-        <button type="button" className="ad-rail ad-rail-right" onClick={onContact}>
-          <span className="ad-rail-text">{lang === "sv" ? "Vill du synas här?" : lang === "de" ? "Willst du hier?" : "Advertise here?"}</span>
-          <span className="ad-rail-cta">{lang === "sv" ? "Klicka här" : lang === "de" ? "Klicke hier" : "Click here"}</span>
-        </button>
-
         <div className="hero-inner">
           <p className="eyebrow">{t.hero.eyebrow}</p>
           <h1 className="display">
