@@ -85,8 +85,8 @@ export default function UpplevelserMap({ experiences, activeSlug, onMarkerHover 
         const icon = L.divIcon({
           className: "upp-pin-wrap",
           html: `<div class="upp-pin" data-slug="${exp.slug}">${formatPrice(exp.priceFrom)}</div>`,
-          iconSize: [0, 0],
-          iconAnchor: [0, 0],
+          iconSize: [70, 28],
+          iconAnchor: [35, 14],
         });
 
         const marker = L.marker(coords, { icon })

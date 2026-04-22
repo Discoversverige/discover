@@ -463,9 +463,12 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 }
 
 /* Leaflet pin styling — overrides divIcon defaults */
-.upp-pin-wrap { background: transparent !important; border: none !important; }
+.upp-pin-wrap {
+  background: transparent !important;
+  border: none !important;
+  display: flex; align-items: center; justify-content: center;
+}
 .upp-pin {
-  display: inline-block; transform: translate(-50%, -100%);
   background: #fff; color: var(--ink);
   border: 1.5px solid var(--ink);
   border-radius: 999px;
@@ -474,16 +477,12 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   white-space: nowrap;
   box-shadow: 0 2px 8px rgba(40,30,10,0.15);
   transition: transform 0.15s ease, background 0.15s, color 0.15s;
-}
-.upp-pin::after {
-  content: ""; position: absolute; left: 50%; bottom: -5px;
-  width: 8px; height: 8px; background: inherit;
-  border-right: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink);
-  transform: translateX(-50%) rotate(45deg);
+  cursor: pointer;
+  line-height: 1.2;
 }
 .upp-pin.active, .upp-pin:hover {
   background: var(--ink); color: var(--paper);
-  transform: translate(-50%, -100%) scale(1.08);
+  transform: scale(1.1);
   z-index: 1000;
 }
 
