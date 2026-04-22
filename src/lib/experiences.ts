@@ -58,3 +58,26 @@ export function getExperienceBySlug(slug: string): Experience | undefined {
 export function formatPrice(sek: number): string {
   return `${sek.toLocaleString("sv-SE").replace(/,/g, " ")} kr`;
 }
+
+/**
+ * Deterministiska lat/lng för Malmö-upplevelser baserat på slug-hash.
+ * Happy Day exponerar inte exakta adresser — vi distribuerar pins jämnt
+ * över centrala Malmö + Västra Hamnen så varje upplevelse får en stabil pin.
+ * Returnerar null för upplevelser utanför Malmö (de aggregeras separat).
+ */
+export function getExperienceCoords(exp: Experience): [number, number] | null {
+  if (exp.region !== "Malmö") return null;
+  let h1 = 0;
+  let h2 = 0;
+  for (let i = 0; i < exp.slug.length; i++) {
+    h1 = (h1 * 31 + exp.slug.charCodeAt(i)) | 0;
+    h2 = (h2 * 37 + exp.slug.charCodeAt(i) * 7) | 0;
+  }
+  // Bounding box: central Malmö + Västra Hamnen + Möllevången
+  // lat 55.590 (söder) – 55.620 (norr/Västra Hamnen)
+  // lng 12.970 (väst) – 13.020 (öst/Möllan)
+  const lat = 55.5915 + (Math.abs(h1) % 1000) / 1000 * 0.028;
+  const lng = 12.9720 + (Math.abs(h2) % 1000) / 1000 * 0.045;
+  return [lat, lng];
+}
+

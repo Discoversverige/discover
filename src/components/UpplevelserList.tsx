@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import type { Experience } from "@/lib/experiences";
 import { CATEGORIES, REGIONS, formatPrice } from "@/lib/experiences";
+import UpplevelserMap from "./UpplevelserMap";
 
 type SortKey = "popular" | "price-asc" | "price-desc" | "name";
 type PriceBucket = "all" | "0-500" | "500-1500" | "1500+";
@@ -18,6 +19,8 @@ export default function UpplevelserList({ experiences }: Props) {
   const [price, setPrice] = useState<PriceBucket>("all");
   const [sort, setSort] = useState<SortKey>("popular");
   const [query, setQuery] = useState("");
+  const [hoverSlug, setHoverSlug] = useState<string | null>(null);
+  const [mapOpen, setMapOpen] = useState(false);
 
   const filtered = useMemo(() => {
     let list = experiences;
@@ -150,9 +153,19 @@ export default function UpplevelserList({ experiences }: Props) {
         </div>
       </section>
 
-      <p className="upp-count">
-        Visar {filtered.length} av {experiences.length}
-      </p>
+      <div className="upp-count-row">
+        <p className="upp-count">
+          Visar {filtered.length} av {experiences.length}
+        </p>
+        <button
+          type="button"
+          className="upp-map-toggle"
+          onClick={() => setMapOpen((v) => !v)}
+          aria-expanded={mapOpen}
+        >
+          {mapOpen ? "Stäng karta" : "Visa karta"}
+        </button>
+      </div>
 
       {filtered.length === 0 ? (
         <div className="upp-empty">
@@ -170,44 +183,60 @@ export default function UpplevelserList({ experiences }: Props) {
           </button>
         </div>
       ) : (
-        <section className="upp-grid">
-          {filtered.map((e) => (
-            <Link key={e.id} href={`/upplevelser/${e.slug}`} className="upp-card">
-              <div className="upp-card-img-wrap">
-                {e.images.main ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    src={e.images.main}
-                    alt={e.images.alt}
-                    className="upp-card-img"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="upp-card-img upp-card-img-placeholder" aria-hidden="true" />
-                )}
-                {e.priceCompareAt && e.priceCompareAt > e.priceFrom && (
-                  <span className="upp-card-badge">
-                    −{Math.round((1 - e.priceFrom / e.priceCompareAt) * 100)}%
-                  </span>
-                )}
-              </div>
-              <div className="upp-card-body">
-                <div className="upp-card-meta">
-                  <span className="upp-card-cat">{e.category}</span>
-                  <span className="upp-card-region">{e.region}</span>
-                </div>
-                <h3 className="upp-card-title">{e.title}</h3>
-                {e.duration && <p className="upp-card-duration">⏱ {e.duration}</p>}
-                <div className="upp-card-price-row">
-                  <span className="upp-card-price">Från {formatPrice(e.priceFrom)}</span>
+        <div className={`upp-layout ${mapOpen ? "upp-layout-mobile-map" : ""}`}>
+          <section className="upp-grid">
+            {filtered.map((e) => (
+              <Link
+                key={e.id}
+                href={`/upplevelser/${e.slug}`}
+                className={`upp-card ${hoverSlug === e.slug ? "active" : ""}`}
+                onMouseEnter={() => setHoverSlug(e.slug)}
+                onMouseLeave={() => setHoverSlug(null)}
+              >
+                <div className="upp-card-img-wrap">
+                  {e.images.main ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={e.images.main}
+                      alt={e.images.alt}
+                      className="upp-card-img"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="upp-card-img upp-card-img-placeholder" aria-hidden="true" />
+                  )}
                   {e.priceCompareAt && e.priceCompareAt > e.priceFrom && (
-                    <span className="upp-card-price-compare">{formatPrice(e.priceCompareAt)}</span>
+                    <span className="upp-card-badge">
+                      −{Math.round((1 - e.priceFrom / e.priceCompareAt) * 100)}%
+                    </span>
                   )}
                 </div>
-              </div>
-            </Link>
-          ))}
-        </section>
+                <div className="upp-card-body">
+                  <div className="upp-card-meta">
+                    <span className="upp-card-cat">{e.category}</span>
+                    <span className="upp-card-region">{e.region}</span>
+                  </div>
+                  <h3 className="upp-card-title">{e.title}</h3>
+                  {e.duration && <p className="upp-card-duration">⏱ {e.duration}</p>}
+                  <div className="upp-card-price-row">
+                    <span className="upp-card-price">Från {formatPrice(e.priceFrom)}</span>
+                    {e.priceCompareAt && e.priceCompareAt > e.priceFrom && (
+                      <span className="upp-card-price-compare">{formatPrice(e.priceCompareAt)}</span>
+                    )}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </section>
+
+          <aside className="upp-map-panel" aria-label="Karta över upplevelser">
+            <UpplevelserMap
+              experiences={filtered}
+              activeSlug={hoverSlug}
+              onMarkerHover={setHoverSlug}
+            />
+          </aside>
+        </div>
       )}
     </div>
   );
