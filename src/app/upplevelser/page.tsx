@@ -1,10 +1,10 @@
-import DiscoverApp from "@/components/DiscoverApp";
+import UpplevelsePage from "@/components/UpplevelsePage";
 
 export const metadata = {
   title: "Upplevelser i Malmö | Discover Malmö",
-  description: "Utforska aktiviteter och upplevelser i Malmö — mat, äventyr, kultur och mer.",
+  description: "Utforska Malmös bästa upplevelser — filtrera efter kategori, område och varaktighet.",
 };
 
-export default function UpplevelserPage() {
-  return <DiscoverApp initialView="experiences" />;
+export default function Page() {
+  return <UpplevelsePage />;
 }
