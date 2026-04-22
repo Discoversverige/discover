@@ -14,6 +14,8 @@ export interface FaqEntry {
   answer: string;
 }
 
+export type ExperienceSource = "happy-day" | "getyourguide" | "liveit";
+
 export interface Experience {
   id: string;
   slug: string;
@@ -39,11 +41,25 @@ export interface Experience {
     alt: string;
   };
   sourceUrl: string;
+  source?: ExperienceSource;
+  rating?: number;
+  reviewCount?: number;
 }
 
 import { EXPERIENCES_GENERATED } from "./experiences.generated";
+import { GYG_EXPERIENCES } from "./gyg-experiences.generated";
+import { LIVEIT_EXPERIENCES } from "./liveit-experiences.generated";
 
-export const EXPERIENCES: Experience[] = EXPERIENCES_GENERATED;
+const HAPPYDAY_EXPERIENCES: Experience[] = EXPERIENCES_GENERATED.map((e) => ({
+  ...e,
+  source: (e as Experience).source ?? "happy-day",
+}));
+
+export const EXPERIENCES: Experience[] = [
+  ...HAPPYDAY_EXPERIENCES,
+  ...GYG_EXPERIENCES,
+  ...LIVEIT_EXPERIENCES,
+];
 
 export const CATEGORIES: string[] = Array.from(
   new Set(EXPERIENCES.map((e) => e.category))

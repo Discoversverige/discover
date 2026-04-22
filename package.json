@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "ingest:happyday": "tsx scripts/ingest-happyday.ts"
+    "ingest:happyday": "tsx scripts/ingest-happyday.ts",
+    "ingest:gyg": "tsx scripts/ingest-gyg.ts",
+    "ingest:liveit": "tsx scripts/ingest-liveit.ts"
   },
   "dependencies": {
     "@types/leaflet": "^1.9.21",
