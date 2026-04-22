@@ -199,8 +199,6 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
             </div>}
           </div>
 
-          </div>
-
           <div className="popular">
             <p className="pop-label">{t.hero.popular_label}</p>
             <div className="pop-cards">
