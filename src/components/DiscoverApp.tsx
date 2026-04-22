@@ -111,6 +111,15 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
         <div className="hero-bg" aria-hidden="true">
           <img src="/malmokarta.png" alt="" draggable={false} />
         </div>
+        <button type="button" className="ad-rail ad-rail-left" onClick={onContact}>
+          <span className="ad-rail-text">{lang === "sv" ? "Vill du synas här?" : lang === "de" ? "Willst du hier?" : "Advertise here?"}</span>
+          <span className="ad-rail-cta">{lang === "sv" ? "Klicka här" : lang === "de" ? "Klicke hier" : "Click here"}</span>
+        </button>
+        <button type="button" className="ad-rail ad-rail-right" onClick={onContact}>
+          <span className="ad-rail-text">{lang === "sv" ? "Vill du synas här?" : lang === "de" ? "Willst du hier?" : "Advertise here?"}</span>
+          <span className="ad-rail-cta">{lang === "sv" ? "Klicka här" : lang === "de" ? "Klicke hier" : "Click here"}</span>
+        </button>
+
         <div className="hero-inner">
           <p className="eyebrow">{t.hero.eyebrow}</p>
           <h1 className="display">
@@ -118,12 +127,6 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
             <span className="line-2"><em>{t.hero.title_2}</em></span>
           </h1>
           <p className="sub">{t.hero.sub}</p>
-
-          <div className="search-with-ads">
-            <button type="button" className="ad-side" onClick={onContact}>
-              <span className="ad-side-text">{lang === "sv" ? "Vill du synas här?" : lang === "de" ? "Willst du hier gesehen werden?" : "Want to be seen here?"}</span>
-              <span className="ad-side-cta">{lang === "sv" ? "Klicka här" : lang === "de" ? "Klicke hier" : "Click here"} →</span>
-            </button>
 
           <div className={`search ${focused ? "focused" : ""}`}>
             <div className="search-row">
@@ -196,10 +199,6 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
             </div>}
           </div>
 
-            <button type="button" className="ad-side" onClick={onContact}>
-              <span className="ad-side-text">{lang === "sv" ? "Vill du synas här?" : lang === "de" ? "Willst du hier gesehen werden?" : "Want to be seen here?"}</span>
-              <span className="ad-side-cta">{lang === "sv" ? "Klicka här" : lang === "de" ? "Klicke hier" : "Click here"} →</span>
-            </button>
           </div>
 
           <div className="popular">
