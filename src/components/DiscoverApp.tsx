@@ -237,12 +237,12 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
       <section className="partners">
         <p className="partners-label">{lang === "sv" ? "Planera resan med" : lang === "de" ? "Plane deine Reise mit" : "Plan your trip with"}</p>
         <div className="partners-row">
-          <img src="/logos/uber.svg" alt="Uber" className="logo-img" style={{height: "80px"}} />
-          <img src="/logos/bolt.png" alt="Bolt" className="logo-img" style={{height: "22px"}} />
-          <img src="/logos/airbnb.png" alt="Airbnb" className="logo-img" style={{height: "88px"}} />
-          <img src="/logos/revolut.svg" alt="Revolut" className="logo-img" style={{height: "80px"}} />
-          <img src="/logos/sj.png" alt="SJ" className="logo-img" style={{height: "48px"}} />
-          <img src="/logos/bus4u.png" alt="Bus4u" className="logo-img" style={{height: "48px"}} />
+          <img src="/logos/uber.svg" alt="Uber" className="logo-img" style={{height: "38px"}} />
+          <img src="/logos/bolt.png" alt="Bolt" className="logo-img" style={{height: "38px"}} />
+          <img src="/logos/airbnb.png" alt="Airbnb" className="logo-img" style={{height: "38px"}} />
+          <img src="/logos/revolut.svg" alt="Revolut" className="logo-img" style={{height: "38px"}} />
+          <img src="/logos/sj.png" alt="SJ" className="logo-img" style={{height: "38px"}} />
+          <img src="/logos/bus4u.png" alt="Bus4u" className="logo-img" style={{height: "38px"}} />
         </div>
       </section>
     </div>
