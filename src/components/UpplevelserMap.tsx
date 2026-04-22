@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import "leaflet/dist/leaflet.css";
+import { useEffect, useRef, useState } from "react";
 import type { Experience } from "@/lib/experiences";
 import { getExperienceCoords, formatPrice } from "@/lib/experiences";
 
@@ -10,34 +11,28 @@ interface Props {
   onMarkerHover?: (slug: string | null) => void;
 }
 
-/**
- * Leaflet-karta över Malmö-upplevelser.
- * - Varje Malmö-upplevelse får en pin med pris från.
- * - Upplevelser utanför Malmö visas som en samlad badge i kartans övre högra hörn.
- */
 export default function UpplevelserMap({ experiences, activeSlug, onMarkerHover }: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<any>(null);
-  const markersRef = useRef<Map<string, any>>(new Map());
-  const activeSlugRef = useRef<string | null>(activeSlug);
+  const LRef = useRef<any>(null);
+  const markersRef = useRef<globalThis.Map<string, any>>(new globalThis.Map());
   const onHoverRef = useRef(onMarkerHover);
+  const [mapReady, setMapReady] = useState(false);
 
-  useEffect(() => {
-    activeSlugRef.current = activeSlug;
-  }, [activeSlug]);
   useEffect(() => {
     onHoverRef.current = onMarkerHover;
   }, [onMarkerHover]);
 
-  // Initialize map once
+  // Init map once
   useEffect(() => {
     if (!containerRef.current) return;
     let cancelled = false;
 
-    const init = async () => {
+    (async () => {
       const L = (await import("leaflet")).default;
-      await import("leaflet/dist/leaflet.css");
       if (cancelled || !containerRef.current) return;
+      LRef.current = L;
+
       if (mapRef.current) {
         mapRef.current.remove();
         mapRef.current = null;
@@ -46,15 +41,22 @@ export default function UpplevelserMap({ experiences, activeSlug, onMarkerHover 
         zoomControl: true,
         scrollWheelZoom: false,
       });
-      mapRef.current = map;
       L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
         attribution: "© OpenStreetMap © CARTO",
         maxZoom: 19,
       }).addTo(map);
       map.setView([55.605, 12.998], 13);
-    };
+      mapRef.current = map;
 
-    init();
+      // Small delay to ensure container has final size
+      requestAnimationFrame(() => {
+        if (!cancelled && mapRef.current) {
+          mapRef.current.invalidateSize();
+          setMapReady(true);
+        }
+      });
+    })();
+
     return () => {
       cancelled = true;
       if (mapRef.current) {
@@ -65,48 +67,40 @@ export default function UpplevelserMap({ experiences, activeSlug, onMarkerHover 
     };
   }, []);
 
-  // Update markers when experiences change
+  // Add/remove markers whenever experiences or mapReady changes
   useEffect(() => {
-    let cancelled = false;
-    const update = async () => {
-      const L = (await import("leaflet")).default;
-      if (cancelled || !mapRef.current) return;
-      const map = mapRef.current;
+    if (!mapReady || !mapRef.current || !LRef.current) return;
+    const L = LRef.current;
+    const map = mapRef.current;
 
-      // Clear existing markers
-      markersRef.current.forEach((m) => map.removeLayer(m));
-      markersRef.current.clear();
+    // Clear existing markers
+    markersRef.current.forEach((m) => map.removeLayer(m));
+    markersRef.current.clear();
 
-      // Add Malmö pins
-      for (const exp of experiences) {
-        const coords = getExperienceCoords(exp);
-        if (!coords) continue;
+    for (const exp of experiences) {
+      const coords = getExperienceCoords(exp);
+      if (!coords) continue;
 
-        const icon = L.divIcon({
-          className: "upp-pin-wrap",
-          html: `<div class="upp-pin" data-slug="${exp.slug}">${formatPrice(exp.priceFrom)}</div>`,
-          iconSize: [70, 28],
-          iconAnchor: [35, 14],
-        });
+      const icon = L.divIcon({
+        className: "upp-pin-wrap",
+        html: `<div class="upp-pin" data-slug="${exp.slug}">${formatPrice(exp.priceFrom)}</div>`,
+        iconSize: [80, 28],
+        iconAnchor: [40, 14],
+      });
 
-        const marker = L.marker(coords, { icon })
-          .addTo(map)
-          .bindTooltip(exp.title, { direction: "top", offset: [0, -8], opacity: 0.95 });
+      const marker = L.marker(coords, { icon })
+        .addTo(map)
+        .bindTooltip(exp.title, { direction: "top", offset: [0, -10], opacity: 0.95 });
 
-        marker.on("mouseover", () => onHoverRef.current?.(exp.slug));
-        marker.on("mouseout", () => onHoverRef.current?.(null));
-        marker.on("click", () => {
-          window.location.href = `/upplevelser/${exp.slug}`;
-        });
+      marker.on("mouseover", () => onHoverRef.current?.(exp.slug));
+      marker.on("mouseout", () => onHoverRef.current?.(null));
+      marker.on("click", () => {
+        window.location.href = `/upplevelser/${exp.slug}`;
+      });
 
-        markersRef.current.set(exp.slug, marker);
-      }
-    };
-    update();
-    return () => {
-      cancelled = true;
-    };
-  }, [experiences]);
+      markersRef.current.set(exp.slug, marker);
+    }
+  }, [experiences, mapReady]);
 
   // Highlight active pin
   useEffect(() => {
@@ -115,11 +109,8 @@ export default function UpplevelserMap({ experiences, activeSlug, onMarkerHover 
       if (!el) return;
       const pin = el.querySelector(".upp-pin") as HTMLElement | null;
       if (!pin) return;
-      if (slug === activeSlug) {
-        pin.classList.add("active");
-      } else {
-        pin.classList.remove("active");
-      }
+      if (slug === activeSlug) pin.classList.add("active");
+      else pin.classList.remove("active");
     });
   }, [activeSlug]);
 
