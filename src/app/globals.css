@@ -643,3 +643,47 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .upp-page-btn { min-width: 36px; height: 36px; font-size: 13px; }
 }
 
+/* ── SiteHeader (visas på /upplevelser/[slug] och andra sidor utan DiscoverApp) ── */
+.site-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 40px; gap: 24px; position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.88); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent; transition: border-color 0.2s, box-shadow 0.2s;
+  width: 100%;
+}
+.site-topbar.scrolled { border-bottom-color: var(--line-soft); box-shadow: var(--shadow-sm); }
+.site-logo { display: flex; align-items: center; flex-shrink: 0; }
+.site-nav { display: flex; gap: 28px; }
+.site-nav a { font-size: 14px; color: var(--ink-2); padding: 6px 0; position: relative; transition: color 0.2s; text-decoration: none; }
+.site-nav a:hover { color: var(--accent); }
+.site-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--accent); transition: right 0.25s; }
+.site-nav a:hover::after, .site-nav a.site-nav-active::after { right: 0; }
+.site-nav a.site-nav-active { color: var(--ink); }
+
+.site-hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; background: none; border: none; cursor: pointer; }
+.site-hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.25s; }
+.site-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.site-hamburger.open span:nth-child(2) { opacity: 0; }
+.site-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.site-mobile-menu {
+  position: fixed; inset: 0; top: 61px; background: #fff; z-index: 99;
+  display: flex; flex-direction: column; padding: 16px 24px 40px;
+  border-top: 1px solid var(--line-soft); overflow-y: auto;
+  animation: slideUp 0.2s ease;
+}
+.site-mobile-menu a { font-size: 22px; font-weight: 500; color: var(--ink); padding: 16px 0; border-bottom: 1px solid var(--line-soft); display: block; text-decoration: none; }
+.site-mobile-menu a:hover { color: var(--accent); }
+
+/* Lägg till padding-top på sidor med SiteHeader så innehåll inte döljs */
+.exp-detail { padding-top: 0; }
+
+@media (max-width: 768px) {
+  .site-topbar { padding: 14px 20px; }
+  .site-nav { display: none; }
+  .site-hamburger { display: flex; }
+}
+@media (max-width: 480px) {
+  .site-topbar { padding: 12px 16px; }
+}
+

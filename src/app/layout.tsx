@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter_Tight, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import SiteHeader from "@/components/SiteHeader";
 
 const interTight = Inter_Tight({ variable: "--font-inter-tight", subsets: ["latin"] });
 const instrumentSerif = Instrument_Serif({ variable: "--font-instrument-serif", subsets: ["latin"], weight: "400" });
@@ -14,7 +15,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="sv" className={`${interTight.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}>
-      <body>{children}</body>
+      <body>
+        <SiteHeader />
+        {children}
+      </body>
     </html>
   );
 }
