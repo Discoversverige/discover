@@ -7,8 +7,42 @@ import { CATEGORIES, REGIONS, formatPrice } from "@/lib/experiences";
 
 type SortKey = "popular" | "price-asc" | "price-desc" | "name";
 type PriceBucket = "all" | "0-500" | "500-1500" | "1500+";
+type Lang = "sv" | "en" | "de";
 
 const PER_PAGE = 16;
+
+const T = {
+  sv: {
+    all: "Alla", allAreas: "Alla", allPrices: "Alla",
+    category: "Kategori", area: "Område", price: "Pris", sort: "Sortera",
+    popular: "Populärast", priceAsc: "Lägsta pris", priceDesc: "Högsta pris", name: "Namn (A–Ö)",
+    p1: "≤ 500 kr", p2: "500–1 500 kr", p3: "1 500+ kr",
+    from: "Från", showing: (a: number, b: number, t: number) => `Visar ${a}–${b} av ${t}`,
+    search: "Sök upplevelse, tagg eller kategori…",
+    empty: "Inga upplevelser matchar dina filter.", reset: "Rensa filter",
+    prev: "Föregående", next: "Nästa",
+  },
+  en: {
+    all: "All", allAreas: "All", allPrices: "All",
+    category: "Category", area: "Area", price: "Price", sort: "Sort",
+    popular: "Most popular", priceAsc: "Lowest price", priceDesc: "Highest price", name: "Name (A–Z)",
+    p1: "≤ 500 kr", p2: "500–1 500 kr", p3: "1 500+ kr",
+    from: "From", showing: (a: number, b: number, t: number) => `Showing ${a}–${b} of ${t}`,
+    search: "Search experience, tag or category…",
+    empty: "No experiences match your filters.", reset: "Clear filters",
+    prev: "Previous", next: "Next",
+  },
+  de: {
+    all: "Alle", allAreas: "Alle", allPrices: "Alle",
+    category: "Kategorie", area: "Gebiet", price: "Preis", sort: "Sortieren",
+    popular: "Beliebteste", priceAsc: "Niedrigster Preis", priceDesc: "Höchster Preis", name: "Name (A–Z)",
+    p1: "≤ 500 kr", p2: "500–1 500 kr", p3: "1 500+ kr",
+    from: "Ab", showing: (a: number, b: number, t: number) => `Zeige ${a}–${b} von ${t}`,
+    search: "Erlebnis, Tag oder Kategorie suchen…",
+    empty: "Keine Erlebnisse entsprechen Ihren Filtern.", reset: "Filter zurücksetzen",
+    prev: "Vorherige", next: "Nächste",
+  },
+};
 
 interface Props {
   experiences: Experience[];
@@ -21,6 +55,21 @@ export default function UpplevelserList({ experiences }: Props) {
   const [sort, setSort] = useState<SortKey>("popular");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
+  const [lang, setLang] = useState<Lang>("sv");
+
+  useEffect(() => {
+    const readLang = () => {
+      try {
+        const saved = localStorage.getItem("dm-lang") as Lang;
+        if (saved && ["sv","en","de"].includes(saved)) setLang(saved);
+      } catch {}
+    };
+    readLang();
+    window.addEventListener("storage", readLang);
+    // Also poll briefly for same-tab changes from SiteHeader
+    const interval = setInterval(readLang, 300);
+    return () => { window.removeEventListener("storage", readLang); clearInterval(interval); };
+  }, []);
 
   const filtered = useMemo(() => {
     let list = experiences;
@@ -62,16 +111,22 @@ export default function UpplevelserList({ experiences }: Props) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const t = T[lang];
+
   return (
     <div className="upp-page">
       <header className="upp-header">
         <div className="upp-header-inner">
           <p className="upp-eyebrow">Upplevelser i Malmö och Skåne</p>
           <h1 className="upp-title">
-            Hitta <em>din nästa</em> upplevelse
+            {lang === "sv" ? <>Hitta <em>din nästa</em> upplevelse</> :
+             lang === "de" ? <>Finde <em>dein nächstes</em> Erlebnis</> :
+             <>Find <em>your next</em> experience</>}
           </h1>
           <p className="upp-sub">
-            {experiences.length} upplevelser — från ölprovning och spa till racing och luftballong.
+            {lang === "sv" ? `${experiences.length} upplevelser — från ölprovning och spa till racing och luftballong.` :
+             lang === "de" ? `${experiences.length} Erlebnisse — von Bierverkostung und Spa bis Racing und Heißluftballon.` :
+             `${experiences.length} experiences — from beer tasting and spa to racing and hot air balloon.`}
           </p>
           <div className="upp-search">
             <svg width="16" height="16" viewBox="0 0 16 16" className="upp-search-icon" aria-hidden="true">
@@ -80,10 +135,10 @@ export default function UpplevelserList({ experiences }: Props) {
             </svg>
             <input
               type="search"
-              placeholder="Sök upplevelse, tagg eller kategori…"
+              placeholder={t.search}
               value={query}
               onChange={(e) => { setQuery(e.target.value); resetPage(); }}
-              aria-label="Sök upplevelser"
+              aria-label={t.search}
             />
           </div>
         </div>
@@ -91,9 +146,9 @@ export default function UpplevelserList({ experiences }: Props) {
 
       <section className="upp-filters" aria-label="Filter">
         <div className="upp-filter-group">
-          <span className="upp-filter-label">Kategori</span>
+          <span className="upp-filter-label">{t.category}</span>
           <div className="upp-chips">
-            <button className={`upp-chip${category === "all" ? " active" : ""}`} onClick={() => setCategory("all")}>Alla</button>
+            <button className={`upp-chip${category === "all" ? " active" : ""}`} onClick={() => setCategory("all")}>{t.all}</button>
             {CATEGORIES.map((c) => (
               <button key={c} className={`upp-chip${category === c ? " active" : ""}`} onClick={() => setCategory(c)}>{c}</button>
             ))}
@@ -101,9 +156,9 @@ export default function UpplevelserList({ experiences }: Props) {
         </div>
 
         <div className="upp-filter-group">
-          <span className="upp-filter-label">Område</span>
+          <span className="upp-filter-label">{t.area}</span>
           <div className="upp-chips">
-            <button className={`upp-chip${region === "all" ? " active" : ""}`} onClick={() => setRegion("all")}>Alla</button>
+            <button className={`upp-chip${region === "all" ? " active" : ""}`} onClick={() => setRegion("all")}>{t.allAreas}</button>
             {REGIONS.map((r) => (
               <button key={r} className={`upp-chip${region === r ? " active" : ""}`} onClick={() => setRegion(r)}>{r}</button>
             ))}
@@ -111,34 +166,34 @@ export default function UpplevelserList({ experiences }: Props) {
         </div>
 
         <div className="upp-filter-group">
-          <span className="upp-filter-label">Pris</span>
+          <span className="upp-filter-label">{t.price}</span>
           <div className="upp-chips">
-            {([["all","Alla"],["0-500","≤ 500 kr"],["500-1500","500–1 500 kr"],["1500+","1 500+ kr"]] as [PriceBucket,string][]).map(([key,label]) => (
+            {([["all", t.allPrices],["0-500", t.p1],["500-1500", t.p2],["1500+", t.p3]] as [PriceBucket,string][]).map(([key,label]) => (
               <button key={key} className={`upp-chip${price === key ? " active" : ""}`} onClick={() => setPrice(key)}>{label}</button>
             ))}
           </div>
         </div>
 
         <div className="upp-filter-group upp-sort">
-          <span className="upp-filter-label">Sortera</span>
-          <select className="upp-select" value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label="Sortering">
-            <option value="popular">Populärast</option>
-            <option value="price-asc">Lägsta pris</option>
-            <option value="price-desc">Högsta pris</option>
-            <option value="name">Namn (A–Ö)</option>
+          <span className="upp-filter-label">{t.sort}</span>
+          <select className="upp-select" value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label={t.sort}>
+            <option value="popular">{t.popular}</option>
+            <option value="price-asc">{t.priceAsc}</option>
+            <option value="price-desc">{t.priceDesc}</option>
+            <option value="name">{t.name}</option>
           </select>
         </div>
       </section>
 
       <div className="upp-count-row">
-        <p className="upp-count">Visar {(page - 1) * PER_PAGE + 1}–{Math.min(page * PER_PAGE, filtered.length)} av {filtered.length}</p>
+        <p className="upp-count">{t.showing((page - 1) * PER_PAGE + 1, Math.min(page * PER_PAGE, filtered.length), filtered.length)}</p>
       </div>
 
       {filtered.length === 0 ? (
         <div className="upp-empty">
-          <p>Inga upplevelser matchar dina filter.</p>
+          <p>{t.empty}</p>
           <button className="upp-reset" onClick={() => { setCategory("all"); setRegion("all"); setPrice("all"); setQuery(""); }}>
-            Rensa filter
+            {t.reset}
           </button>
         </div>
       ) : (
