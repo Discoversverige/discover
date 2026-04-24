@@ -680,10 +680,8 @@ export default function DiscoverApp({ initialView }: { initialView?: "home" | "m
   const navigate = (path: string) => { window.location.href = path; };
 
   const handleSearch = (term: string, catKey: string) => {
-    setSearchTerm(term);
-    setRouteKey(ROUTES[catKey as RouteKey] ? (catKey as RouteKey) : "default");
-    setView("map");
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    const key = ROUTES[catKey as RouteKey] ? catKey : "default";
+    window.location.href = `/rutt/${key}`;
   };
 
   if (!mounted) return null;

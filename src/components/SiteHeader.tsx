@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 
 const HIDDEN_ON = ["/", "/ta-dig-hit", "/om-oss", "/login"];
+const HIDDEN_PREFIX = ["/rutt/"];
 
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,6 +12,7 @@ export default function SiteHeader() {
   const pathname = usePathname();
 
   if (HIDDEN_ON.includes(pathname)) return null;
+  if (HIDDEN_PREFIX.some(p => pathname.startsWith(p))) return null;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
