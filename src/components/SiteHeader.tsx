@@ -64,7 +64,10 @@ export default function SiteHeader() {
 
   const changeLang = (l: Lang) => {
     setLang(l);
-    try { localStorage.setItem("dm-lang", l); } catch {}
+    try {
+      localStorage.setItem("dm-lang", l);
+      window.dispatchEvent(new CustomEvent("dm-lang-change", { detail: l }));
+    } catch {}
   };
 
   if (HIDDEN_ON.includes(pathname)) return null;

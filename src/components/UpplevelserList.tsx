@@ -64,11 +64,17 @@ export default function UpplevelserList({ experiences }: Props) {
         if (saved && ["sv","en","de"].includes(saved)) setLang(saved);
       } catch {}
     };
+    const onCustom = (e: Event) => {
+      const l = (e as CustomEvent).detail as Lang;
+      if (["sv","en","de"].includes(l)) setLang(l);
+    };
     readLang();
     window.addEventListener("storage", readLang);
-    // Also poll briefly for same-tab changes from SiteHeader
-    const interval = setInterval(readLang, 300);
-    return () => { window.removeEventListener("storage", readLang); clearInterval(interval); };
+    window.addEventListener("dm-lang-change", onCustom);
+    return () => {
+      window.removeEventListener("storage", readLang);
+      window.removeEventListener("dm-lang-change", onCustom);
+    };
   }, []);
 
   const filtered = useMemo(() => {
