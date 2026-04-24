@@ -567,29 +567,85 @@ const ExpMap = ({ active }: { active: number | null }) => {
   return <div ref={containerRef} style={{ width: "100%", height: "100%" }} />;
 };
 
+const CATS = ["Alla", "Mat & dryck", "Äventyr", "Sport", "Välmående", "Kreativt"] as const;
+type CatFilter = typeof CATS[number];
+
 const ExperiencesView = ({ lang }: { lang: Lang }) => {
   const [hovered, setHovered] = useState<number | null>(null);
+  const [activeCat, setActiveCat] = useState<CatFilter>("Alla");
+  const [sort, setSort] = useState<"popular" | "price-asc" | "price-desc">("popular");
+  const [sortOpen, setSortOpen] = useState(false);
+
+  const filtered = EXPERIENCES.filter(e => activeCat === "Alla" || e.cat === activeCat)
+    .slice()
+    .sort((a, b) => {
+      if (sort === "price-asc") return parseInt(a.price) - parseInt(b.price);
+      if (sort === "price-desc") return parseInt(b.price) - parseInt(a.price);
+      return (b.rating ?? 0) - (a.rating ?? 0);
+    });
+
+  const sortLabel = sort === "popular" ? "Popularitet" : sort === "price-asc" ? "Lägst pris" : "Högst pris";
+
   return (
     <div className="exp-layout">
       <div className="exp-left">
-        <div className="exp-header">
-          <h1 className="exp-title">Över {EXPERIENCES.length} upplevelser i Malmö</h1>
-          <p className="exp-sub">Hur vi sorterar resultat</p>
+        {/* Hero header */}
+        <div className="exp-page-hero">
+          <p className="exp-page-eyebrow">Upplevelser i Malmö och Skåne</p>
+          <h1 className="exp-page-title">Hitta <em>din nästa</em> upplevelse</h1>
+          <p className="exp-page-sub">{EXPERIENCES.length} upplevelser — från ölprovning och spa till racing och luftballong.</p>
         </div>
+
+        {/* Filter + sort bar */}
+        <div className="exp-bar">
+          <div className="exp-cats">
+            {CATS.map(c => (
+              <button key={c} className={`exp-cat-chip${activeCat === c ? " active" : ""}`} onClick={() => setActiveCat(c)}>
+                {c}
+              </button>
+            ))}
+          </div>
+          <div className="exp-sort-wrap">
+            <button className="exp-sort-btn" onClick={() => setSortOpen(o => !o)}>
+              <svg width="13" height="13" viewBox="0 0 13 13" aria-hidden="true">
+                <path d="M1 2.5h11M3 6.5h7M5 10.5h3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+              </svg>
+              {sortLabel}
+              <svg width="10" height="10" viewBox="0 0 10 10" style={{ transform: sortOpen ? "rotate(180deg)" : undefined, transition: "transform 0.2s" }}>
+                <path d="M2 3.5l3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            {sortOpen && (
+              <div className="exp-sort-dropdown">
+                {([["popular","Popularitet"],["price-asc","Lägst pris"],["price-desc","Högst pris"]] as const).map(([k, lbl]) => (
+                  <button key={k} className={`exp-sort-opt${sort === k ? " active" : ""}`} onClick={() => { setSort(k); setSortOpen(false); }}>
+                    {lbl}
+                    {sort === k && <svg width="11" height="11" viewBox="0 0 11 11"><path d="M2 5.5l2.5 2.5 4.5-5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+
+        <p className="exp-count-label">{filtered.length} upplevelser</p>
+
+        {/* Cards */}
         <div className="exp-grid">
-          {EXPERIENCES.map((e, i) => (
-            <div key={i} className="exp-card" onMouseEnter={() => setHovered(i)} onMouseLeave={() => setHovered(null)}>
+          {filtered.map((e, i) => (
+            <div key={i} className="exp-card" onMouseEnter={() => setHovered(EXPERIENCES.indexOf(e))} onMouseLeave={() => setHovered(null)}>
               <div className="exp-img-wrap">
-                <img src={e.img} alt={e.title} className="exp-img" />
+                <img src={e.img} alt={e.title} className="exp-img" loading="lazy" />
+                <span className="exp-cat-badge-img">{e.cat}</span>
               </div>
               <div className="exp-info">
                 <div className="exp-meta-row">
-                  <span className="exp-cat-tag">{e.cat}</span>
-                  {e.rating && <span className="exp-rating">★ {e.rating} <span className="exp-reviews">({e.reviews})</span></span>}
+                  {e.rating
+                    ? <span className="exp-rating">★ {e.rating.toFixed(2)} <span className="exp-reviews">({e.reviews} recensioner)</span></span>
+                    : <span className="exp-reviews">{e.reviews} recensioner</span>}
                 </div>
                 <h3 className="exp-name">{e.title}</h3>
-                <p className="exp-duration-line">{(e as any).duration ?? e.cat}</p>
-                <p className="exp-price">{e.price === "Gratis" ? <strong>Gratis</strong> : <><span style={{textDecoration:"none"}}>Totalt </span><strong>{e.price}</strong></>}</p>
+                <p className="exp-price">{e.price === "Gratis" ? <strong>Gratis</strong> : <><span className="exp-price-from">från </span><strong>{e.price}</strong></>}</p>
               </div>
             </div>
           ))}
