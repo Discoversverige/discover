@@ -444,19 +444,19 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .upp-search input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px oklch(0.52 0.12 155 / 0.08); }
 
 .upp-filters {
-  display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 20px 0;
+  display: flex; flex-wrap: wrap; gap: 20px 32px; padding: 20px 0;
   border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); margin-bottom: 24px;
 }
-.upp-filter-group { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; }
+.upp-filter-group { display: flex; flex-direction: column; gap: 8px; }
 .upp-filter-label { font-family: var(--mono); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--mute); }
-.upp-chips { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.upp-chips { display: flex; flex-wrap: wrap; gap: 6px; }
 .upp-chip {
   padding: 7px 13px; border-radius: 999px; font-size: 13px; color: var(--ink-2);
   border: 1px solid var(--line-soft); background: #fff; transition: all 0.18s; white-space: nowrap; cursor: pointer;
 }
 .upp-chip:hover { border-color: var(--ink); }
 .upp-chip.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.upp-sort { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.upp-sort { margin-left: auto; }
 .upp-select {
   padding: 9px 14px; background: #fff; border: 1px solid var(--line-soft); border-radius: var(--r-sm);
   font-family: var(--sans); font-size: 13px; color: var(--ink); cursor: pointer; outline: none;
