@@ -44,6 +44,23 @@ const T = {
   },
 };
 
+const CAT_LABELS: Record<string, Record<Lang, string>> = {
+  "Kreativt":   { sv: "Kreativt",   en: "Creative",   de: "Kreativ" },
+  "Kultur":     { sv: "Kultur",     en: "Culture",    de: "Kultur" },
+  "Mat & dryck":{ sv: "Mat & dryck",en: "Food & drink",de: "Essen & Trinken" },
+  "Sightseeing":{ sv: "Sightseeing",en: "Sightseeing", de: "Sightseeing" },
+  "Sport":      { sv: "Sport",      en: "Sport",      de: "Sport" },
+  "Välmående":  { sv: "Välmående",  en: "Wellness",   de: "Wellness" },
+  "Äventyr":    { sv: "Äventyr",    en: "Adventure",  de: "Abenteuer" },
+  "Övrigt":     { sv: "Övrigt",     en: "Other",      de: "Sonstiges" },
+};
+
+const REG_LABELS: Record<string, Record<Lang, string>> = {
+  "Malmö":   { sv: "Malmö",   en: "Malmö",   de: "Malmö" },
+  "Skåne":   { sv: "Skåne",   en: "Skåne",   de: "Schonen" },
+  "Sverige": { sv: "Sverige", en: "Sweden",  de: "Schweden" },
+};
+
 interface Props {
   experiences: Experience[];
 }
@@ -156,7 +173,7 @@ export default function UpplevelserList({ experiences }: Props) {
           <div className="upp-chips">
             <button className={`upp-chip${category === "all" ? " active" : ""}`} onClick={() => setCategory("all")}>{t.all}</button>
             {CATEGORIES.map((c) => (
-              <button key={c} className={`upp-chip${category === c ? " active" : ""}`} onClick={() => setCategory(c)}>{c}</button>
+              <button key={c} className={`upp-chip${category === c ? " active" : ""}`} onClick={() => setCategory(c)}>{CAT_LABELS[c]?.[lang] ?? c}</button>
             ))}
           </div>
         </div>
@@ -166,7 +183,7 @@ export default function UpplevelserList({ experiences }: Props) {
           <div className="upp-chips">
             <button className={`upp-chip${region === "all" ? " active" : ""}`} onClick={() => setRegion("all")}>{t.allAreas}</button>
             {REGIONS.map((r) => (
-              <button key={r} className={`upp-chip${region === r ? " active" : ""}`} onClick={() => setRegion(r)}>{r}</button>
+              <button key={r} className={`upp-chip${region === r ? " active" : ""}`} onClick={() => setRegion(r)}>{REG_LABELS[r]?.[lang] ?? r}</button>
             ))}
           </div>
         </div>
@@ -220,8 +237,8 @@ export default function UpplevelserList({ experiences }: Props) {
                 </div>
                 <div className="upp-card-body">
                   <div className="upp-card-meta">
-                    <span className="upp-card-cat">{e.category}</span>
-                    <span className="upp-card-region">{e.region}</span>
+                    <span className="upp-card-cat">{CAT_LABELS[e.category]?.[lang] ?? e.category}</span>
+                    <span className="upp-card-region">{REG_LABELS[e.region]?.[lang] ?? e.region}</span>
                   </div>
                   <h3 className="upp-card-title">{e.title}</h3>
                   {e.duration && <p className="upp-card-duration">⏱ {e.duration}</p>}
