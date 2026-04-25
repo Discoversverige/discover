@@ -53,6 +53,7 @@ export interface Experience {
 import { EXPERIENCES_GENERATED } from "./experiences.generated";
 import { GYG_EXPERIENCES } from "./gyg-experiences.generated";
 import { LIVEIT_EXPERIENCES } from "./liveit-experiences.generated";
+import { VIATOR_EXPERIENCES } from "./viator-experiences.generated";
 
 const HAPPYDAY_EXPERIENCES: Experience[] = EXPERIENCES_GENERATED.map((e) => ({
   ...e,
@@ -63,6 +64,7 @@ export const EXPERIENCES: Experience[] = [
   ...HAPPYDAY_EXPERIENCES,
   ...GYG_EXPERIENCES,
   ...LIVEIT_EXPERIENCES,
+  ...(VIATOR_EXPERIENCES as Experience[]),
 ];
 
 export const CATEGORIES: string[] = Array.from(

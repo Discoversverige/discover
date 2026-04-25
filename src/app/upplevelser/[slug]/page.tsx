@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EXPERIENCES, formatPrice, getExperienceBySlug } from "@/lib/experiences";
+import { VIATOR_EXPERIENCES } from "@/lib/viator-experiences.generated";
+import { getViatorAffiliateUrl } from "@/lib/viator-affiliate-overrides";
 import ExperienceGallery from "@/components/ExperienceGallery";
 
 export function generateStaticParams() {
@@ -16,9 +18,14 @@ export async function generateMetadata({
   const { slug } = await params;
   const exp = getExperienceBySlug(slug);
   if (!exp) return { title: "Upplevelse — Discover Malmö" };
+  // Viators T&C: sidan får indexeras (text), men deras bilder får inte indexeras.
+  const robots = exp.source === "viator"
+    ? { index: true, follow: true, noimageindex: true }
+    : undefined;
   return {
     title: `${exp.title} | Discover Malmö`,
     description: exp.shortDescription || `Upplevelse i ${exp.region} — ${exp.category}.`,
+    robots,
     openGraph: {
       title: exp.title,
       description: exp.shortDescription,
@@ -41,6 +48,13 @@ export default async function UpplevelseDetailPage({
   ).slice(0, 4);
 
   const hasDiscount = exp.priceCompareAt && exp.priceCompareAt > exp.priceFrom;
+
+  // Viator-produkter använder affiliate-URL via override-helper
+  const viatorRecord = exp.source === "viator"
+    ? VIATOR_EXPERIENCES.find((v) => v.slug === exp.slug)
+    : undefined;
+  const ctaUrl = viatorRecord ? getViatorAffiliateUrl(viatorRecord) : exp.sourceUrl;
+  const ctaLabel = exp.source === "viator" ? "Boka via Viator →" : "Se mer info →";
 
   return (
     <main className="exp-detail">
@@ -85,12 +99,12 @@ export default async function UpplevelseDetailPage({
               </div>
             )}
             <a
-              href={exp.sourceUrl}
+              href={ctaUrl}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer sponsored"
               className="exp-info-cta"
             >
-              Se mer info →
+              {ctaLabel}
             </a>
           </div>
         </div>
