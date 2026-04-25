@@ -33,22 +33,14 @@ export default function TestPage() {
         </p>
       </section>
 
-      {/* Travelpayouts widget placeholder */}
+      {/* Search widget */}
+      <section style={{ maxWidth: 900, margin: "0 auto 48px", padding: "0 24px" }}>
+        <div id="tpwl-search" />
+      </section>
+
+      {/* Tickets widget */}
       <section style={{ maxWidth: 900, margin: "0 auto 80px", padding: "0 24px" }}>
-        <div id="tp-widget" style={{
-          background: "var(--paper)",
-          border: "1px solid var(--line-soft)",
-          borderRadius: "var(--r-xl)",
-          padding: "40px 32px",
-          minHeight: 200,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          color: "var(--mute)",
-          fontSize: 14,
-        }}>
-          Laddar flygpriser...
-        </div>
+        <div id="tpwl-tickets" />
       </section>
 
       {/* USPs */}
