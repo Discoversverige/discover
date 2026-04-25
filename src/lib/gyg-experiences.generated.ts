@@ -470,7 +470,7 @@ export const GYG_EXPERIENCES: Experience[] = [
     title_de: "Malmö: Geführte Tour mit lokalen Kostproben",
     shortDescription: "Utforska Malmö i \"5D\" på en guidad rundvandring med en lokal guide.",
     shortDescription_en: "Explore Malmö in \"5D\" on a guided walking tour — learn about history, culture, and customs while tasting and smelling Swedish specialities.",
-    shortDescription_de: "Erkunde Malmö in „5D" auf einem geführten Rundgang – erfahre mehr über Geschichte, Kultur und Bräuche und koste dabei schwedische Spezialitäten.",
+    shortDescription_de: "Erkunde Malmö in \"5D\" auf einem geführten Rundgang – erfahre mehr über Geschichte, Kultur und Bräuche und koste dabei schwedische Spezialitäten.",
     descriptionHtml: "<p>Utforska Malmö i \"5D\" på en guidad rundvandring med en lokal guide. Lär dig om stadens historia, kultur och seder samt smaka och lukta på några svenska specialiteter.</p>",
     category: "Kultur",
     tags: ["Malmö", "GetYourGuide"],
