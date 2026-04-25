@@ -20,7 +20,11 @@ export interface Experience {
   id: string;
   slug: string;
   title: string;
+  title_en?: string;
+  title_de?: string;
   shortDescription: string;
+  shortDescription_en?: string;
+  shortDescription_de?: string;
   descriptionHtml: string;
   category: string;
   tags: string[];

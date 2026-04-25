@@ -110,8 +110,8 @@ export default function UpplevelserList({ experiences }: Props) {
       const q = query.toLowerCase();
       list = list.filter(
         (e) =>
-          e.title.toLowerCase().includes(q) ||
-          e.shortDescription.toLowerCase().includes(q) ||
+          ((lang === "en" ? e.title_en : lang === "de" ? e.title_de : undefined) ?? e.title).toLowerCase().includes(q) ||
+          ((lang === "en" ? e.shortDescription_en : lang === "de" ? e.shortDescription_de : undefined) ?? e.shortDescription).toLowerCase().includes(q) ||
           e.tags.some((t) => t.toLowerCase().includes(q)),
       );
     }
@@ -240,7 +240,7 @@ export default function UpplevelserList({ experiences }: Props) {
                     <span className="upp-card-cat">{CAT_LABELS[e.category]?.[lang] ?? e.category}</span>
                     <span className="upp-card-region">{REG_LABELS[e.region]?.[lang] ?? e.region}</span>
                   </div>
-                  <h3 className="upp-card-title">{e.title}</h3>
+                  <h3 className="upp-card-title">{(lang === "en" ? e.title_en : lang === "de" ? e.title_de : undefined) ?? e.title}</h3>
                   {e.duration && <p className="upp-card-duration">⏱ {e.duration}</p>}
                   <div className="upp-card-price-row">
                     <span className="upp-card-price">Från {formatPrice(e.priceFrom)}</span>
