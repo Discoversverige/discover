@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { EXPERIENCES, formatPrice, getExperienceBySlug } from "@/lib/experiences";
 import { VIATOR_EXPERIENCES } from "@/lib/viator-experiences.generated";
-import { getViatorAffiliateUrl } from "@/lib/viator-affiliate-overrides";
 import ExperienceGallery from "@/components/ExperienceGallery";
 
 export function generateStaticParams() {
@@ -49,11 +48,16 @@ export default async function UpplevelseDetailPage({
 
   const hasDiscount = exp.priceCompareAt && exp.priceCompareAt > exp.priceFrom;
 
-  // Viator-produkter använder affiliate-URL via override-helper
+  // Viator-produkter går via vår egen redirect /go/viator/{code}.
+  // Den sätter first-party cookie (GDPR-essential, oavsett Viators
+  // cookie-banner) och redirectar med färska affiliate-params.
+  // getViatorAffiliateUrl finns kvar som referens men anropas i route handler.
   const viatorRecord = exp.source === "viator"
     ? VIATOR_EXPERIENCES.find((v) => v.slug === exp.slug)
     : undefined;
-  const ctaUrl = viatorRecord ? getViatorAffiliateUrl(viatorRecord) : exp.sourceUrl;
+  const ctaUrl = viatorRecord
+    ? `/go/viator/${viatorRecord.productCode}`
+    : exp.sourceUrl;
   const ctaLabel = exp.source === "viator" ? "Boka via Viator →" : "Se mer info →";
 
   return (
