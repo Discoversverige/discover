@@ -10,6 +10,7 @@
     "ingest:happyday": "tsx scripts/ingest-happyday.ts",
     "ingest:gyg": "tsx scripts/ingest-gyg.ts",
     "ingest:liveit": "tsx scripts/ingest-liveit.ts",
+    "ingest:viator": "tsx scripts/ingest-viator.ts",
     "translate": "tsx scripts/translate-experiences.ts"
   },
   "dependencies": {

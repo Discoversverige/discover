@@ -14,7 +14,7 @@ export interface FaqEntry {
   answer: string;
 }
 
-export type ExperienceSource = "happy-day" | "getyourguide" | "liveit";
+export type ExperienceSource = "happy-day" | "getyourguide" | "liveit" | "viator";
 
 export interface Experience {
   id: string;

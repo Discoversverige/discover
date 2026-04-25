@@ -43,3 +43,7 @@ next-env.d.ts
 # local tooling
 .claude/
 scripts/.*
+
+# personal/reference docs (not source code)
+affiliate-malmo.*
+*.pdf
