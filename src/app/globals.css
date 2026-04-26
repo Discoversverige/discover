@@ -644,10 +644,18 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
     background: #fff; font-family: var(--sans); font-size: 13px;
     color: var(--ink-2); cursor: pointer;
   }
-  .upp-filters {
-    display: none; gap: 16px;
-  }
+  .upp-filters { display: none; gap: 16px; }
   .upp-filters.mob-open { display: flex; }
+
+  /* En rad per filtergrupp med horisontell scroll */
+  .upp-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+  .upp-chips::-webkit-scrollbar { display: none; }
 }
 
 @media (max-width: 540px) {
