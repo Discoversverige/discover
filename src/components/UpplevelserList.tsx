@@ -147,7 +147,7 @@ export default function UpplevelserList({ experiences }: Props) {
     <div className="upp-page">
       <header className="upp-header">
         <div className="upp-header-inner">
-          <p className="upp-eyebrow">Upplevelser i Malmö och Skåne</p>
+
           <h1 className="upp-title">
             {lang === "sv" ? <>Hitta <em>din nästa</em> upplevelse</> :
              lang === "de" ? <>Finde <em>dein nächstes</em> Erlebnis</> :
