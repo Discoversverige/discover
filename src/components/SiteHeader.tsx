@@ -5,9 +5,6 @@ import { usePathname } from "next/navigation";
 
 type Lang = "sv" | "en" | "de";
 
-const HIDDEN_ON = ["/", "/ta-dig-hit", "/om-oss", "/login"];
-const HIDDEN_PREFIX = ["/rutt/"];
-
 const NAV = {
   sv: { discover: "Upptäck", experiences: "Upplevelser", plan: "Planera", about: "Om oss" },
   en: { discover: "Discover", experiences: "Experiences", plan: "Plan", about: "About" },
@@ -47,17 +44,21 @@ const getInitialLang = (): Lang => {
   return "sv";
 };
 
+/**
+ * Global huvudmeny som renderas på alla sidor från layout.tsx.
+ * Använder samma CSS-klasser som home-sidan (topbar, nav, logo, lang-switch,
+ * hamburger, mobile-menu) så menyn ser identisk ut överallt.
+ *
+ * DiscoverApp har sin egen interna topbar — den ska tas bort så denna är
+ * single source of truth.
+ */
 export default function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [lang, setLang] = useState<Lang>("sv");
   const pathname = usePathname();
 
   useEffect(() => {
     setLang(getInitialLang());
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => { setMenuOpen(false); }, [pathname]);
@@ -70,26 +71,22 @@ export default function SiteHeader() {
     } catch {}
   };
 
-  if (HIDDEN_ON.includes(pathname)) return null;
-  if (HIDDEN_PREFIX.some(p => pathname.startsWith(p))) return null;
-
-  const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
   const t = NAV[lang];
 
   return (
     <>
-      <header className={`site-topbar${scrolled ? " scrolled" : ""}`}>
-        <a href="/" className="site-logo" aria-label="Discover Malmö hem">
+      <header className="topbar">
+        <a href="/" className="logo" aria-label="Discover Malmö hem">
           <img src="/logo-transparent.png" alt="Discover Malmö" className="logo-img-brand" />
         </a>
-
-        <nav className="site-nav" aria-label="Huvudmeny">
-          <a href="/" className={pathname === "/" ? "site-nav-active" : ""}>{t.discover}</a>
-          <a href="/upplevelser" className={isActive("/upplevelser") ? "site-nav-active" : ""}>{t.experiences}</a>
-          <a href="/ta-dig-hit" className={isActive("/ta-dig-hit") ? "site-nav-active" : ""}>{t.plan}</a>
-          <a href="/om-oss" className={isActive("/om-oss") ? "site-nav-active" : ""}>{t.about}</a>
+        <nav className="nav" aria-label="Huvudmeny">
+          <a href="/" className={isActive("/") ? "active" : ""}>{t.discover}</a>
+          <a href="/upplevelser" className={isActive("/upplevelser") ? "active" : ""}>{t.experiences}</a>
+          <a href="/ta-dig-hit" className={isActive("/ta-dig-hit") ? "active" : ""}>{t.plan}</a>
+          <a href="/om-oss" className={isActive("/om-oss") ? "active" : ""}>{t.about}</a>
         </nav>
-
         <div className="lang-switch" role="tablist">
           {(["sv","en","de"] as Lang[]).map(c => {
             const Flag = FLAGS[c];
@@ -101,9 +98,8 @@ export default function SiteHeader() {
             );
           })}
         </div>
-
         <button
-          className={`site-hamburger${menuOpen ? " open" : ""}`}
+          className="hamburger"
           onClick={() => setMenuOpen(o => !o)}
           aria-label={menuOpen ? "Stäng meny" : "Öppna meny"}
           aria-expanded={menuOpen}
@@ -113,7 +109,7 @@ export default function SiteHeader() {
       </header>
 
       {menuOpen && (
-        <div className="site-mobile-menu" role="dialog" aria-label="Mobilmeny">
+        <div className="mobile-menu" role="dialog" aria-label="Mobilmeny">
           <a href="/" onClick={() => setMenuOpen(false)}>{t.discover}</a>
           <a href="/upplevelser" onClick={() => setMenuOpen(false)}>{t.experiences}</a>
           <a href="/ta-dig-hit" onClick={() => setMenuOpen(false)}>{t.plan}</a>

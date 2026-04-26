@@ -690,28 +690,7 @@ export default function DiscoverApp({ initialView }: { initialView?: "home" | "m
 
   return (
     <div className={`app view-${view}`}>
-      <header className="topbar">
-        <Logo onClick={() => navigate("/")} />
-        <nav className="nav">
-          <a href="/">{t.nav.discover}</a>
-          <a href="/upplevelser" className={view === "experiences" ? "active" : ""}>{t.nav.experiences}</a>
-          <a href="/ta-dig-hit" className={view === "travel" ? "active" : ""}>{t.nav.plan}</a>
-          <a href="/om-oss" className={view === "about" ? "active" : ""}>{t.nav.about}</a>
-        </nav>
-        <LangSwitcher lang={lang} setLang={setLang} />
-        <button className="hamburger" onClick={() => setMenuOpen(o => !o)} aria-label="Meny">
-          <span /><span /><span />
-        </button>
-      </header>
-      {menuOpen && (
-        <div className="mobile-menu">
-          <a href="/" onClick={() => setMenuOpen(false)}>{t.nav.discover}</a>
-          <a href="/upplevelser" onClick={() => setMenuOpen(false)}>{t.nav.experiences}</a>
-          <a href="/ta-dig-hit" onClick={() => setMenuOpen(false)}>{t.nav.plan}</a>
-          <a href="/om-oss" onClick={() => setMenuOpen(false)}>{t.nav.about}</a>
-          <div className="mobile-menu-lang"><LangSwitcher lang={lang} setLang={(l) => { setLang(l); setMenuOpen(false); }} /></div>
-        </div>
-      )}
+      {/* Topbar + mobile-menu renderas globalt via SiteHeader i layout.tsx */}
 
       {view === "home" && <HomeView lang={lang} onSearch={handleSearch} onContact={() => navigate("/om-oss")} />}
       {view === "map" && <MapView lang={lang} routeKey={routeKey} searchTerm={searchTerm} onBack={() => navigate("/")} />}
