@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 type Lang = "sv" | "en" | "de";
 
 const NAV = {
-  sv: { discover: "Upptäck", experiences: "Upplevelser", plan: "Planera", about: "Om oss" },
-  en: { discover: "Discover", experiences: "Experiences", plan: "Plan", about: "About" },
-  de: { discover: "Entdecken", experiences: "Erlebnisse", plan: "Planen", about: "Über uns" },
+  sv: { discover: "Upptäck", experiences: "Upplevelser", plan: "Ta dig hit", about: "Om oss" },
+  en: { discover: "Discover", experiences: "Experiences", plan: "Get here", about: "About" },
+  de: { discover: "Entdecken", experiences: "Erlebnisse", plan: "Anfahrt", about: "Über uns" },
 };
 
 const FlagSV = () => (
