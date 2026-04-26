@@ -347,15 +347,21 @@ async function main() {
       city,
     };
 
-    // Download images
+    // Download images — uppgradera till full-storlek (/99.jpg = ~128 KB)
+    // GYG ld+json ger thumbnails (/53.jpg ~12 KB), vi byter suffix till /99
     const imgDir = path.join(OUT_IMG_DIR, slug);
     fs.mkdirSync(imgDir, { recursive: true });
     const localPaths: string[] = [];
     for (let j = 0; j < act.imageUrls.length; j++) {
-      const src = act.imageUrls[j];
+      const rawSrc = act.imageUrls[j];
+      // Byt /XX.jpg suffix till /99.jpg för högupplösning
+      const src = rawSrc.replace(/\/\d+\.(jpg|jpeg|png|webp)$/i, "/99.jpg");
       const ext = extFromUrl(src);
       const dest = path.join(imgDir, `${j + 1}${ext}`);
-      if (fs.existsSync(dest) && fs.statSync(dest).size > 0) {
+      // Ladda om om filen är < 50 KB (gammal thumbnail från tidigare körning)
+      const exists = fs.existsSync(dest);
+      const size = exists ? fs.statSync(dest).size : 0;
+      if (exists && size > 50_000) {
         localPaths.push(`/experiences/${slug}/${j + 1}${ext}`);
         continue;
       }
