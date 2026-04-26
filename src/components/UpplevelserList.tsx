@@ -211,12 +211,11 @@ export default function UpplevelserList({ experiences }: Props) {
 
         <div className="upp-filter-group upp-sort">
           <span className="upp-filter-label">{t.sort}</span>
-          <select className="upp-select" value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label={t.sort}>
-            <option value="popular">{t.popular}</option>
-            <option value="price-asc">{t.priceAsc}</option>
-            <option value="price-desc">{t.priceDesc}</option>
-            <option value="name">{t.name}</option>
-          </select>
+          <div className="upp-chips">
+            {([["popular", t.popular], ["price-asc", t.priceAsc], ["price-desc", t.priceDesc], ["name", t.name]] as [SortKey, string][]).map(([key, label]) => (
+              <button key={key} className={`upp-chip${sort === key ? " active" : ""}`} onClick={() => setSort(key)}>{label}</button>
+            ))}
+          </div>
         </div>
       </section>
 
