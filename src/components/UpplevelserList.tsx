@@ -289,13 +289,17 @@ export default function UpplevelserList({ experiences }: Props) {
 
         <div className="upp-filter-group upp-sort">
           <span className="upp-filter-label">{t.sort}</span>
-          <div className="upp-chips">
-            {([["popular", t.popular], ["price-asc", t.priceAsc], ["price-desc", t.priceDesc], ["name", t.name]] as [SortKey, string][]).map(([key, label]) => (
-              <button key={key} className={`upp-chip${sort === key ? " active" : ""}`} onClick={() => setSort(key)}>{label}</button>
-            ))}
+          <div className="upp-sort-pill">
+            <span>{T[lang][sort as keyof typeof T["sv"]] as string}</span>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label={t.sort}>
+              <option value="popular">{t.popular}</option>
+              <option value="price-asc">{t.priceAsc}</option>
+              <option value="price-desc">{t.priceDesc}</option>
+              <option value="name">{t.name}</option>
+            </select>
           </div>
         </div>
-        {/* Mobil: sortera visas i mob-bar istället, dölj här */}
       </section>
 
       <div className="upp-count-row">
