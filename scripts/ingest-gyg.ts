@@ -25,6 +25,25 @@ const OUT_DATA = path.resolve("src/lib/gyg-experiences.generated.ts");
 const OUT_IMG_DIR = path.resolve("public/experiences");
 const MAX_RETRIES = 2;
 const REQUEST_DELAY_MS = 350;
+const GYG_PARTNER_ID = "WOULPPB";
+
+/**
+ * Konverterar canonical GYG-URL till affiliate-format.
+ * Ex: getyourguide.com/sv-se/malmo-l2647/foo-t12345/
+ *  -> getyourguide.se/malmo-l2647/foo-t12345/?partner_id=WOULPPB&utm_medium=online_publisher
+ */
+function toAffiliateUrl(canonicalUrl: string): string {
+  // Ta bort ev. existerande query-string
+  const baseUrl = canonicalUrl.split("?")[0];
+  // Säkerställ trailing slash
+  const withSlash = baseUrl.endsWith("/") ? baseUrl : baseUrl + "/";
+  // Byt domän + locale
+  const affiliate = withSlash.replace(
+    /https?:\/\/www\.getyourguide\.com\/sv-se\//,
+    "https://www.getyourguide.se/",
+  );
+  return `${affiliate}?partner_id=${GYG_PARTNER_ID}&utm_medium=online_publisher`;
+}
 
 const HEADERS = {
   "User-Agent":
@@ -138,12 +157,14 @@ interface ExtractedActivity {
 
 function extractActivityUrls(listingHtml: string): string[] {
   const urls = new Set<string>();
-  const re = /https:\/\/www\.getyourguide\.com\/sv-se\/[a-z0-9\-]+\-l\d+\/[a-z0-9\-]+\-t\d+/g;
-  const matches = listingHtml.matchAll(re);
-  for (const m of matches) {
-    let url = m[0];
-    if (url.endsWith("/")) url = url.slice(0, -1);
-    urls.add(url);
+  // Matchar både absoluta (https://www.getyourguide.com/sv-se/...) och relativa (/sv-se/...) URLs
+  const reAbs = /https?:\/\/www\.getyourguide\.com(\/sv-se\/[a-z0-9\-]+\-l\d+\/[a-z0-9\-]+\-t\d+)/g;
+  const rePath = /(?<![a-z0-9\-])(\/sv-se\/[a-z0-9\-]+\-l\d+\/[a-z0-9\-]+\-t\d+)/g;
+  for (const re of [reAbs, rePath]) {
+    for (const m of listingHtml.matchAll(re)) {
+      const path = m[1].endsWith("/") ? m[1].slice(0, -1) : m[1];
+      urls.add(`https://www.getyourguide.com${path}`);
+    }
   }
   return Array.from(urls);
 }
@@ -258,7 +279,7 @@ function serializeExperience(e: ExtractedActivity, imagePaths: string[], region:
 ${gallery}
       ],
     },
-    sourceUrl: ${q(e.sourceUrl)},
+    sourceUrl: ${q(toAffiliateUrl(e.sourceUrl))},
     source: "getyourguide",${e.rating !== undefined ? `\n    rating: ${e.rating.toFixed(2)},\n    reviewCount: ${e.reviewCount ?? 0},` : ""}
   }`;
 }

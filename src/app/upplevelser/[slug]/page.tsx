@@ -48,17 +48,25 @@ export default async function UpplevelseDetailPage({
 
   const hasDiscount = exp.priceCompareAt && exp.priceCompareAt > exp.priceFrom;
 
-  // Viator-produkter går via vår egen redirect /go/viator/{code}.
-  // Den sätter first-party cookie (GDPR-essential, oavsett Viators
-  // cookie-banner) och redirectar med färska affiliate-params.
-  // getViatorAffiliateUrl finns kvar som referens men anropas i route handler.
+  // Affiliate-produkter går via våra egna redirect-endpoints som sätter
+  // first-party cookie (GDPR-essential) och 302:ar med affiliate-params.
   const viatorRecord = exp.source === "viator"
     ? VIATOR_EXPERIENCES.find((v) => v.slug === exp.slug)
     : undefined;
-  const ctaUrl = viatorRecord
-    ? `/go/viator/${viatorRecord.productCode}`
-    : exp.sourceUrl;
-  const ctaLabel = exp.source === "viator" ? "Boka via Viator →" : "Se mer info →";
+
+  let ctaUrl = exp.sourceUrl;
+  let ctaLabel = "Se mer info →";
+  if (viatorRecord) {
+    ctaUrl = `/go/viator/${viatorRecord.productCode}`;
+    ctaLabel = "Boka via Viator →";
+  } else if (exp.source === "getyourguide") {
+    ctaUrl = `/go/gyg/${exp.slug}`;
+    ctaLabel = "Boka via GetYourGuide →";
+  } else if (exp.source === "liveit") {
+    ctaLabel = "Boka via Live it →";
+  } else if (exp.source === "happy-day") {
+    ctaLabel = "Boka via Happy Day →";
+  }
 
   return (
     <main className="exp-detail">
