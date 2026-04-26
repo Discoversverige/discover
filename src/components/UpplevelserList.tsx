@@ -76,6 +76,7 @@ export default function UpplevelserList({ experiences }: Props) {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [lang, setLang] = useState<Lang>("sv");
+  const [openFilter, setOpenFilter] = useState<string | null>(null);
 
   useEffect(() => {
     const readLang = () => {
@@ -171,37 +172,49 @@ export default function UpplevelserList({ experiences }: Props) {
       </header>
 
       <section className="upp-filters" aria-label="Filter">
-        <div className="upp-filter-group">
-          <span className="upp-filter-label">{t.category}</span>
-          <div className="upp-chips">
-            <button className={`upp-chip${category === "all" ? " active" : ""}`} onClick={() => setCategory("all")}>{t.all}</button>
-            {CATEGORIES.map((c) => (
-              <button key={c} className={`upp-chip${category === c ? " active" : ""}`} onClick={() => setCategory(c)}>{CAT_LABELS[c]?.[lang] ?? c}</button>
-            ))}
+        {/* Desktop: alla filter synliga. Mobil: rubrik + visa-knapp per grupp */}
+        {([
+          { key: "category", label: t.category, content: (
+            <div className="upp-chips">
+              <button className={`upp-chip${category === "all" ? " active" : ""}`} onClick={() => setCategory("all")}>{t.all}</button>
+              {CATEGORIES.map((c) => (
+                <button key={c} className={`upp-chip${category === c ? " active" : ""}`} onClick={() => setCategory(c)}>{CAT_LABELS[c]?.[lang] ?? c}</button>
+              ))}
+            </div>
+          )},
+          { key: "source", label: t.source, content: (
+            <div className="upp-chips">
+              <button className={`upp-chip${source === "all" ? " active" : ""}`} onClick={() => setSource("all")}>{t.all}</button>
+              {(["happy-day","getyourguide","liveit","viator"] as SourceKey[]).map((s) => (
+                <button key={s} className={`upp-chip${source === s ? " active" : ""}`} onClick={() => setSource(s)}>{SOURCE_LABELS[s]?.[lang] ?? s}</button>
+              ))}
+            </div>
+          )},
+          { key: "price", label: t.price, content: (
+            <div className="upp-chips">
+              {([["all", t.allPrices],["0-500", t.p1],["500-1500", t.p2],["1500+", t.p3]] as [PriceBucket,string][]).map(([key,label]) => (
+                <button key={key} className={`upp-chip${price === key ? " active" : ""}`} onClick={() => setPrice(key)}>{label}</button>
+              ))}
+            </div>
+          )},
+        ] as { key: string; label: string; content: React.ReactNode }[]).map(({ key, label, content }) => (
+          <div key={key} className="upp-filter-group">
+            <div className="upp-filter-header">
+              <span className="upp-filter-label">{label}</span>
+              <button className="upp-filter-toggle" onClick={() => setOpenFilter(openFilter === key ? null : key)} aria-expanded={openFilter === key}>
+                {openFilter === key ? "▲" : "▼"}
+              </button>
+            </div>
+            <div className={`upp-filter-body${openFilter === key ? " open" : ""}`}>
+              {content}
+            </div>
           </div>
-        </div>
-
-        <div className="upp-filter-group">
-          <span className="upp-filter-label">{t.source}</span>
-          <div className="upp-chips">
-            <button className={`upp-chip${source === "all" ? " active" : ""}`} onClick={() => setSource("all")}>{t.all}</button>
-            {(["happy-day","getyourguide","liveit","viator"] as SourceKey[]).map((s) => (
-              <button key={s} className={`upp-chip${source === s ? " active" : ""}`} onClick={() => setSource(s)}>{SOURCE_LABELS[s]?.[lang] ?? s}</button>
-            ))}
-          </div>
-        </div>
-
-        <div className="upp-filter-group">
-          <span className="upp-filter-label">{t.price}</span>
-          <div className="upp-chips">
-            {([["all", t.allPrices],["0-500", t.p1],["500-1500", t.p2],["1500+", t.p3]] as [PriceBucket,string][]).map(([key,label]) => (
-              <button key={key} className={`upp-chip${price === key ? " active" : ""}`} onClick={() => setPrice(key)}>{label}</button>
-            ))}
-          </div>
-        </div>
+        ))}
 
         <div className="upp-filter-group upp-sort">
-          <span className="upp-filter-label">{t.sort}</span>
+          <div className="upp-filter-header">
+            <span className="upp-filter-label">{t.sort}</span>
+          </div>
           <select className="upp-select" value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label={t.sort}>
             <option value="popular">{t.popular}</option>
             <option value="price-asc">{t.priceAsc}</option>
