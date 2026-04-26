@@ -187,10 +187,12 @@ export default function UpplevelserList({ experiences }: Props) {
         return terms.some(term => fuzzyMatch(haystack, term));
       });
     }
+    const PRIORITY: Record<string, number> = { getyourguide: 0, viator: 1, liveit: 2, "happy-day": 3 };
     const sorted = [...list];
     if (sort === "price-asc") sorted.sort((a, b) => a.priceFrom - b.priceFrom);
-    if (sort === "price-desc") sorted.sort((a, b) => b.priceFrom - a.priceFrom);
-    if (sort === "name") sorted.sort((a, b) => a.title.localeCompare(b.title, "sv"));
+    else if (sort === "price-desc") sorted.sort((a, b) => b.priceFrom - a.priceFrom);
+    else if (sort === "name") sorted.sort((a, b) => a.title.localeCompare(b.title, "sv"));
+    else sorted.sort((a, b) => (PRIORITY[a.source ?? "happy-day"] ?? 99) - (PRIORITY[b.source ?? "happy-day"] ?? 99));
     return sorted;
   }, [experiences, category, source, price, sort, query]);
 
