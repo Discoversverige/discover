@@ -11,6 +11,23 @@ const jetbrainsMono = JetBrains_Mono({ variable: "--font-jetbrains-mono", subset
 export const metadata: Metadata = {
   title: "Discover Malmö",
   description: "Utforska Malmö med skräddarsydda rutter och upplevelser.",
+  icons: {
+    icon: [
+      { url: "/favicon-logo.png", sizes: "any" },
+      { url: "/favicon-logo.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: { url: "/favicon-logo.png", sizes: "180x180" },
+    shortcut: "/favicon-logo.png",
+  },
+  openGraph: {
+    title: "Discover Malmö",
+    description: "Utforska Malmö med skräddarsydda rutter och upplevelser.",
+    url: "https://discovermalmo.se",
+    siteName: "Discover Malmö",
+    images: [{ url: "https://discovermalmo.se/favicon-logo.png", width: 1080, height: 1080 }],
+    locale: "sv_SE",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
