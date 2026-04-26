@@ -174,10 +174,18 @@ export default function UpplevelserList({ experiences }: Props) {
         </div>
       </header>
 
-      <button className="upp-filter-toggle-btn" onClick={() => setFiltersOpen(!filtersOpen)} aria-expanded={filtersOpen}>
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 3h12M3 7h8M5 11h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
-        {t.filter}
-      </button>
+      <div className="upp-mob-bar">
+        <button className="upp-filter-toggle-btn" onClick={() => setFiltersOpen(!filtersOpen)} aria-expanded={filtersOpen}>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 3h12M3 7h8M5 11h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/></svg>
+          {t.filter}
+        </button>
+        <select className="upp-sort-select" value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label={t.sort}>
+          <option value="popular">{t.popular}</option>
+          <option value="price-asc">{t.priceAsc}</option>
+          <option value="price-desc">{t.priceDesc}</option>
+          <option value="name">{t.name}</option>
+        </select>
+      </div>
 
       <section className={`upp-filters${filtersOpen ? " mob-open" : ""}`} aria-label="Filter">
         <div className="upp-filter-group">
@@ -217,6 +225,7 @@ export default function UpplevelserList({ experiences }: Props) {
             ))}
           </div>
         </div>
+        {/* Mobil: sortera visas i mob-bar istället, dölj här */}
       </section>
 
       <div className="upp-count-row">
