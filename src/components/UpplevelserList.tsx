@@ -3,7 +3,9 @@
 import { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
 import type { Experience } from "@/lib/experiences";
-import { CATEGORIES, REGIONS, formatPrice } from "@/lib/experiences";
+import { CATEGORIES, formatPrice } from "@/lib/experiences";
+
+type SourceKey = "all" | "happy-day" | "getyourguide" | "liveit" | "viator";
 
 type SortKey = "popular" | "price-asc" | "price-desc" | "name";
 type PriceBucket = "all" | "0-500" | "500-1500" | "1500+";
@@ -13,8 +15,8 @@ const PER_PAGE = 16;
 
 const T = {
   sv: {
-    all: "Alla", allAreas: "Alla", allPrices: "Alla",
-    category: "Kategori", area: "Område", price: "Pris", sort: "Sortera",
+    all: "Alla", allPrices: "Alla",
+    category: "Kategori", source: "Källa", price: "Pris", sort: "Sortera",
     popular: "Populärast", priceAsc: "Lägsta pris", priceDesc: "Högsta pris", name: "Namn (A–Ö)",
     p1: "≤ 500 kr", p2: "500–1 500 kr", p3: "1 500+ kr",
     from: "Från", showing: (a: number, b: number, t: number) => `Visar ${a}–${b} av ${t}`,
@@ -23,8 +25,8 @@ const T = {
     prev: "Föregående", next: "Nästa",
   },
   en: {
-    all: "All", allAreas: "All", allPrices: "All",
-    category: "Category", area: "Area", price: "Price", sort: "Sort",
+    all: "All", allPrices: "All",
+    category: "Category", source: "Source", price: "Price", sort: "Sort",
     popular: "Most popular", priceAsc: "Lowest price", priceDesc: "Highest price", name: "Name (A–Z)",
     p1: "≤ 500 kr", p2: "500–1 500 kr", p3: "1 500+ kr",
     from: "From", showing: (a: number, b: number, t: number) => `Showing ${a}–${b} of ${t}`,
@@ -33,8 +35,8 @@ const T = {
     prev: "Previous", next: "Next",
   },
   de: {
-    all: "Alle", allAreas: "Alle", allPrices: "Alle",
-    category: "Kategorie", area: "Gebiet", price: "Preis", sort: "Sortieren",
+    all: "Alle", allPrices: "Alle",
+    category: "Kategorie", source: "Quelle", price: "Preis", sort: "Sortieren",
     popular: "Beliebteste", priceAsc: "Niedrigster Preis", priceDesc: "Höchster Preis", name: "Name (A–Z)",
     p1: "≤ 500 kr", p2: "500–1 500 kr", p3: "1 500+ kr",
     from: "Ab", showing: (a: number, b: number, t: number) => `Zeige ${a}–${b} von ${t}`,
@@ -55,10 +57,11 @@ const CAT_LABELS: Record<string, Record<Lang, string>> = {
   "Övrigt":     { sv: "Övrigt",     en: "Other",      de: "Sonstiges" },
 };
 
-const REG_LABELS: Record<string, Record<Lang, string>> = {
-  "Malmö":   { sv: "Malmö",   en: "Malmö",   de: "Malmö" },
-  "Skåne":   { sv: "Skåne",   en: "Skåne",   de: "Schonen" },
-  "Sverige": { sv: "Sverige", en: "Sweden",  de: "Schweden" },
+const SOURCE_LABELS: Record<string, Record<Lang, string>> = {
+  "happy-day":    { sv: "Happy Day",    en: "Happy Day",    de: "Happy Day" },
+  "getyourguide": { sv: "GetYourGuide", en: "GetYourGuide", de: "GetYourGuide" },
+  "liveit":       { sv: "LiveIt",       en: "LiveIt",       de: "LiveIt" },
+  "viator":       { sv: "Viator",       en: "Viator",       de: "Viator" },
 };
 
 interface Props {
@@ -67,7 +70,7 @@ interface Props {
 
 export default function UpplevelserList({ experiences }: Props) {
   const [category, setCategory] = useState<string>("all");
-  const [region, setRegion] = useState<string>("all");
+  const [source, setSource] = useState<SourceKey>("all");
   const [price, setPrice] = useState<PriceBucket>("all");
   const [sort, setSort] = useState<SortKey>("popular");
   const [query, setQuery] = useState("");
@@ -97,7 +100,7 @@ export default function UpplevelserList({ experiences }: Props) {
   const filtered = useMemo(() => {
     let list = experiences;
     if (category !== "all") list = list.filter((e) => e.category === category);
-    if (region !== "all") list = list.filter((e) => e.region === region);
+    if (source !== "all") list = list.filter((e) => (e.source ?? "happy-day") === source);
     if (price !== "all") {
       list = list.filter((e) => {
         if (price === "0-500") return e.priceFrom <= 500;
@@ -120,14 +123,14 @@ export default function UpplevelserList({ experiences }: Props) {
     if (sort === "price-desc") sorted.sort((a, b) => b.priceFrom - a.priceFrom);
     if (sort === "name") sorted.sort((a, b) => a.title.localeCompare(b.title, "sv"));
     return sorted;
-  }, [experiences, category, region, price, sort, query]);
+  }, [experiences, category, source, price, sort, query]);
 
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
   const paginated = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
 
   const resetPage = () => setPage(1);
 
-  useEffect(() => { setPage(1); }, [category, region, price, sort, query]);
+  useEffect(() => { setPage(1); }, [category, source, price, sort, query]);
 
   const goToPage = (p: number) => {
     setPage(p);
@@ -179,11 +182,11 @@ export default function UpplevelserList({ experiences }: Props) {
         </div>
 
         <div className="upp-filter-group">
-          <span className="upp-filter-label">{t.area}</span>
+          <span className="upp-filter-label">{t.source}</span>
           <div className="upp-chips">
-            <button className={`upp-chip${region === "all" ? " active" : ""}`} onClick={() => setRegion("all")}>{t.allAreas}</button>
-            {REGIONS.map((r) => (
-              <button key={r} className={`upp-chip${region === r ? " active" : ""}`} onClick={() => setRegion(r)}>{REG_LABELS[r]?.[lang] ?? r}</button>
+            <button className={`upp-chip${source === "all" ? " active" : ""}`} onClick={() => setSource("all")}>{t.all}</button>
+            {(["happy-day","getyourguide","liveit","viator"] as SourceKey[]).map((s) => (
+              <button key={s} className={`upp-chip${source === s ? " active" : ""}`} onClick={() => setSource(s)}>{SOURCE_LABELS[s]?.[lang] ?? s}</button>
             ))}
           </div>
         </div>
@@ -215,7 +218,7 @@ export default function UpplevelserList({ experiences }: Props) {
       {filtered.length === 0 ? (
         <div className="upp-empty">
           <p>{t.empty}</p>
-          <button className="upp-reset" onClick={() => { setCategory("all"); setRegion("all"); setPrice("all"); setQuery(""); }}>
+          <button className="upp-reset" onClick={() => { setCategory("all"); setSource("all"); setPrice("all"); setQuery(""); }}>
             {t.reset}
           </button>
         </div>
@@ -238,7 +241,7 @@ export default function UpplevelserList({ experiences }: Props) {
                 <div className="upp-card-body">
                   <div className="upp-card-meta">
                     <span className="upp-card-cat">{CAT_LABELS[e.category]?.[lang] ?? e.category}</span>
-                    <span className="upp-card-region">{REG_LABELS[e.region]?.[lang] ?? e.region}</span>
+                    <span className="upp-card-region">{e.region}</span>
                   </div>
                   <h3 className="upp-card-title">{(lang === "en" ? e.title_en : lang === "de" ? e.title_de : undefined) ?? e.title}</h3>
                   {e.duration && <p className="upp-card-duration">⏱ {e.duration}</p>}
