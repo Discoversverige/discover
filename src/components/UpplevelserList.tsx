@@ -13,6 +13,71 @@ type Lang = "sv" | "en" | "de";
 
 const PER_PAGE = 16;
 
+// Normalize away diacritics so "malmo" matches "Malmö" etc.
+function norm(s: string): string {
+  return s.toLowerCase()
+    .replace(/å/g, "a").replace(/ä/g, "a").replace(/ö/g, "o")
+    .replace(/é|è|ê/g, "e").replace(/ü/g, "u").replace(/ø/g, "o")
+    .replace(/æ/g, "a");
+}
+
+// Levenshtein distance — used for single-word fuzzy matching
+function lev(a: string, b: string): number {
+  const m = a.length, n = b.length;
+  if (m === 0) return n;
+  if (n === 0) return m;
+  const dp: number[] = Array.from({length: n + 1}, (_, i) => i);
+  for (let i = 1; i <= m; i++) {
+    let prev = i;
+    for (let j = 1; j <= n; j++) {
+      const curr = a[i-1] === b[j-1] ? dp[j-1] : 1 + Math.min(dp[j-1], dp[j], prev);
+      dp[j-1] = prev;
+      prev = curr;
+    }
+    dp[n] = prev;
+  }
+  return dp[n];
+}
+
+const SYNONYMS: Record<string, string[]> = {
+  "spa":        ["wellness", "massage", "avslappning", "relaxation", "entspannung"],
+  "mat":        ["food", "essen", "restaurang", "middag", "lunch", "dinner"],
+  "dryck":      ["drink", "vin", "wine", "öl", "beer", "provning", "tasting"],
+  "äventyr":    ["adventure", "abenteuer", "spänning"],
+  "kultur":     ["culture", "museum", "konst", "art", "history", "historia"],
+  "sport":      ["fitness", "träning", "workout", "idrott"],
+  "sightseeing":["tur", "tour", "guidning", "guided", "stadstur"],
+  "racing":     ["bil", "car", "köra", "drive", "sportbil", "ferrari", "porsche"],
+  "flyg":       ["helikopter", "ballong", "luftballong", "helicopter"],
+  "båt":        ["sailing", "segling", "kanal", "canal", "vatten"],
+  "malmo":      ["malmö"],
+  "skane":      ["skåne"],
+  "sverige":    ["sweden", "schweden"],
+};
+
+function expandQuery(q: string): string[] {
+  const terms = [q];
+  for (const [key, vals] of Object.entries(SYNONYMS)) {
+    if (q.includes(key) || vals.some(v => q.includes(norm(v)))) {
+      terms.push(key, ...vals.map(norm));
+    }
+  }
+  return [...new Set(terms)];
+}
+
+function fuzzyMatch(haystack: string, needle: string): boolean {
+  const h = norm(haystack), n = norm(needle);
+  if (h.includes(n)) return true;
+  // Word-level fuzzy: allow 1 typo for words ≥5 chars, 2 typos for ≥8 chars
+  const words = h.split(/\s+/);
+  for (const word of words) {
+    if (word.length < 3) continue;
+    const maxDist = needle.length >= 8 ? 2 : needle.length >= 5 ? 1 : 0;
+    if (maxDist > 0 && lev(word, n) <= maxDist) return true;
+  }
+  return false;
+}
+
 const T = {
   sv: {
     all: "Alla", allPrices: "Alla",
@@ -114,13 +179,13 @@ export default function UpplevelserList({ experiences }: Props) {
       });
     }
     if (query.trim()) {
-      const q = query.toLowerCase();
-      list = list.filter(
-        (e) =>
-          ((lang === "en" ? e.title_en : lang === "de" ? e.title_de : undefined) ?? e.title).toLowerCase().includes(q) ||
-          ((lang === "en" ? e.shortDescription_en : lang === "de" ? e.shortDescription_de : undefined) ?? e.shortDescription).toLowerCase().includes(q) ||
-          e.tags.some((t) => t.toLowerCase().includes(q)),
-      );
+      const terms = expandQuery(norm(query.trim()));
+      list = list.filter((e) => {
+        const title = (lang === "en" ? e.title_en : lang === "de" ? e.title_de : undefined) ?? e.title;
+        const desc = (lang === "en" ? e.shortDescription_en : lang === "de" ? e.shortDescription_de : undefined) ?? e.shortDescription;
+        const haystack = [title, desc, e.descriptionHtml.replace(/<[^>]+>/g, ""), ...e.tags].join(" ");
+        return terms.some(term => fuzzyMatch(haystack, term));
+      });
     }
     const sorted = [...list];
     if (sort === "price-asc") sorted.sort((a, b) => a.priceFrom - b.priceFrom);
