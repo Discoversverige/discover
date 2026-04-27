@@ -250,19 +250,23 @@ export default function TravelHubMap() {
   // Particle burst when a city becomes active — label dissolves and drifts
   // up to the top-right corner where the active-city tag re-forms.
   useEffect(() => {
+    console.log("[hub-particle] effect run", { activeCity, mapReady });
     if (!activeCity || !containerRef.current || !mapReady) {
       setParticles([]);
       return;
     }
     const marker = cityMarkersRef.current.get(activeCity);
+    console.log("[hub-particle] marker", marker);
     if (!marker) return;
     const markerEl = marker.getElement() as HTMLElement | null;
     const labelEl = markerEl?.querySelector(".hub-pin-label") as HTMLElement | null;
     const wrap = containerRef.current.parentElement;
+    console.log("[hub-particle] dom", { markerEl: !!markerEl, labelEl: !!labelEl, wrap: !!wrap });
     if (!labelEl || !wrap) return;
 
     const labelRect = labelEl.getBoundingClientRect();
     const wrapRect = wrap.getBoundingClientRect();
+    console.log("[hub-particle] rects", { labelRect, wrapRect });
 
     // Target = active-city tag at top-right of map
     const isMobile = window.innerWidth < 700;
@@ -279,14 +283,15 @@ export default function TravelHubMap() {
         startY,
         endX: targetX + (Math.random() - 0.5) * 30,
         endY: targetY + (Math.random() - 0.5) * 18,
-        size: 1 + Math.random() * 2.2,
-        delay: Math.random() * 220,
-        duration: 620 + Math.random() * 360,
-        opacity: 0.55 + Math.random() * 0.4,
+        size: 4 + Math.random() * 4,
+        delay: Math.random() * 200,
+        duration: 700 + Math.random() * 380,
+        opacity: 0.7 + Math.random() * 0.3,
       });
     }
+    console.log("[hub-particle] generated", next.length, "particles. first:", next[0]);
     setParticles(next);
-    const cleanup = window.setTimeout(() => setParticles([]), 1400);
+    const cleanup = window.setTimeout(() => setParticles([]), 1500);
     return () => window.clearTimeout(cleanup);
   }, [activeCity, mapReady]);
 

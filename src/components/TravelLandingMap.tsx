@@ -124,13 +124,14 @@ export default function TravelLandingMap({ city, offers, mode, activeId, onSelec
           minWidth: 280,
           closeButton: true,
           autoClose: true,
+          closeOnClick: false,
           closeOnEscapeKey: true,
           autoPan: true,
         });
-        marker.on("click", () => {
-          onSelectRef.current(offer);
-          marker.openPopup();
-        });
+        // Highlight via Leaflet's own popup lifecycle so the popup-open
+        // and active-state stay in sync without competing with bindPopup's
+        // built-in toggle handler.
+        marker.on("popupopen", () => onSelectRef.current(offer));
       } else {
         marker.on("click", () => onSelectRef.current(offer));
       }
