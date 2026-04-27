@@ -4,8 +4,6 @@ import "leaflet/dist/leaflet.css";
 import { useEffect, useRef, useState } from "react";
 import {
   TRAVEL_CITIES,
-  REGION_CENTER,
-  REGION_ZOOM,
   CATEGORY_ORDER,
   CATEGORY_LABELS,
   type CitySlug,
@@ -13,6 +11,25 @@ import {
   type TravelCity,
 } from "@/lib/travel-data";
 import { useLang, type Lang } from "@/lib/lang";
+
+const REGION_BOUNDS_LATLNG: [[number, number], [number, number]] = (() => {
+  const lats = TRAVEL_CITIES.map((c) => c.lat);
+  const lngs = TRAVEL_CITIES.map((c) => c.lng);
+  return [
+    [Math.min(...lats), Math.min(...lngs)],
+    [Math.max(...lats), Math.max(...lngs)],
+  ];
+})();
+
+function regionPadding(): { paddingTopLeft: [number, number]; paddingBottomRight: [number, number] } {
+  if (typeof window === "undefined") {
+    return { paddingTopLeft: [120, 80], paddingBottomRight: [120, 80] };
+  }
+  const isMobile = window.innerWidth < 700;
+  return isMobile
+    ? { paddingTopLeft: [100, 70], paddingBottomRight: [100, 60] }
+    : { paddingTopLeft: [140, 90], paddingBottomRight: [140, 90] };
+}
 
 const HUB_STRINGS: Record<Lang, { back: string; choose: string; eyebrow: string }> = {
   sv: { back: "Tillbaka", choose: "Välj vad du vill boka", eyebrow: "Region · Öresund" },
@@ -41,6 +58,20 @@ function categoryOffset(city: TravelCity, category: CategorySlug): CategoryPinPo
   return { lat: city.lat + dLat, lng: city.lng + dLng };
 }
 
+interface Particle {
+  id: string;
+  startX: number;
+  startY: number;
+  endX: number;
+  endY: number;
+  size: number;
+  delay: number;
+  duration: number;
+  opacity: number;
+}
+
+const PARTICLE_COUNT = 38;
+
 export default function TravelHubMap() {
   const lang = useLang();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,6 +81,7 @@ export default function TravelHubMap() {
   const categoryMarkersRef = useRef<any[]>([]);
   const [activeCity, setActiveCity] = useState<CitySlug | null>(null);
   const [mapReady, setMapReady] = useState(false);
+  const [particles, setParticles] = useState<Particle[]>([]);
   const langRef = useRef(lang);
 
   useEffect(() => {
@@ -72,19 +104,21 @@ export default function TravelHubMap() {
 
       const map = L.map(containerRef.current, {
         zoomControl: false,
-        scrollWheelZoom: false,
+        scrollWheelZoom: true,
         attributionControl: false,
       });
+      L.control.zoom({ position: "bottomright" }).addTo(map);
       L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
         attribution: "© OpenStreetMap © CARTO",
         maxZoom: 19,
       }).addTo(map);
-      map.setView(REGION_CENTER, REGION_ZOOM);
+      map.fitBounds(REGION_BOUNDS_LATLNG, regionPadding());
       mapRef.current = map;
 
       requestAnimationFrame(() => {
         if (!cancelled && mapRef.current) {
           mapRef.current.invalidateSize();
+          mapRef.current.fitBounds(REGION_BOUNDS_LATLNG, regionPadding());
           setMapReady(true);
         }
       });
@@ -135,11 +169,18 @@ export default function TravelHubMap() {
     }
   }, [mapReady, lang]);
 
-  // Update active state classes on city pins
+  // Update active state classes on city pins. Also disable pointer events
+  // on the active marker so its 180x80 icon-area stops swallowing clicks
+  // intended for the category pins beneath it.
   useEffect(() => {
     cityMarkersRef.current.forEach((marker, slug) => {
       const el = marker.getElement() as HTMLElement | undefined;
       if (!el) return;
+      if (slug === activeCity) {
+        el.classList.add("is-active-wrap");
+      } else {
+        el.classList.remove("is-active-wrap");
+      }
       const pin = el.querySelector(".hub-pin") as HTMLElement | null;
       if (!pin) return;
       if (slug === activeCity) pin.classList.add("is-active");
@@ -188,11 +229,70 @@ export default function TravelHubMap() {
 
       return () => window.clearTimeout(timeoutId);
     } else {
-      map.flyTo(REGION_CENTER, REGION_ZOOM, { duration: 1.0, easeLinearity: 0.25 });
+      map.flyToBounds(REGION_BOUNDS_LATLNG, { ...regionPadding(), duration: 1.0, easeLinearity: 0.25 });
     }
   }, [activeCity, mapReady, lang]);
 
+  // Re-fit bounds on viewport resize when no city is active
+  useEffect(() => {
+    if (!mapReady || !mapRef.current) return;
+    const onResize = () => {
+      if (!mapRef.current) return;
+      mapRef.current.invalidateSize();
+      if (!activeCity) {
+        mapRef.current.fitBounds(REGION_BOUNDS_LATLNG, regionPadding());
+      }
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [mapReady, activeCity]);
+
+  // Particle burst when a city becomes active — label dissolves and drifts
+  // up to the top-right corner where the active-city tag re-forms.
+  useEffect(() => {
+    if (!activeCity || !containerRef.current || !mapReady) {
+      setParticles([]);
+      return;
+    }
+    const marker = cityMarkersRef.current.get(activeCity);
+    if (!marker) return;
+    const markerEl = marker.getElement() as HTMLElement | null;
+    const labelEl = markerEl?.querySelector(".hub-pin-label") as HTMLElement | null;
+    const wrap = containerRef.current.parentElement;
+    if (!labelEl || !wrap) return;
+
+    const labelRect = labelEl.getBoundingClientRect();
+    const wrapRect = wrap.getBoundingClientRect();
+
+    // Target = active-city tag at top-right of map
+    const isMobile = window.innerWidth < 700;
+    const targetX = wrapRect.width - (isMobile ? 60 : 80);
+    const targetY = isMobile ? 36 : 44;
+
+    const next: Particle[] = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      const startX = labelRect.left - wrapRect.left + Math.random() * labelRect.width;
+      const startY = labelRect.top - wrapRect.top + Math.random() * labelRect.height;
+      next.push({
+        id: `${activeCity}-${i}-${Date.now()}`,
+        startX,
+        startY,
+        endX: targetX + (Math.random() - 0.5) * 30,
+        endY: targetY + (Math.random() - 0.5) * 18,
+        size: 1 + Math.random() * 2.2,
+        delay: Math.random() * 220,
+        duration: 620 + Math.random() * 360,
+        opacity: 0.55 + Math.random() * 0.4,
+      });
+    }
+    setParticles(next);
+    const cleanup = window.setTimeout(() => setParticles([]), 1400);
+    return () => window.clearTimeout(cleanup);
+  }, [activeCity, mapReady]);
+
   const strings = HUB_STRINGS[lang];
+
+  const activeCityData = activeCity ? TRAVEL_CITIES.find((c) => c.slug === activeCity) : null;
 
   return (
     <div className="hub-map-wrap">
@@ -200,6 +300,33 @@ export default function TravelHubMap() {
       <div className={`hub-overlay ${activeCity ? "hub-overlay-active" : ""}`}>
         <div className="hub-overlay-eyebrow">{strings.eyebrow}</div>
       </div>
+      {activeCityData && (
+        <div className="hub-active-tag" key={activeCityData.slug} aria-live="polite">
+          <div className="hub-active-tag-name">{activeCityData.name[lang]}</div>
+          <div className="hub-active-tag-tag">{activeCityData.tag[lang]}</div>
+        </div>
+      )}
+      {particles.length > 0 && (
+        <div className="hub-particles" aria-hidden="true">
+          {particles.map((p) => (
+            <span
+              key={p.id}
+              className="hub-particle"
+              style={{
+                left: `${p.startX}px`,
+                top: `${p.startY}px`,
+                width: `${p.size}px`,
+                height: `${p.size}px`,
+                ['--p-end-x' as any]: `${p.endX - p.startX}px`,
+                ['--p-end-y' as any]: `${p.endY - p.startY}px`,
+                ['--p-delay' as any]: `${p.delay}ms`,
+                ['--p-duration' as any]: `${p.duration}ms`,
+                ['--p-opacity' as any]: `${p.opacity}`,
+              }}
+            />
+          ))}
+        </div>
+      )}
       {activeCity && (
         <button
           type="button"

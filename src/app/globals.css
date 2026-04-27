@@ -950,13 +950,13 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   text-transform: uppercase;
   color: var(--ink-2);
 }
-.hub-overlay-active { opacity: 0.45; }
+.hub-overlay-active { opacity: 0; pointer-events: none; }
 
 .hub-back-btn {
   position: absolute;
   top: 24px;
-  right: 24px;
-  z-index: 10;
+  left: 24px;
+  z-index: 12;
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -983,6 +983,8 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 /* ── Stadspinnar ───────────────────────────────────────── */
 
 .hub-pin-wrap { background: transparent !important; border: none !important; }
+.hub-pin-wrap.is-active-wrap { pointer-events: none; }
+.hub-pin-wrap.is-active-wrap .hub-pin-dot { pointer-events: auto; cursor: default; }
 .hub-pin {
   position: relative;
   width: 180px;
@@ -1057,12 +1059,85 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   transform: scale(1.15);
 }
 .hub-pin.is-active .hub-pin-dot::after { opacity: 0.45; transform: scale(1.3); border-color: var(--accent); }
-.hub-pin.is-active .hub-pin-label {
-  background: var(--ink);
-  border-color: var(--ink);
+.hub-pin .hub-pin-label {
+  transition: opacity 0.45s ease, filter 0.5s ease, transform 0.5s ease;
 }
-.hub-pin.is-active .hub-pin-name { color: var(--paper); }
-.hub-pin.is-active .hub-pin-tag { color: rgba(250,247,238,0.6); }
+.hub-pin.is-active .hub-pin-label {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(-6px) scale(0.88);
+  pointer-events: none;
+}
+.hub-pin.is-active .hub-pin-stem { opacity: 0.15; }
+
+/* ── Aktiv-stad badge (övre högra hörnet av kartan) ──── */
+.hub-active-tag {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 12;
+  padding: 12px 18px 13px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--r-lg);
+  text-align: right;
+  box-shadow: 0 12px 30px rgba(40,30,10,0.22);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(8px, -4px) scale(0.94);
+  animation: hubActiveTagIn 0.5s cubic-bezier(.2,.9,.3,1.2) 540ms both;
+  max-width: 60vw;
+}
+@keyframes hubActiveTagIn {
+  0% { opacity: 0; transform: translate(8px, -4px) scale(0.92); filter: blur(4px); }
+  60% { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: translate(0, 0) scale(1); filter: blur(0); }
+}
+.hub-active-tag-name {
+  font-family: var(--font-instrument-serif), serif;
+  font-size: 18px;
+  line-height: 1;
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+.hub-active-tag-tag {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(250,247,238,0.55);
+  margin-top: 5px;
+}
+@media (max-width: 700px) {
+  .hub-active-tag { top: 14px; right: 14px; padding: 10px 14px 11px; }
+  .hub-active-tag-name { font-size: 15px; }
+  .hub-active-tag-tag { font-size: 8px; margin-top: 4px; }
+}
+
+/* ── Partikel-svärm (label → tag) ─────────────────────── */
+.hub-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 11;
+  overflow: hidden;
+  border-radius: inherit;
+}
+.hub-particle {
+  position: absolute;
+  background: var(--ink);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: hubParticleFly var(--p-duration, 800ms) cubic-bezier(.42,.04,.4,1) var(--p-delay, 0ms) forwards;
+}
+@keyframes hubParticleFly {
+  0% { opacity: 0; transform: translate(0, 0) scale(1); }
+  18% { opacity: var(--p-opacity, 0.8); }
+  72% { opacity: calc(var(--p-opacity, 0.8) * 0.6); transform: translate(calc(var(--p-end-x) * 0.78), calc(var(--p-end-y) * 0.78 - 12px)) scale(0.85); }
+  100% { opacity: 0; transform: translate(var(--p-end-x, 0), var(--p-end-y, 0)) scale(0.5); }
+}
 
 /* ── Kategori-pinnar ───────────────────────────────────── */
 
@@ -1371,7 +1446,13 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   animation: landPinIn 0.4s cubic-bezier(.2,.9,.3,1.2) var(--pin-delay, 0ms) forwards;
   transition: transform 0.2s;
 }
-.land-pin:hover { transform: translateY(-3px); }
+@media (hover: hover) {
+  .land-pin:hover { transform: translateY(-3px); }
+  .land-pin:hover .land-pin-price {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}
 .land-pin-price {
   background: var(--paper);
   border: 1px solid var(--ink);
@@ -1385,7 +1466,6 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   box-shadow: 0 6px 18px rgba(40,30,10,0.18);
   transition: all 0.2s;
 }
-.land-pin:hover .land-pin-price,
 .land-pin.is-active .land-pin-price {
   background: var(--ink);
   color: var(--paper);

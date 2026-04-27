@@ -118,21 +118,23 @@ export default function TravelLandingMap({ city, offers, mode, activeId, onSelec
       const marker = L.marker([offer.lat, offer.lng], { icon, riseOnHover: true }).addTo(map);
 
       if (mode === "popup") {
-        const popup = L.popup({
+        marker.bindPopup(popupHtml(offer, lang, ctaLabel), {
           className: "land-popup-wrap",
           maxWidth: 320,
           minWidth: 280,
           closeButton: true,
           autoClose: true,
           closeOnEscapeKey: true,
-        }).setContent(popupHtml(offer, lang, ctaLabel));
-        marker.bindPopup(popup);
-        marker.on("click", () => onSelectRef.current(offer));
+          autoPan: true,
+        });
+        marker.on("click", () => {
+          onSelectRef.current(offer);
+          marker.openPopup();
+        });
       } else {
         marker.on("click", () => onSelectRef.current(offer));
       }
 
-      marker.bindTooltip(offer.name, { direction: "top", offset: [0, -40], opacity: 0.95 });
       markersRef.current.set(offer.id, marker);
     });
   }, [mapReady, offers, mode, lang, ctaLabel]);
