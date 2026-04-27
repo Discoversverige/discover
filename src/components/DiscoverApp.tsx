@@ -302,65 +302,6 @@ const MapView = ({ lang, routeKey, searchTerm, onBack }: { lang: Lang; routeKey:
   );
 };
 
-const TravelView = ({ lang }: { lang: Lang }) => {
-  const tr = I18N[lang].travel;
-  return (
-    <div className="travel-page">
-      <div className="travel-hero">
-        <h1 className="travel-title">{tr.title}</h1>
-        <p className="travel-sub">{tr.sub}</p>
-      </div>
-      <div className="travel-grid">
-        <div className="travel-card">
-          <div className="travel-icon">✈️</div>
-          <div className="travel-content">
-            <h2 className="travel-card-title">{tr.cph_title}</h2>
-            <p className="travel-card-sub">{tr.cph_sub}</p>
-            <div className="travel-steps">
-              <div className="travel-step"><span className="travel-step-num">1</span><div><strong>{tr.cph_s1_title}</strong><p>{tr.cph_s1}</p></div></div>
-              <div className="travel-step"><span className="travel-step-num">2</span><div><strong>{tr.cph_s2_title}</strong><p>{tr.cph_s2}</p></div></div>
-              <div className="travel-step"><span className="travel-step-num">3</span><div><strong>{tr.cph_s3_title}</strong><p>{tr.cph_s3}</p></div></div>
-            </div>
-            <div className="travel-info-row">
-              <span className="travel-badge">{tr.cph_b1}</span>
-              <span className="travel-badge">{tr.cph_b2}</span>
-              <span className="travel-badge">{tr.cph_b3}</span>
-            </div>
-          </div>
-        </div>
-        <div className="travel-card">
-          <div className="travel-icon">🚂</div>
-          <div className="travel-content">
-            <h2 className="travel-card-title">{tr.gbg_title}</h2>
-            <p className="travel-card-sub">{tr.gbg_sub}</p>
-            <div className="travel-steps">
-              <div className="travel-step"><span className="travel-step-num">1</span><div><strong>{tr.gbg_s1_title}</strong><p>{tr.gbg_s1}</p></div></div>
-              <div className="travel-step"><span className="travel-step-num">2</span><div><strong>{tr.gbg_s2_title}</strong><p>{tr.gbg_s2}</p></div></div>
-              <div className="travel-step"><span className="travel-step-num">3</span><div><strong>{tr.gbg_s3_title}</strong><p>{tr.gbg_s3}</p></div></div>
-            </div>
-            <div className="travel-info-row">
-              <span className="travel-badge">{tr.gbg_b1}</span>
-              <span className="travel-badge">{tr.gbg_b2}</span>
-              <span className="travel-badge">{tr.gbg_b3}</span>
-            </div>
-          </div>
-        </div>
-        <div className="travel-card travel-card-wide">
-          <div className="travel-icon">💡</div>
-          <div className="travel-content">
-            <h2 className="travel-card-title">{tr.tips_title}</h2>
-            <div className="travel-tips-grid">
-              <div className="travel-tip"><strong>{tr.tip1_title}</strong><p>{tr.tip1}</p></div>
-              <div className="travel-tip"><strong>{tr.tip2_title}</strong><p>{tr.tip2}</p></div>
-              <div className="travel-tip"><strong>{tr.tip3_title}</strong><p>{tr.tip3}</p></div>
-              <div className="travel-tip"><strong>{tr.tip4_title}</strong><p>{tr.tip4}</p></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const AboutView = ({ lang, onContact }: { lang: Lang; onContact: () => void }) => {
   const a = I18N[lang].about;
@@ -658,9 +599,9 @@ const ExperiencesView = ({ lang }: { lang: Lang }) => {
   );
 };
 
-export default function DiscoverApp({ initialView }: { initialView?: "home" | "map" | "experiences" | "travel" | "about" | "contact" }) {
+export default function DiscoverApp({ initialView }: { initialView?: "home" | "map" | "experiences" | "about" | "contact" }) {
   const [lang, setLang] = useState<Lang>("sv");
-  const [view, setView] = useState<"home" | "map" | "experiences" | "travel" | "about" | "contact">(initialView ?? "home");
+  const [view, setView] = useState<"home" | "map" | "experiences" | "about" | "contact">(initialView ?? "home");
   const [routeKey, setRouteKey] = useState<RouteKey>("default");
   const [searchTerm, setSearchTerm] = useState("");
   const [mounted, setMounted] = useState(false);
@@ -695,7 +636,6 @@ export default function DiscoverApp({ initialView }: { initialView?: "home" | "m
       {view === "home" && <HomeView lang={lang} onSearch={handleSearch} onContact={() => navigate("/om-oss")} />}
       {view === "map" && <MapView lang={lang} routeKey={routeKey} searchTerm={searchTerm} onBack={() => navigate("/")} />}
       {view === "experiences" && <ExperiencesView lang={lang} />}
-      {view === "travel" && <TravelView lang={lang} />}
       {view === "about" && <AboutView lang={lang} onContact={() => navigate("/om-oss")} />}
       {view === "contact" && <ContactView lang={lang} />}
 

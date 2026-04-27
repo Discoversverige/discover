@@ -751,3 +751,1011 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .site-topbar { padding: 12px 16px; }
 }
 
+/* ─────────────────────────────────────────────────────────
+   Ta dig hit · hub-sida
+   Editorial minimalism + atmosfärisk Leaflet-karta
+   ───────────────────────────────────────────────────────── */
+
+.hub-page {
+  background: var(--paper);
+  min-height: 100vh;
+  position: relative;
+}
+.hub-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(40,30,10,0.025) 1px, transparent 1px);
+  background-size: 3px 3px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hub-hero {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 60px 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 80px;
+  align-items: end;
+  border-bottom: 1px solid var(--line-soft);
+}
+.hub-hero-inner { max-width: 820px; }
+
+.hub-eyebrow {
+  font-family: var(--font-jetbrains-mono), "SF Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-bottom: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.hub-eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--ink);
+  opacity: 0.4;
+}
+
+.hub-title {
+  font-family: var(--font-instrument-serif), "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(56px, 9vw, 132px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0 0 32px;
+}
+.hub-title-lead { font-style: normal; }
+.hub-title-em {
+  font-style: italic;
+  display: inline-block;
+  position: relative;
+}
+.hub-title-em::after {
+  content: "";
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 0.08em;
+  height: 0.06em;
+  background: var(--accent);
+  opacity: 0.55;
+}
+.hub-title-tail {
+  display: block;
+  color: var(--mute);
+  font-style: italic;
+  font-size: 0.62em;
+  margin-top: 0.18em;
+  letter-spacing: -0.015em;
+}
+
+.hub-intro {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 580px;
+  margin: 0;
+}
+
+.hub-hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  border-left: 1px solid var(--line-soft);
+  padding-left: 40px;
+}
+.hub-meta-item { display: flex; flex-direction: column; gap: 4px; }
+.hub-meta-num {
+  font-family: var(--font-instrument-serif), serif;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.hub-meta-label {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+@media (max-width: 900px) {
+  .hub-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 56px 28px 40px;
+  }
+  .hub-hero-meta {
+    flex-direction: row;
+    border-left: none;
+    border-top: 1px solid var(--line-soft);
+    padding-left: 0;
+    padding-top: 24px;
+    gap: 48px;
+  }
+  .hub-meta-num { font-size: 40px; }
+}
+
+/* ── Karta ─────────────────────────────────────────────── */
+
+.hub-map-section {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 48px 60px 80px;
+}
+@media (max-width: 900px) {
+  .hub-map-section { padding: 32px 16px 56px; }
+}
+
+.hub-map-wrap {
+  position: relative;
+  width: 100%;
+  height: clamp(520px, 72vh, 780px);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: #f3eee0;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line-soft);
+}
+.hub-map-canvas {
+  position: absolute;
+  inset: 0;
+  background: #f3eee0;
+}
+
+/* Leaflet override: light vignette */
+.hub-map-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 80px rgba(40,30,10,0.08);
+  z-index: 5;
+  border-radius: inherit;
+}
+
+.hub-overlay {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px;
+  background: rgba(250, 247, 238, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+  transition: opacity 0.4s;
+}
+.hub-overlay-eyebrow {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+.hub-overlay-active { opacity: 0.45; }
+
+.hub-back-btn {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 999px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(40,30,10,0.18);
+  animation: hubBackIn 0.32s ease both;
+  transition: transform 0.2s;
+}
+.hub-back-btn:hover { transform: translateY(-1px); }
+.hub-back-arrow { font-size: 14px; }
+@keyframes hubBackIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Stadspinnar ───────────────────────────────────────── */
+
+.hub-pin-wrap { background: transparent !important; border: none !important; }
+.hub-pin {
+  position: relative;
+  width: 180px;
+  height: 80px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(.2,.9,.3,1.2);
+}
+.hub-pin:hover { transform: translateY(-3px); }
+.hub-pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 0 4px 10px rgba(40,30,10,0.25);
+  transition: all 0.25s;
+  position: relative;
+  z-index: 2;
+}
+.hub-pin-dot::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  opacity: 0;
+  transform: scale(0.7);
+  transition: all 0.4s;
+}
+.hub-pin:hover .hub-pin-dot::after { opacity: 0.35; transform: scale(1); }
+.hub-pin-stem {
+  width: 1px;
+  height: 14px;
+  background: var(--ink);
+  opacity: 0.4;
+  margin-bottom: 4px;
+}
+.hub-pin-label {
+  text-align: center;
+  margin-bottom: 6px;
+  background: rgba(250, 247, 238, 0.95);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: 6px 14px 7px;
+  border-radius: 6px;
+  border: 1px solid var(--line-soft);
+  white-space: nowrap;
+  transition: all 0.25s;
+}
+.hub-pin-name {
+  font-family: var(--font-instrument-serif), serif;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--ink);
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+.hub-pin-tag {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-top: 3px;
+}
+.hub-pin.is-active .hub-pin-dot {
+  background: var(--ink);
+  border-color: var(--accent);
+  transform: scale(1.15);
+}
+.hub-pin.is-active .hub-pin-dot::after { opacity: 0.45; transform: scale(1.3); border-color: var(--accent); }
+.hub-pin.is-active .hub-pin-label {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.hub-pin.is-active .hub-pin-name { color: var(--paper); }
+.hub-pin.is-active .hub-pin-tag { color: rgba(250,247,238,0.6); }
+
+/* ── Kategori-pinnar ───────────────────────────────────── */
+
+.cat-pin-wrap { background: transparent !important; border: none !important; }
+.cat-pin {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(40,30,10,0.18);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px) scale(0.92);
+  animation: catPinIn 0.4s cubic-bezier(.2,.9,.3,1.2) var(--cat-delay, 0ms) forwards;
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+.cat-pin:hover {
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-2px) scale(1);
+}
+.cat-pin-icon {
+  font-size: 10px;
+  line-height: 1;
+  opacity: 0.7;
+}
+.cat-pin-label { line-height: 1; }
+@keyframes catPinIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Översikts-kort under kartan ───────────────────────── */
+
+.hub-cities {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 64px 60px 120px;
+}
+@media (max-width: 900px) {
+  .hub-cities { padding: 48px 24px 80px; }
+}
+
+.hub-cities-head {
+  margin-bottom: 56px;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.hub-cities-title {
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4.5vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+  font-style: italic;
+  max-width: 720px;
+}
+
+.hub-cities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line-soft);
+  border: 1px solid var(--line-soft);
+}
+@media (max-width: 1024px) {
+  .hub-cities-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .hub-cities-grid { grid-template-columns: 1fr; }
+}
+
+.hub-city-card {
+  background: var(--paper);
+  padding: 36px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  transition: background 0.3s;
+}
+.hub-city-card:hover { background: #f7f1df; }
+.hub-city-num {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--mute);
+  margin-bottom: 28px;
+}
+.hub-city-name {
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+.hub-city-tag {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-bottom: 24px;
+}
+.hub-city-cats {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: auto;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 12px;
+}
+.hub-city-cat-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 14px;
+  color: var(--ink-2);
+  border-bottom: 1px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.hub-city-cat-link:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.hub-city-cat-arrow {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 14px;
+  transition: transform 0.25s;
+}
+.hub-city-cat-link:hover .hub-city-cat-arrow { transform: translateX(4px); }
+
+/* ─────────────────────────────────────────────────────────
+   Landningssida — /ta-dig-hit/[stad]/[kategori]
+   ───────────────────────────────────────────────────────── */
+
+.land-page {
+  background: var(--paper);
+  min-height: 100vh;
+  position: relative;
+}
+.land-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(40,30,10,0.025) 1px, transparent 1px);
+  background-size: 3px 3px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.land-hero {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 48px 60px 40px;
+}
+@media (max-width: 900px) { .land-hero { padding: 32px 24px 24px; } }
+
+.land-hero-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 56px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.land-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  transition: color 0.2s;
+}
+.land-back:hover { color: var(--accent); }
+.land-back-arrow { transition: transform 0.25s; }
+.land-back:hover .land-back-arrow { transform: translateX(-3px); }
+
+.land-hero-trail {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--mute);
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+.land-hero-trail-sep { opacity: 0.4; }
+
+.land-hero-eyebrow {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--mute);
+  margin-bottom: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.land-hero-eyebrow::before {
+  content: "";
+  width: 24px;
+  height: 1px;
+  background: var(--ink);
+  opacity: 0.4;
+}
+
+.land-title {
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-size: clamp(44px, 7vw, 92px);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin: 0 0 28px;
+  max-width: 920px;
+}
+.land-title-lead { font-style: normal; }
+.land-title-em {
+  font-style: italic;
+  position: relative;
+  display: inline-block;
+}
+.land-title-em::after {
+  content: "";
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 0.08em;
+  height: 0.05em;
+  background: var(--accent);
+  opacity: 0.55;
+}
+
+.land-intro {
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 620px;
+  margin: 0;
+}
+
+/* ── Karta ─────────────────────────────────────────────── */
+.land-map-section {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px 60px 72px;
+}
+@media (max-width: 900px) { .land-map-section { padding: 24px 16px 48px; } }
+
+.land-map-wrap {
+  position: relative;
+  width: 100%;
+  height: clamp(460px, 64vh, 680px);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  background: #f3eee0;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line-soft);
+}
+.land-map-canvas { position: absolute; inset: 0; background: #f3eee0; }
+.land-map-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 80px rgba(40,30,10,0.08);
+  z-index: 5;
+  border-radius: inherit;
+}
+
+/* ── Pris-pinnar ───────────────────────────────────────── */
+.land-pin-wrap { background: transparent !important; border: none !important; }
+.land-pin {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(8px) scale(0.92);
+  animation: landPinIn 0.4s cubic-bezier(.2,.9,.3,1.2) var(--pin-delay, 0ms) forwards;
+  transition: transform 0.2s;
+}
+.land-pin:hover { transform: translateY(-3px); }
+.land-pin-price {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(40,30,10,0.18);
+  transition: all 0.2s;
+}
+.land-pin:hover .land-pin-price,
+.land-pin.is-active .land-pin-price {
+  background: var(--ink);
+  color: var(--paper);
+}
+.land-pin-tail {
+  width: 1px;
+  height: 8px;
+  background: var(--ink);
+  opacity: 0.5;
+  margin-top: 2px;
+}
+@keyframes landPinIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ── Leaflet popup override (Malmö-variant) ────────────── */
+.leaflet-popup.land-popup-wrap .leaflet-popup-content-wrapper {
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  padding: 0;
+  box-shadow: 0 18px 40px rgba(40,30,10,0.18);
+}
+.leaflet-popup.land-popup-wrap .leaflet-popup-content {
+  margin: 0;
+  width: 280px !important;
+}
+.leaflet-popup.land-popup-wrap .leaflet-popup-tip {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-soft);
+  border-right: 1px solid var(--line-soft);
+}
+.leaflet-popup.land-popup-wrap .leaflet-popup-close-button {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 18px;
+  color: var(--ink-2);
+  padding: 6px 8px 0 0;
+}
+
+.land-popup {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+.land-popup-img {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e9e1c8;
+}
+.land-popup-body { padding: 16px 18px 18px; }
+.land-popup-name {
+  font-family: var(--font-instrument-serif), serif;
+  font-size: 20px;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0 0 6px;
+  letter-spacing: -0.015em;
+}
+.land-popup-blurb {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin: 0 0 14px;
+}
+.land-popup-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 12px;
+}
+.land-popup-price {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 12px;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.land-popup-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.land-popup-cta:hover { transform: translateX(2px); }
+
+/* ── Sidopanel (Copenhagen-variant) ─────────────────────── */
+.land-panel-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(26,24,20,0);
+  pointer-events: none;
+  transition: background 0.32s;
+  z-index: 80;
+}
+.land-panel-backdrop.is-open {
+  background: rgba(26,24,20,0.45);
+  pointer-events: auto;
+  backdrop-filter: blur(2px);
+}
+
+.land-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(440px, 92vw);
+  background: var(--paper);
+  border-left: 1px solid var(--line-soft);
+  box-shadow: -24px 0 60px rgba(40,30,10,0.18);
+  z-index: 90;
+  transform: translateX(100%);
+  transition: transform 0.36s cubic-bezier(.2,.7,.3,1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.land-panel.is-open { transform: translateX(0); }
+.land-panel-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  font-size: 14px;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.land-panel-close:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.land-panel-img {
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e9e1c8;
+  flex-shrink: 0;
+}
+.land-panel-body { padding: 36px 32px 40px; }
+.land-panel-name {
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+.land-panel-blurb {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0 0 28px;
+}
+.land-panel-meta {
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  padding: 18px 0;
+  margin: 0 0 28px;
+}
+.land-panel-price {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.land-panel-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px 22px;
+  border-radius: 999px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.land-panel-cta:hover { transform: translateX(3px); }
+
+/* ── Lista under kartan ─────────────────────────────────── */
+.land-list {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px 60px 80px;
+}
+@media (max-width: 900px) { .land-list { padding: 16px 24px 56px; } }
+
+.land-list-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 36px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.land-list-count {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+.land-list-count span { color: var(--ink); }
+
+.land-list-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 900px) { .land-list-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+.land-card {
+  background: var(--paper);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.land-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.land-card-num {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  background: var(--paper);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+}
+.land-card-img {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-color: #e9e1c8;
+}
+.land-card-body {
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.land-card-name {
+  font-family: var(--font-instrument-serif), serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.land-card-blurb {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin: 0 0 18px;
+  flex: 1;
+}
+.land-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 14px;
+}
+.land-card-price {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 12px;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.land-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.land-card-cta:hover { transform: translateX(2px); }
+
+/* ── Andra kategorier under listan ──────────────────────── */
+.land-other {
+  position: relative;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 32px 60px 120px;
+}
+@media (max-width: 900px) { .land-other { padding: 24px 24px 80px; } }
+
+.land-other-grid {
+  margin-top: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line-soft);
+  border: 1px solid var(--line-soft);
+}
+@media (max-width: 600px) { .land-other-grid { grid-template-columns: 1fr; } }
+
+.land-other-link {
+  background: var(--paper);
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: background 0.25s;
+}
+.land-other-link:hover { background: #f7f1df; }
+.land-other-label {
+  font-family: var(--font-instrument-serif), serif;
+  font-size: 24px;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  font-style: italic;
+  flex-shrink: 0;
+}
+.land-other-meta {
+  font-size: 13px;
+  color: var(--mute);
+  flex: 1;
+  line-height: 1.4;
+}
+.land-other-arrow {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 14px;
+  color: var(--ink);
+  transition: transform 0.25s;
+}
+.land-other-link:hover .land-other-arrow { transform: translateX(4px); }
+/* css recompile trigger */
+
+
