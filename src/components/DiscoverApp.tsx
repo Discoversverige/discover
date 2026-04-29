@@ -222,6 +222,28 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
         </div>
       </div>
 
+      <section className="nav-banners">
+        {([
+          { key: "upplevelser", icon: "✨", href: "/upplevelser",
+            sv: "Upplevelser", en: "Experiences", de: "Erlebnisse" },
+          { key: "buss", icon: "🚌", href: "/ta-dig-hit",
+            sv: "Buss & taxi", en: "Bus & taxi", de: "Bus & Taxi" },
+          { key: "hyra-bil", icon: "🚗", href: "/ta-dig-hit",
+            sv: "Hyra bil", en: "Rent a car", de: "Auto mieten" },
+          { key: "boende", icon: "🏨", href: "/ta-dig-hit",
+            sv: "Boende", en: "Accommodation", de: "Unterkunft" },
+          { key: "camping", icon: "⛺", href: "/ta-dig-hit",
+            sv: "Camping", en: "Camping", de: "Camping" },
+          { key: "esim", icon: "📶", href: "/ta-dig-hit",
+            sv: "E-sim", en: "E-sim", de: "E-SIM" },
+        ] as { key: string; icon: string; href: string; sv: string; en: string; de: string }[]).map((b) => (
+          <a key={b.key} href={b.href} className="nav-banner">
+            <span className="nav-banner-icon">{b.icon}</span>
+            <span className="nav-banner-label">{b[lang]}</span>
+          </a>
+        ))}
+      </section>
+
       <section className="partners">
         <p className="partners-label">{lang === "sv" ? "Planera resan med" : lang === "de" ? "Plane deine Reise mit" : "Plan your trip with"}</p>
         <div className="partners-row">
