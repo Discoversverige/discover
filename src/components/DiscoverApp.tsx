@@ -219,6 +219,27 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
               })}
             </div>
           </div>
+
+          <div className="popular services">
+            <p className="pop-label">
+              {lang === "sv" ? "Tjänster" : lang === "de" ? "Dienste" : "Services"}
+            </p>
+            <div className="pop-cards">
+              {[
+                { label: lang === "sv" ? "Upplevelser" : lang === "de" ? "Erlebnisse" : "Experiences", src: "/images/upplevelser.jpg", href: "/upplevelser" },
+                { label: lang === "sv" ? "Buss & taxi" : lang === "de" ? "Bus & Taxi" : "Bus & taxi", src: "/images/buss-taxi.jpg", href: "/ta-dig-hit" },
+                { label: lang === "sv" ? "Hyra bil" : lang === "de" ? "Mietwagen" : "Rent a car", src: "/images/hyrbil.jpg", href: "/ta-dig-hit" },
+                { label: lang === "sv" ? "Boende" : lang === "de" ? "Unterkunft" : "Stays", src: "/images/boende.jpg", href: "/ta-dig-hit" },
+                { label: lang === "sv" ? "Camping" : lang === "de" ? "Camping" : "Camping", src: "/images/camping.jpg", href: "/ta-dig-hit" },
+                { label: "E-sim", src: "/images/e-sim.jpg", href: "/ta-dig-hit" },
+              ].map((s, i) => (
+                <a key={i} className="pop-card" href={s.href}>
+                  <img src={s.src} alt={s.label} className="pop-card-img" />
+                  <span className="pop-card-label">{s.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
