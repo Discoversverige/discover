@@ -219,50 +219,31 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
               })}
             </div>
           </div>
-
-          <div className="popular services">
-            <p className="pop-label">
-              {lang === "sv" ? "Tjänster" : lang === "de" ? "Dienste" : "Services"}
-            </p>
-            <div className="pop-cards">
-              {[
-                { label: lang === "sv" ? "Upplevelser" : lang === "de" ? "Erlebnisse" : "Experiences", src: "/images/upplevelser.jpg", href: "/upplevelser" },
-                { label: lang === "sv" ? "Buss & taxi" : lang === "de" ? "Bus & Taxi" : "Bus & taxi", src: "/images/buss-taxi.jpg", href: "/ta-dig-hit" },
-                { label: lang === "sv" ? "Hyra bil" : lang === "de" ? "Mietwagen" : "Rent a car", src: "/images/hyrbil.jpg", href: "/ta-dig-hit" },
-                { label: lang === "sv" ? "Boende" : lang === "de" ? "Unterkunft" : "Stays", src: "/images/boende.jpg", href: "/ta-dig-hit" },
-                { label: lang === "sv" ? "Camping" : lang === "de" ? "Camping" : "Camping", src: "/images/camping.jpg", href: "/ta-dig-hit" },
-                { label: "E-sim", src: "/images/e-sim.jpg", href: "/ta-dig-hit" },
-              ].map((s, i) => (
-                <a key={i} className="pop-card" href={s.href}>
-                  <img src={s.src} alt={s.label} className="pop-card-img" />
-                  <span className="pop-card-label">{s.label}</span>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 
-      <section className="nav-banners">
-        {([
-          { key: "upplevelser", icon: "✨", href: "/upplevelser",
-            sv: "Upplevelser", en: "Experiences", de: "Erlebnisse" },
-          { key: "buss", icon: "🚌", href: "/ta-dig-hit",
-            sv: "Buss & taxi", en: "Bus & taxi", de: "Bus & Taxi" },
-          { key: "hyra-bil", icon: "🚗", href: "/ta-dig-hit",
-            sv: "Hyra bil", en: "Rent a car", de: "Auto mieten" },
-          { key: "boende", icon: "🏨", href: "/ta-dig-hit",
-            sv: "Boende", en: "Accommodation", de: "Unterkunft" },
-          { key: "camping", icon: "⛺", href: "/ta-dig-hit",
-            sv: "Camping", en: "Camping", de: "Camping" },
-          { key: "esim", icon: "📶", href: "/ta-dig-hit",
-            sv: "E-sim", en: "E-sim", de: "E-SIM" },
-        ] as { key: string; icon: string; href: string; sv: string; en: string; de: string }[]).map((b) => (
-          <a key={b.key} href={b.href} className="nav-banner">
-            <span className="nav-banner-icon">{b.icon}</span>
-            <span className="nav-banner-label">{b[lang]}</span>
-          </a>
-        ))}
+      <section className="services">
+        <div className="pop-cards">
+          {([
+            { key: "upplevelser", src: "/images/upplevelser.jpg", href: "/upplevelser",
+              sv: "Upplevelser", en: "Experiences", de: "Erlebnisse" },
+            { key: "buss", src: "/images/buss-taxi.jpg", href: "/ta-dig-hit",
+              sv: "Buss & taxi", en: "Bus & taxi", de: "Bus & Taxi" },
+            { key: "hyra-bil", src: "/images/hyrbil.jpg", href: "/ta-dig-hit",
+              sv: "Hyra bil", en: "Rent a car", de: "Auto mieten" },
+            { key: "boende", src: "/images/boende.jpg", href: "/ta-dig-hit",
+              sv: "Boende", en: "Accommodation", de: "Unterkunft" },
+            { key: "camping", src: "/images/camping.jpg", href: "/ta-dig-hit",
+              sv: "Camping", en: "Camping", de: "Camping" },
+            { key: "esim", src: "/images/e-sim.jpg", href: "/ta-dig-hit",
+              sv: "E-sim", en: "E-sim", de: "E-SIM" },
+          ] as { key: string; src: string; href: string; sv: string; en: string; de: string }[]).map((b) => (
+            <a key={b.key} href={b.href} className="pop-card">
+              <img src={b.src} alt={b[lang]} className="pop-card-img" />
+              <span className="pop-card-label">{b[lang]}</span>
+            </a>
+          ))}
+        </div>
       </section>
 
       <section className="partners">
