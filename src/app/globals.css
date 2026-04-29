@@ -140,6 +140,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .services {
   max-width: 1180px; width: 100%; margin: 48px auto 0; padding: 0 40px;
 }
+.services .pop-cards { grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .services .pop-card { text-decoration: none; }
 
 .partners { max-width: 1180px; width: 100%; margin: 80px auto 40px; padding: 48px 40px 0; border-top: 1px solid var(--line-soft); text-align: center; }
