@@ -1599,20 +1599,20 @@ export default function HyraBilList() {
         </div>
 
         <div className="upp-filter-group">
-          <span className="upp-filter-label">{t.supplier}</span>
+          <span className="upp-filter-label">{t.category}</span>
           <div className="upp-chips">
-            <button className={`upp-chip${supplier === "all" ? " active" : ""}`} onClick={() => setSupplier("all")}>{t.allSuppliers}</button>
-            {SUPPLIERS.map((s) => (
-              <button key={s} className={`upp-chip${supplier === s ? " active" : ""}`} onClick={() => setSupplier(s)}>{s}</button>
+            {([["all", t.allLocations], ["small", t.sizeSmall], ["medium", t.sizeMedium], ["large", t.sizeLarge]] as [SizeGroup, string][]).map(([key, label]) => (
+              <button key={key} className={`upp-chip${size === key ? " active" : ""}`} onClick={() => setSize(key)}>{label}</button>
             ))}
           </div>
         </div>
 
         <div className="upp-filter-group">
-          <span className="upp-filter-label">{t.category}</span>
+          <span className="upp-filter-label">{t.supplier}</span>
           <div className="upp-chips">
-            {([["all", t.allLocations], ["small", t.sizeSmall], ["medium", t.sizeMedium], ["large", t.sizeLarge]] as [SizeGroup, string][]).map(([key, label]) => (
-              <button key={key} className={`upp-chip${size === key ? " active" : ""}`} onClick={() => setSize(key)}>{label}</button>
+            <button className={`upp-chip${supplier === "all" ? " active" : ""}`} onClick={() => setSupplier("all")}>{t.allSuppliers}</button>
+            {SUPPLIERS.map((s) => (
+              <button key={s} className={`upp-chip${supplier === s ? " active" : ""}`} onClick={() => setSupplier(s)}>{s}</button>
             ))}
           </div>
         </div>
