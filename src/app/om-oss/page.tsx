@@ -22,7 +22,7 @@ export default function OmOssPage() {
       <section className="om-hero" aria-label="Om Discover Malmö">
         <video
           className="om-hero-video"
-          src="/videos/malm%C3%B6%20drone.mp4"
+          src="/videos/malmo-drone.mp4"
           autoPlay
           muted
           loop
