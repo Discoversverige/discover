@@ -423,7 +423,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .logo-img-brand { height: 36px; }
   .hero { padding: 20px 16px 16px; }
   .display { font-size: clamp(32px,10vw,52px); }
-  .pop-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .pop-cards { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .services .pop-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .pop-card-label { font-size: 13px; padding: 8px 4px 0; }
   .exp-grid { grid-template-columns: 1fr; }
