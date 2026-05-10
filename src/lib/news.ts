@@ -4,7 +4,7 @@ import matter from "gray-matter";
 
 export { formatDate } from "./format-date";
 
-export type BlogPost = {
+export type NewsPost = {
   slug: string;
   title: string;
   description: string;
@@ -16,19 +16,19 @@ export type BlogPost = {
   content: string;
 };
 
-const BLOG_DIR = path.join(process.cwd(), "content", "blog");
+const NEWS_DIR = path.join(process.cwd(), "content", "news");
 const FALLBACK_IMAGE = "/images/bannern.jpg";
 
 export function getAllPostSlugs(): string[] {
-  if (!fs.existsSync(BLOG_DIR)) return [];
+  if (!fs.existsSync(NEWS_DIR)) return [];
   return fs
-    .readdirSync(BLOG_DIR)
+    .readdirSync(NEWS_DIR)
     .filter((f) => f.endsWith(".mdx"))
     .map((f) => f.replace(/\.mdx$/, ""));
 }
 
-export function getPostBySlug(slug: string): BlogPost | null {
-  const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
+export function getPostBySlug(slug: string): NewsPost | null {
+  const filePath = path.join(NEWS_DIR, `${slug}.mdx`);
   if (!fs.existsSync(filePath)) return null;
   const raw = fs.readFileSync(filePath, "utf8");
   const { data, content } = matter(raw);
@@ -45,14 +45,14 @@ export function getPostBySlug(slug: string): BlogPost | null {
   };
 }
 
-export function getAllPosts(): BlogPost[] {
+export function getAllPosts(): NewsPost[] {
   return getAllPostSlugs()
     .map((slug) => getPostBySlug(slug))
-    .filter((p): p is BlogPost => p !== null)
+    .filter((p): p is NewsPost => p !== null)
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
-export function getFeaturedAndRest(): { featured: BlogPost | null; rest: BlogPost[] } {
+export function getFeaturedAndRest(): { featured: NewsPost | null; rest: NewsPost[] } {
   const all = getAllPosts();
   if (all.length === 0) return { featured: null, rest: [] };
   const explicitFeatured = all.find((p) => p.featured);
@@ -68,4 +68,3 @@ export function getAllCategories(): string[] {
   }
   return Array.from(cats).sort();
 }
-

@@ -2,17 +2,17 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import type { BlogPost } from "@/lib/blog";
+import type { NewsPost } from "@/lib/news";
 import { formatDate } from "@/lib/format-date";
 
 type Props = {
-  posts: BlogPost[];
+  posts: NewsPost[];
   categories: string[];
 };
 
 const ALL_KEY = "Alla";
 
-export default function BloggSegmentTopics({ posts, categories }: Props) {
+export default function NewsSegmentTopics({ posts, categories }: Props) {
   const [active, setActive] = useState<string>(ALL_KEY);
 
   const filtered = useMemo(() => {
@@ -21,18 +21,18 @@ export default function BloggSegmentTopics({ posts, categories }: Props) {
   }, [posts, active]);
 
   return (
-    <section className="blogg-segment">
-      <div className="blogg-segment-header">
-        <p className="blogg-segment-label">Bläddra efter ämne</p>
-        <h2 className="blogg-segment-title">Hela arkivet</h2>
+    <section className="news-segment">
+      <div className="news-segment-header">
+        <p className="news-segment-label">Bläddra efter ämne</p>
+        <h2 className="news-segment-title">Hela arkivet</h2>
       </div>
 
-      <div className="blogg-topics-chips" role="tablist" aria-label="Filtrera efter kategori">
+      <div className="news-topics-chips" role="tablist" aria-label="Filtrera efter kategori">
         <button
           type="button"
           role="tab"
           aria-selected={active === ALL_KEY}
-          className="blogg-topic-chip"
+          className="news-topic-chip"
           data-active={active === ALL_KEY}
           onClick={() => setActive(ALL_KEY)}
         >
@@ -44,7 +44,7 @@ export default function BloggSegmentTopics({ posts, categories }: Props) {
             type="button"
             role="tab"
             aria-selected={active === cat}
-            className="blogg-topic-chip"
+            className="news-topic-chip"
             data-active={active === cat}
             onClick={() => setActive(cat)}
           >
@@ -54,26 +54,26 @@ export default function BloggSegmentTopics({ posts, categories }: Props) {
       </div>
 
       {filtered.length === 0 ? (
-        <p className="blogg-empty">Inga inlägg i den här kategorin ännu.</p>
+        <p className="news-empty">Inga inlägg i den här kategorin ännu.</p>
       ) : (
-        <ul className="blogg-topics-list">
+        <ul className="news-topics-list">
           {filtered.map((post) => (
-            <li key={post.slug} className="blogg-topic-row">
-              <Link href={`/blogg/${post.slug}`} className="blogg-topic-row-link">
+            <li key={post.slug} className="news-topic-row">
+              <Link href={`/news/${post.slug}`} className="news-topic-row-link">
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="blogg-topic-row-img"
+                  className="news-topic-row-img"
                   loading="lazy"
                 />
-                <div className="blogg-topic-row-text">
-                  <div className="blogg-card-meta">
-                    {post.category && <span className="blogg-card-cat">{post.category}</span>}
-                    <span className="blogg-card-dot">·</span>
-                    <span className="blogg-card-date">{formatDate(post.date, "sv")}</span>
+                <div className="news-topic-row-text">
+                  <div className="news-card-meta">
+                    {post.category && <span className="news-card-cat">{post.category}</span>}
+                    <span className="news-card-dot">·</span>
+                    <span className="news-card-date">{formatDate(post.date, "sv")}</span>
                   </div>
-                  <h3 className="blogg-topic-row-title">{post.title}</h3>
-                  <p className="blogg-topic-row-desc">{post.description}</p>
+                  <h3 className="news-topic-row-title">{post.title}</h3>
+                  <p className="news-topic-row-desc">{post.description}</p>
                 </div>
               </Link>
             </li>

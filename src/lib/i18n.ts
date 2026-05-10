@@ -30,7 +30,7 @@ export const I18N = {
     },
     footer: "En tjänst av Discover Malmö · 2026",
     footer_contact: "Kontakta oss",
-    footer_blog: "Blogg",
+    footer_news: "News",
     about: {
       eyebrow: "Om oss",
       title: "Vi visar Malmö — på riktigt.",
@@ -131,7 +131,7 @@ export const I18N = {
     },
     footer: "A service by Discover Malmö · 2026",
     footer_contact: "Contact us",
-    footer_blog: "Blog",
+    footer_news: "News",
     about: {
       eyebrow: "About",
       title: "We show Malmö — for real.",
@@ -232,7 +232,7 @@ export const I18N = {
     },
     footer: "Ein Service von Discover Malmö · 2026",
     footer_contact: "Kontakt",
-    footer_blog: "Blog",
+    footer_news: "News",
     about: {
       eyebrow: "Über uns",
       title: "Wir zeigen Malmö — wie es wirklich ist.",

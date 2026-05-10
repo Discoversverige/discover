@@ -8,7 +8,7 @@ type Props = {
   items: Experience[];
 };
 
-export default function BloggSegmentExperiences({ items }: Props) {
+export default function NewsSegmentExperiences({ items }: Props) {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
@@ -35,7 +35,7 @@ export default function BloggSegmentExperiences({ items }: Props) {
   const scrollByCard = (dir: "prev" | "next") => {
     const el = scrollerRef.current;
     if (!el) return;
-    const card = el.querySelector<HTMLElement>(".blogg-carousel-card");
+    const card = el.querySelector<HTMLElement>(".news-carousel-card");
     const step = card ? card.offsetWidth + 16 : el.clientWidth * 0.85;
     el.scrollBy({ left: dir === "next" ? step : -step, behavior: "smooth" });
   };
@@ -43,16 +43,16 @@ export default function BloggSegmentExperiences({ items }: Props) {
   if (items.length === 0) return null;
 
   return (
-    <section className="blogg-segment blogg-segment-carousel">
-      <div className="blogg-segment-header blogg-segment-header-row">
+    <section className="news-segment news-segment-carousel">
+      <div className="news-segment-header news-segment-header-row">
         <div>
-          <p className="blogg-segment-label">Utvalda upplevelser</p>
-          <h2 className="blogg-segment-title">Handplockade saker att göra i Malmö</h2>
+          <p className="news-segment-label">Utvalda upplevelser</p>
+          <h2 className="news-segment-title">Handplockade saker att göra i Malmö</h2>
         </div>
-        <div className="blogg-carousel-controls" aria-hidden="true">
+        <div className="news-carousel-controls" aria-hidden="true">
           <button
             type="button"
-            className="blogg-carousel-arrow"
+            className="news-carousel-arrow"
             onClick={() => scrollByCard("prev")}
             disabled={!canPrev}
             aria-label="Visa föregående"
@@ -61,7 +61,7 @@ export default function BloggSegmentExperiences({ items }: Props) {
           </button>
           <button
             type="button"
-            className="blogg-carousel-arrow"
+            className="news-carousel-arrow"
             onClick={() => scrollByCard("next")}
             disabled={!canNext}
             aria-label="Visa nästa"
@@ -71,26 +71,26 @@ export default function BloggSegmentExperiences({ items }: Props) {
         </div>
       </div>
 
-      <div className="blogg-carousel-wrap">
-        <div className="blogg-carousel" ref={scrollerRef}>
+      <div className="news-carousel-wrap">
+        <div className="news-carousel" ref={scrollerRef}>
           {items.map((exp) => (
             <Link
               key={exp.id}
               href={`/upplevelser/${exp.slug}`}
-              className="blogg-carousel-card"
+              className="news-carousel-card"
             >
-              <div className="blogg-carousel-img-wrap">
+              <div className="news-carousel-img-wrap">
                 <img
                   src={exp.images.main}
                   alt={exp.images.alt || exp.title}
-                  className="blogg-carousel-img"
+                  className="news-carousel-img"
                   loading="lazy"
                 />
               </div>
-              <div className="blogg-carousel-card-info">
-                <span className="blogg-carousel-cat">{exp.category}</span>
-                <h3 className="blogg-carousel-title">{exp.title}</h3>
-                <span className="blogg-carousel-price">
+              <div className="news-carousel-card-info">
+                <span className="news-carousel-cat">{exp.category}</span>
+                <h3 className="news-carousel-title">{exp.title}</h3>
+                <span className="news-carousel-price">
                   Från {exp.priceFrom.toLocaleString("sv-SE")} kr
                 </span>
               </div>
