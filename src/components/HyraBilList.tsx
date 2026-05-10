@@ -1651,6 +1651,9 @@ export default function HyraBilList() {
                 <div className="hb-card-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={car.image} alt={car.name} className="hb-card-img" loading="lazy" />
+                  <span className="hb-card-rating-badge">
+                    {car.supplierRating.toFixed(1)} <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M6 1l1.39 2.82L10.5 4.27l-2.25 2.19.53 3.1L6 8l-2.78 1.56.53-3.1L1.5 4.27l3.11-.45z"/></svg>
+                  </span>
                   <span className={`hb-card-loc-tag ${car.isAirport ? "airport" : "city"}`}>
                     {car.isAirport ? `✈ ${t.airport}` : `🏙 ${t.city}`}
                   </span>
@@ -1670,23 +1673,12 @@ export default function HyraBilList() {
                     <span>🛣 {t.unlimited}</span>
                   </div>
 
-                  <div className="hb-card-rating">
-                    <span className="hb-rating-score">{car.supplierRating.toFixed(1)}</span>
-                    <div className="hb-rating-bar">
-                      <div className="hb-rating-fill" style={{ width: `${(car.supplierRating / 10) * 100}%` }} />
-                    </div>
-                    <span className="hb-rating-label">{car.ratingLabel}</span>
-                  </div>
-
                   <div className="hb-card-footer">
                     <div className="hb-card-price-wrap">
                       <span className="hb-card-price">{car.pricePerDay.toLocaleString("sv-SE")} kr</span>
                       <span className="hb-card-price-unit">{t.perDay}</span>
                     </div>
-                    <div className="hb-card-cta">
-                      {car.freeCancellation && <span className="hb-free-cancel">✓ {t.freeCancellation}</span>}
-                      <span className="hb-book-btn">{t.book}</span>
-                    </div>
+                    <span className="hb-book-btn">Visa</span>
                   </div>
                 </div>
               </a>

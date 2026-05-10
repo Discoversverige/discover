@@ -1869,8 +1869,8 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 
 .hb-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px 16px;
 }
 
 .hb-card {
@@ -1907,6 +1907,13 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.5px;
   padding: 4px 10px; border-radius: 999px;
 }
+.hb-card-rating-badge {
+  position: absolute; top: 10px; left: 10px;
+  display: flex; align-items: center; gap: 4px;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--sans); font-size: 13px; font-weight: 700;
+  padding: 4px 10px; border-radius: 999px; line-height: 1;
+}
 .hb-card-loc-tag {
   position: absolute; bottom: 10px; right: 10px;
   font-size: 11px; font-weight: 500; padding: 4px 10px;
@@ -1939,35 +1946,22 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 }
 .hb-card-specs span { white-space: nowrap; }
 
-.hb-card-rating {
-  display: flex; align-items: center; gap: 8px;
-}
-.hb-rating-score {
-  font-size: 14px; font-weight: 700; color: var(--ink);
-  background: var(--ink); color: var(--paper);
-  padding: 3px 7px; border-radius: 6px; line-height: 1;
-  font-family: var(--mono);
-}
-.hb-rating-bar {
-  flex: 1; height: 4px; background: var(--line-soft); border-radius: 2px; overflow: hidden;
-}
-.hb-rating-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.4s; }
-.hb-rating-count { font-size: 11px; color: var(--mute); white-space: nowrap; }
-
 .hb-card-footer {
-  display: flex; align-items: flex-end; justify-content: space-between;
+  display: flex; align-items: center; justify-content: space-between;
   gap: 12px; margin-top: auto; padding-top: 8px;
   border-top: 1px solid var(--line-soft);
 }
 .hb-card-price-wrap { display: flex; align-items: baseline; gap: 3px; }
-.hb-card-price { font-size: 22px; font-weight: 700; color: var(--ink); font-family: var(--serif); }
-.hb-card-price-unit { font-size: 12px; color: var(--mute); }
+.hb-card-price { font-size: 18px; font-weight: 700; color: var(--ink); font-family: var(--serif); }
+.hb-card-price-unit { font-size: 11px; color: var(--mute); }
 
-.hb-card-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
-.hb-free-cancel { font-size: 11px; color: #2e7d32; font-weight: 500; }
 .hb-book-btn {
-  font-size: 13px; font-weight: 600; color: var(--accent-ink);
-  letter-spacing: 0.01em;
+  display: inline-block;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 7px 14px; border-radius: var(--r);
+  white-space: nowrap; flex-shrink: 0;
 }
 
 .hb-disclaimer {
@@ -1977,12 +1971,14 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   line-height: 1.5;
 }
 
-@media (max-width: 900px) {
-  .hb-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 14px; }
+@media (max-width: 1100px) {
+  .hb-grid { grid-template-columns: repeat(3, 1fr); gap: 20px 14px; }
 }
-
+@media (max-width: 700px) {
+  .hb-grid { grid-template-columns: repeat(2, 1fr); gap: 16px 10px; }
+}
 @media (max-width: 480px) {
-  .hb-grid { grid-template-columns: 1fr; gap: 16px; }
+  .hb-grid { grid-template-columns: 1fr; gap: 14px; }
 }
 
 
