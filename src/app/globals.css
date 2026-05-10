@@ -2186,3 +2186,279 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .om-hero { height: 85vh; }
   .om-hero-title { font-size: 2.2rem; }
 }
+
+/* ── Blogg ── */
+.blogg-page { padding-bottom: 0; }
+
+.blogg-hero {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-soft);
+  padding: 140px 48px 120px;
+  display: flex;
+  justify-content: center;
+}
+.blogg-hero-inner {
+  max-width: 760px;
+  width: 100%;
+  text-align: center;
+}
+.blogg-soon-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 28px;
+}
+.blogg-hero-title {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 0 0 24px;
+}
+.blogg-hero-title em {
+  font-style: italic;
+  color: var(--mute);
+}
+.blogg-hero-lead {
+  font-size: clamp(1rem, 1.6vw, 1.1rem);
+  color: var(--ink-2);
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .blogg-hero { padding: 96px 24px 80px; }
+}
+@media (max-width: 480px) {
+  .blogg-hero-title { font-size: 2.2rem; }
+}
+
+/* ── Blogg lista ── */
+.blogg-list-hero {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-soft);
+  padding: 110px 48px 80px;
+  text-align: center;
+}
+.blogg-list-hero-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.blogg-list-title {
+  font-family: var(--serif);
+  font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--ink);
+  margin: 14px 0 18px;
+}
+.blogg-list-title em { font-style: italic; color: var(--mute); }
+.blogg-list-lead {
+  font-size: clamp(1rem, 1.5vw, 1.05rem);
+  color: var(--ink-2);
+  line-height: 1.65;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.blogg-list-section {
+  padding: 80px 48px 120px;
+  background: var(--bg);
+}
+.blogg-list-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+.blogg-empty {
+  text-align: center;
+  color: var(--mute);
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 40px 0;
+}
+.blogg-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.blogg-card {
+  border-top: 1px solid var(--line-soft);
+}
+.blogg-card:last-child {
+  border-bottom: 1px solid var(--line-soft);
+}
+.blogg-card-link {
+  display: block;
+  padding: 36px 0;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.18s ease;
+}
+.blogg-card-link:hover {
+  opacity: 0.7;
+}
+.blogg-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-bottom: 14px;
+}
+.blogg-card-cat {
+  color: var(--ink);
+}
+.blogg-card-dot { opacity: 0.5; }
+.blogg-card-title {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+.blogg-card-desc {
+  font-size: 1rem;
+  color: var(--ink-2);
+  line-height: 1.65;
+  margin: 0 0 16px;
+  max-width: 640px;
+}
+.blogg-card-readtime {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+/* ── Blogg artikel ── */
+.blogg-article-page {
+  background: var(--bg);
+  padding-bottom: 0;
+}
+.blogg-article {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 32px 100px;
+}
+.blogg-back {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--mute);
+  text-decoration: none;
+  margin-bottom: 40px;
+  transition: color 0.15s;
+}
+.blogg-back:hover { color: var(--ink); }
+
+.blogg-article-header { margin-bottom: 48px; }
+.blogg-article-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--mute);
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.blogg-article-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0 0 22px;
+}
+.blogg-article-lead {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-style: italic;
+  color: var(--mute);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.blogg-article-body {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+.blogg-article-body > * + * { margin-top: 1.4em; }
+.blogg-article-body h2 {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.6vw, 1.9rem);
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-top: 2.2em;
+  margin-bottom: 0.6em;
+}
+.blogg-article-body h3 {
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 1.8em;
+  margin-bottom: 0.4em;
+}
+.blogg-article-body p { margin: 0; }
+.blogg-article-body ul,
+.blogg-article-body ol {
+  padding-left: 1.4em;
+  margin: 0;
+}
+.blogg-article-body li + li { margin-top: 0.5em; }
+.blogg-article-body strong { color: var(--ink); font-weight: 600; }
+.blogg-article-body a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.blogg-article-body a:hover { opacity: 0.7; }
+.blogg-article-body blockquote {
+  border-left: 3px solid var(--ink);
+  padding-left: 20px;
+  font-style: italic;
+  color: var(--mute);
+}
+
+.blogg-article-footer {
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line-soft);
+}
+
+@media (max-width: 900px) {
+  .blogg-list-hero { padding: 88px 24px 60px; }
+  .blogg-list-section { padding: 56px 24px 80px; }
+  .blogg-card-link { padding: 28px 0; }
+  .blogg-article { padding: 56px 22px 80px; }
+}
+@media (max-width: 480px) {
+  .blogg-list-title { font-size: 2rem; }
+  .blogg-article-title { font-size: 1.8rem; }
+  .blogg-article-body { font-size: 1rem; line-height: 1.75; }
+}

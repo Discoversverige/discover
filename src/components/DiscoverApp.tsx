@@ -666,8 +666,8 @@ export default function DiscoverApp({ initialView }: { initialView?: "home" | "m
       <footer className="foot">
         <span>{t.footer}</span>
         <a href="/om-oss" className="foot-link">{t.footer_contact}</a>
+        <a href="/blogg" className="foot-link">{t.footer_blog}</a>
         <span className="coords">55°36′N · 13°00′E</span>
-        <a href="/test" className="foot-link" style={{ opacity: 0.3, fontSize: "0.65rem" }}>t</a>
       </footer>
     </div>
   );
