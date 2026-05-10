@@ -38,7 +38,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-S9VP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJiYmRmNDVlZDViYTY4ODdmZTJlYTA3NDI3NDNiYjA0ZCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-S9VP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJiYmRmNDVlZDViYTY4ODdmZTJlYTA3NDI3NDNiYjA0ZCJ9",
   },
   {
     id: "B85C",
@@ -54,7 +54,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-B85C?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2Y2JmOTgwOGZiM2U4ZDhlMDA2NzY0NTAyZWNmNWJmNyJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-B85C?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2Y2JmOTgwOGZiM2U4ZDhlMDA2NzY0NTAyZWNmNWJmNyJ9",
   },
   {
     id: "BDKU",
@@ -70,7 +70,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-BDKU?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJiOGQzMmJmZTllYjlmNTdkODliZWM1N2Y3NzdjZGM1MyJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-BDKU?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJiOGQzMmJmZTllYjlmNTdkODliZWM1N2Y3NzdjZGM1MyJ9",
   },
   {
     id: "C5MD",
@@ -86,7 +86,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-C5MD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1NzJjMmEzOGVjYzc1YWE3Yzg3ZGY4MTFkYzFhN2QyZCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-C5MD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1NzJjMmEzOGVjYzc1YWE3Yzg3ZGY4MTFkYzFhN2QyZCJ9",
   },
   {
     id: "36QK",
@@ -102,7 +102,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-36QK?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJhNWYxNzBiZGRhOTcwOWFlYWE2NzkwYmI3YmE5M2UxZiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-36QK?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJhNWYxNzBiZGRhOTcwOWFlYWE2NzkwYmI3YmE5M2UxZiJ9",
   },
   {
     id: "QGJW",
@@ -118,7 +118,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-QGJW?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5NmFlNjEwOTNjMDk0YzVjMTA4ZTQ5MmI0ZjkwMDI1NCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-QGJW?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5NmFlNjEwOTNjMDk0YzVjMTA4ZTQ5MmI0ZjkwMDI1NCJ9",
   },
   {
     id: "RPPD",
@@ -134,7 +134,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-RPPD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIwNGRhZDhjZjkzOTNmZmNkN2E0MzM2MzE3OGEzOThhOCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-RPPD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIwNGRhZDhjZjkzOTNmZmNkN2E0MzM2MzE3OGEzOThhOCJ9",
   },
   {
     id: "4PU3",
@@ -150,7 +150,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-4PU3?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJmZjI1MmU4YWFmMzYwZGRhMzE5ZDI3MjE3ZGJiMTY4MiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-4PU3?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJmZjI1MmU4YWFmMzYwZGRhMzE5ZDI3MjE3ZGJiMTY4MiJ9",
   },
   {
     id: "Y5WW",
@@ -166,7 +166,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-Y5WW?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI3MGRhZjI5MjBhZWRjNDJkMmE0OTEwMzlmOWM4ZTQ4ZCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-Y5WW?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI3MGRhZjI5MjBhZWRjNDJkMmE0OTEwMzlmOWM4ZTQ4ZCJ9",
   },
   {
     id: "EXGD",
@@ -182,7 +182,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-EXGD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJkOTkzM2FjNWIwOGQ3MzViZDE0ZTIxNGZkYmFmYTQ2MiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-EXGD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJkOTkzM2FjNWIwOGQ3MzViZDE0ZTIxNGZkYmFmYTQ2MiJ9",
   },
   {
     id: "NP84",
@@ -198,7 +198,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-NP84?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2ZDc2MjcyNzYyYjUyZDI4YjE1NzhmMjZhZmRlNWJmMSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-NP84?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2ZDc2MjcyNzYyYjUyZDI4YjE1NzhmMjZhZmRlNWJmMSJ9",
   },
   {
     id: "9BVL",
@@ -214,7 +214,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-9BVL?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5ZDgzYzYyYWE5NzU4YjBkYWJiYzg1NjM0MDEyZGEyNCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-9BVL?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5ZDgzYzYyYWE5NzU4YjBkYWJiYzg1NjM0MDEyZGEyNCJ9",
   },
   {
     id: "P26C",
@@ -230,7 +230,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-P26C?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI0NDBjOTAzYjBjMTJkYjFlZjY3NjI1MjY1ZjczMzIyYiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-P26C?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI0NDBjOTAzYjBjMTJkYjFlZjY3NjI1MjY1ZjczMzIyYiJ9",
   },
   {
     id: "HULW",
@@ -246,7 +246,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-HULW?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4NjM0NjZhZTgyOGNjYTU1NTEwZTg3NmQ2ODZhNjBjOCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-HULW?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4NjM0NjZhZTgyOGNjYTU1NTEwZTg3NmQ2ODZhNjBjOCJ9",
   },
   {
     id: "YYKT",
@@ -262,7 +262,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-YYKT?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2MjI0MWIyYTRjZjQ2NmYzMWQxMGM4OGVkM2FhZDkxNCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-YYKT?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2MjI0MWIyYTRjZjQ2NmYzMWQxMGM4OGVkM2FhZDkxNCJ9",
   },
   {
     id: "RN26",
@@ -278,7 +278,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-RN26?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5OTBlOTE0NzM0ZmQxMDgwYzA5N2YwMmUzODUwMWMxNSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-RN26?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5OTBlOTE0NzM0ZmQxMDgwYzA5N2YwMmUzODUwMWMxNSJ9",
   },
   {
     id: "E9NP",
@@ -294,7 +294,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-E9NP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIxZGNiYTM5MWFmMjE2NzU4YjllOTU2NTA5ODdlYTQzYSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-E9NP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIxZGNiYTM5MWFmMjE2NzU4YjllOTU2NTA5ODdlYTQzYSJ9",
   },
   {
     id: "DCPP",
@@ -310,7 +310,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-DCPP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjZTE5Yzk2NjNkZjY4OWEwNThiZjMyMGUxZWY3NWIyMiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-DCPP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjZTE5Yzk2NjNkZjY4OWEwNThiZjMyMGUxZWY3NWIyMiJ9",
   },
   {
     id: "M5P2",
@@ -326,7 +326,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-M5P2?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4ZGJkNmYyMzYyODEyYzFmYWI2MjU1NTUyYjMyNWIyMiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-M5P2?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4ZGJkNmYyMzYyODEyYzFmYWI2MjU1NTUyYjMyNWIyMiJ9",
   },
   {
     id: "C5TJ",
@@ -342,7 +342,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-C5TJ?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI3YTQ2NjNlYTBkM2IxMzI0YjE4OTg5ZmVlNDc0MTcyOCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-C5TJ?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI3YTQ2NjNlYTBkM2IxMzI0YjE4OTg5ZmVlNDc0MTcyOCJ9",
   },
   {
     id: "RQAP",
@@ -358,7 +358,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-RQAP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjZTc3NWY3MDkwMGRlMTkwMWFkMjI5ZWI0N2M2MjA1NSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-RQAP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjZTc3NWY3MDkwMGRlMTkwMWFkMjI5ZWI0N2M2MjA1NSJ9",
   },
   {
     id: "DC4G",
@@ -374,7 +374,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-DC4G?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIzNWVkNmZmOTcwNThkMDg5OTlmNjYwMTM0ZDZkMjBkMSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-DC4G?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIzNWVkNmZmOTcwNThkMDg5OTlmNjYwMTM0ZDZkMjBkMSJ9",
   },
   {
     id: "YN4S",
@@ -390,7 +390,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-YN4S?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJhNGM0MmMzN2EyNDQ0ZjFhZGQzYTc4ODI4MDNmNmZjOSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-YN4S?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJhNGM0MmMzN2EyNDQ0ZjFhZGQzYTc4ODI4MDNmNmZjOSJ9",
   },
   {
     id: "DTLG",
@@ -406,7 +406,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-DTLG?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2ODE4NTEwNDhkMzAyYTVlZGE3OTdhZWY1ODc4YzY3YyJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-DTLG?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2ODE4NTEwNDhkMzAyYTVlZGE3OTdhZWY1ODc4YzY3YyJ9",
   },
   {
     id: "3DUH",
@@ -422,7 +422,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-3DUH?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjZTMxZDg5NjAxM2MxYTBlNTRjZGQyYjMzYWJkNmQyOSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-3DUH?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjZTMxZDg5NjAxM2MxYTBlNTRjZGQyYjMzYWJkNmQyOSJ9",
   },
   {
     id: "3GM6",
@@ -438,7 +438,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-3GM6?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJmMDBlODhiMDlmYTk4NjQ1NjA3YWI5ZDRjMGVlNTk2MCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-3GM6?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJmMDBlODhiMDlmYTk4NjQ1NjA3YWI5ZDRjMGVlNTk2MCJ9",
   },
   {
     id: "BBL7",
@@ -454,7 +454,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-BBL7?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJlYzUzNDNmOWZjNWU0M2M5ZWU3MjJmNjExNTk5Y2JjZCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-BBL7?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJlYzUzNDNmOWZjNWU0M2M5ZWU3MjJmNjExNTk5Y2JjZCJ9",
   },
   {
     id: "HJHY",
@@ -470,7 +470,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-HJHY?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI0ODhkZDZjZDNhNTg3NjA5ZGZiZGU3MTU2MjZjNTgzNiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-HJHY?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI0ODhkZDZjZDNhNTg3NjA5ZGZiZGU3MTU2MjZjNTgzNiJ9",
   },
   {
     id: "462H",
@@ -486,7 +486,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-462H?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJiOGIwOTBjMGQ0YTk5NjlmY2RkZjU4M2RkYTNiZTkzNCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-462H?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJiOGIwOTBjMGQ0YTk5NjlmY2RkZjU4M2RkYTNiZTkzNCJ9",
   },
   {
     id: "3V5B",
@@ -502,7 +502,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-3V5B?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJhNGI0YzI1NjY4ZDcwN2NhN2YyOGU1Nzc3OWEzNjA1ZCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-3V5B?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJhNGI0YzI1NjY4ZDcwN2NhN2YyOGU1Nzc3OWEzNjA1ZCJ9",
   },
   {
     id: "98X9",
@@ -518,7 +518,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-98X9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJmNzM2OWIwNTEzZDY1YWY5NjRmYzE4ODYzODVlY2JlOSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-98X9?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJmNzM2OWIwNTEzZDY1YWY5NjRmYzE4ODYzODVlY2JlOSJ9",
   },
   {
     id: "NAYY",
@@ -534,7 +534,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-NAYY?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJhOGJkMDZkMDE1YzQ1MjU5M2QxOTE0ZDg4YjY0YTY2NyJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-NAYY?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJhOGJkMDZkMDE1YzQ1MjU5M2QxOTE0ZDg4YjY0YTY2NyJ9",
   },
   {
     id: "FNYR",
@@ -550,7 +550,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-FNYR?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2MTY0OGI1ZmUwN2U4NTY0ZGI3M2U4MmUyOTRhYjQzOCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-FNYR?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2MTY0OGI1ZmUwN2U4NTY0ZGI3M2U4MmUyOTRhYjQzOCJ9",
   },
   {
     id: "MJMN",
@@ -566,7 +566,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-MJMN?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI0NGQzMGI1ZmRiNjhkNzM2ZWFmOGU3ODljYzgzMzFjYSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-MJMN?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI0NGQzMGI1ZmRiNjhkNzM2ZWFmOGU3ODljYzgzMzFjYSJ9",
   },
   {
     id: "EHUD",
@@ -582,7 +582,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-EHUD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjNDQ1N2VjYmE2YThkN2I4Yjc4NDNjYzIwOGNmNTMxMyJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-EHUD?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjNDQ1N2VjYmE2YThkN2I4Yjc4NDNjYzIwOGNmNTMxMyJ9",
   },
   {
     id: "L2BS",
@@ -598,7 +598,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-L2BS?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI0MWI1YTY3NDE4ODM5YzJkYzQ3NzljOTgxNTcyYzZjOSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-L2BS?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI0MWI1YTY3NDE4ODM5YzJkYzQ3NzljOTgxNTcyYzZjOSJ9",
   },
   {
     id: "9RJV",
@@ -614,7 +614,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-9RJV?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIzMDlkMWYwNzBhMjY0ZWZlYzliZDZjZWI4YjVjMDMwMiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-9RJV?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIzMDlkMWYwNzBhMjY0ZWZlYzliZDZjZWI4YjVjMDMwMiJ9",
   },
   {
     id: "2JVC",
@@ -630,7 +630,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-2JVC?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI3NjZmZjcwMDNiYjU3Y2VkYzJiNWM2ZTNmYTk2ZjNmNyJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-2JVC?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI3NjZmZjcwMDNiYjU3Y2VkYzJiNWM2ZTNmYTk2ZjNmNyJ9",
   },
   {
     id: "TR88",
@@ -646,7 +646,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-TR88?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJiMmExMDUxMmQ5NTNlYTVhYzEyZDRjNjIzZTgzMmE5MiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-TR88?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJiMmExMDUxMmQ5NTNlYTVhYzEyZDRjNjIzZTgzMmE5MiJ9",
   },
   {
     id: "Y4B4",
@@ -662,7 +662,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-Y4B4?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJmM2ZhM2Q0MTZjYTQxNzZiODliZTU4MmYzOTM5ZTM0MSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-Y4B4?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJmM2ZhM2Q0MTZjYTQxNzZiODliZTU4MmYzOTM5ZTM0MSJ9",
   },
   {
     id: "CXRR",
@@ -678,7 +678,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-CXRR?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5NjVjYmU1ODE4OGFlZjk3NzZjNzlkMjVkMzdkZDgxYiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-CXRR?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5NjVjYmU1ODE4OGFlZjk3NzZjNzlkMjVkMzdkZDgxYiJ9",
   },
   {
     id: "MKB8",
@@ -694,7 +694,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-MKB8?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJiNjY2M2Y5NmVkNjc1ZDI2MjQxMmI1OGU3OTUzMTc3YSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-MKB8?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJiNjY2M2Y5NmVkNjc1ZDI2MjQxMmI1OGU3OTUzMTc3YSJ9",
   },
   {
     id: "5LCP",
@@ -710,7 +710,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-5LCP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIyMjEzNzMxMTMzNjZhOTAyOTM3YzZkYjU4MWIyMDRjMiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-5LCP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIyMjEzNzMxMTMzNjZhOTAyOTM3YzZkYjU4MWIyMDRjMiJ9",
   },
   {
     id: "DKWR",
@@ -726,7 +726,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-DKWR?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIwZTRlODFjYTQ3OTNhNWZmODVmZmI3YWNjZDA0OTU0NiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-DKWR?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIwZTRlODFjYTQ3OTNhNWZmODVmZmI3YWNjZDA0OTU0NiJ9",
   },
   {
     id: "WC4M",
@@ -742,7 +742,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-WC4M?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2YmQ2NGEzYWVlOTRiYzFjNGY3YzFhNmRmOTgyNzNkZiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-WC4M?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2YmQ2NGEzYWVlOTRiYzFjNGY3YzFhNmRmOTgyNzNkZiJ9",
   },
   {
     id: "U2KF",
@@ -758,7 +758,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-U2KF?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5Mjk4N2EzM2MxMDU2YjIyZDRhZjliZWY2OTVjNTgwYSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-U2KF?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5Mjk4N2EzM2MxMDU2YjIyZDRhZjliZWY2OTVjNTgwYSJ9",
   },
   {
     id: "GEGU",
@@ -774,7 +774,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-GEGU?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4OWU0OGEzNTEwNjA2NDgyNzQyMmQwMzQzMzk5OTgxMSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-GEGU?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4OWU0OGEzNTEwNjA2NDgyNzQyMmQwMzQzMzk5OTgxMSJ9",
   },
   {
     id: "JVVR",
@@ -790,7 +790,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-JVVR?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjYjkyMGFiM2IwYTlhODA0NDE4MDk1NzIxZDNkZmJiNCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-JVVR?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjYjkyMGFiM2IwYTlhODA0NDE4MDk1NzIxZDNkZmJiNCJ9",
   },
   {
     id: "WTLR",
@@ -806,7 +806,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-WTLR?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJhMGQ4NjAwNTcyY2NiZTQxMmI5YzJmYTIxYjc4MGU5NCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-WTLR?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJhMGQ4NjAwNTcyY2NiZTQxMmI5YzJmYTIxYjc4MGU5NCJ9",
   },
   {
     id: "JYW7",
@@ -822,7 +822,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-JYW7?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIwNTY0MjQyY2VmZWY3ZTAxZmMzZjBlZTZiZjgwOGIxYSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-JYW7?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIwNTY0MjQyY2VmZWY3ZTAxZmMzZjBlZTZiZjgwOGIxYSJ9",
   },
   {
     id: "U4WG",
@@ -838,7 +838,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-U4WG?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4OTNhMDEyYTI2ODhmMzRhZGYyNDU0ZjRkOTFjODdjMCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-U4WG?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4OTNhMDEyYTI2ODhmMzRhZGYyNDU0ZjRkOTFjODdjMCJ9",
   },
   {
     id: "9AV4",
@@ -854,7 +854,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-9AV4?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIyMzhhM2M4NGVhMDMwZTNhZjdjMGJlOTY0OWQ2MmQyOCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-9AV4?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIyMzhhM2M4NGVhMDMwZTNhZjdjMGJlOTY0OWQ2MmQyOCJ9",
   },
   {
     id: "HE4L",
@@ -870,7 +870,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-HE4L?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJkMzY0OTI4NTE4NjY3N2FhMDUzM2E4ODE5ZDc3ZTRjOSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-HE4L?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJkMzY0OTI4NTE4NjY3N2FhMDUzM2E4ODE5ZDc3ZTRjOSJ9",
   },
   {
     id: "A8VC",
@@ -886,7 +886,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-A8VC?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1MTYyOWQyM2I1YjBjYzNiMWM3YmUwZDVhYjllYTk5NiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-A8VC?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1MTYyOWQyM2I1YjBjYzNiMWM3YmUwZDVhYjllYTk5NiJ9",
   },
   {
     id: "L2PJ",
@@ -902,7 +902,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-L2PJ?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1MzE1NDRkMzkzNWJkZmE4OWFlMmIzZmU2N2RmODc2YSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-L2PJ?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1MzE1NDRkMzkzNWJkZmE4OWFlMmIzZmU2N2RmODc2YSJ9",
   },
   {
     id: "2RD3",
@@ -918,7 +918,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-2RD3?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJlZDZlNTkxMTc1ZDUxNzA1ZTY0N2EzMWFlN2YwODU5OCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-2RD3?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJlZDZlNTkxMTc1ZDUxNzA1ZTY0N2EzMWFlN2YwODU5OCJ9",
   },
   {
     id: "EBM5",
@@ -934,7 +934,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-EBM5?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIxOTNhMmQwYjdjODQzY2JlYzc3N2I3NWQ5ZmFiNWUwYiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-EBM5?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIxOTNhMmQwYjdjODQzY2JlYzc3N2I3NWQ5ZmFiNWUwYiJ9",
   },
   {
     id: "VB8Y",
@@ -950,7 +950,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-VB8Y?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4OTU1YzcyZTBlNjE0ZTM4MzAxNTEzMTA0ZTRkNWU3YSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-VB8Y?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4OTU1YzcyZTBlNjE0ZTM4MzAxNTEzMTA0ZTRkNWU3YSJ9",
   },
   {
     id: "DXBB",
@@ -966,7 +966,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-DXBB?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJkZGNhZTkxOWQ3NDc2OTU0YTY0OWFjYmEzNmQ3N2U2YiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-DXBB?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJkZGNhZTkxOWQ3NDc2OTU0YTY0OWFjYmEzNmQ3N2U2YiJ9",
   },
   {
     id: "GN5H",
@@ -982,7 +982,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-GN5H?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJmZmRjNWZjMzg4M2Q1OGRjMWYxZWRkZDBiMjkwZjYxZCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-GN5H?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJmZmRjNWZjMzg4M2Q1OGRjMWYxZWRkZDBiMjkwZjYxZCJ9",
   },
   {
     id: "VTDS",
@@ -998,7 +998,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: true,
     locationName: "Malmö Airport (MMX)",
-    bookUrl: "https://www.discovercars.com/en/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-VTDS?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5ODI3MGQ1OGUxZDllNjFjMjM1NTI2ZmI1MWUzMTAwZCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/7bc82ebf-9e41-4da2-a0d9-f0c854d29139-VTDS?sq=eyJQaWNrdXBMb2NhdGlvbklkIjoxNzg0LCJEcm9wT2ZmTG9jYXRpb25JZCI6MTc4NCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5ODI3MGQ1OGUxZDllNjFjMjM1NTI2ZmI1MWUzMTAwZCJ9",
   },
   {
     id: "SM96",
@@ -1014,7 +1014,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-SM96?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI0MGU0N2JkOWE2NGU2MzY4NDU0MGFhNWIxM2RkYzE1YiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-SM96?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI0MGU0N2JkOWE2NGU2MzY4NDU0MGFhNWIxM2RkYzE1YiJ9",
   },
   {
     id: "U5SU",
@@ -1030,7 +1030,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/ca8ac3ef-8b72-4196-895e-36fd63451f29-U5SU?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTY1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MzU2NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1ZDY3OWExMjVhZjRiODk1MjNiYWUzYmIyM2Y2MjhhYiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/ca8ac3ef-8b72-4196-895e-36fd63451f29-U5SU?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTY1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MzU2NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1ZDY3OWExMjVhZjRiODk1MjNiYWUzYmIyM2Y2MjhhYiJ9",
   },
   {
     id: "GG6L",
@@ -1046,7 +1046,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/ca8ac3ef-8b72-4196-895e-36fd63451f29-GG6L?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTY1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MzU2NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2ZGRiNTk0M2RiNGZkMWNlOWY3OWFmNTBhMjQ4MWEwMSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/ca8ac3ef-8b72-4196-895e-36fd63451f29-GG6L?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTY1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MzU2NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2ZGRiNTk0M2RiNGZkMWNlOWY3OWFmNTBhMjQ4MWEwMSJ9",
   },
   {
     id: "7LB3",
@@ -1062,7 +1062,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-7LB3?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiNmNiZjk4MDhmYjNlOGQ4ZTAwNjc2NDUwMmVjZjViZjcifQ%3D%3D",
+    bookUrl: "https://www.discovercars.com/se/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-7LB3?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiNmNiZjk4MDhmYjNlOGQ4ZTAwNjc2NDUwMmVjZjViZjcifQ%3D%3D",
   },
   {
     id: "S43L",
@@ -1078,7 +1078,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/ca8ac3ef-8b72-4196-895e-36fd63451f29-S43L?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTY1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MzU2NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjNjExODJhMWE1YjYxY2U5YTdlOGEzNGVjNTRkNjY3NiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/ca8ac3ef-8b72-4196-895e-36fd63451f29-S43L?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTY1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MzU2NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJjNjExODJhMWE1YjYxY2U5YTdlOGEzNGVjNTRkNjY3NiJ9",
   },
   {
     id: "L6ST",
@@ -1094,7 +1094,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-L6ST?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI3N2IyOTcxMDhmYjlkNGM1MzNmYWI4MmIyODgzNWNhOSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-L6ST?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI3N2IyOTcxMDhmYjlkNGM1MzNmYWI4MmIyODgzNWNhOSJ9",
   },
   {
     id: "MBAX",
@@ -1110,7 +1110,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-MBAX?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5MTBkYTJlYWRjN2I3N2EzZTRmM2U4N2ZlN2IxNDQyZCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-MBAX?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5MTBkYTJlYWRjN2I3N2EzZTRmM2U4N2ZlN2IxNDQyZCJ9",
   },
   {
     id: "KH8T",
@@ -1126,7 +1126,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-KH8T?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1YWYzYzA3MTUxOTY0MDlmMWI2ZTNjMjZlYWU1NjQ4OSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-KH8T?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1YWYzYzA3MTUxOTY0MDlmMWI2ZTNjMjZlYWU1NjQ4OSJ9",
   },
   {
     id: "UJ3T",
@@ -1142,7 +1142,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-UJ3T?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkhhc2giOiJhYjQzMzBjMzRlODE3NWFmOTczYWY1YjgzYzFmN2YwZiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-UJ3T?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkhhc2giOiJhYjQzMzBjMzRlODE3NWFmOTczYWY1YjgzYzFmN2YwZiJ9",
   },
   {
     id: "S3Y3",
@@ -1158,7 +1158,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-S3Y3?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIzMTg5YWQzMDgwNzlmYzViZDg1OTNjNjBkZmNiMzMwNiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-S3Y3?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIzMTg5YWQzMDgwNzlmYzViZDg1OTNjNjBkZmNiMzMwNiJ9",
   },
   {
     id: "DHBY",
@@ -1174,7 +1174,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/ca8ac3ef-8b72-4196-895e-36fd63451f29-DHBY?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTY1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MzU2NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5OTBlOTE0NzM0ZmQxMDgwYzA5N2YwMmUzODUwMWMxNSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/ca8ac3ef-8b72-4196-895e-36fd63451f29-DHBY?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTY1LCJEcm9wT2ZmTG9jYXRpb25JZCI6MzU2NSwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI5OTBlOTE0NzM0ZmQxMDgwYzA5N2YwMmUzODUwMWMxNSJ9",
   },
   {
     id: "HNEV",
@@ -1190,7 +1190,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-HNEV?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiYjZlZDhhYmI0ZWU4OTkzNWYzZjI1ODdhYmE5MTVkYTMifQ%3D%3D",
+    bookUrl: "https://www.discovercars.com/se/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-HNEV?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiYjZlZDhhYmI0ZWU4OTkzNWYzZjI1ODdhYmE5MTVkYTMifQ%3D%3D",
   },
   {
     id: "AWAS",
@@ -1206,7 +1206,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-AWAS?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiYjY2NjNmOTZlZDY3NWQyNjI0MTJiNThlNzk1MzE3N2EifQ%3D%3D",
+    bookUrl: "https://www.discovercars.com/se/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-AWAS?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiYjY2NjNmOTZlZDY3NWQyNjI0MTJiNThlNzk1MzE3N2EifQ%3D%3D",
   },
   {
     id: "NR88",
@@ -1222,7 +1222,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-NR88?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiZGZkOTBkMzE4OTdlNjgxMjEwMjY0OTM2ZDE0MDMwYWEifQ%3D%3D",
+    bookUrl: "https://www.discovercars.com/se/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-NR88?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiZGZkOTBkMzE4OTdlNjgxMjEwMjY0OTM2ZDE0MDMwYWEifQ%3D%3D",
   },
   {
     id: "6R6F",
@@ -1238,7 +1238,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-6R6F?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJkOTNkODYwODZiMTY3MmY4NDBkMjM2MjczZTFiMmY2ZCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-6R6F?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJkOTNkODYwODZiMTY3MmY4NDBkMjM2MjczZTFiMmY2ZCJ9",
   },
   {
     id: "7DBP",
@@ -1254,7 +1254,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-7DBP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4ZmIxYWIwNTdiNjcyYTk5YmY0NDc5NzZkNTQ2NmRhNCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-7DBP?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI4ZmIxYWIwNTdiNjcyYTk5YmY0NDc5NzZkNTQ2NmRhNCJ9",
   },
   {
     id: "RQS8",
@@ -1270,7 +1270,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-RQS8?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2MjI0MWIyYTRjZjQ2NmYzMWQxMGM4OGVkM2FhZDkxNCJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-RQS8?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI2MjI0MWIyYTRjZjQ2NmYzMWQxMGM4OGVkM2FhZDkxNCJ9",
   },
   {
     id: "R4LQ",
@@ -1286,7 +1286,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-R4LQ?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIzOTM2Y2IzMjZiMDA4MzZjNDU0N2Q1ZjVmMzgyYzljZSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-R4LQ?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiIzOTM2Y2IzMjZiMDA4MzZjNDU0N2Q1ZjVmMzgyYzljZSJ9",
   },
   {
     id: "BEME",
@@ -1302,7 +1302,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-BEME?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiY2Q1M2E0NjhmYTVmYTBhMmExYjcxYWM2MzM4NDk3Y2MifQ%3D%3D",
+    bookUrl: "https://www.discovercars.com/se/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-BEME?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiY2Q1M2E0NjhmYTVmYTBhMmExYjcxYWM2MzM4NDk3Y2MifQ%3D%3D",
   },
   {
     id: "APDG",
@@ -1318,7 +1318,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-APDG?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiNmQ3NjI3Mjc2MmI1MmQyOGIxNTc4ZjI2YWZkZTViZjEifQ%3D%3D",
+    bookUrl: "https://www.discovercars.com/se/offer/a7caa328-dee6-43d3-94cf-c8ceeb5b0620-APDG?sq=eyJQaWNrdXBMb2NhdGlvbklkIjozNTkzMzUsIkRyb3BPZmZMb2NhdGlvbklkIjozNTkzMzUsIlBpY2t1cERhdGVUaW1lIjoiMjAyNi0wNS0xOFQxMTowMDowMCIsIkRyb3BPZmZEYXRlVGltZSI6IjIwMjYtMDUtMTlUMTE6MDA6MDAiLCJSZXNpZGVuY2VDb3VudHJ5IjoiU0UiLCJEcml2ZXJBZ2UiOjM1LCJIYXNoIjoiNmQ3NjI3Mjc2MmI1MmQyOGIxNTc4ZjI2YWZkZTViZjEifQ%3D%3D",
   },
   {
     id: "2T23",
@@ -1334,7 +1334,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-2T23?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1ZjQzMWI3MWNkM2RjMjIxM2M5YzgwYmM2NTBmMmJjZSJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-2T23?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiI1ZjQzMWI3MWNkM2RjMjIxM2M5YzgwYmM2NTBmMmJjZSJ9",
   },
   {
     id: "MQMF",
@@ -1350,7 +1350,7 @@ const CARS: Car[] = [
     freeCancellation: true,
     isAirport: false,
     locationName: "Malmö City",
-    bookUrl: "https://www.discovercars.com/en/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-MQMF?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJlZDBkNjUzYzI1YmI1NzA0Mzc5OTVmMzgyMThkNGFjZiJ9",
+    bookUrl: "https://www.discovercars.com/se/offer/459cdcc6-97bc-4cea-8998-e0ad6c22de79-MQMF?sq=eyJQaWNrdXBMb2NhdGlvbklkIjo3MzI4LCJEcm9wT2ZmTG9jYXRpb25JZCI6NzMyOCwiUGlja3VwRGF0ZVRpbWUiOiIyMDI2LTA1LTE4VDExOjAwOjAwIiwiRHJvcE9mZkRhdGVUaW1lIjoiMjAyNi0wNS0xOVQxMTowMDowMCIsIlJlc2lkZW5jZUNvdW50cnkiOiJTRSIsIkRyaXZlckFnZSI6MzUsIkhhc2giOiJlZDBkNjUzYzI1YmI1NzA0Mzc5OTVmMzgyMThkNGFjZiJ9",
   },
 ];
 
