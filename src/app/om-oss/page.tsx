@@ -34,7 +34,7 @@ export default function OmOssPage() {
           <p className="om-eyebrow">Om oss</p>
           <h1 className="om-hero-title">Vi visar Malmö —<br /><em>på riktigt.</em></h1>
           <p className="om-hero-lead">
-            Discover Malmö är en digital stadsguide skapad av Malmöbor. Inga turistfällor — bara de bästa platserna, upplevelserna och tipsen du inte hittar någon annanstans.
+            Discover Malmö är en digital stadsguide skapad av Malmöbor. Inga turistfällor. Bara de bästa platserna, upplevelserna och tipsen du inte hittar någon annanstans.
           </p>
         </div>
       </section>
