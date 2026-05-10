@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { getAllPosts, formatDate } from "@/lib/blog";
+import { getAllPosts, getFeaturedAndRest, getAllCategories } from "@/lib/blog";
+import { EXPERIENCES } from "@/lib/experiences";
+import BloggSegmentLatest from "@/components/BloggSegmentLatest";
+import BloggSegmentExperiences from "@/components/BloggSegmentExperiences";
+import BloggSegmentTopics from "@/components/BloggSegmentTopics";
 
 export const metadata: Metadata = {
   title: "Blogg | Discover Malmö – Stories, guider och tips från staden",
@@ -17,7 +20,12 @@ export const metadata: Metadata = {
 };
 
 export default function BloggPage() {
-  const posts = getAllPosts();
+  const { featured, rest } = getFeaturedAndRest();
+  const allPosts = getAllPosts();
+  const categories = getAllCategories();
+  const carouselExperiences = EXPERIENCES
+    .filter((e) => e.region === "Malmö")
+    .slice(0, 8);
 
   return (
     <main className="blogg-page">
@@ -34,30 +42,21 @@ export default function BloggPage() {
         </div>
       </section>
 
-      <section className="blogg-list-section">
-        <div className="blogg-list-inner">
-          {posts.length === 0 ? (
-            <p className="blogg-empty">Inga inlägg ännu.</p>
-          ) : (
-            <ul className="blogg-list">
-              {posts.map((post) => (
-                <li key={post.slug} className="blogg-card">
-                  <Link href={`/blogg/${post.slug}`} className="blogg-card-link">
-                    <div className="blogg-card-meta">
-                      {post.category && <span className="blogg-card-cat">{post.category}</span>}
-                      <span className="blogg-card-dot">·</span>
-                      <span className="blogg-card-date">{formatDate(post.date, "sv")}</span>
-                    </div>
-                    <h2 className="blogg-card-title">{post.title}</h2>
-                    <p className="blogg-card-desc">{post.description}</p>
-                    <span className="blogg-card-readtime">{post.readTime}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </section>
+      {featured ? (
+        <BloggSegmentLatest featured={featured} rest={rest} />
+      ) : (
+        <section className="blogg-segment">
+          <p className="blogg-empty">Inga inlägg ännu.</p>
+        </section>
+      )}
+
+      {carouselExperiences.length > 0 && (
+        <BloggSegmentExperiences items={carouselExperiences} />
+      )}
+
+      {allPosts.length > 0 && (
+        <BloggSegmentTopics posts={allPosts} categories={categories} />
+      )}
     </main>
   );
 }
