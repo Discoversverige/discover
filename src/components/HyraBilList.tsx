@@ -1355,8 +1355,38 @@ const CARS: Car[] = [
 ];
 
 
-const CATEGORIES = [...new Set(CARS.map((c) => c.category))].sort();
 const SUPPLIERS = [...new Set(CARS.map((c) => c.supplier))].sort();
+
+type SizeGroup = "all" | "small" | "medium" | "large";
+const SIZE_MAP: Record<string, SizeGroup> = {
+  "Mini": "small",
+  "Economy": "small",
+  "Compact": "small",
+  "Compact SUV": "small",
+  "Compact Elite": "small",
+  "Compact Estate/Wagon": "small",
+  "Intermediate": "medium",
+  "Intermediate Elite Crossover": "medium",
+  "Intermediate Crossover": "medium",
+  "Intermediate Elite SUV": "medium",
+  "Intermediate Estate/Wagon": "medium",
+  "Standard Crossover": "medium",
+  "Standard SUV": "medium",
+  "Standard Estate/Wagon": "medium",
+  "Full-size": "medium",
+  "Full-size Estate/Wagon": "medium",
+  "Full-size SUV": "large",
+  "Full-size Elite Estate/Wagon": "large",
+  "Full-size Elite Van": "large",
+  "Full-size Van": "large",
+  "Premium": "large",
+  "Premium SUV": "large",
+  "Premium Estate/Wagon": "large",
+  "Luxury SUV": "large",
+  "Luxury Van": "large",
+  "Luxury Estate/Wagon": "large",
+  "Special": "large",
+};
 
 const PER_PAGE = 12;
 
@@ -1373,7 +1403,7 @@ const T = {
     rating: "Betyg", allRatings: "Alla betyg",
     r9: "9+", r85: "8.5+", r8: "8+",
     supplier: "Biluthyrningsföretag", allSuppliers: "Alla",
-    category: "Biltyp",
+    category: "Biltyp", sizeSmall: "Liten", sizeMedium: "Mellan", sizeLarge: "Stor",
     sort: "Sortera", popular: "Populärast", priceAsc: "Lägsta pris", priceDesc: "Högsta pris", ratingSort: "Bäst betyg",
     filter: "Filter",
     search: "Sök bilmodell, kategori eller företag…",
@@ -1394,7 +1424,7 @@ const T = {
     rating: "Rating", allRatings: "All ratings",
     r9: "9+", r85: "8.5+", r8: "8+",
     supplier: "Car rental company", allSuppliers: "All",
-    category: "Car type",
+    category: "Car type", sizeSmall: "Small", sizeMedium: "Medium", sizeLarge: "Large",
     sort: "Sort", popular: "Most popular", priceAsc: "Lowest price", priceDesc: "Highest price", ratingSort: "Best rating",
     filter: "Filter",
     search: "Search car model, category or company…",
@@ -1415,7 +1445,7 @@ const T = {
     rating: "Bewertung", allRatings: "Alle",
     r9: "9+", r85: "8,5+", r8: "8+",
     supplier: "Autovermieter", allSuppliers: "Alle",
-    category: "Fahrzeugtyp",
+    category: "Fahrzeugtyp", sizeSmall: "Klein", sizeMedium: "Mittel", sizeLarge: "Groß",
     sort: "Sortieren", popular: "Beliebteste", priceAsc: "Günstigster Preis", priceDesc: "Höchster Preis", ratingSort: "Beste Bewertung",
     filter: "Filter",
     search: "Automodell, Kategorie oder Anbieter suchen…",
@@ -1436,7 +1466,7 @@ export default function HyraBilList() {
   const [location, setLocation] = useState<Location>("all");
   const [minRating, setMinRating] = useState<string>("all");
   const [supplier, setSupplier] = useState<string>("all");
-  const [category, setCategory] = useState<string>("all");
+  const [size, setSize] = useState<SizeGroup>("all");
   const [sort, setSort] = useState<SortKey>("popular");
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
@@ -1467,7 +1497,7 @@ export default function HyraBilList() {
     if (location !== "all") list = list.filter((c) => c.isAirport === (location === "airport"));
     if (minRating !== "all") list = list.filter((c) => c.supplierRating >= parseFloat(minRating));
     if (supplier !== "all") list = list.filter((c) => c.supplier === supplier);
-    if (category !== "all") list = list.filter((c) => c.category === category);
+    if (size !== "all") list = list.filter((c) => (SIZE_MAP[c.category] ?? "medium") === size);
     if (query.trim()) {
       const q = norm(query.trim());
       list = list.filter((c) =>
@@ -1483,9 +1513,9 @@ export default function HyraBilList() {
     else if (sort === "rating") sorted.sort((a, b) => b.supplierRating - a.supplierRating);
     else sorted.sort((a, b) => b.supplierRating - a.supplierRating);
     return sorted;
-  }, [location, minRating, supplier, category, sort, query]);
+  }, [location, minRating, supplier, size, sort, query]);
 
-  useEffect(() => { setPage(1); }, [location, minRating, supplier, category, sort, query]);
+  useEffect(() => { setPage(1); }, [location, minRating, supplier, size, sort, query]);
 
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
   const paginated = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
@@ -1498,7 +1528,7 @@ export default function HyraBilList() {
 
   const resetFilters = () => {
     setLocation("all"); setMinRating("all"); setSupplier("all");
-    setCategory("all"); setQuery("");
+    setSize("all"); setQuery("");
   };
 
   return (
@@ -1581,9 +1611,8 @@ export default function HyraBilList() {
         <div className="upp-filter-group">
           <span className="upp-filter-label">{t.category}</span>
           <div className="upp-chips">
-            <button className={`upp-chip${category === "all" ? " active" : ""}`} onClick={() => setCategory("all")}>{t.allLocations}</button>
-            {CATEGORIES.map((c) => (
-              <button key={c} className={`upp-chip${category === c ? " active" : ""}`} onClick={() => setCategory(c)}>{c}</button>
+            {([["all", t.allLocations], ["small", t.sizeSmall], ["medium", t.sizeMedium], ["large", t.sizeLarge]] as [SizeGroup, string][]).map(([key, label]) => (
+              <button key={key} className={`upp-chip${size === key ? " active" : ""}`} onClick={() => setSize(key)}>{label}</button>
             ))}
           </div>
         </div>
