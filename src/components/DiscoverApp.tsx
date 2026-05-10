@@ -229,7 +229,7 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
               sv: "Upplevelser", en: "Experiences", de: "Erlebnisse" },
             { key: "buss", src: "/images/buss-taxi.jpg", href: "/ta-dig-hit",
               sv: "Buss & taxi", en: "Bus & taxi", de: "Bus & Taxi" },
-            { key: "hyra-bil", src: "/images/hyrbil.jpg", href: "/ta-dig-hit",
+            { key: "hyra-bil", src: "/images/hyrbil.jpg", href: "/hyra-bil",
               sv: "Hyra bil", en: "Rent a car", de: "Auto mieten" },
             { key: "boende", src: "/images/boende.jpg", href: "/ta-dig-hit",
               sv: "Boende", en: "Accommodation", de: "Unterkunft" },

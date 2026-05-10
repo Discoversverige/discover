@@ -1846,4 +1846,145 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .land-other-link:hover .land-other-arrow { transform: translateX(4px); }
 /* css recompile trigger */
 
+/* =========================================================================
+   /hyra-bil — car rental listing (HyraBilList.tsx)
+   ========================================================================= */
+.hb-page { padding-top: 0; }
+
+.hb-filters {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto auto;
+}
+.hb-filters .upp-filter-group:nth-child(1) { grid-column: 1 / -1; }
+.hb-filters .upp-filter-group:nth-child(2) { grid-column: 1; }
+.hb-filters .upp-filter-group:nth-child(3) { grid-column: 2; }
+.hb-filters .upp-filter-group:nth-child(4) { grid-column: 1 / -1; }
+.hb-filters .upp-sort { grid-column: 2; justify-self: end; }
+
+.hb-loc-icon { font-style: normal; margin-right: 2px; }
+
+.hb-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px 20px;
+}
+
+.hb-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--r-lg);
+  border: 1px solid var(--line-soft);
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  color: var(--ink);
+  text-decoration: none;
+}
+.hb-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(40,30,10,0.1);
+}
+
+.hb-card-img-wrap {
+  position: relative;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: var(--bg-2);
+}
+.hb-card-img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: transform 0.4s ease;
+}
+.hb-card:hover .hb-card-img { transform: scale(1.04); }
+
+.hb-card-badge {
+  position: absolute; top: 10px; left: 10px;
+  background: var(--ink); color: var(--paper);
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.5px;
+  padding: 4px 10px; border-radius: 999px;
+}
+.hb-card-loc-tag {
+  position: absolute; bottom: 10px; right: 10px;
+  font-size: 11px; font-weight: 500; padding: 4px 10px;
+  border-radius: 999px; backdrop-filter: blur(6px);
+}
+.hb-card-loc-tag.airport { background: rgba(255,255,255,0.9); color: #1a1a1a; }
+.hb-card-loc-tag.city { background: rgba(255,255,255,0.9); color: #1a1a1a; }
+
+.hb-card-body {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 16px 18px 18px;
+  flex: 1;
+}
+.hb-card-meta {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: var(--mute);
+}
+.hb-card-category { font-weight: 600; color: var(--ink-2); }
+.hb-card-supplier { font-family: var(--mono); font-size: 10.5px; letter-spacing: 1px; text-transform: uppercase; }
+
+.hb-card-title {
+  font-family: var(--sans); font-size: 16px; font-weight: 600;
+  letter-spacing: -0.01em; line-height: 1.25; margin: 0;
+  color: var(--ink);
+}
+
+.hb-card-specs {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  font-size: 12px; color: var(--ink-2);
+}
+.hb-card-specs span { white-space: nowrap; }
+
+.hb-card-rating {
+  display: flex; align-items: center; gap: 8px;
+}
+.hb-rating-score {
+  font-size: 14px; font-weight: 700; color: var(--ink);
+  background: var(--ink); color: var(--paper);
+  padding: 3px 7px; border-radius: 6px; line-height: 1;
+  font-family: var(--mono);
+}
+.hb-rating-bar {
+  flex: 1; height: 4px; background: var(--line-soft); border-radius: 2px; overflow: hidden;
+}
+.hb-rating-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.4s; }
+.hb-rating-count { font-size: 11px; color: var(--mute); white-space: nowrap; }
+
+.hb-card-footer {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 12px; margin-top: auto; padding-top: 8px;
+  border-top: 1px solid var(--line-soft);
+}
+.hb-card-price-wrap { display: flex; align-items: baseline; gap: 3px; }
+.hb-card-price { font-size: 22px; font-weight: 700; color: var(--ink); font-family: var(--serif); }
+.hb-card-price-unit { font-size: 12px; color: var(--mute); }
+
+.hb-card-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+.hb-free-cancel { font-size: 11px; color: #2e7d32; font-weight: 500; }
+.hb-book-btn {
+  font-size: 13px; font-weight: 600; color: var(--accent-ink);
+  letter-spacing: 0.01em;
+}
+
+.hb-disclaimer {
+  margin-top: 48px; padding: 16px 20px;
+  background: var(--bg-2); border-radius: var(--r);
+  font-size: 12px; color: var(--mute); text-align: center;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .hb-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 14px; }
+  .hb-filters { grid-template-columns: 1fr; }
+  .hb-filters .upp-filter-group:nth-child(1),
+  .hb-filters .upp-filter-group:nth-child(2),
+  .hb-filters .upp-filter-group:nth-child(3),
+  .hb-filters .upp-filter-group:nth-child(4) { grid-column: 1; }
+  .hb-filters .upp-sort { grid-column: 1; justify-self: start; }
+}
+
+@media (max-width: 480px) {
+  .hb-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
 
