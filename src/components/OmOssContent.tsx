@@ -182,7 +182,7 @@ export default function OmOssContent() {
         <div className="om-section-inner om-section-inner--center">
           <h2>{t.ctaTitle}</h2>
           <p>{t.ctaLead}</p>
-          <a href="mailto:benjamin.ishoh@gmail.com" className="om-cta-btn">{t.ctaBtn}</a>
+          <a href="mailto:info@discovermalmo.se" className="om-cta-btn">{t.ctaBtn}</a>
         </div>
       </section>
 
