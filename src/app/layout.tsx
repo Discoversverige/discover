@@ -9,8 +9,8 @@ const instrumentSerif = Instrument_Serif({ variable: "--font-instrument-serif", 
 const jetbrainsMono = JetBrains_Mono({ variable: "--font-jetbrains-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Discover Malmö",
-  description: "Utforska Malmö med skräddarsydda rutter och upplevelser.",
+  title: "Discover Malmö – Din lokala guide till stadens pärlor",
+  description: "Utforska Malmö med våra skräddarsydda rutter. Vi hjälper dig hitta de bästa hotellen, trendigaste restaurangerna och dolda sevärdheter. Planera ditt Malmö-äventyr här!",
   icons: {
     icon: [
       { url: "/favicon-logo.png", sizes: "any" },
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
     shortcut: "/favicon-logo.png",
   },
   openGraph: {
-    title: "Discover Malmö",
-    description: "Utforska Malmö med skräddarsydda rutter och upplevelser.",
+    title: "Discover Malmö – Din lokala guide till stadens pärlor",
+    description: "Utforska Malmö med våra skräddarsydda rutter. Vi hjälper dig hitta de bästa hotellen, trendigaste restaurangerna och dolda sevärdheter. Planera ditt Malmö-äventyr här!",
     url: "https://discovermalmo.se",
     siteName: "Discover Malmö",
     images: [{ url: "https://discovermalmo.se/favicon-logo.png", width: 1080, height: 1080 }],
