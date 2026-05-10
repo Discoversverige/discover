@@ -12,7 +12,7 @@ export default function NewsSegmentLatest({ featured, rest }: Props) {
     <section className="news-segment">
       <div className="news-segment-header">
         <p className="news-segment-label">Senaste</p>
-        <h2 className="news-segment-title">Nya inlägg från Discover Malmö</h2>
+        <h1 className="news-segment-title">Nya inlägg från Discover Malmö</h1>
       </div>
 
       <article className="news-featured">

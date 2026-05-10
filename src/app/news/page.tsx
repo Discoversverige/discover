@@ -29,19 +29,6 @@ export default function NewsPage() {
 
   return (
     <main className="news-page">
-      <section className="news-list-hero">
-        <div className="news-list-hero-inner">
-          <p className="om-eyebrow">News</p>
-          <h1 className="news-list-title">
-            Stories, guider<br /><em>och Malmö-tips.</em>
-          </h1>
-          <p className="news-list-lead">
-            Artiklar om Malmös platser, restauranger, kultur och praktiska resetips —
-            skrivna av Malmöbor.
-          </p>
-        </div>
-      </section>
-
       {featured ? (
         <NewsSegmentLatest featured={featured} rest={rest} />
       ) : (
