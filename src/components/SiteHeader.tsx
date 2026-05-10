@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 type Lang = "sv" | "en" | "de";
 
 const NAV = {
-  sv: { discover: "Upptäck", experiences: "Upplevelser", plan: "Ta dig hit", about: "Om oss" },
-  en: { discover: "Discover", experiences: "Experiences", plan: "Get here", about: "About" },
-  de: { discover: "Entdecken", experiences: "Erlebnisse", plan: "Anfahrt", about: "Über uns" },
+  sv: { discover: "Upptäck", experiences: "Upplevelser", rentCar: "Hyra bil", plan: "Ta dig hit", about: "Om oss" },
+  en: { discover: "Discover", experiences: "Experiences", rentCar: "Rent a car", plan: "Get here", about: "About" },
+  de: { discover: "Entdecken", experiences: "Erlebnisse", rentCar: "Auto mieten", plan: "Anfahrt", about: "Über uns" },
 };
 
 const FlagSV = () => (
@@ -84,6 +84,7 @@ export default function SiteHeader() {
         <nav className="nav" aria-label="Huvudmeny">
           <a href="/" className={isActive("/") ? "active" : ""}>{t.discover}</a>
           <a href="/upplevelser" className={isActive("/upplevelser") ? "active" : ""}>{t.experiences}</a>
+          <a href="/hyra-bil" className={isActive("/hyra-bil") ? "active" : ""}>{t.rentCar}</a>
           <a href="/ta-dig-hit" className={isActive("/ta-dig-hit") ? "active" : ""}>{t.plan}</a>
           <a href="/om-oss" className={isActive("/om-oss") ? "active" : ""}>{t.about}</a>
         </nav>
@@ -112,6 +113,7 @@ export default function SiteHeader() {
         <div className="mobile-menu" role="dialog" aria-label="Mobilmeny">
           <a href="/" onClick={() => setMenuOpen(false)}>{t.discover}</a>
           <a href="/upplevelser" onClick={() => setMenuOpen(false)}>{t.experiences}</a>
+          <a href="/hyra-bil" onClick={() => setMenuOpen(false)}>{t.rentCar}</a>
           <a href="/ta-dig-hit" onClick={() => setMenuOpen(false)}>{t.plan}</a>
           <a href="/om-oss" onClick={() => setMenuOpen(false)}>{t.about}</a>
           <div className="mobile-menu-lang">
