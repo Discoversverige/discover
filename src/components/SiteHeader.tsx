@@ -12,15 +12,15 @@ const NAV = {
 };
 
 const SEARCH_PLACEHOLDER: Record<Lang, string> = {
-  sv: "Sök i bloggen…",
-  en: "Search the blog…",
-  de: "Im Blog suchen…",
+  sv: "Sök i nyheter…",
+  en: "Search news…",
+  de: "News durchsuchen…",
 };
 
 const SEARCH_NO_RESULTS: Record<Lang, string> = {
-  sv: "Inga inlägg matchar",
-  en: "No posts match",
-  de: "Keine Beiträge gefunden",
+  sv: "Inga nyheter matchar",
+  en: "No news match",
+  de: "Keine News gefunden",
 };
 
 const LANG_LABEL: Record<Lang, string> = {
@@ -210,7 +210,7 @@ export default function SiteHeader() {
                   placeholder={SEARCH_PLACEHOLDER[lang]}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  aria-label="Sök i bloggen"
+                  aria-label="Sök i nyheter"
                 />
               </div>
               {searchQuery.trim() && (

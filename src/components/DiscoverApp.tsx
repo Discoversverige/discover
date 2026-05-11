@@ -663,12 +663,6 @@ export default function DiscoverApp({ initialView }: { initialView?: "home" | "m
       {view === "about" && <AboutView lang={lang} onContact={() => navigate("/om-oss")} />}
       {view === "contact" && <ContactView lang={lang} />}
 
-      <footer className="foot">
-        <span>{t.footer}</span>
-        <a href="/om-oss" className="foot-link">{t.footer_contact}</a>
-        <a href="/news" className="foot-link">{t.footer_news}</a>
-        <span className="coords">55°36′N · 13°00′E</span>
-      </footer>
     </div>
   );
 }
