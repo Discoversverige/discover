@@ -1647,7 +1647,7 @@ export default function HyraBilList() {
         <>
           <section className="hb-grid">
             {paginated.map((car) => (
-              <a key={car.id} href={`${car.bookUrl}&a_aid=discovergruppen`} target="_blank" rel="noopener noreferrer sponsored" className="hb-card">
+              <a key={car.id} href="https://www.discovercars.com/se/sweden/malmo?a_aid=discovergruppen" target="_blank" rel="noopener noreferrer sponsored" className="hb-card">
                 <div className="hb-card-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={car.image} alt={car.name} className="hb-card-img" loading="lazy" />
