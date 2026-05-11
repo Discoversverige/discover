@@ -2334,7 +2334,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 }
 
 /* ── News (legacy hero — kvar tills vidare) ── */
-.news-page { padding-bottom: 0; }
+.news-page { padding-bottom: 0; background: #fff; }
 
 .news-hero {
   background: var(--paper);
@@ -2608,23 +2608,23 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   gap: 8px;
 }
 .news-carousel-arrow {
-  width: 44px;
-  height: 44px;
+  width: 36px;
+  height: 36px;
   border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--bg);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
   color: var(--ink);
-  font-size: 18px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.15s, background 0.15s, border-color 0.15s;
+  transition: opacity 0.15s, background 0.15s, border-color 0.15s, box-shadow 0.15s;
+  padding: 0;
 }
+.news-carousel-arrow svg { display: block; }
 .news-carousel-arrow:hover:not(:disabled) {
-  background: var(--ink);
-  color: var(--paper);
   border-color: var(--ink);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 .news-carousel-arrow:disabled {
   opacity: 0.3;

@@ -57,7 +57,9 @@ export default function NewsSegmentExperiences({ items }: Props) {
             disabled={!canPrev}
             aria-label="Visa föregående"
           >
-            ←
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
           </button>
           <button
             type="button"
@@ -66,7 +68,9 @@ export default function NewsSegmentExperiences({ items }: Props) {
             disabled={!canNext}
             aria-label="Visa nästa"
           >
-            →
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6" />
+            </svg>
           </button>
         </div>
       </div>
