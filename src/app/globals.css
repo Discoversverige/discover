@@ -2557,7 +2557,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .news-mini-card { display: block; }
 .news-mini-link {
   display: grid;
-  grid-template-columns: 110px 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
   align-items: center;
   text-decoration: none;
@@ -2566,8 +2566,8 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 }
 .news-mini-link:hover { opacity: 0.85; }
 .news-mini-img {
-  width: 110px;
-  height: 110px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: var(--r);
   display: block;
@@ -2601,18 +2601,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 
 /* ── Segment 2 — Carousel ── */
 .news-segment-carousel {
-  background: var(--paper);
-  max-width: none;
-  padding-left: 0;
-  padding-right: 0;
-}
-.news-segment-carousel .news-segment-header,
-.news-segment-carousel .news-carousel-wrap {
-  max-width: 1180px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 48px;
-  padding-right: 48px;
+  /* Ärver standard .news-segment-stilen så bredd matchar övriga sektioner */
 }
 .news-carousel-controls {
   display: flex;
@@ -2786,11 +2775,6 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 /* ── Responsiv ── */
 @media (max-width: 900px) {
   .news-segment { padding: 56px 24px; }
-  .news-segment-carousel .news-segment-header,
-  .news-segment-carousel .news-carousel-wrap {
-    padding-left: 24px;
-    padding-right: 24px;
-  }
   .news-segment-header-row {
     flex-direction: column;
     align-items: flex-start;
@@ -2801,8 +2785,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   }
   .news-featured-img { aspect-ratio: 16 / 10; }
   .news-grid-3 { grid-template-columns: 1fr; gap: 18px; }
-  .news-mini-img { width: 96px; height: 96px; }
-  .news-mini-link { grid-template-columns: 96px 1fr; gap: 14px; }
+  .news-mini-link { gap: 14px; }
   .news-carousel-card { width: 260px; }
   .news-topic-row-link {
     grid-template-columns: 110px 1fr;
