@@ -130,7 +130,6 @@ export default function OmOssContent() {
       <section className="om-section om-story">
         <div className="om-section-inner">
           <div className="om-story-text">
-            <p className="om-label">{t.storyLabel}</p>
             <h2>{t.storyTitle}</h2>
             <p>{t.storyP1}</p>
             <p>{t.storyP2}</p>
@@ -155,21 +154,17 @@ export default function OmOssContent() {
       {/* Erbjudanden */}
       <section className="om-section om-pillars">
         <div className="om-section-inner om-section-inner--center">
-          <p className="om-label">{t.offerLabel}</p>
           <h2>{t.offerTitle}</h2>
           <div className="om-pillars-grid">
             <div className="om-pillar">
-              <div className="om-pillar-icon">🗺</div>
               <h3>{t.p1Title}</h3>
               <p>{t.p1}</p>
             </div>
             <div className="om-pillar">
-              <div className="om-pillar-icon">✨</div>
               <h3>{t.p2Title}</h3>
               <p>{t.p2}</p>
             </div>
             <div className="om-pillar">
-              <div className="om-pillar-icon">🚗</div>
               <h3>{t.p3Title}</h3>
               <p>{t.p3}</p>
             </div>
