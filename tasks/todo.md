@@ -1,14 +1,16 @@
 # Todo — Discover
 
-## Blogg-pipeline (svenska SEO-artiklar, 1500-2500 ord/styck)
+## News-pipeline (svenska SEO-artiklar, 1500-2500 ord/styck)
 
 Klart 2026-05-10:
 - [x] 1. Malmö travel guide for germans → `malmo-guide-for-tyska-besokare.mdx`
 - [x] 2. Best hotels in Malmö Sweden → `basta-hotellen-i-malmo.mdx`
 
-Att göra (i ordning enligt användarens lista):
-- [ ] 3. Hidden gems in Malmö
-- [ ] 4. How to get around Malmö
+Klart 2026-05-11 (via discover-blogg-skill med SERP-research):
+- [x] 3. Hidden gems in Malmö → `dolda-parlor-i-malmo.mdx`
+- [x] 4. How to get around Malmö → `sa-tar-du-dig-runt-i-malmo.mdx`
+
+Att göra:
 - [ ] 5. Malmö vs Copenhagen — which to visit
 - [ ] 6. Best restaurants in Malmö
 - [ ] 7. Malmö 3-day itinerary
@@ -16,7 +18,7 @@ Att göra (i ordning enligt användarens lista):
 - [ ] 9. Renting a car in Malmö
 - [ ] 10. Malmö travel tips for first-timers
 
-Bygg-rytm: 2 inlägg per session, 2 dagar per vecka.
+Bygg-rytm: 2 inlägg per session, 2 dagar per vecka. Använd `discover-blogg`-skillen för SERP-research + vinkelval (gör skillnad mot manuellt skrivande).
 
 ## Affiliate-hubbar (registrera — täcker majoriteten av program)
 
@@ -68,7 +70,10 @@ Försäkring + eSIM + VPN: se PDF för 13 program till.
 
 ## Övrigt — kandidater att lyfta vid behov
 
-- [ ] Stagger nuvarande blogg-posts datum (en 2026-05-10, en 2026-05-13) — fråga om detta vid nästa session
-- [ ] Flytta footer till `layout.tsx` så blogg-länken syns på alla sidor (ej bara startsidan)
-- [ ] Lägga till bilder på blogg-inläggen när vi har eget material
-- [ ] Översättning av blogg till EN/DE (separata MDX-filer per språk)
+- [ ] Stagger nuvarande news-posts datum (en 2026-05-10, en 2026-05-13) — fortfarande obesvarad
+- [x] Flytta footer till `layout.tsx` så den syns på alla sidor (klart 2026-05-11)
+- [ ] Sociala media-länkar i SiteHeader.tsx är `#` placeholders — fyll i riktiga URL:er när konton finns
+- [ ] Lägga till egna bilder (just nu använder vi /public/images/* + Unsplash hotlinks)
+- [ ] Översättning av news till EN/DE (separata MDX-filer per språk)
+- [ ] Font-konsolidering: byt till EN font (Apple-stil eller Inter Tight) på alla enheter — beslut parkerat
+- [ ] Konsekvent designsystem: 35 av 142 font-family-deklarationer är hårdkodade till Next.js font-vars istället för --sans/--serif/--mono. Cleanup vid behov.
