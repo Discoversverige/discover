@@ -201,6 +201,22 @@ export default function SiteHeader() {
 
       {menuOpen && (
         <div className="mobile-menu" role="dialog" aria-label="Mobilmeny">
+          <div className="mobile-menu-top">
+            <a href="/" className="logo" aria-label="Discover Malmö hem" onClick={() => setMenuOpen(false)}>
+              <img src="/logo-transparent.png" alt="Discover Malmö" className="logo-img-brand" />
+            </a>
+            <button
+              type="button"
+              className="mobile-menu-close"
+              onClick={() => setMenuOpen(false)}
+              aria-label="Stäng meny"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+              </svg>
+            </button>
+          </div>
+          <div className="mobile-menu-content">
           {isOnNews && (
             <div className="mobile-search-wrap">
               <div className="mobile-search-input">
@@ -293,6 +309,7 @@ export default function SiteHeader() {
                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.45a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.88z"/>
               </svg>
             </a>
+          </div>
           </div>
         </div>
       )}

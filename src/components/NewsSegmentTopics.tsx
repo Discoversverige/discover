@@ -67,13 +67,8 @@ export default function NewsSegmentTopics({ posts, categories }: Props) {
                   loading="lazy"
                 />
                 <div className="news-topic-row-text">
-                  <div className="news-card-meta">
-                    {post.category && <span className="news-card-cat">{post.category}</span>}
-                    <span className="news-card-dot">·</span>
-                    <span className="news-card-date">{formatDate(post.date, "sv")}</span>
-                  </div>
                   <h3 className="news-topic-row-title">{post.title}</h3>
-                  <p className="news-topic-row-desc">{post.description}</p>
+                  <span className="news-topic-row-date">{formatDate(post.date, "sv")}</span>
                 </div>
               </Link>
             </li>
