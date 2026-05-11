@@ -1417,169 +1417,269 @@ function fuzzyMatch(text: string, q: string): boolean {
 // Kategorier mappade till söktermer på SV/EN/DE
 // Varje rad: [kanonisk nyckel, ...alla termer som ska matcha den]
 const SEARCH_TAGS: [string, string[]][] = [
+
   // === STORLEK ===
   ["small", [
     // SV
-    "liten", "litet", "lilla", "pytteliten", "kompakt",
+    "liten", "litet", "lilla", "pytteliten", "kompakt", "liten bil", "litet fordon", "minibil",
+    "liten och smidig", "smidig", "parkera latt", "enkel",
     // EN
-    "small", "mini", "economy", "compact", "tiny",
+    "small", "mini", "economy", "compact", "tiny", "small car", "city car",
     // DE
-    "klein", "kleines", "kleinwagen", "kompakt",
+    "klein", "kleines", "kleinwagen", "kleines auto", "kompakt", "stadtauto",
     // Kategorier
     "mini", "economy", "compact",
   ]],
   ["medium", [
     // SV
-    "mellan", "mellanstor", "mellanstora", "medelstor",
+    "mellan", "mellanstor", "mellanstora", "medelstor", "medelstort", "lagom stor",
+    "lagom", "normal", "normalstor", "vanlig bil",
     // EN
-    "medium", "intermediate", "standard", "mid", "midsize",
+    "medium", "intermediate", "standard", "mid", "midsize", "regular",
     // DE
-    "mittel", "mittelklasse", "mittelgross",
+    "mittel", "mittelklasse", "mittelgross", "normal", "normalgrosse",
     // Kategorier
     "intermediate", "standard",
   ]],
   ["large", [
     // SV
-    "stor", "stora", "stort", "stor bil", "rymlig", "rymligt",
+    "stor", "stora", "stort", "stor bil", "rymlig", "rymligt", "bred", "lång",
+    "rymliga", "mycket plats", "plats for alla", "stor och rymlig",
     // EN
-    "large", "big", "full", "fullsize", "full-size", "spacious",
+    "large", "big", "full", "fullsize", "full-size", "spacious", "roomy",
     // DE
-    "gross", "grosse", "grosses", "geraumig",
+    "gross", "grosse", "grosses", "geraumig", "grosses auto", "viel platz",
     // Kategorier
     "full-size", "fullsize", "premium", "luxury",
   ]],
 
-  // === BILTYP ===
-  ["suv", [
+  // === BILTYP: SEDAN ===
+  ["sedan", [
     // SV
-    "suv", "fyrhjul", "allrad", "terrängbil", "terrangen",
+    "sedan", "fyradorrars", "4-dorrar", "4 dorrar", "vanlig bil", "personbil",
     // EN
-    "suv", "crossover", "awd", "4x4", "offroad", "off-road",
+    "sedan", "saloon", "4-door", "four door",
     // DE
-    "suv", "gelandewagen", "allrad", "geländewagen",
-    // Kategorier
-    "compact suv", "standard suv", "intermediate suv", "full-size suv", "luxury suv", "premium suv",
+    "limousine", "sedan", "stufenheck", "4-turer",
+    // Matchande modeller
+    "golf", "passat", "scala", "octavia", "a4", "a6", "bmw 1", "bmw 3",
   ]],
-  ["van", [
-    // SV
-    "van", "minibuss", "minivan", "skåpbil", "buss", "skåp",
-    // EN
-    "van", "minivan", "people carrier", "mpv",
-    // DE
-    "van", "minibus", "kleinbus", "transporter",
-    // Kategorier
-    "full-size van", "luxury van",
-  ]],
+
+  // === BILTYP: KOMBI / ESTATE ===
   ["estate", [
     // SV
-    "kombi", "kombibil", "station", "stationsvagn",
+    "kombi", "kombibil", "station", "stationsvagn", "stw", "lastvagn", "lastutrymme",
+    "bagageutrymme", "stor bagagelucka", "bred lastyta",
     // EN
-    "estate", "wagon", "station wagon",
+    "estate", "wagon", "station wagon", "touring", "avant", "stw",
     // DE
-    "kombi", "kombifahrzeug", "kombimodell",
+    "kombi", "kombifahrzeug", "kombimodell", "avant", "touring", "t-modell",
+    // Matchande modeller
+    "v60", "v90", "passat stw", "golf stw", "octavia stw", "a4 avant", "a6 avant",
+    "kia ceed stw", "audi a4 stw", "audi a6 stw", "vw passat stw", "volkswagen golf stw",
+    "volkswagen passat stw", "skoda octavia stw",
     // Kategorier
     "estate", "wagon",
   ]],
+
+  // === BILTYP: SUV ===
+  ["suv", [
+    // SV
+    "suv", "fyrhjulsdrift", "fyrhjul", "allhjulsdrift", "allrad", "terrängbil", "crossover",
+    "hogre sitthojd", "hog sitthojd", "terrang",
+    // EN
+    "suv", "crossover", "awd", "4x4", "4wd", "offroad", "off-road", "sport utility",
+    // DE
+    "suv", "gelandewagen", "allrad", "allradantrieb", "crossover", "geländewagen",
+    // Matchande modeller
+    "tiguan", "t-roc", "xc40", "xc60", "xc90", "q2", "q3", "q5", "karoq", "kodiaq",
+    "sportage", "stonic", "niro", "peugeot 2008", "peugeot 3008", "peugeot 5008",
+    "cupra formentor", "lexus nx", "lynk", "volvo ex", "kia sportage",
+    "skoda karoq", "skoda kodiaq", "renault captur", "seat arona", "tesla model y",
+    // Kategorier
+    "compact suv", "standard suv", "intermediate suv", "full-size suv", "luxury suv", "premium suv",
+    "intermediate crossover", "intermediate elite crossover", "standard crossover",
+  ]],
+
+  // === BILTYP: VAN / MINIBUSS ===
+  ["van", [
+    // SV
+    "van", "minibuss", "minivan", "buss", "skåpbil", "gruppresa", "grupp",
+    "stor grupp", "manga personer", "transport", "skol",
+    // EN
+    "van", "minivan", "people carrier", "mpv", "bus", "group", "shuttle",
+    // DE
+    "van", "minibus", "kleinbus", "transporter", "grossraumlimousine",
+    // Matchande modeller
+    "caravelle", "multivan", "vito", "mercedes-benz vito", "volkswagen caravelle",
+    "volkswagen multivan", "peugeot 5008 5+2",
+    // Kategorier
+    "full-size van", "luxury van", "full-size elite van",
+  ]],
+
+  // === BILTYP: CABRIOLET ===
   ["cabriolet", [
     // SV
-    "cabriolet", "cab", "cabbe", "cabriol", "convertible", "öppen bil", "sommarbal", "roadster",
+    "cabriolet", "cabriol", "cab", "cabbe", "oppen bil", "konvertibel",
+    "sommar", "sommarkansla", "sol", "oppet tak", "roadster", "sportbil",
     // EN
-    "convertible", "cabrio", "cabriolet", "roadster", "open top",
+    "convertible", "cabrio", "cabriolet", "roadster", "open top", "drop top", "soft top",
     // DE
-    "cabrio", "cabriolet", "verdeck", "offen",
+    "cabrio", "cabriolet", "verdeck", "offen", "offenes auto", "roadster",
     // Kategorier
     "special",
   ]],
+
+  // === BILTYP: LYXBIL ===
   ["luxury", [
     // SV
-    "lyx", "lyxbil", "exklusiv", "premium bil",
+    "lyx", "lyxbil", "exklusiv", "premium bil", "finbil", "elegant", "stilren",
+    "affarsresa", "affar", "representation",
     // EN
-    "luxury", "premium", "executive",
+    "luxury", "premium", "executive", "business", "upscale", "high-end",
     // DE
-    "luxus", "luxusauto", "gehoben", "premium",
+    "luxus", "luxusauto", "gehoben", "premium", "geschaftsreise", "exklusiv",
+    // Matchande modeller
+    "mercedes", "bmw", "audi", "lexus", "volvo v90", "tesla", "byd",
     // Kategorier
     "luxury", "premium",
   ]],
 
-  // === FAMILJ / SÄTESANTAL ===
+  // === BILTYP: EL / HYBRID ===
+  ["electric", [
+    // SV
+    "elektrisk", "el", "elbil", "eldriven", "batteri", "ladda", "laddning",
+    "miljobil", "nollutsläpp", "nollutslapps", "grön", "hallbar",
+    "hybrid", "laddhybrid", "plug-in",
+    // EN
+    "electric", "ev", "electric car", "battery", "charge", "plug-in", "hybrid",
+    "zero emission", "green", "sustainable",
+    // DE
+    "elektrisch", "elektroauto", "elektro", "batterie", "hybrid", "laden",
+    "umweltfreundlich", "plug-in",
+    // Matchande modeller
+    "id.3", "id.4", "id3", "id4", "volkswagen id", "vw id",
+    "tesla model 3", "tesla model y", "model 3", "model y",
+    "volvo ex30", "volvo ex40", "ex30", "ex40",
+    "mercedes eqe", "eqe", "byd seal", "byd",
+    "kia niro", "ioniq", "leaf",
+    "volvo v90 hybrid", "kia ceed plug-in",
+  ]],
+
+  // === FAMILJ / BARN ===
   ["family", [
     // SV
     "familj", "familjebil", "familjevan", "barn", "barnvagn", "barnstol", "barnfamilj",
-    "7 saten", "7saten", "nio saten", "9 saten", "stor familj",
+    "stor familj", "7 saten", "nio saten", "9 saten", "manga saten",
+    "plats for barn", "barnvänlig", "barnvanlig",
     // EN
     "family", "family car", "kids", "children", "7 seats", "9 seats", "family van",
+    "child seat", "baby", "toddler",
     // DE
     "familie", "familienauto", "kinder", "familienvan", "7 sitze", "9 sitze",
+    "kindersitz", "familienfreundlich",
+    // Matchande modeller
+    "peugeot 5008", "kodiaq", "tiguan", "caravelle", "multivan", "xc90",
   ]],
-  ["seats4", ["4 saten", "4saten", "4 säten", "4 seats", "4 sitze", "fyra saten", "four seats"]],
-  ["seats5", ["5 saten", "5saten", "5 säten", "5 seats", "5 sitze", "fem saten", "five seats"]],
-  ["seats7", ["7 saten", "7saten", "7 säten", "7 seats", "7 sitze", "sju saten", "seven seats", "familj", "minibuss"]],
-  ["seats9", ["9 saten", "9saten", "9 säten", "9 seats", "9 sitze", "nio saten", "nine seats", "minibuss"]],
+
+  // === SÄTESANTAL ===
+  ["seats4", [
+    "4 saten", "4saten", "4 säten", "4 seats", "4 sitze",
+    "fyra saten", "fyra platser", "four seats",
+  ]],
+  ["seats5", [
+    "5 saten", "5saten", "5 säten", "5 seats", "5 sitze",
+    "fem saten", "fem platser", "five seats",
+    "2 personer", "par", "tvåpersoners", "2 passagerare",
+    "3 personer", "tre personer",
+    "4 personer", "fyra personer",
+    "5 personer", "fem personer",
+  ]],
+  ["seats7", [
+    "7 saten", "7saten", "7 säten", "7 seats", "7 sitze",
+    "sju saten", "sju platser", "seven seats",
+    "6 personer", "sex personer", "7 personer", "sju personer",
+  ]],
+  ["seats9", [
+    "9 saten", "9saten", "9 säten", "9 seats", "9 sitze",
+    "nio saten", "nio platser", "nine seats",
+    "8 personer", "atta personer", "9 personer", "nio personer",
+    "stor grupp", "gruppresa",
+  ]],
 
   // === TRANSMISSION ===
   ["automat", [
     // SV
-    "automat", "automatvaxel", "automatisk",
+    "automat", "automatvaxel", "automatisk", "automatlagda", "automatlada",
     // EN
-    "automatic", "auto", "automatic gearbox",
+    "automatic", "auto", "automatic gearbox", "automatic transmission",
     // DE
-    "automatik", "automatisch", "automatgetriebe",
+    "automatik", "automatisch", "automatgetriebe", "selbstschalter",
   ]],
   ["manuell", [
     // SV
-    "manuell", "manuell vaxel", "vaxellada", "stick",
+    "manuell", "manuell vaxel", "vaxellada", "stick", "kopplingspedal",
     // EN
-    "manual", "stick shift", "manual gearbox",
+    "manual", "stick shift", "manual gearbox", "manual transmission",
     // DE
-    "manuell", "schaltgetriebe", "schalten",
-  ]],
-
-  // === EL / BRÄNSLE ===
-  ["electric", [
-    // SV
-    "elektrisk", "el", "elbil", "eldriven", "batteri",
-    // EN
-    "electric", "ev", "electric car", "battery",
-    // DE
-    "elektrisch", "elektroauto", "elektro", "batterie",
-    // Bilnamn
-    "id.3", "id.4", "id3", "id4", "leaf", "ioniq", "tesla", "model 3",
+    "manuell", "schaltgetriebe", "schalten", "gangschaltung",
   ]],
 
   // === UPPHÄMTNINGSPLATS ===
   ["airport", [
     // SV
-    "airport", "flygplats", "flyg", "malmo airport", "sturup",
+    "airport", "flygplats", "flyg", "malmo airport", "sturup", "flyget",
+    "hämta på flygplatsen", "hamta pa flygplatsen",
     // EN
-    "airport", "fly", "terminal",
+    "airport", "fly", "terminal", "pick up airport",
     // DE
-    "flughafen", "airport",
+    "flughafen", "airport", "abholung flughafen",
   ]],
   ["city", [
     // SV
     "city", "stad", "centrum", "centralt", "malmo city", "innerstaden",
+    "i stan", "centrala", "i centrum",
     // EN
-    "city", "downtown", "center", "central",
+    "city", "downtown", "center", "central", "city centre", "city center",
     // DE
-    "stadt", "zentrum", "innenstadt", "stadtmitte",
+    "stadt", "zentrum", "innenstadt", "stadtmitte", "stadtzentrum",
   ]],
 
-  // === PRIS ===
+  // === PRIS / BUDGET ===
   ["cheap", [
     // SV
-    "billig", "billiga", "billigt", "budget", "prisvärd", "prisvärt", "lagnpris", "lågpris",
+    "billig", "billiga", "billigt", "budget", "prisvärd", "prisvard", "prisvanlig",
+    "lagpris", "lagpris", "spara", "billigaste", "lägsta pris", "lagsta pris",
+    "inte dyr", "inte dyrt",
     // EN
-    "cheap", "budget", "affordable", "low cost", "economy",
+    "cheap", "budget", "affordable", "low cost", "economy", "cheapest", "best price",
     // DE
-    "gunstig", "billig", "preiswert", "budget",
+    "gunstig", "billig", "preiswert", "budget", "gunstigste", "preisgunstig",
   ]],
 
-  // === LEVERANTÖRER (extra stavningar) ===
-  ["europcar", ["europcar", "europecar", "europa"]],
+  // === MÄRKEN (utöver direktmatchning på namn) ===
+  ["volkswagen", ["volkswagen", "vw", "folksvagn", "folkvagn"]],
+  ["volvo", ["volvo", "svensk bil", "swedish car"]],
+  ["audi", ["audi", "fyra ringar"]],
+  ["bmw", ["bmw", "bayerisch"]],
+  ["mercedes", ["mercedes", "benz", "mb", "stjärna"]],
+  ["kia", ["kia"]],
+  ["skoda", ["skoda", "škoda"]],
+  ["peugeot", ["peugeot", "peugot", "pejo"]],
+  ["tesla", ["tesla", "elon"]],
+  ["volvo_brand", ["volvo"]],
+  ["seat", ["seat", "cupra"]],
+  ["renault", ["renault", "reno"]],
+  ["lexus", ["lexus"]],
+  ["hyundai", ["hyundai", "hundai"]],
+  ["byd", ["byd"]],
+
+  // === LEVERANTÖRER ===
+  ["europcar", ["europcar", "europecar", "europa car"]],
   ["avis", ["avis"]],
   ["hertz", ["hertz"]],
   ["sixt", ["sixt"]],
-  ["budget", ["budget"]],
+  ["budget_supplier", ["budget"]],
   ["enterprise", ["enterprise"]],
   ["thrifty", ["thrifty"]],
   ["dollar", ["dollar"]],
@@ -1595,30 +1695,65 @@ for (const [key, terms] of SEARCH_TAGS) {
 // Biltyp → kanoniska nycklar (för matchning mot SEARCH_TAGS)
 function carKeys(c: { name: string; category: string; supplier: string; transmission: string; seats: number; isAirport: boolean }): string[] {
   const keys = new Set<string>();
+  const n = norm(c.name);
+  const cat = norm(c.category);
+
   // Storlek
   const sz = SIZE_MAP[c.category] ?? "medium";
   keys.add(sz === "small" ? "small" : sz === "large" ? "large" : "medium");
+
   // Kategori-specifika nycklar
-  const cat = norm(c.category);
   if (cat.includes("suv") || cat.includes("crossover")) keys.add("suv");
   if (cat.includes("van")) { keys.add("van"); keys.add("family"); }
-  if (cat.includes("estate") || cat.includes("wagon")) keys.add("estate");
+  if (cat.includes("estate") || cat.includes("wagon") || n.includes("stw") || n.includes("avant") || n.includes("touring")) keys.add("estate");
   if (cat.includes("special")) keys.add("cabriolet");
   if (cat.includes("luxury") || cat.includes("premium")) keys.add("luxury");
+
+  // Sedan — bilar utan estate/suv/van-kategori som är personbilar
+  if (!cat.includes("suv") && !cat.includes("crossover") && !cat.includes("van") && !cat.includes("estate") && !cat.includes("wagon") && !cat.includes("special")) {
+    keys.add("sedan");
+  }
+
   // Transmission
   keys.add(norm(c.transmission) === "automat" ? "automat" : "manuell");
+
   // Säten
-  if (c.seats === 4) keys.add("seats4");
+  if (c.seats <= 4) keys.add("seats4");
   if (c.seats === 5) keys.add("seats5");
   if (c.seats >= 7) { keys.add("seats7"); keys.add("family"); }
   if (c.seats >= 9) keys.add("seats9");
-  // El
-  if (norm(c.name).includes("id.") || norm(c.name).includes("leaf") || norm(c.name).includes("ioniq") || norm(c.name).includes("tesla")) keys.add("electric");
+
+  // El/hybrid
+  if (n.includes("id.") || n.includes("id3") || n.includes("id4") ||
+      n.includes("tesla") || n.includes("eqe") || n.includes("byd") ||
+      n.includes("ex30") || n.includes("ex40") || n.includes("niro") ||
+      n.includes("ioniq") || n.includes("leaf") || n.includes("plug-in") ||
+      n.includes("hybrid") || cat.includes("electric")) {
+    keys.add("electric");
+  }
+
   // Plats
   keys.add(c.isAirport ? "airport" : "city");
+
   // Leverantör
   keys.add(norm(c.supplier));
-  // Pris — hanteras separat via fuzzy på fält
+
+  // Märke
+  if (n.includes("volkswagen") || n.includes("vw")) keys.add("volkswagen");
+  if (n.includes("volvo")) keys.add("volvo");
+  if (n.includes("audi")) keys.add("audi");
+  if (n.includes("bmw")) keys.add("bmw");
+  if (n.includes("mercedes")) keys.add("mercedes");
+  if (n.includes("kia")) keys.add("kia");
+  if (n.includes("skoda")) keys.add("skoda");
+  if (n.includes("peugeot")) keys.add("peugeot");
+  if (n.includes("tesla")) keys.add("tesla");
+  if (n.includes("seat") || n.includes("cupra")) keys.add("seat");
+  if (n.includes("renault")) keys.add("renault");
+  if (n.includes("lexus")) keys.add("lexus");
+  if (n.includes("hyundai")) keys.add("hyundai");
+  if (n.includes("byd")) keys.add("byd");
+
   return [...keys];
 }
 
