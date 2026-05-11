@@ -2,9 +2,9 @@
 
 > Uppdateras i slutet av varje session. Läs detta FÖRST.
 
-## Nuläge (uppdaterad: 2026-05-11)
+## Nuläge (uppdaterad: 2026-05-11 — sen kväll)
 
-Discover är en svensk reseaffiliate-sida (Next.js 16, React 19). Live har: trip.com, Agoda, Expedia, Tripadvisor, Hotels.com, Tiqets, GoCity, Ticketmaster, GetTransfer, RailEurope, Yesim, Airalo, Drimsim, Viator (58 experiences), GetYourGuide, Discover Cars (83 bilar). Senaste committen är `16842fc Global footer på alla sidor`.
+Discover är en svensk reseaffiliate-sida (Next.js 16, React 19). Live har: trip.com, Agoda, Expedia, Tripadvisor, Hotels.com, Tiqets, GoCity, Ticketmaster, GetTransfer, RailEurope, Yesim, Airalo, Drimsim, Viator (58 experiences), GetYourGuide, Discover Cars (83 bilar). Senaste committen är `8f67644 Fix: hamburgermenyns topbar matchar nu sidans topbar i höjd`.
 
 Bloggen heter nu **News** (`/news` URL, klassnamn `.news-*`, type `NewsPost`, MDX i `content/news/`). Allt blogg-relaterat döptes om i denna session.
 
@@ -14,7 +14,19 @@ Två parallella arbetsstrandar:
 
 ## Vad hände senast
 
-- Session 2026-05-11:
+- Session 2026-05-11 (forts. sen kväll):
+  - Mini-cards bilder bytte från 1:1 square till **4:3 rektangulära** (per användarfeedback "smala fast bredd kvar")
+  - Datum mindre (9.5px var 11px) i både Senaste och Hela arkivet
+  - **Hela arkivet (segment 3)** minimaliserat: tog bort kategori-tag och beskrivning, bara titel + datum, 50:50 grid med 4:3 bilder (matchar Senaste-stilen)
+  - **Carousel-pilar** bytte från tjocka ←/→ till tunna chevron-SVG:er (Airbnb-stil), 36px små cirklar
+  - **`.news-page` får explicit `background: #fff`** så hela news-sidan är vit (carousel-sektionen kände sig beige tidigare)
+  - **Hamburgermeny ombyggd igen:**
+    - Fullscreen overlay (top: 0, z-index: 1000) med slide-in från höger (0.28s ease)
+    - Logo + border-bottom inuti menyns top-section, identiska responsive padding som .topbar
+    - X close-knapp uppe till höger (samma stil som carousel-pilar)
+    - **Bug-fix:** `.mobile-menu a`-selektorn för menyalternativ matchade även logo-länken inuti `.mobile-menu-top` → padding 16px 0 → extra 32px höjd. Fixat med `.mobile-menu-top .logo { padding: 0; }` override.
+
+- Session 2026-05-11 (tidigare):
   - Skrev 2 nya inlägg via `discover-blogg`-skill (med SERP-research): "Dolda pärlor i Malmö" + "Så tar du dig runt i Malmö"
   - Bygde 3 segment på /news: featured + utvalda upplevelser-carousel + topic-arkiv-filter
   - Döpte om hela "blogg/Blogg" → "news/News" (URL, klassnamn, types, content-mapp, i18n)
