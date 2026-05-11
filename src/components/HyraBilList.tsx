@@ -1392,7 +1392,69 @@ const PER_PAGE = 12;
 
 function norm(s: string) {
   return s.toLowerCase()
-    .replace(/å/g, "a").replace(/ä/g, "a").replace(/ö/g, "o");
+    .replace(/å/g, "a").replace(/ä/g, "a").replace(/ö/g, "o")
+    .replace(/é|è|ê/g, "e").replace(/ü/g, "u");
+}
+
+// Levenshtein distance för stavfelstolerans
+function levenshtein(a: string, b: string): number {
+  const m = a.length, n = b.length;
+  const dp: number[][] = Array.from({ length: m + 1 }, (_, i) => [i]);
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+  for (let i = 1; i <= m; i++)
+    for (let j = 1; j <= n; j++)
+      dp[i][j] = a[i-1] === b[j-1] ? dp[i-1][j-1] : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+  return dp[m][n];
+}
+
+function fuzzyMatch(text: string, q: string): boolean {
+  if (text.includes(q)) return true;
+  // Tillåt 1 stavfel för ord längre än 4 tecken
+  const words = text.split(/\s+/);
+  return words.some(w => w.length > 4 && q.length > 3 && levenshtein(w, q) <= 1);
+}
+
+// Synonymer och alternativa stavningar
+const SYNONYMS: Record<string, string[]> = {
+  // Storlekar
+  liten: ["small", "mini", "economy", "compact", "liten", "litet", "pytteliten"],
+  small: ["liten", "mini", "economy", "compact"],
+  mini: ["liten", "small", "economy"],
+  economy: ["liten", "ekonomi", "small", "mini"],
+  compact: ["liten", "small", "kompakt"],
+  mellan: ["medium", "intermediate", "standard", "mellanstor", "mellanstora"],
+  medium: ["mellan", "intermediate", "standard"],
+  intermediate: ["mellan", "medium"],
+  standard: ["mellan", "medium"],
+  stor: ["large", "fullsize", "full", "suv", "van", "premium", "luxury", "big", "stora"],
+  large: ["stor", "fullsize", "full"],
+  fullsize: ["stor", "large", "full"],
+  suv: ["stor", "large", "fyrhjul"],
+  van: ["stor", "minibuss", "minivan", "familj"],
+  premium: ["stor", "lyx", "luxury"],
+  luxury: ["lyx", "premium", "stor"],
+  // Transmission
+  automat: ["automatic", "auto"],
+  automatic: ["automat", "auto"],
+  manuell: ["manual", "växellåda"],
+  manual: ["manuell"],
+  // Övrigt
+  familj: ["van", "stor", "suv", "7"],
+  elektrisk: ["electric", "el", "elbil"],
+  electric: ["elektrisk", "el"],
+  elbil: ["electric", "elektrisk"],
+  billig: ["cheap", "low", "economy", "mini"],
+  cheap: ["billig", "economy"],
+  airport: ["flygplats", "flyg", "malmo airport"],
+  flygplats: ["airport", "flyg"],
+  city: ["stad", "centrum"],
+};
+
+function expandQuery(q: string): string[] {
+  const terms = [q];
+  const syns = SYNONYMS[q];
+  if (syns) terms.push(...syns);
+  return terms;
 }
 
 const T = {
@@ -1499,13 +1561,22 @@ export default function HyraBilList() {
     if (supplier !== "all") list = list.filter((c) => c.supplier === supplier);
     if (size !== "all") list = list.filter((c) => (SIZE_MAP[c.category] ?? "medium") === size);
     if (query.trim()) {
-      const q = norm(query.trim());
-      list = list.filter((c) =>
-        norm(c.name).includes(q) ||
-        norm(c.category).includes(q) ||
-        norm(c.supplier).includes(q) ||
-        norm(c.ratingLabel).includes(q)
-      );
+      const terms = query.trim().split(/\s+/).map(norm);
+      list = list.filter((c) => {
+        const sizeLabel = norm(SIZE_MAP[c.category] ?? "medium");
+        const fields = [
+          norm(c.name),
+          norm(c.category),
+          norm(c.supplier),
+          norm(c.ratingLabel),
+          norm(c.transmission),
+          sizeLabel,
+        ].join(" ");
+        return terms.every((term) => {
+          const expanded = expandQuery(term);
+          return expanded.some((t) => fuzzyMatch(fields, t));
+        });
+      });
     }
     const sorted = [...list];
     if (sort === "price-asc") sorted.sort((a, b) => a.pricePerDay - b.pricePerDay);
