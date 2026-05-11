@@ -1414,47 +1414,219 @@ function fuzzyMatch(text: string, q: string): boolean {
   return words.some(w => w.length > 4 && q.length > 3 && levenshtein(w, q) <= 1);
 }
 
-// Synonymer och alternativa stavningar
-const SYNONYMS: Record<string, string[]> = {
-  // Storlekar
-  liten: ["small", "mini", "economy", "compact", "liten", "litet", "pytteliten"],
-  small: ["liten", "mini", "economy", "compact"],
-  mini: ["liten", "small", "economy"],
-  economy: ["liten", "ekonomi", "small", "mini"],
-  compact: ["liten", "small", "kompakt"],
-  mellan: ["medium", "intermediate", "standard", "mellanstor", "mellanstora"],
-  medium: ["mellan", "intermediate", "standard"],
-  intermediate: ["mellan", "medium"],
-  standard: ["mellan", "medium"],
-  stor: ["large", "fullsize", "full", "suv", "van", "premium", "luxury", "big", "stora"],
-  large: ["stor", "fullsize", "full"],
-  fullsize: ["stor", "large", "full"],
-  suv: ["stor", "large", "fyrhjul"],
-  van: ["stor", "minibuss", "minivan", "familj"],
-  premium: ["stor", "lyx", "luxury"],
-  luxury: ["lyx", "premium", "stor"],
+// Kategorier mappade till söktermer på SV/EN/DE
+// Varje rad: [kanonisk nyckel, ...alla termer som ska matcha den]
+const SEARCH_TAGS: [string, string[]][] = [
+  // === STORLEK ===
+  ["small", [
+    // SV
+    "liten", "litet", "lilla", "pytteliten", "kompakt",
+    // EN
+    "small", "mini", "economy", "compact", "tiny",
+    // DE
+    "klein", "kleines", "kleinwagen", "kompakt",
+    // Kategorier
+    "mini", "economy", "compact",
+  ]],
+  ["medium", [
+    // SV
+    "mellan", "mellanstor", "mellanstora", "medelstor",
+    // EN
+    "medium", "intermediate", "standard", "mid", "midsize",
+    // DE
+    "mittel", "mittelklasse", "mittelgross",
+    // Kategorier
+    "intermediate", "standard",
+  ]],
+  ["large", [
+    // SV
+    "stor", "stora", "stort", "stor bil", "rymlig", "rymligt",
+    // EN
+    "large", "big", "full", "fullsize", "full-size", "spacious",
+    // DE
+    "gross", "grosse", "grosses", "geraumig",
+    // Kategorier
+    "full-size", "fullsize", "premium", "luxury",
+  ]],
+
+  // === BILTYP ===
+  ["suv", [
+    // SV
+    "suv", "fyrhjul", "allrad", "terrängbil", "terrangen",
+    // EN
+    "suv", "crossover", "awd", "4x4", "offroad", "off-road",
+    // DE
+    "suv", "gelandewagen", "allrad", "geländewagen",
+    // Kategorier
+    "compact suv", "standard suv", "intermediate suv", "full-size suv", "luxury suv", "premium suv",
+  ]],
+  ["van", [
+    // SV
+    "van", "minibuss", "minivan", "skåpbil", "buss", "skåp",
+    // EN
+    "van", "minivan", "people carrier", "mpv",
+    // DE
+    "van", "minibus", "kleinbus", "transporter",
+    // Kategorier
+    "full-size van", "luxury van",
+  ]],
+  ["estate", [
+    // SV
+    "kombi", "kombibil", "station", "stationsvagn",
+    // EN
+    "estate", "wagon", "station wagon",
+    // DE
+    "kombi", "kombifahrzeug", "kombimodell",
+    // Kategorier
+    "estate", "wagon",
+  ]],
+  ["cabriolet", [
+    // SV
+    "cabriolet", "cab", "cabbe", "cabriol", "convertible", "öppen bil", "sommarbal", "roadster",
+    // EN
+    "convertible", "cabrio", "cabriolet", "roadster", "open top",
+    // DE
+    "cabrio", "cabriolet", "verdeck", "offen",
+    // Kategorier
+    "special",
+  ]],
+  ["luxury", [
+    // SV
+    "lyx", "lyxbil", "exklusiv", "premium bil",
+    // EN
+    "luxury", "premium", "executive",
+    // DE
+    "luxus", "luxusauto", "gehoben", "premium",
+    // Kategorier
+    "luxury", "premium",
+  ]],
+
+  // === FAMILJ / SÄTESANTAL ===
+  ["family", [
+    // SV
+    "familj", "familjebil", "familjevan", "barn", "barnvagn", "barnstol", "barnfamilj",
+    "7 saten", "7saten", "nio saten", "9 saten", "stor familj",
+    // EN
+    "family", "family car", "kids", "children", "7 seats", "9 seats", "family van",
+    // DE
+    "familie", "familienauto", "kinder", "familienvan", "7 sitze", "9 sitze",
+  ]],
+  ["seats4", ["4 saten", "4saten", "4 säten", "4 seats", "4 sitze", "fyra saten", "four seats"]],
+  ["seats5", ["5 saten", "5saten", "5 säten", "5 seats", "5 sitze", "fem saten", "five seats"]],
+  ["seats7", ["7 saten", "7saten", "7 säten", "7 seats", "7 sitze", "sju saten", "seven seats", "familj", "minibuss"]],
+  ["seats9", ["9 saten", "9saten", "9 säten", "9 seats", "9 sitze", "nio saten", "nine seats", "minibuss"]],
+
+  // === TRANSMISSION ===
+  ["automat", [
+    // SV
+    "automat", "automatvaxel", "automatisk",
+    // EN
+    "automatic", "auto", "automatic gearbox",
+    // DE
+    "automatik", "automatisch", "automatgetriebe",
+  ]],
+  ["manuell", [
+    // SV
+    "manuell", "manuell vaxel", "vaxellada", "stick",
+    // EN
+    "manual", "stick shift", "manual gearbox",
+    // DE
+    "manuell", "schaltgetriebe", "schalten",
+  ]],
+
+  // === EL / BRÄNSLE ===
+  ["electric", [
+    // SV
+    "elektrisk", "el", "elbil", "eldriven", "batteri",
+    // EN
+    "electric", "ev", "electric car", "battery",
+    // DE
+    "elektrisch", "elektroauto", "elektro", "batterie",
+    // Bilnamn
+    "id.3", "id.4", "id3", "id4", "leaf", "ioniq", "tesla", "model 3",
+  ]],
+
+  // === UPPHÄMTNINGSPLATS ===
+  ["airport", [
+    // SV
+    "airport", "flygplats", "flyg", "malmo airport", "sturup",
+    // EN
+    "airport", "fly", "terminal",
+    // DE
+    "flughafen", "airport",
+  ]],
+  ["city", [
+    // SV
+    "city", "stad", "centrum", "centralt", "malmo city", "innerstaden",
+    // EN
+    "city", "downtown", "center", "central",
+    // DE
+    "stadt", "zentrum", "innenstadt", "stadtmitte",
+  ]],
+
+  // === PRIS ===
+  ["cheap", [
+    // SV
+    "billig", "billiga", "billigt", "budget", "prisvärd", "prisvärt", "lagnpris", "lågpris",
+    // EN
+    "cheap", "budget", "affordable", "low cost", "economy",
+    // DE
+    "gunstig", "billig", "preiswert", "budget",
+  ]],
+
+  // === LEVERANTÖRER (extra stavningar) ===
+  ["europcar", ["europcar", "europecar", "europa"]],
+  ["avis", ["avis"]],
+  ["hertz", ["hertz"]],
+  ["sixt", ["sixt"]],
+  ["budget", ["budget"]],
+  ["enterprise", ["enterprise"]],
+  ["thrifty", ["thrifty"]],
+  ["dollar", ["dollar"]],
+  ["alamo", ["alamo"]],
+];
+
+// Bygg uppslagstabell: term → kanonisk nyckel
+const TERM_TO_KEY: Record<string, string> = {};
+for (const [key, terms] of SEARCH_TAGS) {
+  for (const t of terms) TERM_TO_KEY[norm(t)] = key;
+}
+
+// Biltyp → kanoniska nycklar (för matchning mot SEARCH_TAGS)
+function carKeys(c: { name: string; category: string; supplier: string; transmission: string; seats: number; isAirport: boolean }): string[] {
+  const keys = new Set<string>();
+  // Storlek
+  const sz = SIZE_MAP[c.category] ?? "medium";
+  keys.add(sz === "small" ? "small" : sz === "large" ? "large" : "medium");
+  // Kategori-specifika nycklar
+  const cat = norm(c.category);
+  if (cat.includes("suv") || cat.includes("crossover")) keys.add("suv");
+  if (cat.includes("van")) { keys.add("van"); keys.add("family"); }
+  if (cat.includes("estate") || cat.includes("wagon")) keys.add("estate");
+  if (cat.includes("special")) keys.add("cabriolet");
+  if (cat.includes("luxury") || cat.includes("premium")) keys.add("luxury");
   // Transmission
-  automat: ["automatic", "auto"],
-  automatic: ["automat", "auto"],
-  manuell: ["manual", "växellåda"],
-  manual: ["manuell"],
-  // Övrigt
-  familj: ["van", "stor", "suv", "7"],
-  elektrisk: ["electric", "el", "elbil"],
-  electric: ["elektrisk", "el"],
-  elbil: ["electric", "elektrisk"],
-  billig: ["cheap", "low", "economy", "mini"],
-  cheap: ["billig", "economy"],
-  airport: ["flygplats", "flyg", "malmo airport"],
-  flygplats: ["airport", "flyg"],
-  city: ["stad", "centrum"],
-};
+  keys.add(norm(c.transmission) === "automat" ? "automat" : "manuell");
+  // Säten
+  if (c.seats === 4) keys.add("seats4");
+  if (c.seats === 5) keys.add("seats5");
+  if (c.seats >= 7) { keys.add("seats7"); keys.add("family"); }
+  if (c.seats >= 9) keys.add("seats9");
+  // El
+  if (norm(c.name).includes("id.") || norm(c.name).includes("leaf") || norm(c.name).includes("ioniq") || norm(c.name).includes("tesla")) keys.add("electric");
+  // Plats
+  keys.add(c.isAirport ? "airport" : "city");
+  // Leverantör
+  keys.add(norm(c.supplier));
+  // Pris — hanteras separat via fuzzy på fält
+  return [...keys];
+}
 
 function expandQuery(q: string): string[] {
-  const terms = [q];
-  const syns = SYNONYMS[q];
-  if (syns) terms.push(...syns);
-  return terms;
+  // Kolla om termen mappar till en kanonisk nyckel
+  const key = TERM_TO_KEY[q];
+  if (key) return [key];
+  return [q];
 }
 
 const T = {
@@ -1563,18 +1735,14 @@ export default function HyraBilList() {
     if (query.trim()) {
       const terms = query.trim().split(/\s+/).map(norm);
       list = list.filter((c) => {
-        const sizeLabel = norm(SIZE_MAP[c.category] ?? "medium");
-        const fields = [
-          norm(c.name),
-          norm(c.category),
-          norm(c.supplier),
-          norm(c.ratingLabel),
-          norm(c.transmission),
-          sizeLabel,
-        ].join(" ");
+        const keys = carKeys(c);
+        const fields = [norm(c.name), norm(c.category), norm(c.supplier), norm(c.transmission)].join(" ");
         return terms.every((term) => {
-          const expanded = expandQuery(term);
-          return expanded.some((t) => fuzzyMatch(fields, t));
+          const resolvedKey = expandQuery(term)[0];
+          // Matcha mot kanoniska nycklar
+          if (keys.includes(resolvedKey)) return true;
+          // Matcha direkt mot fält (modellnamn etc) med fuzzy
+          return fuzzyMatch(fields, term);
         });
       });
     }
