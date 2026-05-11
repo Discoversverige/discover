@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Inter_Tight, Instrument_Serif, JetBrains_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
@@ -34,15 +33,6 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="sv" className={`${interTight.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}>
-      <head>
-        <Script
-          id="travelpayouts"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var s=document.createElement("script");s.async=1;s.src='https://tpembars.com/NTIyNTkw.js?t=522590';document.head.appendChild(s);})();`,
-          }}
-        />
-      </head>
       <body>
         <SiteHeader />
         {children}
