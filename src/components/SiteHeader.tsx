@@ -175,7 +175,6 @@ export default function SiteHeader() {
           <a href="/" className={isActive("/") ? "active" : ""}>{t.discover}</a>
           <a href="/upplevelser" className={isActive("/upplevelser") ? "active" : ""}>{t.experiences}</a>
           <a href="/hyra-bil" className={isActive("/hyra-bil") ? "active" : ""}>{t.rentCar}</a>
-          <a href="/ta-dig-hit" className={isActive("/ta-dig-hit") ? "active" : ""}>{t.plan}</a>
           <a href="/om-oss" className={isActive("/om-oss") ? "active" : ""}>{t.about}</a>
         </nav>
         <div className="lang-switch" role="tablist">
@@ -288,7 +287,6 @@ export default function SiteHeader() {
           <a href="/" onClick={() => setMenuOpen(false)}>{t.discover}</a>
           <a href="/upplevelser" onClick={() => setMenuOpen(false)}>{t.experiences}</a>
           <a href="/hyra-bil" onClick={() => setMenuOpen(false)}>{t.rentCar}</a>
-          <a href="/ta-dig-hit" onClick={() => setMenuOpen(false)}>{t.plan}</a>
           <a href="/om-oss" onClick={() => setMenuOpen(false)}>{t.about}</a>
 
           <div className="mobile-menu-socials" aria-label="Sociala medier">
