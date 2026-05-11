@@ -20,7 +20,6 @@ export default function NewsSegmentLatest({ featured, rest }: Props) {
           <div className="news-featured-text">
             <span className="news-featured-date">{formatDate(featured.date, "sv")}</span>
             <h1 className="news-featured-title">{featured.title}</h1>
-            <p className="news-featured-desc">{featured.description}</p>
             <span className="news-featured-cta">Läs mer</span>
           </div>
         </Link>
