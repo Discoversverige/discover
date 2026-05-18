@@ -64,6 +64,27 @@ Bagage:
 
 Försäkring + eSIM + VPN: se PDF för 13 program till.
 
+## Hotell-API (`/hotell` är hårdkodat just nu)
+
+**Problem:** `src/components/HotellList.tsx` har 25 hårdkodade hotell (uppfunna priser/betyg/recensioner). Alla klick går till samma generiska Hotels.com affiliate-URL — ingen deep link per hotell, ingen riktig data. Disclaimer i botten är vilseledande.
+
+**Plan i 3 steg:**
+
+Steg 1 — Nu (~30 min):
+- [ ] Manuellt lägg in Hotels.com deep links per hotell i `HOTELS`-arrayen (`https://www.hotels.com/ho{ID}/?affid=IiZQkAy`). Sök upp ID för 25 hotell på hotels.com.
+- [ ] Fixa disclaimer-texten ([HotellList.tsx:525](src/components/HotellList.tsx#L525)) så den inte säger "hämtade från Hotels.com" när det inte är sant.
+
+Steg 2 — Inom 1-2 veckor:
+- [ ] Registrera konto på **LiteAPI** (https://liteapi.travel) — modern hotel-API som tar emot småsajter direkt utan godkännandeprocess. Flat commission per bokning, real-time data, sandbox/test-env vid signup.
+- [ ] POC: byt `HotellList.tsx` från hårdkodad array till live LiteAPI-query för Malmö. Behåll filtreringsstruktur/UI.
+
+Steg 3 — När trafik finns (>5k besökare/månad):
+- [ ] Ansök till **Expedia Partner Solutions (EPS)** — Hotels.com-data via API, bättre commission än LiteAPI men kräver godkännande.
+- [ ] Ansök till **RateHawk** — B2B-fokuserat, ofta bättre marginaler vid volym.
+- [ ] Eventuellt multi-supplier-setup där vi visar bästa pris från flera leverantörer.
+
+**Inte värt:** Booking.com Demand API (låst till "high volume" connectivity partners + nya registreringar är stängda just nu). Travelpayouts/Hotellook (stänger ner sin hotel-API).
+
 ## Efter godkännanden
 
 - [ ] Wire in nya affiliates på rätt undersidor (analogt med Viator-flödet: redirect-endpoint per program för förstapartstracking)
