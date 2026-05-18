@@ -23,32 +23,83 @@ type Hotel = {
 
 const AFFILIATE = "https://www.hotels.com/affiliate/IiZQkAy";
 
+// Bilder från Unsplash (gratis, hotlinking tillåtet) — matchade efter hotelltyp
 const HOTELS: Hotel[] = [
-  { id: "elite-savoy", name: "Elite Hotel Savoy", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.8, ratingLabel: "Fantastiskt", reviewCount: 1243, pricePerNight: 1390, image: "https://images.trvl-media.com/lodging/1000000/30000/29700/29605/8e8b7f5f.jpg", tags: ["Frukost", "Restaurang", "Bar", "Gym"], travelerType: "business" },
-  { id: "scandic-triangeln", name: "Scandic Triangeln", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.4, ratingLabel: "Mycket bra", reviewCount: 2187, pricePerNight: 1190, image: "https://images.trvl-media.com/lodging/1000000/20000/19300/19290/7d5d1e2d.jpg", tags: ["Frukost", "Restaurang", "Gym", "Parkering"], travelerType: "business" },
-  { id: "mayfair-tunneln", name: "Mayfair Hotel Tunneln", area: "Gamla stan", areaKey: "gamla_stan", stars: 4, guestRating: 9.0, ratingLabel: "Underbart", reviewCount: 876, pricePerNight: 1590, image: "https://images.trvl-media.com/lodging/2000000/1820000/1817700/1817618/3b5e5a5e.jpg", tags: ["Frukost", "Historisk", "Bar", "Restaurang"], travelerType: "romantic" },
-  { id: "clarion-temperance", name: "Clarion Collection Hotel Temperance", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.6, ratingLabel: "Fantastiskt", reviewCount: 1456, pricePerNight: 1250, image: "https://images.trvl-media.com/lodging/1000000/20000/19600/19548/79db3c59.jpg", tags: ["Frukost ingår", "Gym", "Restaurang"], travelerType: "business" },
-  { id: "radisson-blu", name: "Radisson Blu Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.3, ratingLabel: "Mycket bra", reviewCount: 3021, pricePerNight: 1350, image: "https://images.trvl-media.com/lodging/1000000/30000/29700/29693/fe6573ec.jpg", tags: ["Pool", "Gym", "Spa", "Restaurang", "Bar"], travelerType: "business" },
-  { id: "story-hotel", name: "Story Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.7, ratingLabel: "Fantastiskt", reviewCount: 654, pricePerNight: 1450, image: "https://images.trvl-media.com/lodging/66000000/65100000/65098200/65098187/8b5b7e17.jpg", tags: ["Bar", "Restaurang", "Design"], travelerType: "romantic" },
-  { id: "best-western", name: "Best Western Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 3, guestRating: 8.0, ratingLabel: "Mycket bra", reviewCount: 987, pricePerNight: 890, image: "https://images.trvl-media.com/lodging/1000000/20000/19700/19650/e1c4b9a8.jpg", tags: ["Frukost", "Gym", "Parkering"], travelerType: "budget" },
-  { id: "ibis-styles", name: "ibis Styles Malmö", area: "Centrum", areaKey: "centrum", stars: 3, guestRating: 8.2, ratingLabel: "Mycket bra", reviewCount: 1102, pricePerNight: 790, image: "https://images.trvl-media.com/lodging/30000000/29430000/29427200/29427131/7c0e7eaf.jpg", tags: ["Frukost ingår", "Gym"], travelerType: "budget" },
-  { id: "hotel-hipp", name: "Hotel Hipp", area: "Gamla stan", areaKey: "gamla_stan", stars: 3, guestRating: 8.5, ratingLabel: "Fantastiskt", reviewCount: 534, pricePerNight: 1050, image: "https://images.trvl-media.com/lodging/8000000/7060000/7059000/7058913/1cc70e46.jpg", tags: ["Frukost", "Historisk", "Design"], travelerType: "romantic" },
-  { id: "elite-marina-plaza", name: "Elite Hotel Marina Plaza", area: "Västra hamnen", areaKey: "vastra_hamnen", stars: 4, guestRating: 8.5, ratingLabel: "Fantastiskt", reviewCount: 1789, pricePerNight: 1480, image: "https://images.trvl-media.com/lodging/1000000/30000/29700/29606/8a1d9c2b.jpg", tags: ["Havsutsikt", "Restaurang", "Bar", "Gym", "Spa"], travelerType: "romantic" },
-  { id: "comfort-hotel", name: "Comfort Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 3, guestRating: 7.8, ratingLabel: "Bra", reviewCount: 2341, pricePerNight: 750, image: "https://images.trvl-media.com/lodging/1000000/20000/19800/19750/5b2a3c4d.jpg", tags: ["Frukost", "Gym"], travelerType: "budget" },
-  { id: "scandic-city", name: "Scandic Malmö City", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.3, ratingLabel: "Mycket bra", reviewCount: 1654, pricePerNight: 1150, image: "https://images.trvl-media.com/lodging/1000000/20000/19300/19267/4c3e1b9a.jpg", tags: ["Frukost", "Restaurang", "Gym", "Familj"], travelerType: "family" },
-  { id: "hotel-noble-house", name: "Hotel Noble House", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.6, ratingLabel: "Fantastiskt", reviewCount: 723, pricePerNight: 1320, image: "https://images.trvl-media.com/lodging/1000000/20000/19900/19890/2d4f6e8a.jpg", tags: ["Frukost", "Bar", "Restaurang", "Design"], travelerType: "romantic" },
-  { id: "renaissance", name: "Renaissance Malmö Hotel", area: "Centrum", areaKey: "centrum", stars: 5, guestRating: 9.1, ratingLabel: "Underbart", reviewCount: 892, pricePerNight: 1890, image: "https://images.trvl-media.com/lodging/67000000/66100000/66094900/66094863/9e1c3f5a.jpg", tags: ["Pool", "Spa", "Gym", "Restaurang", "Bar"], travelerType: "romantic" },
-  { id: "ac-hotel-marriott", name: "AC Hotel by Marriott Malmö", area: "Hyllie", areaKey: "hyllie", stars: 4, guestRating: 8.7, ratingLabel: "Fantastiskt", reviewCount: 1123, pricePerNight: 1280, image: "https://images.trvl-media.com/lodging/40000000/39200000/39193300/39193229/2a8b4c6e.jpg", tags: ["Gym", "Bar", "Restaurang", "Parkering"], travelerType: "business" },
-  { id: "elite-carolina", name: "Elite Hotel Carolina Tower", area: "Hyllie", areaKey: "hyllie", stars: 4, guestRating: 8.4, ratingLabel: "Mycket bra", reviewCount: 967, pricePerNight: 1100, image: "https://images.trvl-media.com/lodging/10000000/9050000/9049900/9049883/6f4b2c8e.jpg", tags: ["Gym", "Restaurang", "Parkering", "Frukost"], travelerType: "business" },
-  { id: "park-inn", name: "Park Inn by Radisson Malmö", area: "Hyllie", areaKey: "hyllie", stars: 4, guestRating: 8.1, ratingLabel: "Mycket bra", reviewCount: 1432, pricePerNight: 1020, image: "https://images.trvl-media.com/lodging/1000000/980000/975200/975112/5e7d9f2a.jpg", tags: ["Gym", "Restaurang", "Bar", "Parkering"], travelerType: "business" },
-  { id: "motel-l", name: "Motel L Malmö", area: "Västra hamnen", areaKey: "vastra_hamnen", stars: 3, guestRating: 8.3, ratingLabel: "Mycket bra", reviewCount: 445, pricePerNight: 980, image: "https://images.trvl-media.com/lodging/50000000/49900000/49894700/49894695/3a7c5e9f.jpg", tags: ["Design", "Gym", "Bar"], travelerType: "romantic" },
-  { id: "stay-apartments", name: "STAY Malmö Apartments", area: "Centrum", areaKey: "centrum", stars: 3, guestRating: 8.6, ratingLabel: "Fantastiskt", reviewCount: 312, pricePerNight: 870, image: "https://images.trvl-media.com/lodging/55000000/54100000/54098800/54098777/7b3e1d4f.jpg", tags: ["Lägenhet", "Kök", "Familj"], travelerType: "family" },
-  { id: "connect-hotel", name: "Connect Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 3, guestRating: 7.9, ratingLabel: "Bra", reviewCount: 876, pricePerNight: 720, image: "https://images.trvl-media.com/lodging/1000000/20000/19200/19178/4d8f2e6b.jpg", tags: ["Frukost", "Parkering"], travelerType: "budget" },
-  { id: "hotel-baltzar", name: "Hotel Baltzar", area: "Gamla stan", areaKey: "gamla_stan", stars: 3, guestRating: 8.4, ratingLabel: "Mycket bra", reviewCount: 654, pricePerNight: 1120, image: "https://images.trvl-media.com/lodging/1000000/990000/989900/989876/5e2c7a3f.jpg", tags: ["Frukost", "Historisk", "Design"], travelerType: "romantic" },
-  { id: "hotel-duxiana", name: "Hotel Duxiana", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.9, ratingLabel: "Underbart", reviewCount: 432, pricePerNight: 1680, image: "https://images.trvl-media.com/lodging/8000000/7060000/7059300/7059241/6e4a2b8c.jpg", tags: ["Frukost", "Spa", "Design", "Lyx"], travelerType: "romantic" },
-  { id: "meininger", name: "MEININGER Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 2, guestRating: 8.0, ratingLabel: "Mycket bra", reviewCount: 1876, pricePerNight: 420, image: "https://images.trvl-media.com/lodging/50000000/49600000/49592900/49592820/2f5c8e1a.jpg", tags: ["Frukost", "Budget"], travelerType: "budget" },
-  { id: "scandic-st-jorgen", name: "Scandic St Jörgen", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.2, ratingLabel: "Mycket bra", reviewCount: 1543, pricePerNight: 1080, image: "https://images.trvl-media.com/lodging/1000000/20000/19300/19291/3c6e9a2f.jpg", tags: ["Pool", "Gym", "Spa", "Restaurang", "Familj"], travelerType: "family" },
-  { id: "hotel-mortensen", name: "Hotel Mortensen", area: "Gamla stan", areaKey: "gamla_stan", stars: 3, guestRating: 8.7, ratingLabel: "Fantastiskt", reviewCount: 287, pricePerNight: 1090, image: "https://images.trvl-media.com/lodging/9000000/8010000/8003200/8003121/1a4d7f3e.jpg", tags: ["Frukost", "Historisk", "Design"], travelerType: "romantic" },
+  { id: "elite-savoy", name: "Elite Hotel Savoy", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.8, ratingLabel: "Fantastiskt", reviewCount: 1243, pricePerNight: 1390,
+    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Restaurang", "Bar", "Gym"], travelerType: "business" },
+  { id: "scandic-triangeln", name: "Scandic Triangeln", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.4, ratingLabel: "Mycket bra", reviewCount: 2187, pricePerNight: 1190,
+    image: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Restaurang", "Gym", "Parkering"], travelerType: "business" },
+  { id: "mayfair-tunneln", name: "Mayfair Hotel Tunneln", area: "Gamla stan", areaKey: "gamla_stan", stars: 4, guestRating: 9.0, ratingLabel: "Underbart", reviewCount: 876, pricePerNight: 1590,
+    image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Historisk", "Bar", "Restaurang"], travelerType: "romantic" },
+  { id: "clarion-temperance", name: "Clarion Collection Hotel Temperance", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.6, ratingLabel: "Fantastiskt", reviewCount: 1456, pricePerNight: 1250,
+    image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost ingår", "Gym", "Restaurang"], travelerType: "business" },
+  { id: "radisson-blu", name: "Radisson Blu Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.3, ratingLabel: "Mycket bra", reviewCount: 3021, pricePerNight: 1350,
+    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=500&fit=crop&auto=format",
+    tags: ["Pool", "Gym", "Spa", "Restaurang", "Bar"], travelerType: "business" },
+  { id: "story-hotel", name: "Story Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.7, ratingLabel: "Fantastiskt", reviewCount: 654, pricePerNight: 1450,
+    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=500&fit=crop&auto=format",
+    tags: ["Bar", "Restaurang", "Design"], travelerType: "romantic" },
+  { id: "best-western", name: "Best Western Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 3, guestRating: 8.0, ratingLabel: "Mycket bra", reviewCount: 987, pricePerNight: 890,
+    image: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Gym", "Parkering"], travelerType: "budget" },
+  { id: "ibis-styles", name: "ibis Styles Malmö", area: "Centrum", areaKey: "centrum", stars: 3, guestRating: 8.2, ratingLabel: "Mycket bra", reviewCount: 1102, pricePerNight: 790,
+    image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost ingår", "Gym"], travelerType: "budget" },
+  { id: "hotel-hipp", name: "Hotel Hipp", area: "Gamla stan", areaKey: "gamla_stan", stars: 3, guestRating: 8.5, ratingLabel: "Fantastiskt", reviewCount: 534, pricePerNight: 1050,
+    image: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Historisk", "Design"], travelerType: "romantic" },
+  { id: "elite-marina-plaza", name: "Elite Hotel Marina Plaza", area: "Västra hamnen", areaKey: "vastra_hamnen", stars: 4, guestRating: 8.5, ratingLabel: "Fantastiskt", reviewCount: 1789, pricePerNight: 1480,
+    image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=500&fit=crop&auto=format",
+    tags: ["Havsutsikt", "Restaurang", "Bar", "Gym", "Spa"], travelerType: "romantic" },
+  { id: "comfort-hotel", name: "Comfort Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 3, guestRating: 7.8, ratingLabel: "Bra", reviewCount: 2341, pricePerNight: 750,
+    image: "https://images.unsplash.com/photo-1455587734955-081b22074882?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Gym"], travelerType: "budget" },
+  { id: "scandic-city", name: "Scandic Malmö City", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.3, ratingLabel: "Mycket bra", reviewCount: 1654, pricePerNight: 1150,
+    image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Restaurang", "Gym", "Familj"], travelerType: "family" },
+  { id: "hotel-noble-house", name: "Hotel Noble House", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.6, ratingLabel: "Fantastiskt", reviewCount: 723, pricePerNight: 1320,
+    image: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Bar", "Restaurang", "Design"], travelerType: "romantic" },
+  { id: "renaissance", name: "Renaissance Malmö Hotel", area: "Centrum", areaKey: "centrum", stars: 5, guestRating: 9.1, ratingLabel: "Underbart", reviewCount: 892, pricePerNight: 1890,
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=500&fit=crop&auto=format",
+    tags: ["Pool", "Spa", "Gym", "Restaurang", "Bar"], travelerType: "romantic" },
+  { id: "ac-hotel-marriott", name: "AC Hotel by Marriott Malmö", area: "Hyllie", areaKey: "hyllie", stars: 4, guestRating: 8.7, ratingLabel: "Fantastiskt", reviewCount: 1123, pricePerNight: 1280,
+    image: "https://images.unsplash.com/photo-1631049552240-59c37f38802b?w=800&h=500&fit=crop&auto=format",
+    tags: ["Gym", "Bar", "Restaurang", "Parkering"], travelerType: "business" },
+  { id: "elite-carolina", name: "Elite Hotel Carolina Tower", area: "Hyllie", areaKey: "hyllie", stars: 4, guestRating: 8.4, ratingLabel: "Mycket bra", reviewCount: 967, pricePerNight: 1100,
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=500&fit=crop&auto=format",
+    tags: ["Gym", "Restaurang", "Parkering", "Frukost"], travelerType: "business" },
+  { id: "park-inn", name: "Park Inn by Radisson Malmö", area: "Hyllie", areaKey: "hyllie", stars: 4, guestRating: 8.1, ratingLabel: "Mycket bra", reviewCount: 1432, pricePerNight: 1020,
+    image: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&h=500&fit=crop&auto=format",
+    tags: ["Gym", "Restaurang", "Bar", "Parkering"], travelerType: "business" },
+  { id: "motel-l", name: "Motel L Malmö", area: "Västra hamnen", areaKey: "vastra_hamnen", stars: 3, guestRating: 8.3, ratingLabel: "Mycket bra", reviewCount: 445, pricePerNight: 980,
+    image: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800&h=500&fit=crop&auto=format",
+    tags: ["Design", "Gym", "Bar"], travelerType: "romantic" },
+  { id: "stay-apartments", name: "STAY Malmö Apartments", area: "Centrum", areaKey: "centrum", stars: 3, guestRating: 8.6, ratingLabel: "Fantastiskt", reviewCount: 312, pricePerNight: 870,
+    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=500&fit=crop&auto=format",
+    tags: ["Lägenhet", "Kök", "Familj"], travelerType: "family" },
+  { id: "connect-hotel", name: "Connect Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 3, guestRating: 7.9, ratingLabel: "Bra", reviewCount: 876, pricePerNight: 720,
+    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Parkering"], travelerType: "budget" },
+  { id: "hotel-baltzar", name: "Hotel Baltzar", area: "Gamla stan", areaKey: "gamla_stan", stars: 3, guestRating: 8.4, ratingLabel: "Mycket bra", reviewCount: 654, pricePerNight: 1120,
+    image: "https://images.unsplash.com/photo-1551918120-9739cb430c6d?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Historisk", "Design"], travelerType: "romantic" },
+  { id: "hotel-duxiana", name: "Hotel Duxiana", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.9, ratingLabel: "Underbart", reviewCount: 432, pricePerNight: 1680,
+    image: "https://images.unsplash.com/photo-1586611292717-f828b167408c?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Spa", "Design", "Lyx"], travelerType: "romantic" },
+  { id: "meininger", name: "MEININGER Hotel Malmö", area: "Centrum", areaKey: "centrum", stars: 2, guestRating: 8.0, ratingLabel: "Mycket bra", reviewCount: 1876, pricePerNight: 420,
+    image: "https://images.unsplash.com/photo-1595576508898-0ad5c879a061?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Budget"], travelerType: "budget" },
+  { id: "scandic-st-jorgen", name: "Scandic St Jörgen", area: "Centrum", areaKey: "centrum", stars: 4, guestRating: 8.2, ratingLabel: "Mycket bra", reviewCount: 1543, pricePerNight: 1080,
+    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=800&h=500&fit=crop&auto=format",
+    tags: ["Pool", "Gym", "Spa", "Restaurang", "Familj"], travelerType: "family" },
+  { id: "hotel-mortensen", name: "Hotel Mortensen", area: "Gamla stan", areaKey: "gamla_stan", stars: 3, guestRating: 8.7, ratingLabel: "Fantastiskt", reviewCount: 287, pricePerNight: 1090,
+    image: "https://images.unsplash.com/photo-1549294413-26f195200c16?w=800&h=500&fit=crop&auto=format",
+    tags: ["Frukost", "Historisk", "Design"], travelerType: "romantic" },
 ];
 
 // ─── Sök/norm ─────────────────────────────────────────────────────────────────
@@ -319,7 +370,7 @@ export default function HotellList() {
         </div>
       </div>
 
-      <section className={`upp-filters hb-filters${filtersOpen ? " mob-open" : ""}`} aria-label="Filter">
+      <section className={`upp-filters hb-filters ht-filters${filtersOpen ? " mob-open" : ""}`} aria-label="Filter">
         <div className="upp-filter-group">
           <span className="upp-filter-label">{t.area}</span>
           <div className="upp-chips">
@@ -396,7 +447,7 @@ export default function HotellList() {
                 <div className="hb-card-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={h.image} alt={h.name} className="hb-card-img" loading="lazy"
-                    onError={e => { (e.target as HTMLImageElement).src = "https://images.trvl-media.com/lodging/1000000/20000/19300/19290/7d5d1e2d.jpg"; }} />
+                    onError={e => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop&auto=format"; }} />
                   <span className="hb-card-rating-badge">
                     {h.guestRating.toFixed(1)} <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M6 1l1.39 2.82L10.5 4.27l-2.25 2.19.53 3.1L6 8l-2.78 1.56.53-3.1L1.5 4.27l3.11-.45z"/></svg>
                   </span>
