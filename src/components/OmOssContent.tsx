@@ -81,6 +81,7 @@ const T = {
 
 export default function OmOssContent() {
   const [lang, setLang] = useState<Lang>("sv");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const readLang = () => {
@@ -96,6 +97,7 @@ export default function OmOssContent() {
     readLang();
     window.addEventListener("storage", readLang);
     window.addEventListener("dm-lang-change", onCustom);
+    setMounted(true);
     return () => {
       window.removeEventListener("storage", readLang);
       window.removeEventListener("dm-lang-change", onCustom);
@@ -103,6 +105,28 @@ export default function OmOssContent() {
   }, []);
 
   const t = T[lang];
+
+  if (!mounted) return (
+    <main className="om-page">
+      <div style={{maxWidth: 760, margin: "0 auto", padding: "60px 40px", textAlign: "center", display: "flex", flexDirection: "column", gap: 20, alignItems: "center"}}>
+        <div className="skeleton" style={{height: 300, width: "100%", borderRadius: 16}} />
+        <div className="skeleton skeleton-line w-40" style={{marginTop: 16}} />
+        <div className="skeleton" style={{height: 52, width: "70%", borderRadius: 8}} />
+        <div className="skeleton skeleton-line w-80" />
+        <div className="skeleton skeleton-line w-60" />
+      </div>
+      <div style={{maxWidth: 1180, margin: "0 auto", padding: "0 40px 80px", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24}}>
+        {Array.from({length: 3}).map((_, i) => (
+          <div key={i} className="skeleton-card" style={{padding: 32}}>
+            <div className="skeleton skeleton-line w-20" style={{height: 14, marginBottom: 16}} />
+            <div className="skeleton skeleton-line w-80 h-16" style={{marginBottom: 10}} />
+            <div className="skeleton skeleton-line w-100" />
+            <div className="skeleton skeleton-line w-60" />
+          </div>
+        ))}
+      </div>
+    </main>
+  );
 
   return (
     <main className="om-page">

@@ -145,6 +145,7 @@ export default function UpplevelserList({ experiences }: Props) {
   const [page, setPage] = useState(1);
   const [lang, setLang] = useState<Lang>("sv");
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const readLang = () => {
@@ -160,6 +161,7 @@ export default function UpplevelserList({ experiences }: Props) {
     readLang();
     window.addEventListener("storage", readLang);
     window.addEventListener("dm-lang-change", onCustom);
+    setMounted(true);
     return () => {
       window.removeEventListener("storage", readLang);
       window.removeEventListener("dm-lang-change", onCustom);
@@ -209,6 +211,30 @@ export default function UpplevelserList({ experiences }: Props) {
   };
 
   const t = T[lang];
+
+  if (!mounted) return (
+    <div className="upp-page">
+      <header className="upp-header">
+        <div className="upp-header-inner">
+          <div className="skeleton h-20 w-40" style={{marginBottom: 12}} />
+          <div className="skeleton h-16 w-80" style={{marginBottom: 8}} />
+          <div className="skeleton" style={{height: 52, borderRadius: 999, marginTop: 16}} />
+        </div>
+      </header>
+      <div className="upp-grid" style={{display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 24, padding: "0 40px 80px"}}>
+        {Array.from({length: 9}).map((_, i) => (
+          <div key={i} className="skeleton-card">
+            <div className="skeleton" style={{width: "100%", aspectRatio: "4/3"}} />
+            <div className="skeleton-body">
+              <div className="skeleton skeleton-line w-40" />
+              <div className="skeleton skeleton-line w-100 h-16" />
+              <div className="skeleton skeleton-line w-60" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className="upp-page">

@@ -649,7 +649,19 @@ export default function DiscoverApp({ initialView }: { initialView?: "home" | "m
     window.location.href = `/rutt/${key}`;
   };
 
-  if (!mounted) return null;
+  if (!mounted) return (
+    <div style={{maxWidth: 1100, margin: "0 auto", padding: "60px 40px 40px", textAlign: "center"}}>
+      <div className="skeleton" style={{height: 20, width: "20%", borderRadius: 6, margin: "0 auto 20px"}} />
+      <div className="skeleton" style={{height: 72, width: "60%", borderRadius: 10, margin: "0 auto 16px"}} />
+      <div className="skeleton" style={{height: 20, width: "40%", borderRadius: 6, margin: "0 auto 32px"}} />
+      <div className="skeleton" style={{height: 56, width: "70%", borderRadius: 999, margin: "0 auto 48px"}} />
+      <div style={{display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, maxWidth: 800, margin: "0 auto"}}>
+        {Array.from({length: 8}).map((_, i) => (
+          <div key={i} className="skeleton" style={{height: 40, borderRadius: 999}} />
+        ))}
+      </div>
+    </div>
+  );
 
   const t = I18N[lang];
 

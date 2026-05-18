@@ -24,7 +24,26 @@ export default function RouttePage({ routeKey }: { routeKey: string }) {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
+  if (!mounted) return (
+    <div style={{maxWidth: 1200, margin: "0 auto", padding: "40px 40px 80px", display: "grid", gridTemplateColumns: "1fr 420px", gap: 32, minHeight: "calc(100vh - 80px)"}}>
+      <div style={{display: "flex", flexDirection: "column", gap: 20}}>
+        <div className="skeleton" style={{height: 20, width: "30%", borderRadius: 6}} />
+        <div className="skeleton" style={{height: 44, width: "70%", borderRadius: 8}} />
+        <div style={{display: "flex", flexDirection: "column", gap: 12, marginTop: 16}}>
+          {Array.from({length: 6}).map((_, i) => (
+            <div key={i} style={{display: "grid", gridTemplateColumns: "28px 1fr", gap: 14, alignItems: "center", padding: "14px 0", borderBottom: "1px solid var(--line-soft)"}}>
+              <div className="skeleton" style={{width: 28, height: 28, borderRadius: "50%"}} />
+              <div style={{display: "flex", flexDirection: "column", gap: 6}}>
+                <div className="skeleton skeleton-line w-80" />
+                <div className="skeleton skeleton-line w-40" />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="skeleton" style={{borderRadius: 16, minHeight: 400}} />
+    </div>
+  );
 
   const key = routeKey as RouteKey;
   const route = ROUTES[key] || ROUTES.default;
