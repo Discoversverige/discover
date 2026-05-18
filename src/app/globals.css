@@ -15,8 +15,8 @@
   --shadow-md: 0 2px 6px rgba(0,0,0,0.05), 0 12px 32px rgba(0,0,0,0.08);
   --shadow-lg: 0 4px 10px rgba(0,0,0,0.06), 0 24px 60px rgba(0,0,0,0.12);
   --r-sm: 6px; --r: 10px; --r-lg: 16px; --r-xl: 24px;
-  --serif: -apple-system, "SF Pro Display", "SF Pro Text", var(--font-inter-tight), "Inter", system-ui, sans-serif;
-  --sans: -apple-system, "SF Pro Text", "SF Pro Display", var(--font-inter-tight), "Inter", system-ui, sans-serif;
+  --serif: -apple-system, "SF Pro Display", "SF Pro Text", var(--font-inter), "Inter", system-ui, sans-serif;
+  --sans: -apple-system, "SF Pro Text", "SF Pro Display", var(--font-inter), "Inter", system-ui, sans-serif;
   --mono: "SF Mono", var(--font-jetbrains-mono), ui-monospace, monospace;
   --skeleton-base: #e8e8e8;
   --skeleton-shine: #f4f4f4;
@@ -2201,13 +2201,20 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .hb-card-price-unit { font-size: 12px; color: var(--mute); }
 
 .hb-book-btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--ink); color: var(--paper);
-  font-family: var(--sans); font-size: 12px; font-weight: 600;
-  letter-spacing: 0.01em;
-  padding: 7px 14px; border-radius: var(--r);
+  border: 1px solid var(--ink);
+  font-family: var(--sans); font-size: 13px; font-weight: 400;
+  letter-spacing: normal;
+  padding: 8px 20px; border-radius: 80px;
   white-space: nowrap; flex-shrink: 0;
+  cursor: pointer;
+  transition: opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
 }
+.hb-book-btn:hover { opacity: 0.7; }
+.hb-book-btn:active { opacity: 0.5; }
 
 .hb-disclaimer {
   margin-top: 48px; padding: 16px 20px;
@@ -2613,17 +2620,24 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   margin: 0;
 }
 .news-featured-cta {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--ink);
   color: var(--paper);
+  border: 1px solid var(--ink);
   font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 600;
-  padding: 14px 28px;
-  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 12px 32px;
+  border-radius: 80px;
   width: fit-content;
   margin-top: 4px;
+  cursor: pointer;
+  transition: opacity 0.1s cubic-bezier(0.4, 0, 1, 1);
 }
+.news-featured-cta:hover { opacity: 0.7; }
+.news-featured-cta:active { opacity: 0.5; }
 
 .news-divider {
   border: none;

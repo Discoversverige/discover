@@ -63,7 +63,7 @@ export default function LeafletMap({ route, activeStop, onStopClick, lang }: Pro
             background:${isActive ? "oklch(0.52 0.12 155)" : "#fff"};
             border:2.5px solid oklch(0.52 0.12 155);
             display:flex;align-items:center;justify-content:center;
-            font-family:var(--font-inter-tight),-apple-system,sans-serif;font-size:12px;font-weight:600;
+            font-family:var(--font-inter),-apple-system,sans-serif;font-size:12px;font-weight:600;
             color:${isActive ? "#fff" : "oklch(0.52 0.12 155)"};
             box-shadow:0 2px 8px rgba(0,0,0,0.15);
             cursor:pointer;
@@ -111,7 +111,7 @@ export default function LeafletMap({ route, activeStop, onStopClick, lang }: Pro
           background:${isActive ? "oklch(0.52 0.12 155)" : "#fff"};
           border:2.5px solid oklch(0.52 0.12 155);
           display:flex;align-items:center;justify-content:center;
-          font-family:var(--font-inter-tight),-apple-system,sans-serif;font-size:12px;font-weight:600;
+          font-family:var(--font-inter),-apple-system,sans-serif;font-size:12px;font-weight:600;
           color:${isActive ? "#fff" : "oklch(0.52 0.12 155)"};
           box-shadow:0 2px 8px rgba(0,0,0,0.15);
           cursor:pointer;
