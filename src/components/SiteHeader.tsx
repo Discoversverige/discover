@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 type Lang = "sv" | "en" | "de";
 
 const NAV = {
-  sv: { discover: "Upptäck", experiences: "Upplevelser", rentCar: "Hyra bil", plan: "Ta dig hit", about: "Om oss" },
-  en: { discover: "Discover", experiences: "Experiences", rentCar: "Rent a car", plan: "Get here", about: "About" },
-  de: { discover: "Entdecken", experiences: "Erlebnisse", rentCar: "Auto mieten", plan: "Anfahrt", about: "Über uns" },
+  sv: { discover: "Upptäck", experiences: "Upplevelser", rentCar: "Hyra bil", hotels: "Hotell", plan: "Ta dig hit", about: "Om oss" },
+  en: { discover: "Discover", experiences: "Experiences", rentCar: "Rent a car", hotels: "Hotels", plan: "Get here", about: "About" },
+  de: { discover: "Entdecken", experiences: "Erlebnisse", rentCar: "Auto mieten", hotels: "Hotels", plan: "Anfahrt", about: "Über uns" },
 };
 
 const SEARCH_PLACEHOLDER: Record<Lang, string> = {
@@ -175,6 +175,7 @@ export default function SiteHeader() {
           <a href="/" className={isActive("/") ? "active" : ""}>{t.discover}</a>
           <a href="/upplevelser" className={isActive("/upplevelser") ? "active" : ""}>{t.experiences}</a>
           <a href="/hyra-bil" className={isActive("/hyra-bil") ? "active" : ""}>{t.rentCar}</a>
+          <a href="/hotell" className={isActive("/hotell") ? "active" : ""}>{t.hotels}</a>
           <a href="/om-oss" className={isActive("/om-oss") ? "active" : ""}>{t.about}</a>
         </nav>
         <div className="lang-switch" role="tablist">
@@ -287,6 +288,7 @@ export default function SiteHeader() {
           <a href="/" onClick={() => setMenuOpen(false)}>{t.discover}</a>
           <a href="/upplevelser" onClick={() => setMenuOpen(false)}>{t.experiences}</a>
           <a href="/hyra-bil" onClick={() => setMenuOpen(false)}>{t.rentCar}</a>
+          <a href="/hotell" onClick={() => setMenuOpen(false)}>{t.hotels}</a>
           <a href="/om-oss" onClick={() => setMenuOpen(false)}>{t.about}</a>
 
           <div className="mobile-menu-socials" aria-label="Sociala medier">
