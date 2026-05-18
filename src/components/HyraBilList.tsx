@@ -1840,6 +1840,7 @@ export default function HyraBilList() {
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
   const [filtersOpen, setFiltersOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     const readLang = () => {
@@ -1855,6 +1856,7 @@ export default function HyraBilList() {
     readLang();
     window.addEventListener("storage", readLang);
     window.addEventListener("dm-lang-change", onCustom);
+    setMounted(true);
     return () => {
       window.removeEventListener("storage", readLang);
       window.removeEventListener("dm-lang-change", onCustom);
@@ -1904,6 +1906,31 @@ export default function HyraBilList() {
     setLocation("all"); setMinRating("all"); setSupplier("all");
     setSize("all"); setQuery("");
   };
+
+  if (!mounted) return (
+    <div className="upp-page hb-page">
+      <header className="upp-header">
+        <div className="upp-header-inner">
+          <div className="skeleton h-20 w-40" style={{marginBottom: 12}} />
+          <div className="skeleton h-16 w-80" style={{marginBottom: 8}} />
+          <div className="skeleton" style={{height: 52, borderRadius: 999, marginTop: 16}} />
+        </div>
+      </header>
+      <div className="hb-grid">
+        {Array.from({length: 8}).map((_, i) => (
+          <div key={i} className="skeleton-card">
+            <div className="skeleton skeleton-img" />
+            <div className="skeleton-body">
+              <div className="skeleton skeleton-line w-60" />
+              <div className="skeleton skeleton-line w-100 h-16" />
+              <div className="skeleton skeleton-line w-80" />
+              <div className="skeleton skeleton-line w-40 h-16" style={{marginTop: 8}} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className="upp-page hb-page">
