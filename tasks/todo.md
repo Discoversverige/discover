@@ -10,9 +10,11 @@ Klart 2026-05-11 (via discover-blogg-skill med SERP-research):
 - [x] 3. Hidden gems in Malmö → `dolda-parlor-i-malmo.mdx`
 - [x] 4. How to get around Malmö → `sa-tar-du-dig-runt-i-malmo.mdx`
 
+Klart 2026-05-18 (via discover-blogg-skill med SERP-research + internlänkar):
+- [x] 5. Malmö vs Copenhagen → `malmo-vs-kopenhamn.mdx`
+- [x] 6. Best restaurants in Malmö → `basta-restaurangerna-i-malmo.mdx`
+
 Att göra:
-- [ ] 5. Malmö vs Copenhagen — which to visit
-- [ ] 6. Best restaurants in Malmö
 - [ ] 7. Malmö 3-day itinerary
 - [ ] 8. eSIM for traveling Sweden
 - [ ] 9. Renting a car in Malmö

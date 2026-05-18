@@ -2,17 +2,24 @@
 
 > Uppdateras i slutet av varje session. Läs detta FÖRST.
 
-## Nuläge (uppdaterad: 2026-05-11 — sen kväll)
+## Nuläge (uppdaterad: 2026-05-18)
 
 Discover är en svensk reseaffiliate-sida (Next.js 16, React 19). Live har: trip.com, Agoda, Expedia, Tripadvisor, Hotels.com, Tiqets, GoCity, Ticketmaster, GetTransfer, RailEurope, Yesim, Airalo, Drimsim, Viator (58 experiences), GetYourGuide, Discover Cars (83 bilar). Senaste committen är `8f67644 Fix: hamburgermenyns topbar matchar nu sidans topbar i höjd`.
 
-Bloggen heter nu **News** (`/news` URL, klassnamn `.news-*`, type `NewsPost`, MDX i `content/news/`). Allt blogg-relaterat döptes om i denna session.
+Bloggen heter **News** (`/news` URL, klassnamn `.news-*`, type `NewsPost`, MDX i `content/news/`).
 
 Två parallella arbetsstrandar:
-1. **News** — 4 inlägg live, riktning 2/vecka, fokus är nu visuell finputs (nästan klar)
+1. **News** — 6 inlägg live, riktning 2/vecka, 4 kvar i pipeline
 2. **Affiliate-portfölj** (pågående sen 2026-04-26) — registrera 5 hubbar + ansökningar
 
 ## Vad hände senast
+
+- Session 2026-05-18:
+  - Switchat aktivt GitHub-konto till `abdbajr` (Discover-kontot) via `gh auth switch`
+  - Skrev 2 nya News-inlägg via `discover-blogg`-skill (SERP-research + vinkelval):
+    - `malmo-vs-kopenhamn.mdx` — ärlig beslutsguide, inte "gör båda"-floskel. Konkret budgetjämförelse + 4 fall där hybridstrategi inte funkar.
+    - `basta-restaurangerna-i-malmo.mdx` — organiserad efter situation (date, utan bokning, Möllan-runda, med barn, lunch), inte topp-10. Plus 3 ärliga skipp.
+  - Båda inläggen har internlänkar till andra news-poster (`basta-hotellen-i-malmo`, `sa-tar-du-dig-runt-i-malmo`, `dolda-parlor-i-malmo`, korsvis mellan de nya). Användaren krävde att internlänkar alltid ska finnas — gäller framöver.
 
 - Session 2026-05-11 (forts. sen kväll):
   - Mini-cards bilder bytte från 1:1 square till **4:3 rektangulära** (per användarfeedback "smala fast bredd kvar")
@@ -25,6 +32,11 @@ Två parallella arbetsstrandar:
     - Logo + border-bottom inuti menyns top-section, identiska responsive padding som .topbar
     - X close-knapp uppe till höger (samma stil som carousel-pilar)
     - **Bug-fix:** `.mobile-menu a`-selektorn för menyalternativ matchade även logo-länken inuti `.mobile-menu-top` → padding 16px 0 → extra 32px höjd. Fixat med `.mobile-menu-top .logo { padding: 0; }` override.
+
+- Session 2026-05-10/11 (skill-skapande, för referens):
+  - Byggde `discover-blogg`-skillen från SEO-transkript: SKILL.md + 4 references (serp-research, vinkelval, skrivstil, mdx-struktur) under `~/.claude/skills/discover-blogg/`
+  - Verifierade med 3 testfall (hidden gems, hyrbil, Malmö vs KBH) via parallella subagenter (med/utan skill). Resultat: +27 procentenheter pass rate (95% vs 68%). Allt under `~/.claude/skills/discover-blogg-workspace/iteration-1/`
+  - Mojibake-fix i `generate_review.py` (Python defaultar cp1252 på Windows) — körs med `PYTHONUTF8=1` framför kommandot
 
 - Session 2026-05-11 (tidigare):
   - Skrev 2 nya inlägg via `discover-blogg`-skill (med SERP-research): "Dolda pärlor i Malmö" + "Så tar du dig runt i Malmö"
