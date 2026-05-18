@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 type Lang = "sv" | "en" | "de";
 
 const FOOTER = {
-  sv: { text: "En tjänst av Discover Malmö · 2026", contact: "Kontakta oss", news: "News", navLabel: "Navigering" },
-  en: { text: "A service by Discover Malmö · 2026", contact: "Contact us", news: "News", navLabel: "Navigation" },
-  de: { text: "Ein Service von Discover Malmö · 2026", contact: "Kontakt", news: "News", navLabel: "Navigation" },
+  sv: { text: "En tjänst av Discover Malmö · 2026", contact: "Kontakta oss", news: "Nyheter" },
+  en: { text: "A service by Discover Malmö · 2026", contact: "Contact us", news: "News" },
+  de: { text: "Ein Service von Discover Malmö · 2026", contact: "Kontakt", news: "Neuigkeiten" },
 };
 
 const getInitialLang = (): Lang => {
@@ -42,7 +42,6 @@ export default function SiteFooter() {
     <footer className="foot">
       <span className="foot-copy">{t.text}</span>
       <div className="foot-nav">
-        <span className="foot-nav-label">{t.navLabel}</span>
         <a href="/om-oss" className="foot-link">{t.contact}</a>
         <a href="/news" className="foot-link">{t.news}</a>
       </div>
