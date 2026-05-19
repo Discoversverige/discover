@@ -137,7 +137,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .pop-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
 .pop-tag { padding: 9px 16px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line-soft); font-size: 14px; color: var(--ink-2); transition: all 0.18s; }
 .pop-tag:hover { border-color: var(--ink); background: var(--ink); color: var(--paper); transform: translateY(-1px); }
-.pop-cards { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; width: 100%; }
+.pop-cards { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; width: 100%; }
 .pop-card { border-radius: var(--r); overflow: visible; border: none; padding: 0; cursor: pointer; transition: opacity 0.15s ease; background: transparent; }
 .pop-card:hover { opacity: 0.85; }
 .pop-card-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center; display: block; border-radius: var(--r); height: auto; }
@@ -147,7 +147,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .services {
   max-width: 1180px; width: 100%; margin: 48px auto 0; padding: 0 40px;
 }
-.services .pop-cards { grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.services .pop-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .services .pop-card { text-decoration: none; }
 
 .partners { max-width: 1180px; width: 100%; margin: 80px auto 40px; padding: 48px 40px 0; border-top: 1px solid var(--line-soft); text-align: center; }
@@ -626,7 +626,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .cat-chip { font-size: 13px; padding: 7px 13px; }
 
   .popular { margin: 24px auto 0; }
-  .pop-cards { grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .pop-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 
   .services { padding: 0 16px; margin-top: 32px; }
   .partners { margin: 40px auto 20px; padding: 24px 20px 0; }
@@ -656,8 +656,8 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .logo-img-brand { height: 50px; }
   .hero { padding: 20px 16px 16px; }
   .display { font-size: clamp(32px,10vw,52px); }
-  .pop-cards { grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .services .pop-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .pop-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .services .pop-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .pop-card-label { font-size: 14px; padding: 8px 4px 0; }
   .exp-grid { grid-template-columns: 1fr; }
   .search-cta { padding: 10px 14px; font-size: 14px; }
