@@ -104,7 +104,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .search-icon { color: var(--mute); flex: 0 0 auto; }
 .search-row input { flex: 1; border: none; outline: none; background: transparent; font-family: var(--sans); font-size: 18px; padding: 14px 0; color: var(--ink); min-width: 0; }
 .search-row input::placeholder { color: var(--mute); }
-.search-cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); padding: 12px 24px; border-radius: 80px; font-size: 14px; font-weight: 400; letter-spacing: normal; white-space: nowrap; cursor: pointer; transition: opacity 0.1s cubic-bezier(0.4, 0, 1, 1); }
+.search-cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); padding: 16px 26px; border-radius: 80px; font-size: 14px; font-weight: 400; letter-spacing: normal; white-space: nowrap; cursor: pointer; transition: opacity 0.1s cubic-bezier(0.4, 0, 1, 1); }
 .search-cta:hover { opacity: 0.7; }
 .search-cta:active { opacity: 0.5; }
 
@@ -138,9 +138,9 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .pop-tag { padding: 9px 16px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line-soft); font-size: 14px; color: var(--ink-2); transition: all 0.18s; }
 .pop-tag:hover { border-color: var(--ink); background: var(--ink); color: var(--paper); transform: translateY(-1px); }
 .pop-cards { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; width: 100%; }
-.pop-card { border-radius: var(--r-lg); overflow: visible; border: none; padding: 0; cursor: pointer; transition: transform 0.2s; background: transparent; }
-.pop-card:hover { transform: translateY(-3px); }
-.pop-card-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center; display: block; border-radius: var(--r-lg); height: auto; }
+.pop-card { border-radius: var(--r); overflow: visible; border: none; padding: 0; cursor: pointer; transition: opacity 0.15s ease; background: transparent; }
+.pop-card:hover { opacity: 0.85; }
+.pop-card-img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: center; display: block; border-radius: var(--r); height: auto; }
 .pop-card:first-child .pop-card-img { object-position: center 25%; }
 .pop-card-label { display: block; padding: 10px 4px 0; font-size: 14px; font-weight: 500; color: var(--ink); background: transparent; text-align: center; line-height: 1.3; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 

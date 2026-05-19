@@ -31,7 +31,7 @@ const getInitialRoute = (): RouteKey => {
 
 const CategoryIcon = ({ cat, size = 14 }: { cat: string; size?: number }) => {
   const paths: Record<string, React.ReactNode> = {
-    food: <path d="M4 2v8m4-8v8m4-4a4 4 0 01-4 4V2a4 4 0 014 4z" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" />,
+    food: <g stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M3 2v3.5a1 1 0 001 1v7.5M5 2v3.5M7 2v3.5a1 1 0 01-1 1" /><path d="M12 2c-1.2 0-1.8 1.8-1.8 3.8s0.8 2.7 1.8 2.7v5.5" /></g>,
     culture: <path d="M2 12h12M4 12V6l4-3 4 3v6M6 12V9m4 3V9" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinejoin="round" />,
     nature: <path d="M2 13c2-2 4-2 6 0s4 2 6 0M3 9c1.5-1 3-1 4.5 0s3 1 4.5 0M4 5c1-0.5 2-0.5 3 0s2 0.5 3 0" stroke="currentColor" strokeWidth="1.3" fill="none" strokeLinecap="round" />,
     family: <g stroke="currentColor" strokeWidth="1.3" fill="none"><circle cx="5" cy="5" r="2" /><circle cx="11" cy="6" r="1.5" /><path d="M2 13c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5M8.5 13c0-1.5 1-2.5 2.5-2.5s2.5 1 2.5 2.5" /></g>,
