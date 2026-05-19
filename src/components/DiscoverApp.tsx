@@ -153,12 +153,10 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
 
             <div className="cats">
               <button className={`cat-chip ${activeCat === "all" ? "active" : ""}`} onClick={() => setActiveCat("all")}>
-                <span className="dot" />
                 {lang === "sv" ? "Alla" : lang === "de" ? "Alle" : "All"}
               </button>
               {cats.map(c => (
                 <button key={c} className={`cat-chip ${activeCat === c ? "active" : ""}`} onClick={() => setActiveCat(c)}>
-                  <CategoryIcon cat={c} />
                   {t.hero.category[c as keyof typeof t.hero.category]}
                 </button>
               ))}
