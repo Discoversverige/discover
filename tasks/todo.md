@@ -14,8 +14,10 @@ Klart 2026-05-18 (via discover-blogg-skill med SERP-research + internlänkar):
 - [x] 5. Malmö vs Copenhagen → `malmo-vs-kopenhamn.mdx`
 - [x] 6. Best restaurants in Malmö → `basta-restaurangerna-i-malmo.mdx`
 
+Klart 2026-05-20:
+- [x] 7. Malmö 3-day itinerary → `3-dagar-i-malmo.mdx`
+
 Att göra:
-- [ ] 7. Malmö 3-day itinerary
 - [ ] 8. eSIM for traveling Sweden
 - [ ] 9. Renting a car in Malmö
 - [ ] 10. Malmö travel tips for first-timers
