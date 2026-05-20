@@ -20,64 +20,47 @@ const AFFID = "IiZQkAy";
 const deepLink = (h: Hotel) =>
   `https://sv.hotels.com/ho${h.hotelsComId}/${h.slug}/?affid=${AFFID}`;
 
-// Unsplash-bilder (gratis, hotlinking tillåtet) — placeholders tills riktiga finns
-const IMG = {
-  classic: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop&auto=format",
-  modern: "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&h=500&fit=crop&auto=format",
-  boutique: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=800&h=500&fit=crop&auto=format",
-  business: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800&h=500&fit=crop&auto=format",
-  large: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=800&h=500&fit=crop&auto=format",
-  design: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=500&fit=crop&auto=format",
-  budget: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=800&h=500&fit=crop&auto=format",
-  apartment: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=800&h=500&fit=crop&auto=format",
-  historic: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=800&h=500&fit=crop&auto=format",
-  harbour: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=500&fit=crop&auto=format",
-  comfort: "https://images.unsplash.com/photo-1455587734955-081b22074882?w=800&h=500&fit=crop&auto=format",
-  family: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&h=500&fit=crop&auto=format",
-  noble: "https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&h=500&fit=crop&auto=format",
-  luxury: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&h=500&fit=crop&auto=format",
-  contemporary: "https://images.unsplash.com/photo-1631049552240-59c37f38802b?w=800&h=500&fit=crop&auto=format",
-  arena: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=500&fit=crop&auto=format",
-  hyllie: "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=800&h=500&fit=crop&auto=format",
-};
+// Hotel-bilder: hotlinkade från varje hotells officiella hemsida (og:image).
+// Fallback: Unsplash-placeholder för 3 hotell där vi inte hittade officiell bild.
+const UNSPLASH_FALLBACK = "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=500&fit=crop&auto=format";
 
 // 35 riktiga Malmö-hotell från hotels.com (deep link per hotell via hotelsComId)
 const HOTELS: Hotel[] = [
-  { id: "elite-savoy", hotelsComId: "205920", slug: "elite-hotel-savoy-malmo-sverige", name: "Elite Hotel Savoy", area: "Centrum", areaKey: "centrum", image: IMG.classic, travelerType: "business" },
-  { id: "scandic-triangeln", hotelsComId: "205694", slug: "scandic-triangeln-malmo-sverige", name: "Scandic Triangeln", area: "Centrum", areaKey: "centrum", image: IMG.modern, travelerType: "business" },
-  { id: "mayfair-tunneln", hotelsComId: "231991", slug: "mayfair-hotel-tunneln-malmo-sverige", name: "Mayfair Hotel Tunneln", area: "Centrum", areaKey: "centrum", image: IMG.boutique, travelerType: "romantic" },
-  { id: "clarion-malmo-live", hotelsComId: "498474", slug: "clarion-hotel-malmo-live-malmo-sverige", name: "Clarion Hotel Malmö Live", area: "Centrum", areaKey: "centrum", image: IMG.large, travelerType: "business" },
-  { id: "radisson-blu", hotelsComId: "118704", slug: "radisson-blu-hotel-malmo-malmo-sverige", name: "Radisson Blu Hotel, Malmö", area: "Centrum", areaKey: "centrum", image: IMG.large, travelerType: "business" },
-  { id: "scandic-st-jorgen", hotelsComId: "212439", slug: "scandic-st-jorgen-malmo-sverige", name: "Scandic St Jörgen", area: "Centrum", areaKey: "centrum", image: IMG.family, travelerType: "family" },
-  { id: "scandic-kramer", hotelsComId: "181691", slug: "scandic-kramer-malmo-sverige", name: "Scandic Kramer", area: "Centrum", areaKey: "centrum", image: IMG.contemporary, travelerType: "business" },
-  { id: "scandic-stortorget", hotelsComId: "112689", slug: "scandic-stortorget-malmo-sverige", name: "Scandic Stortorget", area: "Centrum", areaKey: "centrum", image: IMG.classic, travelerType: "business" },
-  { id: "elite-plaza", hotelsComId: "353186", slug: "elite-plaza-hotel-malmo-malmo-sverige", name: "Elite Plaza Hotel Malmö", area: "Centrum", areaKey: "centrum", image: IMG.luxury, travelerType: "romantic" },
-  { id: "elite-esplanade", hotelsComId: "327070", slug: "elite-hotel-esplanade-malmo-sverige", name: "Elite Hotel Esplanade", area: "Centrum", areaKey: "centrum", image: IMG.noble, travelerType: "business" },
-  { id: "elite-residens-bishops-arms", hotelsComId: "189594", slug: "elite-hotel-residens-malmo-sverige", name: "Hotel Bishops Arms Malmö", area: "Centrum", areaKey: "centrum", image: IMG.historic, travelerType: "romantic" },
-  { id: "story-hotel", hotelsComId: "606691", slug: "story-hotel-studio-malmo-part-of-jdv-by-hyatt-malmo-sverige", name: "Story Hotel Studio Malmö", area: "Centrum", areaKey: "centrum", image: IMG.design, travelerType: "romantic" },
-  { id: "twentysix-duxiana", hotelsComId: "127762", slug: "the-duxiana-malmo-sverige", name: "TwentySix", area: "Centrum", areaKey: "centrum", image: IMG.boutique, travelerType: "romantic" },
-  { id: "mjs", hotelsComId: "233674", slug: "mj-s-malmo-sverige", name: "MJ's", area: "Centrum", areaKey: "centrum", image: IMG.design, travelerType: "romantic" },
-  { id: "noble-house", hotelsComId: "264077", slug: "best-western-plus-hotel-noble-house-malmo-sverige", name: "Best Western Plus Hotel Noble House", area: "Centrum", areaKey: "centrum", image: IMG.noble, travelerType: "business" },
-  { id: "more-mazetti", hotelsComId: "222126", slug: "the-more-hotel-malmo-sverige", name: "The More Hotel Mazetti", area: "Centrum", areaKey: "centrum", image: IMG.apartment, travelerType: "family" },
-  { id: "teaterhotellet", hotelsComId: "116839", slug: "teaterhotellet-malmo-sverige", name: "Teaterhotellet", area: "Centrum", areaKey: "centrum", image: IMG.historic, travelerType: "romantic" },
-  { id: "temperance", hotelsComId: "115394", slug: "clarion-collection-hotel-temperance-malmo-sverige", name: "Home Hotel Temperance", area: "Centrum", areaKey: "centrum", image: IMG.business, travelerType: "business" },
-  { id: "comfort-malmo", hotelsComId: "120768", slug: "comfort-hotel-malmo-malmo-sverige", name: "Comfort Hotel Malmö", area: "Centrum", areaKey: "centrum", image: IMG.comfort, travelerType: "budget" },
-  { id: "sky-scandic-city", hotelsComId: "309990", slug: "scandic-malmo-city-malmo-sverige", name: "Sky Hotel Malmö City", area: "Centrum", areaKey: "centrum", image: IMG.modern, travelerType: "business" },
-  { id: "best-western-royal", hotelsComId: "231587", slug: "best-western-hotel-royal-malmo-sverige", name: "Best Western Hotel Royal", area: "Centrum", areaKey: "centrum", image: IMG.budget, travelerType: "budget" },
-  { id: "good-morning", hotelsComId: "194347", slug: "good-morning-malmo-malmo-sverige", name: "Good Morning+ Malmö", area: "Centrum", areaKey: "centrum", image: IMG.budget, travelerType: "budget" },
-  { id: "moment-hotels", hotelsComId: "425604", slug: "moment-hotels-malmo-sverige", name: "Moment Hotels", area: "Centrum", areaKey: "centrum", image: IMG.modern, travelerType: "business" },
-  { id: "grand-circus", hotelsComId: "1190999264", slug: "grand-circus-hotel-malmo-sverige", name: "Grand Circus Hotel", area: "Centrum", areaKey: "centrum", image: IMG.boutique, travelerType: "romantic" },
-  { id: "unity-malmo", hotelsComId: "2780600672", slug: "unity-malmo-malmo-sverige", name: "Unity Malmö - A Studio Hotel", area: "Centrum", areaKey: "centrum", image: IMG.apartment, travelerType: "business" },
-  { id: "n-hostel", hotelsComId: "2159079168", slug: "hotel-n-hostel-malmo-city-malmo-sverige", name: "Hotel N Hostel Malmö City", area: "Centrum", areaKey: "centrum", image: IMG.budget, travelerType: "budget" },
-  { id: "more-vastra-hamnen", hotelsComId: "2452001440", slug: "the-more-hotel-vastra-hamnen-malmo-sverige", name: "The More Hotel Västra Hamnen", area: "Västra hamnen", areaKey: "vastra_hamnen", image: IMG.harbour, travelerType: "family" },
-  { id: "havshotellet", hotelsComId: "555765", slug: "havshotellet-malmo-sverige", name: "Havshotellet", area: "Västra hamnen", areaKey: "vastra_hamnen", image: IMG.harbour, travelerType: "romantic" },
-  { id: "quality-view", hotelsComId: "536287", slug: "quality-hotel-view-malmo-sverige", name: "Quality Hotel View", area: "Hyllie", areaKey: "hyllie", image: IMG.contemporary, travelerType: "business" },
-  { id: "bw-arena", hotelsComId: "490005", slug: "best-western-malmo-arena-hotel-malmo-sverige", name: "Best Western Malmö Arena Hotel", area: "Hyllie", areaKey: "hyllie", image: IMG.arena, travelerType: "business" },
-  { id: "bw-plus-park-city", hotelsComId: "366298", slug: "park-inn-by-radisson-malmo-hotel-malmo-sverige", name: "Best Western Plus Park City Malmo", area: "Hyllie", areaKey: "hyllie", image: IMG.hyllie, travelerType: "business" },
-  { id: "scandic-segevang", hotelsComId: "212405", slug: "scandic-segevang-malmo-sverige", name: "Scandic Segevång", area: "Övrigt", areaKey: "ovrigt", image: IMG.comfort, travelerType: "family" },
-  { id: "quality-mill", hotelsComId: "141733", slug: "quality-hotel-the-mill-malmo-sverige", name: "Quality Hotel the Mill", area: "Övrigt", areaKey: "ovrigt", image: IMG.large, travelerType: "business" },
-  { id: "first-camp", hotelsComId: "368940", slug: "first-camp-malmo-malmo-sverige", name: "First Camp Malmö", area: "Övrigt", areaKey: "ovrigt", image: IMG.family, travelerType: "family" },
-  { id: "foretagsbostader", hotelsComId: "1723456864", slug: "foretagsbostader-fregattgatan-malmo-sverige", name: "Företagsbostäder Fregattgatan", area: "Övrigt", areaKey: "ovrigt", image: IMG.apartment, travelerType: "business" },
+  { id: "elite-savoy", hotelsComId: "205920", slug: "elite-hotel-savoy-malmo-sverige", name: "Elite Hotel Savoy", area: "Centrum", areaKey: "centrum", image: "https://www.elite.se/globalassets/images/hotell/malmo/elite-hotel-savoy/mmaehs_hotell_4.jpg?mode=crop&scale=both&width=1200&height=630", travelerType: "business" },
+  { id: "scandic-triangeln", hotelsComId: "205694", slug: "scandic-triangeln-malmo-sverige", name: "Scandic Triangeln", area: "Centrum", areaKey: "centrum", image: "https://images.scandichotels.com/publishedmedia/mwynt3je42mn7x1purl0/Scandic-Triangeln-exterior-facade-2.jpg", travelerType: "business" },
+  { id: "mayfair-tunneln", hotelsComId: "231991", slug: "mayfair-hotel-tunneln-malmo-sverige", name: "Mayfair Hotel Tunneln", area: "Centrum", areaKey: "centrum", image: "https://www.mayfairtunneln.com/wp-content/uploads/2019/11/hotel-mayfair-tunneln.jpg", travelerType: "romantic" },
+  { id: "clarion-malmo-live", hotelsComId: "498474", slug: "clarion-hotel-malmo-live-malmo-sverige", name: "Clarion Hotel Malmö Live", area: "Centrum", areaKey: "centrum", image: "https://images.ctfassets.net/nwbqij9m1jag/59sLDQsqR8VgKef2EYYoNH/2d9794c4bd4c09ed6bf6f9cd37a2b5b3/clarion_hotel_malmo_live_exterior_16_9?fm=webp&q=80&w=1920", travelerType: "business" },
+  { id: "radisson-blu", hotelsComId: "118704", slug: "radisson-blu-hotel-malmo-malmo-sverige", name: "Radisson Blu Hotel, Malmö", area: "Centrum", areaKey: "centrum", image: UNSPLASH_FALLBACK, travelerType: "business" },
+  { id: "scandic-st-jorgen", hotelsComId: "212439", slug: "scandic-st-jorgen-malmo-sverige", name: "Scandic St Jörgen", area: "Centrum", areaKey: "centrum", image: "https://images.scandichotels.com/publishedmedia/48exm2bmph1mf10fezjg/Scandic_StJorgen_restaurant__lunch.jpg", travelerType: "family" },
+  { id: "scandic-kramer", hotelsComId: "181691", slug: "scandic-kramer-malmo-sverige", name: "Scandic Kramer", area: "Centrum", areaKey: "centrum", image: "https://images.scandichotels.com/publishedmedia/tpmx0o51rxi4rhf28rmp/scandic-kramer-exterior-01.jpg", travelerType: "business" },
+  { id: "scandic-stortorget", hotelsComId: "112689", slug: "scandic-stortorget-malmo-sverige", name: "Scandic Stortorget", area: "Centrum", areaKey: "centrum", image: "https://images.scandichotels.com/publishedmedia/cio1p8111vqesh0dkgiu/Scandic-Stortorget-Exterior001.jpg", travelerType: "business" },
+  { id: "elite-plaza", hotelsComId: "353186", slug: "elite-plaza-hotel-malmo-malmo-sverige", name: "Elite Plaza Hotel Malmö", area: "Centrum", areaKey: "centrum", image: "https://www.elite.se/globalassets/images/hotell/malmo/elite-plaza-hotel/mmaehp_hotell_9.jpg?mode=crop&scale=both&width=1200&height=630", travelerType: "romantic" },
+  { id: "elite-esplanade", hotelsComId: "327070", slug: "elite-hotel-esplanade-malmo-sverige", name: "Elite Hotel Esplanade", area: "Centrum", areaKey: "centrum", image: "https://www.elite.se/globalassets/images/hotell/malmo/elite-hotel-esplanade/mmeha_hotell_4.jpg?mode=crop&scale=both&width=1200&height=630", travelerType: "business" },
+  { id: "elite-residens-bishops-arms", hotelsComId: "189594", slug: "elite-hotel-residens-malmo-sverige", name: "Hotel Bishops Arms Malmö", area: "Centrum", areaKey: "centrum", image: "https://www.elite.se/globalassets/images/hotell/malmo/hotel-bishops-arms-malmo/2026/bishops-malmo03.jpg?mode=crop&scale=both&width=1200&height=630", travelerType: "romantic" },
+  { id: "story-hotel", hotelsComId: "606691", slug: "story-hotel-studio-malmo-part-of-jdv-by-hyatt-malmo-sverige", name: "Story Hotel Studio Malmö", area: "Centrum", areaKey: "centrum", image: UNSPLASH_FALLBACK, travelerType: "romantic" },
+  { id: "twentysix-duxiana", hotelsComId: "127762", slug: "the-duxiana-malmo-sverige", name: "TwentySix", area: "Centrum", areaKey: "centrum", image: "https://www.twentysix.se/gallery/FRONTPAGE-SUITE.jpg", travelerType: "romantic" },
+  { id: "mjs", hotelsComId: "233674", slug: "mj-s-malmo-sverige", name: "MJ's", area: "Centrum", areaKey: "centrum", image: "https://mjs.life/wp-content/uploads/2023/06/OG-MJS.jpg", travelerType: "romantic" },
+  { id: "noble-house", hotelsComId: "264077", slug: "best-western-plus-hotel-noble-house-malmo-sverige", name: "Best Western Plus Hotel Noble House", area: "Centrum", areaKey: "centrum", image: "https://www.bestwestern.se/images/c12ea843-38e4-4db3-89bd-d85472bb4502__bwimages__large__25969232.webp", travelerType: "business" },
+  { id: "more-mazetti", hotelsComId: "222126", slug: "the-more-hotel-malmo-sverige", name: "The More Hotel Mazetti", area: "Centrum", areaKey: "centrum", image: "https://www.themorehotel.se/wp-content/uploads/2024/06/Fasad.jpeg", travelerType: "family" },
+  { id: "teaterhotellet", hotelsComId: "116839", slug: "teaterhotellet-malmo-sverige", name: "Teaterhotellet", area: "Centrum", areaKey: "centrum", image: "https://teaterhotellet.se/wp-content/uploads/2018/11/hero.jpg", travelerType: "romantic" },
+  { id: "temperance", hotelsComId: "115394", slug: "clarion-collection-hotel-temperance-malmo-sverige", name: "Home Hotel Temperance", area: "Centrum", areaKey: "centrum", image: "https://images.ctfassets.net/nwbqij9m1jag/63wx3yz9RW2doOAFynMKkX/5f3bef1ebaf3726b1190f32ae4fc9f79/Home_Hotel_Temperance_-_Exterior_-_Exterior_16_9?fm=webp&q=80&w=1920", travelerType: "business" },
+  { id: "comfort-malmo", hotelsComId: "120768", slug: "comfort-hotel-malmo-malmo-sverige", name: "Comfort Hotel Malmö", area: "Centrum", areaKey: "centrum", image: "https://images.ctfassets.net/nwbqij9m1jag/75bslxELjXhOYsVQGjglDj/2b805dca99efe2335283ebbe0eb6dfd6/Comfort_Hotel_Malm__-_Exterior_-_Facade_16_9?fm=webp&q=80&w=1920", travelerType: "budget" },
+  { id: "sky-scandic-city", hotelsComId: "309990", slug: "scandic-malmo-city-malmo-sverige", name: "Sky Hotel Malmö City", area: "Centrum", areaKey: "centrum", image: "https://media.vanderapartments.com/web/3033/conversions/Malm%C3%B6-illustration-medium.webp", travelerType: "business" },
+  { id: "best-western-royal", hotelsComId: "231587", slug: "best-western-hotel-royal-malmo-sverige", name: "Best Western Hotel Royal", area: "Centrum", areaKey: "centrum", image: "https://www.bestwestern.se/images/c3adb6c0-89f6-48e4-a38b-8c396f4747fb__bwimages__large__25790472.webp", travelerType: "budget" },
+  { id: "good-morning", hotelsComId: "194347", slug: "good-morning-malmo-malmo-sverige", name: "Good Morning+ Malmö", area: "Centrum", areaKey: "centrum", image: UNSPLASH_FALLBACK, travelerType: "budget" },
+  { id: "moment-hotels", hotelsComId: "425604", slug: "moment-hotels-malmo-sverige", name: "Moment Hotels", area: "Centrum", areaKey: "centrum", image: "https://www.momenthotels.com/sv/media/95", travelerType: "business" },
+  { id: "grand-circus", hotelsComId: "1190999264", slug: "grand-circus-hotel-malmo-sverige", name: "Grand Circus Hotel", area: "Centrum", areaKey: "centrum", image: "https://grandcircushotel.com/wp-content/uploads/2024/07/IMG_3550-scaled.jpg", travelerType: "romantic" },
+  { id: "unity-malmo", hotelsComId: "2780600672", slug: "unity-malmo-malmo-sverige", name: "Unity Malmö - A Studio Hotel", area: "Centrum", areaKey: "centrum", image: "https://unity-living.com/wp-content/uploads/2026/03/Lounge-scaled.jpg", travelerType: "business" },
+  { id: "n-hostel", hotelsComId: "2159079168", slug: "hotel-n-hostel-malmo-city-malmo-sverige", name: "Hotel N Hostel Malmö City", area: "Centrum", areaKey: "centrum", image: "https://impro.usercontent.one/appid/oneComWsb/domain/hotelnhostel.se/media/hotelnhostel.se/onewebmedia/Entren%20h%C3%B6rnan___serialized1.jpg", travelerType: "budget" },
+  { id: "more-vastra-hamnen", hotelsComId: "2452001440", slug: "the-more-hotel-vastra-hamnen-malmo-sverige", name: "The More Hotel Västra Hamnen", area: "Västra hamnen", areaKey: "vastra_hamnen", image: "https://www.themorehotel.se/wp-content/uploads/2024/06/Fasad.jpeg", travelerType: "family" },
+  { id: "havshotellet", hotelsComId: "555765", slug: "havshotellet-malmo-sverige", name: "Havshotellet", area: "Västra hamnen", areaKey: "vastra_hamnen", image: "https://havshotelletmalmo.com/system/KgeYwTBN7xeoJMSRk24q_E-quHlBJVsHQPnew4p_YNyzUZfpacBaskyYwzlGPodk7VQnnLwUDeJswfq1KW7Yzg/files/Slides/Designhotell.jpg", travelerType: "romantic" },
+  { id: "quality-view", hotelsComId: "536287", slug: "quality-hotel-view-malmo-sverige", name: "Quality Hotel View", area: "Hyllie", areaKey: "hyllie", image: "https://images.ctfassets.net/nwbqij9m1jag/7nhpsq0YrLk5tLK6R50R5J/759ffbe7c9b6f111e3f21bd3963941f1/Quality_Hotel_View_-_exterior_-_er_16_9?fm=webp&q=80&w=1920", travelerType: "business" },
+  { id: "bw-arena", hotelsComId: "490005", slug: "best-western-malmo-arena-hotel-malmo-sverige", name: "Best Western Malmö Arena Hotel", area: "Hyllie", areaKey: "hyllie", image: "https://malmoarenahotel.com/wp-content/uploads/2024/04/Praktisk-info-header--1024x726.jpg", travelerType: "business" },
+  { id: "bw-plus-park-city", hotelsComId: "366298", slug: "park-inn-by-radisson-malmo-hotel-malmo-sverige", name: "Best Western Plus Park City Malmo", area: "Hyllie", areaKey: "hyllie", image: "https://www.bestwestern.se/images/9058495d-9e7f-4e2c-b38f-3570295d0a05__bwimages__large__28511835.webp", travelerType: "business" },
+  { id: "scandic-segevang", hotelsComId: "212405", slug: "scandic-segevang-malmo-sverige", name: "Scandic Segevång", area: "Övrigt", areaKey: "ovrigt", image: "https://images.scandichotels.com/publishedmedia/npiz5l0zhqm1v7yqnzp4/scandic-segevang-standard-room_-2-.jpg", travelerType: "family" },
+  { id: "quality-mill", hotelsComId: "141733", slug: "quality-hotel-the-mill-malmo-sverige", name: "Quality Hotel the Mill", area: "Övrigt", areaKey: "ovrigt", image: "https://images.ctfassets.net/nwbqij9m1jag/7CjzsDnnH8yHxVFaEq5KgN/cd64e488f2ec732a1267b493d96b0018/Quality_Hotel_The_Mill_-_Entrance_-_Facade_16_9?fm=webp&q=80&w=1920", travelerType: "business" },
+  { id: "first-camp", hotelsComId: "368940", slug: "first-camp-malmo-malmo-sverige", name: "First Camp Malmö", area: "Övrigt", areaKey: "ovrigt", image: "https://firstcamp.fra1.digitaloceanspaces.com/cms-public/2022/05/7316214_1-328-16_photo_web.jpg", travelerType: "family" },
+  { id: "foretagsbostader", hotelsComId: "1723456864", slug: "foretagsbostader-fregattgatan-malmo-sverige", name: "Företagsbostäder Fregattgatan", area: "Övrigt", areaKey: "ovrigt", image: "https://directus.foretagsbostader.se/assets/0d6410b4-ea7d-4849-a83f-2533e4669d02?format=png&width=1200&quality=75&height=630", travelerType: "business" },
 ];
 
 // ─── Sök/norm ─────────────────────────────────────────────────────────────────
@@ -318,7 +301,7 @@ export default function HotellList() {
                 <div className="hb-card-img-wrap">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img src={h.image} alt={h.name} className="hb-card-img" loading="lazy"
-                    onError={e => { (e.target as HTMLImageElement).src = IMG.classic; }} />
+                    onError={e => { (e.target as HTMLImageElement).src = UNSPLASH_FALLBACK; }} />
                   <span className="hb-card-loc-tag city">{h.area}</span>
                 </div>
                 <div className="hb-card-body">
