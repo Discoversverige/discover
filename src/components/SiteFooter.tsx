@@ -4,10 +4,22 @@ import { useEffect, useRef, useState } from "react";
 
 type Lang = "sv" | "en" | "de";
 
-const FOOTER = {
-  sv: { copy: "Discover Malmö 2026", contact: "Kontakta oss", news: "Nyheter" },
-  en: { copy: "Discover Malmö 2026", contact: "Contact us", news: "News" },
-  de: { copy: "Discover Malmö 2026", contact: "Kontakt", news: "Neuigkeiten" },
+const T = {
+  sv: {
+    copy: "Discover Malmö 2026",
+    news: "Nyheter", contact: "Kontakta oss", about: "Om oss",
+    experiences: "Upplevelser", rentCar: "Hyra bil", hotels: "Hotell",
+  },
+  en: {
+    copy: "Discover Malmö 2026",
+    news: "News", contact: "Contact us", about: "About",
+    experiences: "Experiences", rentCar: "Rent a car", hotels: "Hotels",
+  },
+  de: {
+    copy: "Discover Malmö 2026",
+    news: "Neuigkeiten", contact: "Kontakt", about: "Über uns",
+    experiences: "Erlebnisse", rentCar: "Auto mieten", hotels: "Hotels",
+  },
 };
 
 const LANGS: { code: Lang; flag: string; label: string }[] = [
@@ -59,21 +71,29 @@ export default function SiteFooter() {
     window.dispatchEvent(new CustomEvent("dm-lang-change", { detail: l }));
   };
 
-  const t = FOOTER[lang];
+  const t = T[lang];
   const current = LANGS.find((l) => l.code === lang)!;
 
   return (
     <footer className="foot">
       <div className="foot-inner">
-        <div className="foot-grid">
-          <a href="/news" className="foot-link">{t.news}</a>
-          <a href="/om-oss" className="foot-link">{t.contact}</a>
+        <div className="foot-cols">
+          <nav className="foot-nav">
+            <a href="/news" className="foot-link">{t.news}</a>
+            <a href="/om-oss" className="foot-link">{t.contact}</a>
+            <a href="/om-oss" className="foot-link">{t.about}</a>
+          </nav>
+          <nav className="foot-nav">
+            <a href="/upplevelser" className="foot-link">{t.experiences}</a>
+            <a href="/hyra-bil" className="foot-link">{t.rentCar}</a>
+            <a href="/hotell" className="foot-link">{t.hotels}</a>
+          </nav>
         </div>
         <div className="foot-bottom">
           <span className="foot-copy">{t.copy}</span>
           <div className="foot-lang" ref={ref}>
             <button className="foot-lang-trigger" onClick={() => setOpen((v) => !v)} aria-label="Byt språk">
-              <span>{current.flag}</span>
+              {current.flag}
             </button>
             {open && (
               <div className="foot-lang-menu">

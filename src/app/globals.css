@@ -319,9 +319,10 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 
 .foot { border-top: 1px solid var(--line-soft); font-family: var(--sans); letter-spacing: 0; text-transform: none; padding: 32px 0 28px; }
 .foot-inner { max-width: 1180px; width: 100%; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 24px; }
-.foot-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.foot-link { color: var(--ink); text-decoration: none; font-size: 17px; font-weight: 500; transition: color 0.18s; display: block; }
-.foot-link:hover { color: var(--accent); }
+.foot-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.foot-nav { display: flex; flex-direction: column; gap: 2px; }
+.foot-link { color: var(--ink-2); text-decoration: none; font-size: 15px; font-weight: 400; transition: color 0.18s; display: block; padding: 6px 0; }
+.foot-link:hover { color: var(--ink); }
 .foot-bottom { display: flex; align-items: center; justify-content: space-between; }
 .foot-copy { color: var(--mute); font-size: 13px; }
 .foot-lang { position: relative; }
@@ -648,8 +649,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .panel-title { font-size: 27px; }
   .foot { padding: 24px 0 20px; }
   .foot-inner { padding: 0 16px; gap: 20px; }
-  .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-  .foot-link { font-size: 15px; padding: 4px 0; }
+  .foot-link { font-size: 15px; padding: 8px 0; }
   .foot-lang-menu { right: 0; left: auto; }
 
   .exp-left { padding: 24px 16px 60px; }
