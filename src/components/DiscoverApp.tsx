@@ -189,7 +189,6 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
           </div>
 
           <div className="popular">
-            <p className="pop-label">{t.hero.popular_label}</p>
             <div className="pop-cards">
               {t.popular.slice(0, 6).map((p, i) => {
                 const lookup = p.toLowerCase();
