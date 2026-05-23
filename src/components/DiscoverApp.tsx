@@ -244,7 +244,6 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
       </section>
 
       <section className="partners">
-        <p className="partners-label">{lang === "sv" ? "Planera resan med" : lang === "de" ? "Plane deine Reise mit" : "Plan your trip with"}</p>
         <div className="partners-row">
           <img src="/logos/uber.svg" alt="Uber" className="logo-img" style={{height: "52px"}} />
           <img src="/logos/bolt.png" alt="Bolt" className="logo-img" style={{height: "28px"}} />
