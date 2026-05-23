@@ -645,8 +645,9 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .route-panel.closed { max-height: 80px; overflow: hidden; }
   .panel-toggle { display: inline-flex; }
   .panel-title { font-size: 24px; line-height: 1.1; }
-  .panel-eyebrow { font-size: 13px; margin: 0; }
+  .panel-eyebrow { display: none; }
   .panel-back { font-size: 13px; margin-bottom: 4px; }
+  .route-panel { gap: 8px; }
   .stats { padding: 10px 0; }
   .stat-label { font-size: 12px; }
   .stat-val { font-size: 18px; }
