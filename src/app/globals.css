@@ -146,6 +146,15 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .services .pop-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .services .pop-card { text-decoration: none; }
 
+/* SJ-style service cards */
+.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 12px; }
+.svc-card { position: relative; display: block; text-decoration: none; border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; }
+.svc-card-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.svc-card:hover .svc-card-img { transform: scale(1.04); }
+.svc-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 50%, transparent 100%); border-radius: inherit; }
+.svc-card-label { position: absolute; bottom: 16px; left: 16px; z-index: 1; color: #fff; font-family: var(--sans); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
+.svc-dots { display: none; }
+
 .partners { max-width: 1180px; width: 100%; margin: 140px auto 40px; padding: 48px 40px 0; border-top: 1px solid var(--line-soft); text-align: center; }
 .partners-label { font-family: var(--sans); font-size: 14px; color: var(--mute); margin: 0 0 28px; }
 .partners-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px 56px; }
@@ -634,7 +643,14 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .popular { margin: 24px auto 0; }
   .pop-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 
-  .services { padding: 0 16px; margin-top: 32px; }
+  .services { padding: 0; margin-top: 32px; }
+  .svc-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding: 0 16px 12px; scrollbar-width: none; grid-template-columns: unset; grid-template-rows: unset; }
+  .svc-grid::-webkit-scrollbar { display: none; }
+  .svc-card { flex: 0 0 72vw; scroll-snap-align: start; aspect-ratio: 3/4; border-radius: 20px; }
+  .svc-card-label { font-size: 16px; bottom: 14px; left: 14px; }
+  .svc-dots { display: flex; justify-content: center; gap: 6px; padding: 8px 0 0; }
+  .svc-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); transition: background 0.2s, transform 0.2s; }
+  .svc-dot.active { background: var(--ink); transform: scale(1.3); }
   .partners { margin: 40px auto 20px; padding: 24px 20px 0; }
   .partners-row { gap: 20px 28px; }
   .logo-img { height: 22px; max-width: 80px; }

@@ -91,7 +91,20 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
   const [q, setQ] = useState("");
   const [focused, setFocused] = useState(false);
   const [activeCat, setActiveCat] = useState("all");
+  const [svcIndex, setSvcIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const svcRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = svcRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const cardWidth = el.firstElementChild ? (el.firstElementChild as HTMLElement).offsetWidth + 10 : 1;
+      setSvcIndex(Math.round(el.scrollLeft / cardWidth));
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
 
   const filtered = useMemo(() => {
     let list = t.suggestions;
@@ -220,7 +233,7 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
       </div>
 
       <section className="services">
-        <div className="pop-cards">
+        <div className="svc-grid" ref={svcRef}>
           {([
             { key: "upplevelser", src: "/images/upplevelser.jpg", href: "/upplevelser",
               sv: "Upplevelser", en: "Experiences", de: "Erlebnisse" },
@@ -234,11 +247,16 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
               sv: "Camping", en: "Camping", de: "Camping" },
             { key: "esim", src: "/images/e-sim.jpg", href: "/ta-dig-hit",
               sv: "E-sim", en: "E-sim", de: "E-SIM" },
-          ] as { key: string; src: string; href: string; sv: string; en: string; de: string }[]).map((b) => (
-            <a key={b.key} href={b.href} className="pop-card">
-              <img src={b.src} alt={b[lang]} className="pop-card-img" />
-              <span className="pop-card-label">{b[lang]}</span>
+          ] as { key: string; src: string; href: string; sv: string; en: string; de: string }[]).map((b, i) => (
+            <a key={b.key} href={b.href} className="svc-card">
+              <img src={b.src} alt={b[lang]} className="svc-card-img" />
+              <span className="svc-card-label">{b[lang]}</span>
             </a>
+          ))}
+        </div>
+        <div className="svc-dots">
+          {[0,1,2,3,4,5].map(i => (
+            <span key={i} className={`svc-dot${svcIndex === i ? " active" : ""}`} />
           ))}
         </div>
       </section>
