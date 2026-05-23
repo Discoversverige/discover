@@ -79,15 +79,15 @@ export default function SiteFooter() {
       <div className="foot-inner">
         <div className="foot-cols">
           <nav className="foot-nav">
-            <a href="/news" className="foot-link">{t.news}</a>
-            <a href="/om-oss" className="foot-link">{t.contact}</a>
-            <a href="/om-oss" className="foot-link">{t.about}</a>
-          </nav>
-          <nav className="foot-nav">
             <a href="/upplevelser" className="foot-link">{t.experiences}</a>
             <a href="/hyra-bil" className="foot-link">{t.rentCar}</a>
             <a href="/hotell" className="foot-link">{t.hotels}</a>
             <a href="/camping" className="foot-link">{t.camping}</a>
+          </nav>
+          <nav className="foot-nav">
+            <a href="/news" className="foot-link">{t.news}</a>
+            <a href="/om-oss" className="foot-link">{t.contact}</a>
+            <a href="/om-oss" className="foot-link">{t.about}</a>
           </nav>
         </div>
         <div className="foot-bottom">
