@@ -7,16 +7,19 @@ type Lang = "sv" | "en" | "de";
 const T = {
   sv: {
     copy: "Discover Malmö 2026",
+    col1: "Upptäck mer", col2: "Företag",
     news: "Nyheter", contact: "Kontakta oss", about: "Om oss",
     experiences: "Upplevelser", rentCar: "Hyra bil", hotels: "Hotell", camping: "Camping",
   },
   en: {
     copy: "Discover Malmö 2026",
+    col1: "Discover more", col2: "Company",
     news: "News", contact: "Contact us", about: "About",
     experiences: "Experiences", rentCar: "Rent a car", hotels: "Hotels", camping: "Camping",
   },
   de: {
     copy: "Discover Malmö 2026",
+    col1: "Mehr entdecken", col2: "Unternehmen",
     news: "Neuigkeiten", contact: "Kontakt", about: "Über uns",
     experiences: "Erlebnisse", rentCar: "Auto mieten", hotels: "Hotels", camping: "Camping",
   },
@@ -79,12 +82,14 @@ export default function SiteFooter() {
       <div className="foot-inner">
         <div className="foot-cols">
           <nav className="foot-nav">
+            <span className="foot-nav-title">{t.col1}</span>
             <a href="/upplevelser" className="foot-link">{t.experiences}</a>
             <a href="/hyra-bil" className="foot-link">{t.rentCar}</a>
             <a href="/hotell" className="foot-link">{t.hotels}</a>
             <a href="/camping" className="foot-link">{t.camping}</a>
           </nav>
           <nav className="foot-nav">
+            <span className="foot-nav-title">{t.col2}</span>
             <a href="/news" className="foot-link">{t.news}</a>
             <a href="/om-oss" className="foot-link">{t.contact}</a>
             <a href="/om-oss" className="foot-link">{t.about}</a>

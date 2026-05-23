@@ -36,7 +36,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Strand", "Dusch", "Restaurang", "Lekplats", "WiFi"],
     rating: 8.9,
     reviews: 312,
-    sourceUrl: "https://www.campcation.com/campings/lomma",
+    sourceUrl: "https://www.campcation.com/camping/sweden/?q=Lomma",
   },
   {
     id: "c2",
@@ -53,7 +53,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Skog", "Cykeluthyrning", "Dusch", "Kiosk"],
     rating: 8.5,
     reviews: 204,
-    sourceUrl: "https://www.campcation.com/campings/ystad-sandskog",
+    sourceUrl: "https://www.campcation.com/campsite/ystad-camping/",
   },
   {
     id: "c3",
@@ -70,7 +70,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Strand", "Surf", "Fågelskådning", "Dusch", "WiFi"],
     rating: 8.7,
     reviews: 178,
-    sourceUrl: "https://www.campcation.com/campings/falsterbo",
+    sourceUrl: "https://www.campcation.com/campsite/falsterbo-camping-resort/",
   },
   {
     id: "c4",
@@ -87,7 +87,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Å", "Cykelväg", "Dusch", "Restaurang"],
     rating: 8.2,
     reviews: 143,
-    sourceUrl: "https://www.campcation.com/campings/kristianstad",
+    sourceUrl: "https://www.campcation.com/camping/sweden/?q=Kristianstad",
   },
   {
     id: "c5",
@@ -104,7 +104,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Strand", "Vik", "Dusch", "Lekplats", "WiFi"],
     rating: 8.6,
     reviews: 267,
-    sourceUrl: "https://www.campcation.com/campings/raa-vallar",
+    sourceUrl: "https://www.campcation.com/camping/sweden/?q=Helsingborg",
   },
   {
     id: "c6",
@@ -121,7 +121,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Natur", "Tennis", "Strand", "Dusch"],
     rating: 8.4,
     reviews: 156,
-    sourceUrl: "https://www.campcation.com/campings/bastad",
+    sourceUrl: "https://www.campcation.com/campsite/bastad-camping/",
   },
 
   // SMÅLAND
@@ -140,7 +140,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Lekplats", "Pool", "Dusch", "WiFi", "Kiosk"],
     rating: 8.8,
     reviews: 389,
-    sourceUrl: "https://www.campcation.com/campings/vimmerby",
+    sourceUrl: "https://www.campcation.com/campsite/vimmerby-camping/",
   },
   {
     id: "c8",
@@ -157,7 +157,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Sjö", "Kanot", "Bad", "Dusch", "WiFi"],
     rating: 8.6,
     reviews: 221,
-    sourceUrl: "https://www.campcation.com/campings/vaxjo",
+    sourceUrl: "https://www.campcation.com/camping/sweden/?q=V%C3%A4xj%C3%B6",
   },
   {
     id: "c9",
@@ -174,7 +174,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Vättern", "Bad", "Båt", "Dusch", "Restaurang"],
     rating: 9.0,
     reviews: 445,
-    sourceUrl: "https://www.campcation.com/campings/jonkoping-rosenlund",
+    sourceUrl: "https://www.campcation.com/camping/sweden/?q=J%C3%B6nk%C3%B6ping",
   },
   {
     id: "c10",
@@ -191,7 +191,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Skog", "Vandring", "Glasbruk", "Dusch"],
     rating: 8.3,
     reviews: 134,
-    sourceUrl: "https://www.campcation.com/campings/orrefors",
+    sourceUrl: "https://www.campcation.com/campsite/nybro-camping/",
   },
   {
     id: "c11",
@@ -208,7 +208,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Strand", "Slott", "Cykel", "Dusch", "WiFi"],
     rating: 8.7,
     reviews: 298,
-    sourceUrl: "https://www.campcation.com/campings/kalmar",
+    sourceUrl: "https://www.campcation.com/campsite/kalmar-camping/",
   },
   {
     id: "c12",
@@ -225,7 +225,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Vandring", "Klättring", "MTB", "Dusch"],
     rating: 8.5,
     reviews: 167,
-    sourceUrl: "https://www.campcation.com/campings/eksjo",
+    sourceUrl: "https://www.campcation.com/camping/sweden/?q=Eksj%C3%B6",
   },
 
   // BLEKINGE
@@ -244,7 +244,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Skärgård", "Bad", "Båt", "Dusch", "Grill"],
     rating: 9.1,
     reviews: 356,
-    sourceUrl: "https://www.campcation.com/campings/karlskrona-salto",
+    sourceUrl: "https://www.campcation.com/camping/sweden/?q=Karlskrona",
   },
   {
     id: "c14",
@@ -261,7 +261,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Park", "Skog", "Å", "Dusch", "Vandring"],
     rating: 8.8,
     reviews: 212,
-    sourceUrl: "https://www.campcation.com/campings/ronneby",
+    sourceUrl: "https://www.campcation.com/camping/sweden/?q=Ronneby",
   },
   {
     id: "c15",
@@ -278,7 +278,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Hav", "Bad", "Strand", "Dusch", "WiFi"],
     rating: 8.6,
     reviews: 189,
-    sourceUrl: "https://www.campcation.com/campings/karlshamn",
+    sourceUrl: "https://www.campcation.com/camping/sweden/?q=Karlshamn",
   },
   {
     id: "c16",
@@ -295,7 +295,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Sjö", "Fiske", "Kanot", "Dusch"],
     rating: 8.1,
     reviews: 98,
-    sourceUrl: "https://www.campcation.com/campings/olofstrom",
+    sourceUrl: "https://www.campcation.com/camping/sweden/?q=Olofstr%C3%B6m",
   },
   {
     id: "c17",
@@ -312,7 +312,7 @@ export const CAMPSITES: Campsite[] = [
     amenities: ["Pool", "Lekplats", "Strand", "Dusch", "Kiosk"],
     rating: 8.4,
     reviews: 231,
-    sourceUrl: "https://www.campcation.com/campings/solvesborg",
+    sourceUrl: "https://www.campcation.com/camping/sweden/?q=S%C3%B6lvesborg",
   },
 ];
 

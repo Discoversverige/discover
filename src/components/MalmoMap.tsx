@@ -62,7 +62,7 @@ export default function MalmoMap({ route, activeStop, onStopClick, lang }: Props
 
       <rect x="0" y="0" width="1000" height="700" fill="url(#grid)" />
 
-      <g className="place-labels" fontFamily="'JetBrains Mono', monospace" fontSize="10" fill="#7a7668" letterSpacing="1.5">
+      <g className="place-labels" fontFamily="var(--font-inter), Inter, sans-serif" fontSize="10" fill="#7a7668" letterSpacing="1.5">
         <text x="120" y="110" opacity="0.6">ÖRESUND</text>
         <text x="350" y="460" opacity="0.55">SLOTTSPARKEN</text>
         <text x="510" y="585" opacity="0.55">PILDAMMARNA</text>
@@ -84,14 +84,14 @@ export default function MalmoMap({ route, activeStop, onStopClick, lang }: Props
           <g key={i} className="map-stop" style={{ animationDelay: `${delay}s`, cursor: "pointer" }} onClick={() => onStopClick(i)}>
             {isActive && <circle cx={stop.x} cy={stop.y} r="26" fill="var(--accent)" opacity="0.15" className="halo" />}
             <circle cx={stop.x} cy={stop.y} r="14" fill="#faf7ee" stroke="var(--accent)" strokeWidth="2.5" />
-            <text x={stop.x} y={stop.y + 4} textAnchor="middle" fontFamily="'Inter Tight', sans-serif" fontSize="11" fontWeight="600" fill="var(--accent)">
+            <text x={stop.x} y={stop.y + 4} textAnchor="middle" fontFamily="var(--font-inter), Inter, sans-serif" fontSize="11" fontWeight="600" fill="var(--accent)">
               {String.fromCharCode(65 + i)}
             </text>
             <g transform={`translate(${stop.x + 22}, ${stop.y - 6})`}>
-              <text fontFamily="'Instrument Serif', serif" fontSize="16" fill="#1a1814" className="stop-name">
+              <text fontFamily="var(--font-instrument-serif), 'Instrument Serif', serif" fontSize="16" fill="#1a1814" className="stop-name">
                 {stop.name[lang] || stop.name.en}
               </text>
-              <text y="15" fontFamily="'JetBrains Mono', monospace" fontSize="9" fill="#7a7668" letterSpacing="1" className="stop-kind">
+              <text y="15" fontFamily="var(--font-inter), Inter, sans-serif" fontSize="9" fill="#7a7668" letterSpacing="1" className="stop-kind">
                 {(stop.kind[lang] || stop.kind.en).toUpperCase()}
               </text>
             </g>
@@ -99,7 +99,7 @@ export default function MalmoMap({ route, activeStop, onStopClick, lang }: Props
         );
       })}
 
-      <g transform="translate(930, 80)" fontFamily="'JetBrains Mono', monospace" fontSize="9" fill="#7a7668">
+      <g transform="translate(930, 80)" fontFamily="var(--font-inter), Inter, sans-serif" fontSize="9" fill="#7a7668">
         <circle r="22" fill="none" stroke="#d6cba8" strokeWidth="1" />
         <text y="-26" textAnchor="middle" fontWeight="600" fill="#1a1814">N</text>
         <line y1="-18" y2="14" stroke="#1a1814" strokeWidth="1.5" />

@@ -91,28 +91,24 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
   const [q, setQ] = useState("");
   const [focused, setFocused] = useState(false);
   const [activeCat, setActiveCat] = useState("all");
-  const [svcIndex, setSvcIndex] = useState(0);
+  const [svcIndex1, setSvcIndex1] = useState(0);
+  const [svcIndex2, setSvcIndex2] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const svcRef = useRef<HTMLDivElement>(null);
   const svcRow1Ref = useRef<HTMLDivElement>(null);
   const svcRow2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const syncScroll = (source: HTMLDivElement, target: HTMLDivElement) => {
-      target.scrollLeft = source.scrollLeft;
-    };
     const r1 = svcRow1Ref.current;
     const r2 = svcRow2Ref.current;
     if (!r1 || !r2) return;
     const onScroll1 = () => {
       const cardWidth = (r1.firstElementChild as HTMLElement)?.offsetWidth + 10 || 1;
-      setSvcIndex(Math.round(r1.scrollLeft / cardWidth));
-      syncScroll(r1, r2);
+      setSvcIndex1(Math.round(r1.scrollLeft / cardWidth));
     };
     const onScroll2 = () => {
       const cardWidth = (r2.firstElementChild as HTMLElement)?.offsetWidth + 10 || 1;
-      setSvcIndex(Math.round(r2.scrollLeft / cardWidth));
-      syncScroll(r2, r1);
+      setSvcIndex2(Math.round(r2.scrollLeft / cardWidth));
     };
     r1.addEventListener("scroll", onScroll1, { passive: true });
     r2.addEventListener("scroll", onScroll2, { passive: true });
@@ -248,61 +244,78 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
         </div>
       </div>
 
-      <section className="services">
-        {(() => {
-          const items = [
-            { key: "upplevelser", src: "/images/upplevelser.jpg", href: "/upplevelser",
-              sv: "Upplevelser", en: "Experiences", de: "Erlebnisse" },
-            { key: "buss", src: "/images/buss-taxi.jpg", href: "/ta-dig-hit",
-              sv: "Buss & taxi", en: "Bus & taxi", de: "Bus & Taxi" },
-            { key: "hyra-bil", src: "/images/hyrbil.jpg", href: "/hyra-bil",
-              sv: "Hyra bil", en: "Rent a car", de: "Auto mieten" },
-            { key: "boende", src: "/images/boende.jpg", href: "/hotell",
-              sv: "Hotell", en: "Hotels", de: "Hotels" },
-            { key: "camping", src: "/images/camping.jpg", href: "/camping",
-              sv: "Camping", en: "Camping", de: "Camping" },
-            { key: "esim", src: "/images/e-sim.jpg", href: "/ta-dig-hit",
-              sv: "E-sim", en: "E-sim", de: "E-SIM" },
-          ] as { key: string; src: string; href: string; sv: string; en: string; de: string }[];
-          const row1 = items.slice(0, 3);
-          const row2 = items.slice(3, 6);
-          return (
-            <>
-              <div className="svc-grid" ref={svcRef}>
-                {items.map((b) => (
-                  <a key={b.key} href={b.href} className="svc-card">
-                    <img src={b.src} alt={b[lang]} className="svc-card-img" />
-                    <span className="svc-card-label">{b[lang]}</span>
-                  </a>
-                ))}
-              </div>
-              <div className="svc-mob">
-                <div className="svc-row" ref={svcRow1Ref}>
-                  {row1.map((b) => (
+      <div className="services-wrap">
+        <section className="services">
+          {(() => {
+            const items = [
+              { key: "upplevelser", src: "/images/upplevelser.jpg", href: "/upplevelser",
+                sv: "Upplevelser", en: "Experiences", de: "Erlebnisse" },
+              { key: "buss", src: "/images/buss-taxi.jpg", href: "/ta-dig-hit",
+                sv: "Buss & taxi", en: "Bus & taxi", de: "Bus & Taxi" },
+              { key: "hyra-bil", src: "/images/hyrbil.jpg", href: "/hyra-bil",
+                sv: "Hyra bil", en: "Rent a car", de: "Auto mieten" },
+              { key: "boende", src: "/images/boende.jpg", href: "/hotell",
+                sv: "Hotell", en: "Hotels", de: "Hotels" },
+              { key: "camping", src: "/images/camping.jpg", href: "/camping",
+                sv: "Camping", en: "Camping", de: "Camping" },
+              { key: "esim", src: "/images/e-sim.jpg", href: "/ta-dig-hit",
+                sv: "E-sim", en: "E-sim", de: "E-SIM" },
+            ] as { key: string; src: string; href: string; sv: string; en: string; de: string }[];
+            const row1 = items.slice(0, 3);
+            const row2 = items.slice(3, 6);
+            const ArrowIcon = () => (
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="#222" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            );
+            const svcTitle = lang === "de" ? "Mehr entdecken" : lang === "en" ? "Discover more" : "Upptäck mer";
+            return (
+              <>
+                <p className="svc-section-title">{svcTitle}</p>
+                <div className="svc-grid" ref={svcRef}>
+                  {items.map((b) => (
                     <a key={b.key} href={b.href} className="svc-card">
                       <img src={b.src} alt={b[lang]} className="svc-card-img" />
                       <span className="svc-card-label">{b[lang]}</span>
+                      <span className="svc-card-arrow"><ArrowIcon /></span>
                     </a>
                   ))}
                 </div>
-                <div className="svc-row" ref={svcRow2Ref}>
-                  {row2.map((b) => (
-                    <a key={b.key} href={b.href} className="svc-card">
-                      <img src={b.src} alt={b[lang]} className="svc-card-img" />
-                      <span className="svc-card-label">{b[lang]}</span>
-                    </a>
-                  ))}
+                <div className="svc-mob">
+                  <div className="svc-row" ref={svcRow1Ref}>
+                    {row1.map((b) => (
+                      <a key={b.key} href={b.href} className="svc-card">
+                        <img src={b.src} alt={b[lang]} className="svc-card-img" />
+                        <span className="svc-card-label">{b[lang]}</span>
+                        <span className="svc-card-arrow"><ArrowIcon /></span>
+                      </a>
+                    ))}
+                  </div>
+                  <div className="svc-dots">
+                    {[0,1,2].map(i => (
+                      <span key={i} className={`svc-dot${svcIndex1 === i ? " active" : ""}`} />
+                    ))}
+                  </div>
+                  <div className="svc-row" ref={svcRow2Ref}>
+                    {row2.map((b) => (
+                      <a key={b.key} href={b.href} className="svc-card">
+                        <img src={b.src} alt={b[lang]} className="svc-card-img" />
+                        <span className="svc-card-label">{b[lang]}</span>
+                        <span className="svc-card-arrow"><ArrowIcon /></span>
+                      </a>
+                    ))}
+                  </div>
+                  <div className="svc-dots">
+                    {[0,1,2].map(i => (
+                      <span key={i} className={`svc-dot${svcIndex2 === i ? " active" : ""}`} />
+                    ))}
+                  </div>
                 </div>
-                <div className="svc-dots">
-                  {[0,1,2].map(i => (
-                    <span key={i} className={`svc-dot${svcIndex === i ? " active" : ""}`} />
-                  ))}
-                </div>
-              </div>
-            </>
-          );
-        })()}
-      </section>
+              </>
+            );
+          })()}
+        </section>
+      </div>
 
       <section className="partners">
         <div className="partners-row">
