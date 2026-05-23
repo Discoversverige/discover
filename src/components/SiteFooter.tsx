@@ -8,17 +8,17 @@ const T = {
   sv: {
     copy: "Discover Malmö 2026",
     news: "Nyheter", contact: "Kontakta oss", about: "Om oss",
-    experiences: "Upplevelser", rentCar: "Hyra bil", hotels: "Hotell",
+    experiences: "Upplevelser", rentCar: "Hyra bil", hotels: "Hotell", camping: "Camping",
   },
   en: {
     copy: "Discover Malmö 2026",
     news: "News", contact: "Contact us", about: "About",
-    experiences: "Experiences", rentCar: "Rent a car", hotels: "Hotels",
+    experiences: "Experiences", rentCar: "Rent a car", hotels: "Hotels", camping: "Camping",
   },
   de: {
     copy: "Discover Malmö 2026",
     news: "Neuigkeiten", contact: "Kontakt", about: "Über uns",
-    experiences: "Erlebnisse", rentCar: "Auto mieten", hotels: "Hotels",
+    experiences: "Erlebnisse", rentCar: "Auto mieten", hotels: "Hotels", camping: "Camping",
   },
 };
 
@@ -87,6 +87,7 @@ export default function SiteFooter() {
             <a href="/upplevelser" className="foot-link">{t.experiences}</a>
             <a href="/hyra-bil" className="foot-link">{t.rentCar}</a>
             <a href="/hotell" className="foot-link">{t.hotels}</a>
+            <a href="/camping" className="foot-link">{t.camping}</a>
           </nav>
         </div>
         <div className="foot-bottom">

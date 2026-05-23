@@ -6,9 +6,9 @@ import { usePathname } from "next/navigation";
 type Lang = "sv" | "en" | "de";
 
 const NAV = {
-  sv: { discover: "Upptäck", experiences: "Upplevelser", rentCar: "Hyra bil", hotels: "Hotell", plan: "Ta dig hit", about: "Om oss" },
-  en: { discover: "Discover", experiences: "Experiences", rentCar: "Rent a car", hotels: "Hotels", plan: "Get here", about: "About" },
-  de: { discover: "Entdecken", experiences: "Erlebnisse", rentCar: "Auto mieten", hotels: "Hotels", plan: "Anfahrt", about: "Über uns" },
+  sv: { discover: "Upptäck", experiences: "Upplevelser", rentCar: "Hyra bil", hotels: "Hotell", camping: "Camping", plan: "Ta dig hit", about: "Om oss" },
+  en: { discover: "Discover", experiences: "Experiences", rentCar: "Rent a car", hotels: "Hotels", camping: "Camping", plan: "Get here", about: "About" },
+  de: { discover: "Entdecken", experiences: "Erlebnisse", rentCar: "Auto mieten", hotels: "Hotels", camping: "Camping", plan: "Anfahrt", about: "Über uns" },
 };
 
 const SEARCH_PLACEHOLDER: Record<Lang, string> = {
@@ -176,6 +176,7 @@ export default function SiteHeader() {
           <a href="/upplevelser" className={isActive("/upplevelser") ? "active" : ""}>{t.experiences}</a>
           <a href="/hyra-bil" className={isActive("/hyra-bil") ? "active" : ""}>{t.rentCar}</a>
           <a href="/hotell" className={isActive("/hotell") ? "active" : ""}>{t.hotels}</a>
+          <a href="/camping" className={isActive("/camping") ? "active" : ""}>{t.camping}</a>
           <a href="/om-oss" className={isActive("/om-oss") ? "active" : ""}>{t.about}</a>
         </nav>
         <div className="lang-switch" role="tablist">
@@ -289,6 +290,7 @@ export default function SiteHeader() {
           <a href="/upplevelser" onClick={() => setMenuOpen(false)}>{t.experiences}</a>
           <a href="/hyra-bil" onClick={() => setMenuOpen(false)}>{t.rentCar}</a>
           <a href="/hotell" onClick={() => setMenuOpen(false)}>{t.hotels}</a>
+          <a href="/camping" onClick={() => setMenuOpen(false)}>{t.camping}</a>
           <a href="/om-oss" onClick={() => setMenuOpen(false)}>{t.about}</a>
 
           <div className="mobile-menu-socials" aria-label="Sociala medier">
