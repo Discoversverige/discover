@@ -1,17 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Lang = "sv" | "en" | "de";
 
 const FOOTER = {
-  sv: { text: "En tjänst av Discover Malmö · 2026", contact: "Kontakta oss", news: "Nyheter" },
-  en: { text: "A service by Discover Malmö · 2026", contact: "Contact us", news: "News" },
-  de: { text: "Ein Service von Discover Malmö · 2026", contact: "Kontakt", news: "Neuigkeiten" },
+  sv: { copy: "Discover Malmö 2026", contact: "Kontakta oss", news: "Nyheter" },
+  en: { copy: "Discover Malmö 2026", contact: "Contact us", news: "News" },
+  de: { copy: "Discover Malmö 2026", contact: "Kontakt", news: "Neuigkeiten" },
 };
 
-const FLAGS: Record<Lang, string> = { sv: "🇸🇪", en: "🇬🇧", de: "🇩🇪" };
-const LABELS: Record<Lang, string> = { sv: "SV", en: "EN", de: "DE" };
+const LANGS: { code: Lang; flag: string; label: string }[] = [
+  { code: "sv", flag: "🇸🇪", label: "Svenska" },
+  { code: "en", flag: "🇬🇧", label: "English" },
+  { code: "de", flag: "🇩🇪", label: "Deutsch" },
+];
 
 const getInitialLang = (): Lang => {
   try {
@@ -23,6 +26,8 @@ const getInitialLang = (): Lang => {
 
 export default function SiteFooter() {
   const [lang, setLang] = useState<Lang>("sv");
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setLang(getInitialLang());
@@ -39,36 +44,53 @@ export default function SiteFooter() {
     };
   }, []);
 
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    return () => document.removeEventListener("mousedown", onClick);
+  }, []);
+
   const changeLang = (l: Lang) => {
     try { localStorage.setItem("dm-lang", l); } catch {}
     setLang(l);
+    setOpen(false);
     window.dispatchEvent(new CustomEvent("dm-lang-change", { detail: l }));
   };
 
   const t = FOOTER[lang];
+  const current = LANGS.find((l) => l.code === lang)!;
 
   return (
     <footer className="foot">
-      <div className="foot-left">
-        <span className="foot-copy">{t.text}</span>
-        <nav className="foot-nav">
+      <div className="foot-inner">
+        <div className="foot-grid">
           <a href="/news" className="foot-link">{t.news}</a>
-          <span className="foot-sep">·</span>
           <a href="/om-oss" className="foot-link">{t.contact}</a>
-        </nav>
-      </div>
-      <div className="foot-lang">
-        {(["sv", "en", "de"] as Lang[]).map((l) => (
-          <button
-            key={l}
-            onClick={() => changeLang(l)}
-            className={`foot-lang-btn${lang === l ? " active" : ""}`}
-            aria-label={l === "sv" ? "Svenska" : l === "en" ? "English" : "Deutsch"}
-          >
-            <span>{FLAGS[l]}</span>
-            <span>{LABELS[l]}</span>
-          </button>
-        ))}
+        </div>
+        <div className="foot-bottom">
+          <span className="foot-copy">{t.copy}</span>
+          <div className="foot-lang" ref={ref}>
+            <button className="foot-lang-trigger" onClick={() => setOpen((v) => !v)} aria-label="Byt språk">
+              <span>{current.flag}</span>
+            </button>
+            {open && (
+              <div className="foot-lang-menu">
+                {LANGS.map((l) => (
+                  <button
+                    key={l.code}
+                    className={`foot-lang-opt${lang === l.code ? " active" : ""}`}
+                    onClick={() => changeLang(l.code)}
+                  >
+                    <span>{l.flag}</span>
+                    <span>{l.label}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </footer>
   );

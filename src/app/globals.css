@@ -317,17 +317,20 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 
 .panel-toggle { display: none; position: fixed; left: 50%; transform: translateX(-50%); bottom: 72px; z-index: 20; width: 44px; height: 28px; background: var(--paper); border: 1px solid var(--line-soft); border-radius: 999px; color: var(--ink); box-shadow: var(--shadow-sm); align-items: center; justify-content: center; }
 
-.foot { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px 40px; border-top: 1px solid var(--line-soft); font-family: var(--sans); font-size: 14px; letter-spacing: 0; color: var(--mute); text-transform: none; }
-.foot-left { display: flex; flex-direction: column; gap: 10px; }
+.foot { border-top: 1px solid var(--line-soft); font-family: var(--sans); letter-spacing: 0; text-transform: none; padding: 32px 0 28px; }
+.foot-inner { max-width: 1180px; width: 100%; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 24px; }
+.foot-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.foot-link { color: var(--ink); text-decoration: none; font-size: 17px; font-weight: 500; transition: color 0.18s; display: block; }
+.foot-link:hover { color: var(--accent); }
+.foot-bottom { display: flex; align-items: center; justify-content: space-between; }
 .foot-copy { color: var(--mute); font-size: 13px; }
-.foot-nav { display: flex; align-items: center; gap: 0; }
-.foot-sep { color: var(--mute); opacity: 0.3; padding: 0 6px; font-size: 12px; }
-.foot-link { color: var(--ink); text-decoration: none; transition: color 0.18s; padding: 6px 10px; border-radius: 8px; font-weight: 500; font-size: 14px; }
-.foot-link:hover { color: var(--accent); background: var(--line-soft); }
-.foot-lang { display: flex; align-items: center; gap: 2px; background: var(--bg-2, #f5f5f5); border: 1px solid var(--line-soft); border-radius: 999px; padding: 3px; }
-.foot-lang-btn { display: inline-flex; align-items: center; gap: 5px; padding: 6px 12px; border-radius: 999px; color: var(--mute); font-family: var(--sans); font-size: 13px; font-weight: 500; transition: all 0.2s; cursor: pointer; }
-.foot-lang-btn:hover { color: var(--ink); }
-.foot-lang-btn.active { background: var(--ink); color: var(--paper); }
+.foot-lang { position: relative; }
+.foot-lang-trigger { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line-soft); background: var(--paper); cursor: pointer; font-size: 18px; transition: border-color 0.18s; }
+.foot-lang-trigger:hover { border-color: var(--ink); }
+.foot-lang-menu { position: absolute; bottom: calc(100% + 8px); right: 0; background: var(--paper); border: 1px solid var(--line-soft); border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); overflow: hidden; min-width: 140px; z-index: 100; }
+.foot-lang-opt { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px 16px; font-family: var(--sans); font-size: 14px; color: var(--ink); cursor: pointer; transition: background 0.15s; text-align: left; }
+.foot-lang-opt:hover { background: var(--line-soft); }
+.foot-lang-opt.active { font-weight: 600; }
 
 .about-page { max-width: 1180px; width: 100%; margin: 0 auto; padding: 60px 40px 80px; opacity: 0; animation: slideUp 0.6s ease 0.05s forwards; }
 .about-hero { max-width: 760px; margin: 0 auto 64px; text-align: center; }
@@ -407,8 +410,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .about-page, .contact-page { padding: 32px 20px 60px; }
   .about-stats { grid-template-columns: 1fr; gap: 20px; }
   .contact-form-wrap { padding: 24px 20px; }
-  .foot { flex-wrap: wrap; gap: 12px 18px; }
-  .foot-left { gap: 12px; }
+  .foot-inner { padding: 0 20px; }
 }
 
 /* Hamburger */
@@ -644,10 +646,11 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .panel-toggle { display: inline-flex; bottom: calc(55vh - 14px); transition: bottom 0.3s ease; }
   .route-panel.closed ~ .panel-toggle { bottom: 66px; }
   .panel-title { font-size: 27px; }
-  .foot { padding: 20px 20px 24px; flex-direction: column; align-items: flex-start; gap: 16px; }
-  .foot-left { gap: 8px; }
-  .foot-link { padding: 8px 10px; font-size: 15px; }
-  .foot-lang { align-self: flex-start; }
+  .foot { padding: 24px 0 20px; }
+  .foot-inner { padding: 0 16px; gap: 20px; }
+  .foot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .foot-link { font-size: 15px; padding: 4px 0; }
+  .foot-lang-menu { right: 0; left: auto; }
 
   .exp-left { padding: 24px 16px 60px; }
   .exp-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 12px; }
