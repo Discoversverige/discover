@@ -637,12 +637,19 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .partners-row { gap: 20px 28px; }
   .logo-img { height: 22px; max-width: 80px; }
 
-  .map-view { grid-template-columns: 1fr; grid-template-rows: 1fr auto; }
-  .route-panel { border-left: none; border-top: 1px solid var(--line-soft); border-radius: 20px 20px 0 0; padding: 24px 20px 28px; max-height: 55vh; position: relative; z-index: 10; box-shadow: 0 -10px 30px rgba(40,30,10,0.06); transition: max-height 0.3s ease; }
+  .map-view { grid-template-columns: 1fr; grid-template-rows: 1fr auto; height: calc(100dvh - 74px); overflow: hidden; }
+  .map-canvas { overflow: hidden; }
+  .route-panel { border-left: none; border-top: 1px solid var(--line-soft); border-radius: 20px 20px 0 0; padding: 16px 20px 20px; overflow-y: auto; position: relative; z-index: 10; box-shadow: 0 -10px 30px rgba(40,30,10,0.06); }
   .route-panel.closed { max-height: 80px; overflow: hidden; }
-  .panel-toggle { display: inline-flex; bottom: calc(55vh - 14px); transition: bottom 0.3s ease; }
-  .route-panel.closed ~ .panel-toggle { bottom: 66px; }
-  .panel-title { font-size: 27px; }
+  .panel-toggle { display: inline-flex; }
+  .panel-title { font-size: 24px; line-height: 1.1; }
+  .panel-eyebrow { font-size: 13px; margin: 0; }
+  .panel-back { font-size: 13px; margin-bottom: 4px; }
+  .stats { padding: 10px 0; }
+  .stat-label { font-size: 12px; }
+  .stat-val { font-size: 18px; }
+  .tip { display: none; }
+  .stop-list { max-height: 28vh; overflow-y: auto; }
   .foot { padding: 24px 0 20px; }
   .foot-inner { padding: 0 16px; gap: 20px; }
   .foot-link { font-size: 15px; padding: 8px 0; }
