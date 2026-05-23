@@ -10,6 +10,9 @@ const FOOTER = {
   de: { text: "Ein Service von Discover Malmö · 2026", contact: "Kontakt", news: "Neuigkeiten" },
 };
 
+const FLAGS: Record<Lang, string> = { sv: "🇸🇪", en: "🇬🇧", de: "🇩🇪" };
+const LABELS: Record<Lang, string> = { sv: "SV", en: "EN", de: "DE" };
+
 const getInitialLang = (): Lang => {
   try {
     const saved = localStorage.getItem("dm-lang") as Lang;
@@ -36,14 +39,36 @@ export default function SiteFooter() {
     };
   }, []);
 
+  const changeLang = (l: Lang) => {
+    try { localStorage.setItem("dm-lang", l); } catch {}
+    setLang(l);
+    window.dispatchEvent(new CustomEvent("dm-lang-change", { detail: l }));
+  };
+
   const t = FOOTER[lang];
 
   return (
     <footer className="foot">
-      <span className="foot-copy">{t.text}</span>
-      <div className="foot-nav">
-        <a href="/om-oss" className="foot-link">{t.contact}</a>
-        <a href="/news" className="foot-link">{t.news}</a>
+      <div className="foot-left">
+        <span className="foot-copy">{t.text}</span>
+        <nav className="foot-nav">
+          <a href="/om-oss" className="foot-link">{t.contact}</a>
+          <span className="foot-sep">·</span>
+          <a href="/news" className="foot-link">{t.news}</a>
+        </nav>
+      </div>
+      <div className="foot-lang">
+        {(["sv", "en", "de"] as Lang[]).map((l) => (
+          <button
+            key={l}
+            onClick={() => changeLang(l)}
+            className={`foot-lang-btn${lang === l ? " active" : ""}`}
+            aria-label={l === "sv" ? "Svenska" : l === "en" ? "English" : "Deutsch"}
+          >
+            <span>{FLAGS[l]}</span>
+            <span>{LABELS[l]}</span>
+          </button>
+        ))}
       </div>
     </footer>
   );
