@@ -109,7 +109,7 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
     <div className="home">
       <div className={`hero ${focused ? "map-active" : ""}`}>
         <div className="hero-bg" aria-hidden="true">
-          <img src="/malmokarta.png" alt="" draggable={false} />
+          <video src="/videos/malmo-drone.mp4" autoPlay muted loop playsInline />
         </div>
         <div className="hero-inner">
           <p className="eyebrow">{t.hero.eyebrow}</p>
