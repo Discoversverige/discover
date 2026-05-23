@@ -74,7 +74,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 
 .home { display: flex; flex-direction: column; }
 .hero { max-width: 1100px; width: 100%; margin: 0 auto; padding: 60px 40px 40px; text-align: center; position: relative; overflow: hidden; }
-.hero-inner { max-width: 920px; width: 100%; margin: 0 auto; position: relative; z-index: 2; }
+.hero-inner { max-width: 920px; width: 100%; margin: 0 auto; position: relative; z-index: 3; }
 .hero-bg {
   position: absolute; left: 50%; top: 0; transform: translateX(-50%);
   width: 100%; max-width: 1800px; z-index: 0; opacity: 0.85;
@@ -83,14 +83,13 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 }
 .hero-bg img { width: 100%; height: auto; display: block; }
 .hero-bg video { width: 100%; height: auto; display: block; }
-.hero.map-active .hero-bg { opacity: 0.9; filter: blur(0.5px) saturate(0.9) contrast(1); }
+.hero.map-active .hero-bg { opacity: 0.9; }
 @media (min-width: 481px) {
-  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 100%); z-index: 1; pointer-events: none; }
-  .hero-inner { position: relative; z-index: 2; }
-  .hero .eyebrow { color: rgba(255,255,255,0.9) !important; }
-  .hero .display { color: #fff !important; }
-  .hero .display em { color: #fff !important; }
-  .hero .sub { color: rgba(255,255,255,0.85) !important; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%); z-index: 1; pointer-events: none; }
+  .eyebrow { color: rgba(255,255,255,0.9) !important; }
+  .display { color: #fff !important; }
+  .display em { color: #fff !important; }
+  .sub { color: rgba(255,255,255,0.85) !important; }
 }
 .eyebrow { font-family: var(--sans); font-size: 14px; color: var(--mute); margin: 0 0 20px; opacity: 0; animation: slideUp 0.6s ease 0.2s forwards; }
 .display { font-family: var(--serif); font-weight: 400; font-size: clamp(52px,8.5vw,104px); line-height: 0.98; letter-spacing: -0.015em; margin: 0 0 24px; color: var(--ink); }
