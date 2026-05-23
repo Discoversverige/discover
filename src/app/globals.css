@@ -154,6 +154,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .svc-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 50%, transparent 100%); border-radius: inherit; }
 .svc-card-label { position: absolute; bottom: 16px; left: 16px; z-index: 1; color: #fff; font-family: var(--sans); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; }
 .svc-dots { display: none; }
+.svc-mob { display: none; }
 
 .partners { max-width: 1180px; width: 100%; margin: 140px auto 40px; padding: 48px 40px 0; border-top: 1px solid var(--line-soft); text-align: center; }
 .partners-label { font-family: var(--sans); font-size: 14px; color: var(--mute); margin: 0 0 28px; }
@@ -644,11 +645,13 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .pop-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 
   .services { padding: 0; margin-top: 32px; }
-  .svc-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding: 0 16px 12px; scrollbar-width: none; grid-template-columns: unset; grid-template-rows: unset; }
-  .svc-grid::-webkit-scrollbar { display: none; }
-  .svc-card { flex: 0 0 72vw; scroll-snap-align: start; aspect-ratio: 3/4; border-radius: 20px; }
+  .svc-grid { display: none; }
+  .svc-mob { display: flex; flex-direction: column; gap: 8px; }
+  .svc-row { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; padding: 0 16px; scrollbar-width: none; }
+  .svc-row::-webkit-scrollbar { display: none; }
+  .svc-row .svc-card { flex: 0 0 72vw; scroll-snap-align: start; aspect-ratio: 3/4; border-radius: 20px; }
   .svc-card-label { font-size: 16px; bottom: 14px; left: 14px; }
-  .svc-dots { display: flex; justify-content: center; gap: 6px; padding: 8px 0 0; }
+  .svc-dots { display: flex; justify-content: center; gap: 6px; padding: 10px 0 0; }
   .svc-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); transition: background 0.2s, transform 0.2s; }
   .svc-dot.active { background: var(--ink); transform: scale(1.3); }
   .partners { margin: 40px auto 20px; padding: 24px 20px 0; }
