@@ -230,7 +230,7 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
               sv: "Hyra bil", en: "Rent a car", de: "Auto mieten" },
             { key: "boende", src: "/images/boende.jpg", href: "/hotell",
               sv: "Hotell", en: "Hotels", de: "Hotels" },
-            { key: "camping", src: "/images/camping.jpg", href: "/ta-dig-hit",
+            { key: "camping", src: "/images/camping.jpg", href: "/camping",
               sv: "Camping", en: "Camping", de: "Camping" },
             { key: "esim", src: "/images/e-sim.jpg", href: "/ta-dig-hit",
               sv: "E-sim", en: "E-sim", de: "E-SIM" },
