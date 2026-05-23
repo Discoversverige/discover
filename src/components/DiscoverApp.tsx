@@ -245,12 +245,12 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
 
       <section className="partners">
         <div className="partners-row">
-          <img src="/logos/uber.svg" alt="Uber" className="logo-img" style={{height: "52px"}} />
-          <img src="/logos/bolt.png" alt="Bolt" className="logo-img" style={{height: "28px"}} />
-          <img src="/logos/airbnb.png" alt="Airbnb" className="logo-img" style={{height: "52px"}} />
-          <img src="/logos/revolut.svg" alt="Revolut" className="logo-img" style={{height: "52px"}} />
-          <img src="/logos/sj.png" alt="SJ" className="logo-img" style={{height: "38px"}} />
-          <img src="/logos/bus4u.png" alt="Bus4u" className="logo-img" style={{height: "52px"}} />
+          <a href="https://www.uber.com" target="_blank" rel="noopener noreferrer" className="partner-link"><img src="/logos/uber.svg" alt="Uber" className="logo-img" style={{height: "52px"}} /></a>
+          <a href="https://www.bolt.eu" target="_blank" rel="noopener noreferrer" className="partner-link"><img src="/logos/bolt.png" alt="Bolt" className="logo-img" style={{height: "28px"}} /></a>
+          <a href="https://www.airbnb.com" target="_blank" rel="noopener noreferrer" className="partner-link"><img src="/logos/airbnb.png" alt="Airbnb" className="logo-img" style={{height: "52px"}} /></a>
+          <a href="https://www.revolut.com" target="_blank" rel="noopener noreferrer" className="partner-link"><img src="/logos/revolut.svg" alt="Revolut" className="logo-img" style={{height: "52px"}} /></a>
+          <a href="https://www.sj.se" target="_blank" rel="noopener noreferrer" className="partner-link"><img src="/logos/sj.png" alt="SJ" className="logo-img" style={{height: "38px"}} /></a>
+          <a href="https://www.vy.se" target="_blank" rel="noopener noreferrer" className="partner-link"><img src="/logos/bus4u.png" alt="Bus4u" className="logo-img" style={{height: "52px"}} /></a>
         </div>
       </section>
     </div>

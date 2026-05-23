@@ -149,6 +149,8 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .partners { max-width: 1180px; width: 100%; margin: 140px auto 40px; padding: 48px 40px 0; border-top: 1px solid var(--line-soft); text-align: center; }
 .partners-label { font-family: var(--sans); font-size: 14px; color: var(--mute); margin: 0 0 28px; }
 .partners-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px 56px; }
+.partner-link { display: inline-flex; align-items: center; opacity: 0.85; transition: opacity 0.2s; }
+.partner-link:hover { opacity: 1; }
 .logo-img { height: 38px; width: auto; object-fit: contain; opacity: 0.85; transition: opacity 0.2s; display: block; }
 .logo-img:hover { opacity: 1; }
 
