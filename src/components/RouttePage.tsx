@@ -13,16 +13,39 @@ const getInitialLang = (): Lang => {
   return "sv";
 };
 
+function buildMapsUrl(stops: { lat: number; lng: number; name: { sv: string } }[]): string {
+  if (stops.length === 0) return "";
+  const origin = `${stops[0].lat},${stops[0].lng}`;
+  const destination = `${stops[stops.length - 1].lat},${stops[stops.length - 1].lng}`;
+  const waypoints = stops.slice(1, -1).map(s => `${s.lat},${s.lng}`).join("|");
+  const base = `https://www.google.com/maps/dir/?api=1&origin=${origin}&destination=${destination}&travelmode=walking`;
+  return waypoints ? `${base}&waypoints=${encodeURIComponent(waypoints)}` : base;
+}
+
 export default function RouttePage({ routeKey }: { routeKey: string }) {
   const [lang, setLang] = useState<Lang>("sv");
   const [activeStop, setActiveStop] = useState(0);
   const [panelOpen, setPanelOpen] = useState(true);
   const [mounted, setMounted] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     setLang(getInitialLang());
     setMounted(true);
   }, []);
+
+  const handleShare = async () => {
+    const url = window.location.href;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: document.title, url });
+      } else {
+        await navigator.clipboard.writeText(url);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      }
+    } catch {}
+  };
 
   if (!mounted) return (
     <div style={{maxWidth: 1200, margin: "0 auto", padding: "40px 40px 80px", display: "grid", gridTemplateColumns: "1fr 420px", gap: 32, minHeight: "calc(100vh - 80px)"}}>
@@ -67,6 +90,20 @@ export default function RouttePage({ routeKey }: { routeKey: string }) {
           <p className="panel-eyebrow">{t.map.title}</p>
           <h1 className="panel-title">{route.title[lang] || route.title.sv}</h1>
 
+          <div className="panel-actions">
+            <a
+              className="btn primary"
+              href={buildMapsUrl(route.stops)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t.map.start}
+            </a>
+            <button className="btn ghost" onClick={handleShare}>
+              {copied ? (lang === "de" ? "Kopiert!" : lang === "en" ? "Copied!" : "Kopierad!") : t.map.share}
+            </button>
+          </div>
+
           <div className="stats">
             <div><span className="stat-label">{t.map.duration}</span><span className="stat-val">{route.duration[lang] || route.duration.sv}</span></div>
             <div><span className="stat-label">{t.map.distance}</span><span className="stat-val">{route.distance}</span></div>
@@ -89,12 +126,6 @@ export default function RouttePage({ routeKey }: { routeKey: string }) {
           </ol>
 
           <p className="tip">{t.map.tip}</p>
-
-          <div className="panel-actions">
-            <button className="btn primary">{t.map.start}</button>
-            <button className="btn ghost">{t.map.save}</button>
-            <button className="btn ghost">{t.map.share}</button>
-          </div>
         </aside>
 
         <button className="panel-toggle" onClick={() => setPanelOpen(o => !o)} aria-label="Växla panel">
