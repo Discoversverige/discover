@@ -78,7 +78,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .hero-bg {
   position: absolute; left: 50%; top: -80px; transform: translateX(-50%);
   width: 160%; max-width: 1800px; z-index: 0; opacity: 0.6;
-  filter: blur(2px) saturate(0.65) contrast(0.95); transition: opacity 0.5s ease, filter 0.5s ease;
+  filter: saturate(0.8) contrast(0.95); transition: opacity 0.5s ease, filter 0.5s ease;
   pointer-events: none; overflow: hidden;
   mask-image: radial-gradient(ellipse 65% 60% at 50% 45%, #000 30%, transparent 88%);
   -webkit-mask-image: radial-gradient(ellipse 65% 60% at 50% 45%, #000 30%, transparent 88%);
