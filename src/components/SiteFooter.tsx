@@ -52,9 +52,9 @@ export default function SiteFooter() {
       <div className="foot-left">
         <span className="foot-copy">{t.text}</span>
         <nav className="foot-nav">
-          <a href="/om-oss" className="foot-link">{t.contact}</a>
-          <span className="foot-sep">·</span>
           <a href="/news" className="foot-link">{t.news}</a>
+          <span className="foot-sep">·</span>
+          <a href="/om-oss" className="foot-link">{t.contact}</a>
         </nav>
       </div>
       <div className="foot-lang">
