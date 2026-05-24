@@ -649,7 +649,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .popular { margin: 24px auto 0; }
   .pop-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 
-  .services-wrap { padding: 32px 0 40px; margin-top: 0; background: none; }
+  .services-wrap { padding: 32px 0 16px; margin-top: 0; background: none; }
   .services { padding: 0; }
   .svc-section-title { font-size: 22px; margin-bottom: 16px; color: var(--ink); padding: 0 20px; }
   .svc-grid { display: none; }
@@ -663,7 +663,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .svc-dots { display: flex; justify-content: center; gap: 6px; padding: 16px 0; }
   .svc-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); transition: background 0.2s, transform 0.2s; }
   .svc-dot.active { background: var(--ink); transform: scale(1.3); }
-  .partners { margin: 40px auto 20px; padding: 24px 20px 0; }
+  .partners { margin: 16px auto 20px; padding: 24px 20px 0; }
   .partners-row { gap: 20px 28px; }
   .logo-img { height: 22px; max-width: 80px; }
 
