@@ -25,10 +25,36 @@ const T = {
   },
 };
 
-const LANGS: { code: Lang; flag: string; label: string }[] = [
-  { code: "sv", flag: "🇸🇪", label: "Svenska" },
-  { code: "en", flag: "🇬🇧", label: "English" },
-  { code: "de", flag: "🇩🇪", label: "Deutsch" },
+const FlagSV = () => (
+  <svg viewBox="0 0 16 10" width="16" height="10" aria-hidden="true">
+    <rect width="16" height="10" fill="#006aa7" />
+    <rect x="5" width="2" height="10" fill="#fecc00" />
+    <rect y="4" width="16" height="2" fill="#fecc00" />
+  </svg>
+);
+const FlagEN = () => (
+  <svg viewBox="0 0 16 10" width="16" height="10" aria-hidden="true">
+    <rect width="16" height="10" fill="#012169" />
+    <path d="M0 0L16 10M16 0L0 10" stroke="#fff" strokeWidth="2" />
+    <path d="M0 0L16 10M16 0L0 10" stroke="#C8102E" strokeWidth="1" />
+    <path d="M8 0V10M0 5H16" stroke="#fff" strokeWidth="3" />
+    <path d="M8 0V10M0 5H16" stroke="#C8102E" strokeWidth="1.6" />
+  </svg>
+);
+const FlagDE = () => (
+  <svg viewBox="0 0 16 10" width="16" height="10" aria-hidden="true">
+    <rect width="16" height="3.33" fill="#000" />
+    <rect y="3.33" width="16" height="3.34" fill="#DD0000" />
+    <rect y="6.67" width="16" height="3.33" fill="#FFCC00" />
+  </svg>
+);
+
+const FLAGS = { sv: FlagSV, en: FlagEN, de: FlagDE };
+
+const LANGS: { code: Lang; label: string }[] = [
+  { code: "sv", label: "Svenska" },
+  { code: "en", label: "English" },
+  { code: "de", label: "Deutsch" },
 ];
 
 const getInitialLang = (): Lang => {
@@ -76,6 +102,7 @@ export default function SiteFooter() {
 
   const t = T[lang];
   const current = LANGS.find((l) => l.code === lang)!;
+  const CurrentFlag = FLAGS[lang];
 
   return (
     <footer className="foot">
@@ -99,7 +126,7 @@ export default function SiteFooter() {
           <span className="foot-copy">{t.copy}</span>
           <div className="foot-lang" ref={ref}>
             <button className="foot-lang-trigger" onClick={() => setOpen((v) => !v)} aria-label="Byt språk">
-              {current.flag}
+              <span className="flag"><CurrentFlag /></span>
               <span className="foot-lang-label">{current.label}</span>
               <svg className={`foot-lang-chevron${open ? " open" : ""}`} width="12" height="12" viewBox="0 0 12 12" fill="none">
                 <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -107,16 +134,19 @@ export default function SiteFooter() {
             </button>
             {open && (
               <div className="foot-lang-menu">
-                {LANGS.map((l) => (
-                  <button
-                    key={l.code}
-                    className={`foot-lang-opt${lang === l.code ? " active" : ""}`}
-                    onClick={() => changeLang(l.code)}
-                  >
-                    <span>{l.flag}</span>
-                    <span>{l.label}</span>
-                  </button>
-                ))}
+                {LANGS.map((l) => {
+                  const Flag = FLAGS[l.code];
+                  return (
+                    <button
+                      key={l.code}
+                      className={`foot-lang-opt${lang === l.code ? " active" : ""}`}
+                      onClick={() => changeLang(l.code)}
+                    >
+                      <span className="flag"><Flag /></span>
+                      <span>{l.label}</span>
+                    </button>
+                  );
+                })}
               </div>
             )}
           </div>
