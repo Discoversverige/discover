@@ -99,6 +99,13 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
   const svcRow2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const topbar = document.querySelector(".topbar");
+    const onScroll = () => topbar?.classList.toggle("scrolled", window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
     const r1 = svcRow1Ref.current;
     const r2 = svcRow2Ref.current;
     if (!r1 || !r2) return;
