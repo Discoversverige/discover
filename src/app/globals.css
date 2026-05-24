@@ -331,13 +331,13 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 
 .foot { border-top: 1px solid var(--line-soft); font-family: var(--sans); letter-spacing: 0; text-transform: none; padding: 32px 0 28px; }
 .foot-inner { max-width: 1180px; width: 100%; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 24px; }
-.foot-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.foot-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .foot-nav { display: flex; flex-direction: column; gap: 2px; }
 .foot-nav-title { font-size: 15px; font-weight: 600; color: var(--ink); letter-spacing: 0; text-transform: none; padding: 0 0 8px; display: block; }
 .foot-link { color: var(--ink-2); text-decoration: none; font-size: 15px; font-weight: 400; transition: color 0.18s; display: block; padding: 6px 0; }
 .foot-link:hover { color: var(--ink); }
 .foot-bottom { display: flex; align-items: center; justify-content: space-between; }
-.foot-copy { color: var(--mute); font-size: 13px; }
+.foot-copy { color: var(--ink); font-size: 14px; font-weight: 600; font-family: var(--sans); }
 .foot-lang { position: relative; }
 .foot-lang-trigger { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px 6px 8px; border-radius: 999px; border: 1px solid var(--line-soft); background: var(--paper); cursor: pointer; font-size: 18px; transition: border-color 0.18s; }
 .foot-lang-trigger:hover { border-color: var(--ink); }
