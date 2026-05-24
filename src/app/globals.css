@@ -2278,10 +2278,13 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 @media (max-width: 1100px) {
   .hb-grid { grid-template-columns: repeat(3, 1fr); gap: 20px 14px; }
 }
+@media (max-width: 900px) {
+  .hb-page { padding: 8px 16px 60px; }
+}
 @media (max-width: 700px) {
   .hb-grid { grid-template-columns: repeat(2, 1fr); gap: 16px 10px; }
 }
-@media (max-width: 480px) {
+@media (max-width: 540px) {
   .hb-grid { grid-template-columns: 1fr; gap: 14px; }
 }
 
