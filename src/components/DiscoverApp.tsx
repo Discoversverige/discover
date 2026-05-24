@@ -132,6 +132,7 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
 
   return (
     <div className="home">
+      <div className="hero-wrap">
       <div className={`hero ${focused ? "map-active" : ""}`}>
         <div className="hero-bg" aria-hidden="true">
           <video src="/videos/malmo-drone.mp4" autoPlay muted loop playsInline />
@@ -214,6 +215,7 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
           </div>
 
         </div>
+      </div>
       </div>
 
       <div className="services-wrap">
