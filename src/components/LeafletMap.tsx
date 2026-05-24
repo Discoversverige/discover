@@ -38,15 +38,9 @@ export default function LeafletMap({ route, activeStop, onStopClick, lang }: Pro
       const map = L.map(containerRef.current!, { zoomControl: true, scrollWheelZoom: true });
       mapRef.current = map;
 
-      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
-        attribution: '© <a href="https://www.esri.com/">Esri</a>, Maxar, Earthstar Geographics',
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/">CARTO</a>',
         maxZoom: 19,
-      }).addTo(map);
-
-      L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}", {
-        attribution: "",
-        maxZoom: 19,
-        opacity: 1,
       }).addTo(map);
 
       map.setView(center, 16);
