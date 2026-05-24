@@ -134,7 +134,7 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
     <div className="home">
       <div className={`hero ${focused ? "map-active" : ""}`}>
         <div className="hero-bg" aria-hidden="true">
-          <video src="/videos/malmo-drone.mp4" autoPlay muted loop playsInline />
+          <video src="/videos/malmo-drone.mp4" autoPlay muted loop playsInline poster="/images/bannern.jpg" />
         </div>
         <div className="hero-inner">
           <p className="eyebrow">{t.hero.eyebrow}</p>
@@ -247,7 +247,7 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
                 <div className="svc-grid" ref={svcRef}>
                   {items.map((b) => (
                     <a key={b.key} href={b.href} className="svc-card">
-                      <img src={b.src} alt={b[lang]} className="svc-card-img" />
+                      <img src={b.src} alt={b[lang]} className="svc-card-img" loading="lazy" />
                       <span className="svc-card-label">{b[lang]}</span>
                       <span className="svc-card-arrow"><ArrowIcon /></span>
                     </a>
@@ -257,7 +257,7 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
                   <div className="svc-row" ref={svcRow1Ref}>
                     {row1.map((b) => (
                       <a key={b.key} href={b.href} className="svc-card">
-                        <img src={b.src} alt={b[lang]} className="svc-card-img" />
+                        <img src={b.src} alt={b[lang]} className="svc-card-img" loading="lazy" />
                         <span className="svc-card-label">{b[lang]}</span>
                         <span className="svc-card-arrow"><ArrowIcon /></span>
                       </a>
@@ -271,7 +271,7 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
                   <div className="svc-row" ref={svcRow2Ref}>
                     {row2.map((b) => (
                       <a key={b.key} href={b.href} className="svc-card">
-                        <img src={b.src} alt={b[lang]} className="svc-card-img" />
+                        <img src={b.src} alt={b[lang]} className="svc-card-img" loading="lazy" />
                         <span className="svc-card-label">{b[lang]}</span>
                         <span className="svc-card-arrow"><ArrowIcon /></span>
                       </a>
