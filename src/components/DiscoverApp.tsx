@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef, useMemo } from "react";
+import dynamic from "next/dynamic";
 import { I18N, type Lang } from "@/lib/i18n";
 import { ROUTES, type RouteKey } from "@/lib/routes";
-import LeafletMap from "./LeafletMap";
+
+const LeafletMap = dynamic(() => import("./LeafletMap"), { ssr: false, loading: () => null });
 
 const getInitialLang = (): Lang => {
   try {
@@ -134,7 +136,7 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
     <div className="home">
       <div className={`hero ${focused ? "map-active" : ""}`}>
         <div className="hero-bg" aria-hidden="true">
-          <video src="/videos/malmo-drone.mp4" autoPlay muted loop playsInline />
+          <video src="/videos/malmo-drone.mp4" autoPlay muted loop playsInline preload="auto" />
         </div>
         <div className="hero-inner">
           <p className="eyebrow">{t.hero.eyebrow}</p>
