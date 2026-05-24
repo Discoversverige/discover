@@ -140,7 +140,7 @@ export default function CampingList({ campsites }: Props) {
           <div className="skeleton" style={{height: 52, borderRadius: 999, marginTop: 16}} />
         </div>
       </header>
-      <div className="pc-grid" style={{padding:"0 40px 80px"}}>
+      <div className="pc-grid">
         {Array.from({length: 8}).map((_, i) => (
           <div key={i} className="skeleton-card">
             <div className="skeleton" style={{width:"100%",aspectRatio:"4/3"}} />

@@ -2283,6 +2283,36 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 
 
 
+/* ── Camping / pc-grid ── */
+.pc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px 16px;
+  contain: layout style;
+  padding-bottom: 80px;
+}
+.pc-card {
+  cursor: pointer; text-decoration: none; color: var(--ink);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform; transform: translateZ(0); display: block;
+}
+.pc-card:hover { transform: translateY(-5px) translateZ(0); }
+.pc-card:hover .pc-img { transform: scale(1.06) translateZ(0); }
+.pc-img-wrap { border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 4/3; position: relative; background: var(--bg-2); }
+.pc-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1); will-change: transform; }
+.pc-badge { position: absolute; top: 10px; left: 10px; font-family: var(--sans); font-size: 13px; font-weight: 500; background: rgba(255,255,255,0.92); color: var(--ink); padding: 3px 10px; border-radius: 999px; }
+.pc-info { padding: 10px 2px 0; display: flex; flex-direction: column; gap: 3px; }
+.pc-meta-row { display: flex; align-items: center; gap: 5px; }
+.pc-rating { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--ink); }
+.pc-reviews { font-family: var(--sans); font-size: 14px; color: var(--mute); }
+.pc-name { font-family: var(--sans); font-size: 16px; font-weight: 500; color: var(--ink); margin: 0; line-height: 1.35; letter-spacing: -0.01em; }
+.pc-sub { font-family: var(--sans); font-size: 14px; color: var(--mute); margin: 0; }
+.pc-price { font-family: var(--sans); font-size: 15px; color: var(--ink); margin: 0; }
+.pc-price-from { color: var(--mute); font-weight: 400; }
+@media (max-width: 1100px) { .pc-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px) { .pc-grid { grid-template-columns: repeat(2, 1fr); gap: 16px 10px; } }
+@media (max-width: 540px) { .pc-grid { grid-template-columns: 1fr; gap: 14px; } }
+
 /* ── Om oss ── */
 .om-page { padding-bottom: 0; }
 
