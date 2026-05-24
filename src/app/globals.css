@@ -119,12 +119,12 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
 .sug-empty { padding: 16px 22px; color: var(--mute); font-size: 15px; font-style: italic; }
 .sug { display: grid; grid-template-columns: 24px 1fr auto 16px; gap: 14px; align-items: center; width: 100%; padding: 12px 22px; text-align: left; transition: background 0.15s; border-top: 1px solid transparent; }
 .sug.featured { padding: 16px 22px; }
-.sug.featured .sug-text { font-size: 17px; }
+.sug.featured .sug-text { font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: normal; }
 .sug.featured .sug-icon svg { width: 18px; height: 18px; }
 .sug:hover { background: var(--bg-2); }
 .sug-icon { color: var(--accent); display: inline-flex; }
-.sug-text { font-family: var(--serif); font-size: 17px; font-weight: 400; letter-spacing: -0.01em; color: var(--ink); }
-.sug-hint { font-family: var(--sans); font-size: 14px; color: var(--mute); white-space: nowrap; }
+.sug-text { font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: normal; color: var(--ink-2); }
+.sug-hint { font-family: var(--mono); font-size: 11px; letter-spacing: 0.5px; color: var(--mute); white-space: nowrap; }
 .sug-arrow { color: var(--mute); transition: transform 0.2s, color 0.2s; }
 .sug:hover .sug-arrow { transform: translateX(3px); color: var(--accent); }
 
