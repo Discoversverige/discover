@@ -96,7 +96,7 @@ export default function SiteFooter() {
           </nav>
         </div>
         <div className="foot-bottom">
-          <span className="foot-copy">{t.copy}</span>
+
           <div className="foot-lang" ref={ref}>
             <button className="foot-lang-trigger" onClick={() => setOpen((v) => !v)} aria-label="Byt språk">
               {current.flag}
