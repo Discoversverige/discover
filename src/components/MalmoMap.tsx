@@ -88,7 +88,7 @@ export default function MalmoMap({ route, activeStop, onStopClick, lang }: Props
               {String.fromCharCode(65 + i)}
             </text>
             <g transform={`translate(${stop.x + 22}, ${stop.y - 6})`}>
-              <text fontFamily="var(--font-instrument-serif), 'Instrument Serif', serif" fontSize="16" fill="#1a1814" className="stop-name">
+              <text fontFamily="var(--font-inter), Inter, sans-serif" fontSize="16" fill="#1a1814" className="stop-name">
                 {stop.name[lang] || stop.name.en}
               </text>
               <text y="15" fontFamily="var(--font-inter), Inter, sans-serif" fontSize="9" fill="#7a7668" letterSpacing="1" className="stop-kind">
