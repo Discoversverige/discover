@@ -100,6 +100,10 @@ export default function SiteFooter() {
           <div className="foot-lang" ref={ref}>
             <button className="foot-lang-trigger" onClick={() => setOpen((v) => !v)} aria-label="Byt språk">
               {current.flag}
+              <span className="foot-lang-label">{current.label}</span>
+              <svg className={`foot-lang-chevron${open ? " open" : ""}`} width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M2 4l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
             </button>
             {open && (
               <div className="foot-lang-menu">
