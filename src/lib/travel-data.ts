@@ -80,12 +80,12 @@ export const TRAVEL_CITIES: TravelCity[] = [
 ];
 
 const IMG = {
-  triangeln: "/images/triangeln-malmo.jpg",
-  torso: "/images/turning-torso-solnedgang.jpg",
-  kallbadhuset: "/images/kallbadhuset-malmo.jpg",
-  malmohus: "/images/malmohus-slott-malmo.jpg",
-  live: "/images/malmo-live.jpg",
-  bannern: "/images/bannern.jpg",
+  triangeln: "/images/triangeln-malmo.webp",
+  torso: "/images/turning-torso-solnedgang.webp",
+  kallbadhuset: "/images/kallbadhuset-malmo.webp",
+  malmohus: "/images/malmohus-slott-malmo.webp",
+  live: "/images/malmo-live.webp",
+  bannern: "/images/bannern.webp",
 } as const;
 
 export const TRAVEL_OFFERS: TravelOffer[] = [

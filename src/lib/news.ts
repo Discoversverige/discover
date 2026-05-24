@@ -17,7 +17,7 @@ export type NewsPost = {
 };
 
 const NEWS_DIR = path.join(process.cwd(), "content", "news");
-const FALLBACK_IMAGE = "/images/bannern.jpg";
+const FALLBACK_IMAGE = "/images/bannern.webp";
 
 export function getAllPostSlugs(): string[] {
   if (!fs.existsSync(NEWS_DIR)) return [];
