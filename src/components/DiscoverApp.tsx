@@ -213,34 +213,6 @@ const HomeView = ({ lang, onSearch, onContact }: { lang: Lang; onSearch: (term: 
             </div>}
           </div>
 
-          <div className="popular">
-            <div className="pop-cards">
-              {t.popular.slice(0, 6).map((p, i) => {
-                const lookup = p.toLowerCase();
-                let key = "default";
-                if (/fika|kaffe|coffee/.test(lookup)) key = "food";
-                else if (/torso|west|hamn/.test(lookup)) key = "architecture";
-                else if (/bad|kallbad/.test(lookup)) key = "nature";
-                else if (/slott|castle|schloss/.test(lookup)) key = "culture";
-                else if (/street|food/.test(lookup)) key = "food";
-                const imgs: Array<{ src: string; alt?: string }> = [
-                  { src: "/images/turning-torso-solnedgang.jpg", alt: "Turning Torso i solnedgång, Malmö" },
-                  { src: "/images/malmo-live.jpg", alt: "Malmö Live vid kanalen" },
-                  { src: "/images/triangeln-malmo.jpg", alt: "Triangelns glaskupol och historiska byggnader, Malmö" },
-                  { src: "/images/kallbadhuset-malmo.jpg", alt: "Brygga till Ribersborgs kallbadhus i solnedgång, Malmö" },
-                  { src: "/images/malmohus-slott-malmo.jpg", alt: "Malmöhus slott med vallgrav och spegling, Malmö" },
-                  { src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80", alt: "Street food och marknad" },
-                ];
-                const img = imgs[i % imgs.length];
-                return (
-                  <button key={i} className="pop-card" onClick={() => onSearch(p, key)}>
-                    <img src={img.src} alt={img.alt ?? p} className="pop-card-img" />
-                    <span className="pop-card-label">{p}</span>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
         </div>
       </div>
 
