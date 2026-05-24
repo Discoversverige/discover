@@ -2240,8 +2240,9 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   gap: 12px; margin-top: 2px;
 }
 .hb-card-price-wrap { display: flex; align-items: baseline; gap: 3px; }
-.hb-card-price { font-family: var(--sans); font-size: 15px; font-weight: 400; color: var(--ink); }
+.hb-card-price { font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--ink); }
 .hb-card-price-unit { font-family: var(--sans); font-size: 14px; color: var(--mute); }
+.hb-card-price-from { font-family: var(--sans); font-size: 15px; font-weight: 400; color: var(--mute); margin: 0; }
 
 .hb-book-btn {
   display: inline-flex;

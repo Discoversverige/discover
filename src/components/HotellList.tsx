@@ -306,9 +306,7 @@ export default function HotellList() {
                 </div>
                 <div className="hb-card-body">
                   <h3 className="hb-card-title">{h.name}</h3>
-                  <div className="hb-card-footer">
-                    <span className="hb-book-btn">{t.viewBtn}</span>
-                  </div>
+                  <p className="hb-card-price-from">{lang === "sv" ? "Klicka för aktuellt pris" : lang === "de" ? "Für aktuellen Preis klicken" : "Click for current price"}</p>
                 </div>
               </a>
             ))}

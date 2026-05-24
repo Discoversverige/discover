@@ -2076,10 +2076,9 @@ export default function HyraBilList() {
 
                   <div className="hb-card-footer">
                     <div className="hb-card-price-wrap">
-                      <span className="hb-card-price">{car.pricePerDay.toLocaleString("sv-SE")} kr</span>
+                      <span className="hb-card-price">Från {car.pricePerDay.toLocaleString("sv-SE")} kr</span>
                       <span className="hb-card-price-unit">{t.perDay}</span>
                     </div>
-                    <span className="hb-book-btn">Visa</span>
                   </div>
                 </div>
               </a>
