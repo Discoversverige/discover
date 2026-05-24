@@ -660,7 +660,7 @@ ol, ul { list-style: none; margin: 0; padding: 0; }
   .svc-row::after { content: ""; flex: 0 0 8px; }
   .svc-card-label { font-size: 16px; bottom: 58px; left: 14px; }
   .svc-card-arrow { width: 34px; height: 34px; bottom: 12px; left: 14px; }
-  .svc-dots { display: flex; justify-content: center; gap: 6px; padding: 10px 0 0; }
+  .svc-dots { display: flex; justify-content: center; gap: 6px; padding: 16px 0; }
   .svc-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); transition: background 0.2s, transform 0.2s; }
   .svc-dot.active { background: var(--ink); transform: scale(1.3); }
   .partners { margin: 40px auto 20px; padding: 24px 20px 0; }
