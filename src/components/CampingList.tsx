@@ -140,7 +140,7 @@ export default function CampingList({ campsites }: Props) {
           <div className="skeleton" style={{height: 52, borderRadius: 999, marginTop: 16}} />
         </div>
       </header>
-      <div className="upp-grid" style={{display:"grid",gridTemplateColumns:"repeat(auto-fill,minmax(280px,1fr))",gap:24,padding:"0 40px 80px"}}>
+      <div className="pc-grid" style={{padding:"0 40px 80px"}}>
         {Array.from({length: 8}).map((_, i) => (
           <div key={i} className="skeleton-card">
             <div className="skeleton" style={{width:"100%",aspectRatio:"4/3"}} />
@@ -244,24 +244,21 @@ export default function CampingList({ campsites }: Props) {
         </div>
       ) : (
         <>
-          <section className="upp-grid">
+          <section className="pc-grid">
             {paginated.map((c) => (
-              <a key={c.id} href={c.sourceUrl} target="_blank" rel="noopener noreferrer" className="upp-card">
-                <div className="upp-card-img-wrap">
-                  <img src={c.image} alt={c.name} className="upp-card-img" loading="lazy" />
+              <a key={c.id} href={c.sourceUrl} target="_blank" rel="noopener noreferrer" className="pc-card">
+                <div className="pc-img-wrap">
+                  <img src={c.image} alt={c.name} className="pc-img" loading="lazy" />
+                  <span className="pc-badge">{CAT_LABELS[c.category][lang]}</span>
                 </div>
-                <div className="upp-card-body">
-                  <div className="upp-card-meta">
-                    <span className="upp-card-cat">{CAT_LABELS[c.category][lang]}</span>
-                    <span className="upp-card-region">{c.region} · {c.municipality}</span>
+                <div className="pc-info">
+                  <div className="pc-meta-row">
+                    <span className="pc-rating">{c.rating}</span>
+                    <span className="pc-reviews">({c.reviews} {t.reviews})</span>
                   </div>
-                  <h3 className="upp-card-title">{c.name}</h3>
-                  <p className="upp-card-duration">
-                    {"★".repeat(Math.floor(c.rating / 2))} {c.rating} · {c.reviews} {t.reviews}
-                  </p>
-                  <div className="upp-card-price-row">
-                    <span className="upp-card-price">{t.from} {c.priceFrom} kr{t.per_night}</span>
-                  </div>
+                  <p className="pc-name">{c.name}</p>
+                  <p className="pc-sub">{c.region} · {c.municipality}</p>
+                  <p className="pc-price"><span className="pc-price-from">{t.from}</span> {c.priceFrom} kr{t.per_night}</p>
                 </div>
               </a>
             ))}
